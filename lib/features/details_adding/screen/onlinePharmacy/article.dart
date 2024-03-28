@@ -28,6 +28,54 @@ class _articlesState extends State<articles> {
       "Text":"Fitness"
     },
   ];
+  List c=[
+    {
+      "image":ImageIcons.covid1,
+      "Text1":"Covid-19",
+      "Text2":"Comparing the \nAstraZeneca and \nSinovac COVID-19 \nVaccines",
+      "Text3":"Jun 12, 2021 .",
+      "Text4":" 6 min read",
+    },
+    {
+      "image":ImageIcons.covid2,
+      "Text1":"Covid-19",
+      "Text2":"The Horror Of The \nSecond Wave Of \nCOVID-19",
+      "Text3":"Jun 10, 2021 .",
+      "Text4":" 5 min read",
+    },
+    {
+      "image":ImageIcons.covid3,
+      "Text1":"Covid-19",
+      "Text2":"Comparing the \nAstraZeneca and \nSinovac COVID-19 \nVaccines",
+      "Text3":"Jun 12, 2021 .",
+      "Text4":" 6 min read",
+    },
+  ];
+  List d=[
+    {
+      "image":ImageIcons.covid4,
+      "text1":"The 25 Healthiest Fruits You Can \nEat According to a Nutritionist",
+      "icon":ImageIcons.save,
+      "text2":"Jun 10, 2021 . ",
+      "text3":"5min read",
+    },
+    {
+      "image":ImageIcons.covid5,
+      "text1":"Traditional Herbal Medicine \nTreatments for COVID-19",
+      "icon":ImageIcons.save,
+      "text2":"Jun 9, 2021  . ",
+      "text3":"8 min read",
+    },
+    {
+      "image":ImageIcons.covid6,
+      "text1":"Beauty Tips For Face: 10 Dos and \nDon'ts for Naturally Beautiful Skin",
+      "icon":ImageIcons.save,
+      "text2":"Jun 10, 2021 . ",
+      "text3":"7min read",
+    },
+
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,7 +96,7 @@ class _articlesState extends State<articles> {
               child: Padding(
                 padding:  EdgeInsets.all(width*0.007),
                 child: SvgPicture.asset(
-                  ImageIcons.catogory1
+                  ImageIcons.back
                 ),
               ),
             ),
@@ -64,19 +112,21 @@ class _articlesState extends State<articles> {
         ),
         actions: [Row(
           children: [
-            // SvgPicture.asset(ImageIcons.columnDot),
+            SvgPicture.asset(ImageIcons.columnDot),
             SizedBox(width: width*0.05,)
           ],
         )],
       ),
-      body: Column(
+      body: ListView(
+        shrinkWrap: true,
+        physics: BouncingScrollPhysics(),
         children: [
           Center(
             child: Container(
               height: width*0.14,
               width: width*0.88,
               decoration: BoxDecoration(
-                color:Colour.secondarycolour,
+                color:Colour.white,
                 borderRadius: BorderRadius.circular(width*0.08),
                 boxShadow: [
                   BoxShadow(
@@ -93,12 +143,6 @@ class _articlesState extends State<articles> {
                 keyboardType:TextInputType.text ,
                 autofocus: false,
                 textInputAction: TextInputAction.next,
-                // maxLines:6,
-                // minLines: 2,
-                // maxLength: 4,
-                // obscureText: true,
-                // obscuringCharacter: "*",
-
                 style: TextStyle(
                     fontSize: width*0.04,
                     fontWeight: FontWeight.w600
@@ -108,7 +152,7 @@ class _articlesState extends State<articles> {
                   prefixIcon: SizedBox(
                       height: width*0.03,
                       width: width*0.05,
-                      child: Center(child: SvgPicture.asset(ImageIcons.catogory1,width: width*0.06,))),
+                      child: Center(child: SvgPicture.asset(ImageIcons.search,width: width*0.06,))),
                   // suffixText:"kousar",
 
                   labelStyle: TextStyle(
@@ -223,7 +267,9 @@ class _articlesState extends State<articles> {
                   )),
             ],
           ),
-          Expanded(
+          Container(
+            height: width*0.83,
+            width: width*1,
             child: ListView.separated(
                 scrollDirection: Axis.horizontal,
                 shrinkWrap: true,
@@ -244,7 +290,7 @@ class _articlesState extends State<articles> {
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
-                              // Image.asset(Image.covid1,),
+                              Image.asset(c[index]["image"],),
                               Row(
                                 children: [
                                   Container(
@@ -256,7 +302,7 @@ class _articlesState extends State<articles> {
                                     ),
                                     child: Center(
                                       child: Text(
-                                        "Covid-19",
+                                        c[index]["Text1"],
                                         style: TextStyle(
                                             color: Colour.primarycolour,
                                             fontWeight: FontWeight.w500
@@ -267,7 +313,7 @@ class _articlesState extends State<articles> {
                               ),
                               Row(
                                 children: [
-                                  Text("Comparing the \nAstraZeneca and \nSinovac COVID-19 \nVaccines",
+                                  Text(c[index]["Text2"],
                                     style: TextStyle(
                                         fontWeight: FontWeight.w700,
                                         fontSize: width*0.05
@@ -276,8 +322,8 @@ class _articlesState extends State<articles> {
                               ),
                               Row(
                                 children: [
-                                  Text("Jun 12, 2021 . ",style: TextStyle(fontWeight: FontWeight.w500),),
-                                  Text("6 min read",style: TextStyle(fontWeight: FontWeight.w500,color: Colour.primarycolour),),
+                                  Text(c[index]["Text3"],style: TextStyle(fontWeight: FontWeight.w500,color: Colors.grey),),
+                                  Text(c[index]["Text4"],style: TextStyle(fontWeight: FontWeight.w500,color: Colour.primarycolour),),
                                 ],
                               )
                             ],
@@ -293,7 +339,111 @@ class _articlesState extends State<articles> {
                     height: width*0.03,
                   );
                 },
-                itemCount: 3
+                itemCount: c.length
+            ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Container(
+                  height: width*0.16,
+                  width: width*0.55,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text("Related Articles",
+                        style: TextStyle(
+                            fontSize: width*0.07,
+                            fontWeight: FontWeight.w700
+                        ),),
+                    ],
+                  )),
+              Container(
+                  height: width*0.175,
+                  width: width*0.24,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text("See all",
+                        style: TextStyle(
+                            fontSize: width*0.045,
+                            color:  Colour.primarycolour
+                        ),),
+                    ],
+                  )),
+            ],
+          ),
+          Container(
+            height: width*0.85,
+            width: width*1,
+            child: ListView.separated(
+              shrinkWrap: true,
+                // physics: BouncingScrollPhysics(),
+
+                itemBuilder: (context, index) {
+                  return Column(
+                    children: [
+                      Center(
+                        child: Container(
+                          height: width*0.25,
+                          width: width*0.89,
+                          // margin:  EdgeInsets.only(left: width*0.05),
+                          decoration: BoxDecoration(
+                              border: Border.all(color: Colour.gray.withOpacity(0.2)),
+                              borderRadius: BorderRadius.circular(width*0.04)
+                          ),
+                          child: Padding(
+                            padding:  EdgeInsets.all(width*0.0122),
+                            child: Row(
+                              children: [
+                                Image.asset(d[index]["image"],width: width*0.2,),
+                                SizedBox(width: width*0.03,),
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Container(
+                                        height: width*0.17,
+                                        width: width*0.63,
+                                        child: Column(
+                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Row(
+                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                              children: [
+                                                Text(
+                                                    d[index]["text1"],
+                                                  style: TextStyle(
+                                                    fontWeight: FontWeight.w600,fontSize: width*0.04
+                                                  ),
+                                                ),
+                                                SvgPicture.asset( d[index]["icon"],width: width*0.065,),
+                                              ],
+                                            ),
+                                            Row(
+                                              children: [
+                                                Text( d[index]["text2"]),
+                                                Text( d[index]["text3"],style: TextStyle(color: Colour.primarycolour),),
+                                              ],
+                                            )
+                                          ],
+                                        )),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      )
+                    ],
+                  );
+                },
+                separatorBuilder: (context, index) {
+                  return SizedBox(
+                    height: width*0.03,
+                  );
+                },
+                itemCount: d.length
             ),
           )
         ],

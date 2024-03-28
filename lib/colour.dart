@@ -13,6 +13,7 @@ class Colour{
   static const color3 = Color(0xffF9FAFB);
   static const color4 = Color(0xffFF5C5C);
   static const color5 = Color(0xff717784);
+  static const color6 = Color(0xff101623);
 
 
 
