@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:medical/image.dart';
+import 'package:medical/icons.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});

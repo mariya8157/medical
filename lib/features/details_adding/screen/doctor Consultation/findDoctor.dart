@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:medical/colour.dart';
-import 'package:medical/image.dart';
+import 'package:medical/icons.dart';
 
 import '../../../../main.dart';
 
