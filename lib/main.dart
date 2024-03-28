@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:medical/features/details_adding/screen/login%20&%20Sign%20Up/login.dart';
 
 
@@ -29,6 +30,9 @@ class MyApp extends StatelessWidget {
         },
         child: MaterialApp(
             debugShowCheckedModeBanner: false,
+            theme: ThemeData(
+              textTheme: GoogleFonts.interTextTheme()
+            ),
             home:LoginPage()
     ),);
   }
