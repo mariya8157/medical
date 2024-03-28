@@ -51,6 +51,45 @@ class _FindDoctorState extends State<FindDoctor> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // appBar: AppBar(
+      //     centerTitle: true,
+      //     backgroundColor: Colors.white24,
+      //     // resizeToAvoidBottomInset: false,
+      //     elevation: 0,
+      //     leading: InkWell(
+      //       onTap: () {
+      //         Navigator.pop(context);
+      //       },
+      //       child: SizedBox(
+      //         height: width * 0.05,
+      //         width: width * 0.8,
+      //         child: Padding(
+      //           padding: EdgeInsets.only(left: width*0.023),
+      //           child: Padding(
+      //             padding:  EdgeInsets.all(width*0.007),
+      //             child:
+      //             SvgPicture.asset(
+      //               iconConst.back,),
+      //           ),
+      //         ),
+      //       ),
+      //     ),
+      //     title:  Text(
+      //       "Articles",
+      //       style: TextStyle(
+      //           color: Colors.black,
+      //           fontWeight: FontWeight.w700,
+      //           fontSize: width*0.063
+      //       ),
+      //     ),
+      //     actions: [Row(
+      //         children: [
+      //           // SvgPicture.asset(iconConst.columnDot),
+      //           SizedBox(width: width*0.05,)
+      //         ],)
+      //         ],
+      //     ),
+
       body:SingleChildScrollView(
         child:Column(
           children: [
