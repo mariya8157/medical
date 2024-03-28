@@ -3,7 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:medical/colour.dart';
 import 'package:medical/image.dart';
 
-import 'main.dart';
+import '../main.dart';
 
 class FindDoctor extends StatefulWidget {
   const FindDoctor({super.key});
