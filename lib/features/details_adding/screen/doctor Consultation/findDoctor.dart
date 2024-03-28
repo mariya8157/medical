@@ -24,27 +24,27 @@ class _FindDoctorState extends State<FindDoctor> {
     },
     {
       "image":ImageIcons.catogory2,
-      "text":"",
+      "text":"Lungs Specialist",
     },
     {
       "image":ImageIcons.catogory3,
-      "text":"car",
+      "text":"Dentist",
     },
     {
       "image":ImageIcons.catogory4,
-      "text":"cars",
+      "text":"Psychiatrist",
     },
     {
       "image":ImageIcons.catogory5,
-      "text":"train",
+      "text":"Covid-19",
     },
     {
       "image":ImageIcons.catogory6,
-      "text":"auto",
+      "text":"Surgeon",
     },
     {
       "image":ImageIcons.catogory7,
-      "text":"car3",
+      "text":"Cardiologist",
     },
   ];
 
@@ -142,42 +142,43 @@ class _FindDoctorState extends State<FindDoctor> {
               itemCount:category.length,
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 childAspectRatio: 1,
-                crossAxisSpacing: width*0.009,
-                mainAxisSpacing: width*0.009,
+                crossAxisSpacing:height*0.009,
+                mainAxisSpacing: width*0.03,
                 crossAxisCount: 4,
               ),
-              // physics: BouncingScrollPhysics(),
-              // shrinkWrap: true,
+
+              physics: BouncingScrollPhysics(),
+              shrinkWrap: true,
               // scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
                 return
-                  Row(
-                    children: [
-                      Container(
-                        width: width*0.2,
-                        height: width*0.25,
-                        // decoration: BoxDecoration(
-                        //   color: Colors.white,
-                        //   borderRadius: BorderRadius.circular(width*0.03),
-                        //   border: Border.all(
-                        //       color: Colors.black,
-                        //       width: width*0.008
-                        //   ),
-                        // ),
-                        child: Column(mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
+                  Container(
+                    width: width*0.2,
+                    height: width*0.25,
+                    // decoration: BoxDecoration(
+                    //   color: Colors.white,
+                    //   borderRadius: BorderRadius.circular(width*0.03),
+                    //   border: Border.all(
+                    //       color: Colors.black,
+                    //       width: width*0.008
+                    //   ),
+                    // ),
+                    child: Column(mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
 
-                            Container(
-                              width: width*0.05,
-                              height: width*0.05,
-                              child: SvgPicture.asset(category[index]["image"],)
-                            ),
-
-                            Text(category[index]["text"],)
-                          ],
+                        Container(
+                          width: width*0.07,
+                          height: height*0.05,
+                            child: SvgPicture.asset(category[index]["image"],)
                         ),
-                      ),
-                    ],
+
+                        Text(category[index]["text"],
+                        style: TextStyle(
+                          color: Colour.color1,
+                          fontSize: width*0.03
+                        ),)
+                      ],
+                    ),
                   );
 
               },
