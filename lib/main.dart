@@ -1,6 +1,8 @@
 
 import 'package:flutter/material.dart';
-import 'package:medical/doctor%20Consultation/findDoctor.dart';
+
+
+import 'features/details_adding/screen/doctor Consultation/findDoctor.dart';
 
 
 var height;

@@ -3,7 +3,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:medical/colour.dart';
 import 'package:medical/image.dart';
 
-import '../main.dart';
+import '../../../../main.dart';
+
 
 class FindDoctor extends StatefulWidget {
   const FindDoctor({super.key});
@@ -16,31 +17,31 @@ class _FindDoctorState extends State<FindDoctor> {
   TextEditingController searchController=TextEditingController();
   List category=[
     {
-      "image":Icons.catogory1,
+      "image":ImageIcons.catogory1,
       "text":"General",
     },
     {
-      "image":Icons.catogory2,
+      "image":ImageIcons.catogory2,
       "text":"",
     },
     {
-      "image":Icons.catogory3,
+      "image":ImageIcons.catogory3,
       "text":"car",
     },
     {
-      "image":Icons.catogory4,
+      "image":ImageIcons.catogory4,
       "text":"cars",
     },
     {
-      "image":Icons.catogory5,
+      "image":ImageIcons.catogory5,
       "text":"train",
     },
     {
-      "image":Icons.catogory6,
+      "image":ImageIcons.catogory6,
       "text":"auto",
     },
     {
-      "image":Icons.catogory7,
+      "image":ImageIcons.catogory7,
       "text":"car3",
     },
   ];

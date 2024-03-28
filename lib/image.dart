@@ -1,4 +1,4 @@
-class Icons{
+class ImageIcons{
   static const catogory1="assets/icos/Doctor.svg";
   static const catogory2="assets/icos/Lungs.svg";
   static const catogory3="assets/icos/Dentist.svg";
