@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:medical/colour.dart';
@@ -24,7 +25,10 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
     appBar: AppBar(
-      leading: SvgPicture.asset(ImageIcons.catogory8),
+      leading: Padding(
+        padding:  EdgeInsets.all(width*0.005),
+        child: SvgPicture.asset(ImageIcons.catogory8),
+      ),
       title: Text("Login",style: TextStyle(
         fontWeight: FontWeight.w800,
         fontSize: width*0.05
@@ -165,17 +169,125 @@ class _LoginPageState extends State<LoginPage> {
                     )
                 ),
                 SizedBox(height: width*0.05,),
-                Stack(
-                  children: [
-                    Divider(
-                      color: Colors.red,
-                      indent: width*0.08,
-                      endIndent: width*0.08,
-                      thickness: width*0.02,
-                    ),
-                    Text(("OR"))
-                  ],
-                )
+               Row(
+                 children: [
+                   Expanded(
+                     child: Divider(
+                       color: Colour.color2,
+                       indent: width*0.04,
+                       endIndent: width*0.04,
+                       thickness: width*0.005,
+                     ),
+                   ),
+                   Text("OR",style: TextStyle(fontWeight: FontWeight.w500,
+                       fontSize: width*0.037,
+                   color: Colour.color1),),
+                   Expanded(
+                     child: Divider(
+                       color: Colour.color2,
+                       indent: width*0.04,
+                       endIndent: width*0.04,
+                       thickness: width*0.005,
+                     ),
+                   ),
+                 ],
+               ),
+                SizedBox(height: width*0.07,),
+                Container(
+                  height: width*0.16,
+                  width: width*0.93,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(width*0.07),
+                    border: Border.all(
+                      color: Colour.color2
+                    )
+                  ),
+                  child: Row(
+                    children: [
+                      Container(
+                        width: width*0.67,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Container(
+                                padding: EdgeInsets.all(width*0.04),
+                                child: SvgPicture.asset(ImageIcons.google)),
+                            Text("Sign in with Google",
+                              style: TextStyle(
+                                  fontSize: width*0.038,
+                                  fontWeight: FontWeight.w600,
+                                  color: Colour.color6
+                              ),),
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                SizedBox(height: width*0.05,),
+                Container(
+                  height: width*0.16,
+                  width: width*0.93,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(width*0.07),
+                      border: Border.all(
+                          color: Colour.color2
+                      )
+                  ),
+                  child: Row(
+                    children: [
+                      Container(
+                        width: width*0.67,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Container(
+                                padding: EdgeInsets.all(width*0.04),
+                                child: SvgPicture.asset(ImageIcons.apple)),
+                            Text("Sign in with Apple",
+                              style: TextStyle(
+                                  fontSize: width*0.038,
+                                  fontWeight: FontWeight.w600,
+                                  color: Colour.color6
+                              ),),
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                SizedBox(height: width*0.05,),
+                Container(
+                  height: width*0.16,
+                  width: width*0.93,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(width*0.07),
+                      border: Border.all(
+                          color: Colour.color2
+                      )
+                  ),
+                  child: Row(
+                    children: [
+                      Container(
+                        width: width*0.67,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Container(
+                                padding: EdgeInsets.all(width*0.04),
+                                child: SvgPicture.asset(ImageIcons.facebook)),
+                            Text("Sign in with Facebook",
+                              style: TextStyle(
+                                  fontSize: width*0.038,
+                                  fontWeight: FontWeight.w600,
+                                  color: Colour.color6
+                              ),),
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+                ),
               ],
             ),
           ),
