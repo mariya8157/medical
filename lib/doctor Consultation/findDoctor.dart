@@ -83,64 +83,64 @@ class _FindDoctorState extends State<FindDoctor> {
                   )
               ),
             ),
-            Container(
-
-              child: Column(
-                children: [
-                  Text("Category",
-                    style: TextStyle(
-                        fontSize: width*0.05,
-                        fontWeight: FontWeight.w800,
-                        color:Colour.thirdcolour
-                    ),),
-                  Expanded(
-                    child: GridView.builder(
-                      itemCount:category.length,
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        childAspectRatio: 1,
-                        crossAxisSpacing: width*0.05,
-                        mainAxisSpacing: width*0.05,
-                        crossAxisCount: 3,
-                      ),
-                      physics: BouncingScrollPhysics(),
-                      shrinkWrap: true,
-                      scrollDirection: Axis.horizontal,
-                      itemBuilder: (context, index) {
-                        return
-                          Container(
-                            width: width*1,
-                            height: width*0.5,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(width*0.03),
-                              border: Border.all(
-                                  color: Colors.black,
-                                  width: width*0.008
-                              ),
-                            ),
-                            child: Column(mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-
-                                Container(
-                                  width: width*0.2,
-                                  height: width*0.2,
-                                  child: SvgPicture.asset(category[index]["image"]),
-                                ),
-
-                                Text(category[index]["text"],)],),
-                          );
-
-                      },
-
-
-                    ),
-                  ),
-
-
-
-                ],
-              ),
-            ),
+            // Container(
+            //
+            //   child: Column(
+            //     children: [
+            //       Text("Category",
+            //         style: TextStyle(
+            //             fontSize: width*0.05,
+            //             fontWeight: FontWeight.w800,
+            //             color:Colour.thirdcolour
+            //         ),),
+            //       Expanded(
+            //         child: GridView.builder(
+            //           itemCount:category.length,
+            //           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            //             childAspectRatio: 1,
+            //             crossAxisSpacing: width*0.05,
+            //             mainAxisSpacing: width*0.05,
+            //             crossAxisCount: 3,
+            //           ),
+            //           physics: BouncingScrollPhysics(),
+            //           shrinkWrap: true,
+            //           scrollDirection: Axis.horizontal,
+            //           itemBuilder: (context, index) {
+            //             return
+            //               Container(
+            //                 width: width*1,
+            //                 height: width*0.5,
+            //                 decoration: BoxDecoration(
+            //                   color: Colors.white,
+            //                   borderRadius: BorderRadius.circular(width*0.03),
+            //                   border: Border.all(
+            //                       color: Colors.black,
+            //                       width: width*0.008
+            //                   ),
+            //                 ),
+            //                 child: Column(mainAxisAlignment: MainAxisAlignment.spaceAround,
+            //                   children: [
+            //
+            //                     Container(
+            //                       width: width*0.2,
+            //                       height: width*0.2,
+            //                       child: SvgPicture.asset(category[index]["image"]),
+            //                     ),
+            //
+            //                     Text(category[index]["text"],)],),
+            //               );
+            //
+            //           },
+            //
+            //
+            //         ),
+            //       ),
+            //
+            //
+            //
+            //     ],
+            //   ),
+            // ),
 
 
           ],
