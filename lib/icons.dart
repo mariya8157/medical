@@ -9,6 +9,9 @@ class ImageIcons{
   static const catogory8="assets/icons/leftIcon.svg";
 
 
+  static const medics="assets/image/medics.png";
+
+
 
 
 }
