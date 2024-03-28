@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:medical/features/details_adding/screen/login%20&%20Sign%20Up/login.dart';
 
 
 import 'features/details_adding/screen/doctor Consultation/findDoctor.dart';
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
         },
         child: MaterialApp(
             debugShowCheckedModeBanner: false,
-            home:FindDoctor()
+            home:LoginPage()
     ),);
   }
 }
