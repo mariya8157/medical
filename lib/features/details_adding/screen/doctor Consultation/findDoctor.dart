@@ -31,7 +31,7 @@ class _FindDoctorState extends State<FindDoctor> {
       "text":"Dentist",
     },
     {
-      "image":ImageIcons.catogory4,
+      "image":ImageIcons.catogory9,
       "text":"Psychiatrist",
     },
     {
@@ -92,107 +92,113 @@ class _FindDoctorState extends State<FindDoctor> {
               ],
           ),
 
-      body:Column(
-        children: [
-          TextFormField(
-            controller:searchController ,
-            keyboardType: TextInputType.name,
-            textInputAction: TextInputAction.search,
-            decoration: InputDecoration(
-                prefixIcon:Icon(Icons.search),
-                labelText: "Search any Product..",
-                labelStyle: TextStyle(
-                  fontSize: width*0.05,
-                  fontWeight: FontWeight.w400,
-                ),
-                hintText: "please enter search product",
-                hintStyle: TextStyle(
-                  fontSize: width*0.05,
-                  fontWeight: FontWeight.w400,
-                ),
-                suffixIcon: Icon(Icons.keyboard_voice_outlined),
-                focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                    ),
-                    borderRadius: BorderRadius.circular(
-                        width*0.03)
-                ),
-                enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(width*0.03),
-                    borderSide: BorderSide(
-                    )
-                )
-            ),
-          ),
-          SizedBox(height: width*0.03,),
-          Row(
-            children: [
-              Text("Category",
-                style: TextStyle(
-                    fontSize: width*0.05,
-                    fontWeight: FontWeight.w800,
-                    color:Colour.thirdcolour
-                ),),
-            ],
-          ),
-          SizedBox(height: width*0.03,),
-
-          Expanded(
-            child: GridView.builder(
-              itemCount:category.length,
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                childAspectRatio: 1,
-                crossAxisSpacing:height*0.009,
-                mainAxisSpacing: width*0.03,
-                crossAxisCount: 4,
+      body:Padding(
+        padding:  EdgeInsets.all(width*0.03),
+        child: Column(
+          children: [
+            Container(
+              height: height*0.06,
+              decoration: BoxDecoration(
+                  color: Colour.color3,
+                  borderRadius: BorderRadius.circular(width*0.07)
               ),
-
-              physics: BouncingScrollPhysics(),
-              shrinkWrap: true,
-              // scrollDirection: Axis.horizontal,
-              itemBuilder: (context, index) {
-                return
-                  Container(
-                    width: width*0.2,
-                    height: width*0.25,
-                    // decoration: BoxDecoration(
-                    //   color: Colors.white,
-                    //   borderRadius: BorderRadius.circular(width*0.03),
-                    //   border: Border.all(
-                    //       color: Colors.black,
-                    //       width: width*0.008
-                    //   ),
-                    // ),
-                    child: Column(mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-
-                        Container(
-                          width: width*0.07,
-                          height: height*0.05,
-                            child: SvgPicture.asset(category[index]["image"],)
-                        ),
-
-                        Text(category[index]["text"],
-                        style: TextStyle(
-                          color: Colour.color1,
-                          fontSize: width*0.03
-                        ),)
-                      ],
+              child: TextFormField(
+                controller:searchController ,
+                keyboardType: TextInputType.name,
+                textInputAction: TextInputAction.search,
+                style: TextStyle(fontSize: width*0.045,fontWeight: FontWeight.w500,color: Colour.thirdcolour),
+                decoration: InputDecoration(
+                    prefixIcon:Padding(
+                      padding:  EdgeInsets.all(width*0.03),
+                      child: SvgPicture.asset(ImageIcons.search),
                     ),
-                  );
+                    labelText: "Search any Product..",
+                    labelStyle: TextStyle(fontWeight: FontWeight.w500,fontSize: width*0.04, color: Colour.color1),
+                    hintText: "please enter search product",
+                    hintStyle: TextStyle(
+                      fontSize: width*0.05,
+                      fontWeight: FontWeight.w400,
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: Colour.color2,
 
-              },
+                        ),
+                        borderRadius: BorderRadius.circular(
+                            width*0.07)
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(width*0.07),
+                        borderSide: BorderSide(
+                          color: Colour.color2,
 
-
+                        )
+                    )
+                ),
+              ),
             ),
-          ),
+            SizedBox(height: width*0.03,),
+            Row(
+              children: [
+                Text("Category",
+                  style: TextStyle(
+                      fontSize: width*0.05,
+                      fontWeight: FontWeight.w800,
+                      color:Colour.thirdcolour
+                  ),),
+              ],
+            ),
+            SizedBox(height: width*0.03,),
+
+            Expanded(
+              child: GridView.builder(
+                itemCount:category.length,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  childAspectRatio: 1,
+                  crossAxisSpacing:height*0.009,
+                  mainAxisSpacing: width*0.03,
+                  crossAxisCount: 4,
+                ),
+
+                physics: BouncingScrollPhysics(),
+                shrinkWrap: true,
+                // scrollDirection: Axis.horizontal,
+                itemBuilder: (context, index) {
+                  return
+                    Container(
+                      width: width*0.25,
+                      height: width*0.25,
+                      child: Column(
+                        children: [
+
+                          Container(
+                            width: width*0.07,
+                            height: height*0.05,
+                              child: SvgPicture.asset(category[index]["image"],)
+                          ),
+
+                          Text(category[index]["text"],
+                          style: TextStyle(
+                            color: Colour.color1,
+                            fontSize: width*0.03
+                          ),)
+                        ],
+                      ),
+                    );
+
+                },
+
+
+              ),
+            ),
 
 
 
 
 
 
-        ],
+          ],
+        ),
       ),
 
     );
