@@ -16,31 +16,31 @@ class _FindDoctorState extends State<FindDoctor> {
   TextEditingController searchController=TextEditingController();
   List category=[
     {
-      "image":Images.catogory1,
+      "image":Icons.catogory1,
       "text":"General",
     },
     {
-      "image":Images.catogory2,
+      "image":Icons.catogory2,
       "text":"",
     },
     {
-      "image":Images.catogory3,
+      "image":Icons.catogory3,
       "text":"car",
     },
     {
-      "image":Images.catogory4,
+      "image":Icons.catogory4,
       "text":"cars",
     },
     {
-      "image":Images.catogory5,
+      "image":Icons.catogory5,
       "text":"train",
     },
     {
-      "image":Images.catogory6,
+      "image":Icons.catogory6,
       "text":"auto",
     },
     {
-      "image":Images.catogory7,
+      "image":Icons.catogory7,
       "text":"car3",
     },
   ];
