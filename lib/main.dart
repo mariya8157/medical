@@ -5,6 +5,7 @@ import 'package:medical/features/details_adding/screen/login%20&%20Sign%20Up/log
 
 
 import 'features/details_adding/screen/doctor Consultation/findDoctor.dart';
+import 'features/details_adding/screen/onlinePharmacy/article.dart';
 
 
 var height;
@@ -33,7 +34,7 @@ class MyApp extends StatelessWidget {
             theme: ThemeData(
               textTheme: GoogleFonts.interTextTheme()
             ),
-            home:LoginPage()
+            home:articles()
     ),);
   }
 }
