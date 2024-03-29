@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:medical/features/details_adding/screen/login%20&%20Sign%20Up/login.dart';
+import 'package:medical/features/details_adding/screen/splashSceen/getstarted.dart';
 
 
 import 'features/details_adding/screen/doctor Consultation/findDoctor.dart';
@@ -34,7 +35,7 @@ class MyApp extends StatelessWidget {
             theme: ThemeData(
               textTheme: GoogleFonts.interTextTheme()
             ),
-            home:FindDoctor()
+            home:GetStartedPage()
     ),);
   }
 }
