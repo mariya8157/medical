@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:medical/colour.dart';
@@ -49,13 +50,33 @@ class _FindDoctorState extends State<FindDoctor> {
   ];
   List doctor=[
     {
-      "image":
-      "name":
-      "spl":
-       "star":
-    "distene":
+      "image":ImageIcons.drmarcus,
+      "name":"Dr. Marcus Horizon",
+      "spl":"Chardiologist",
+       "star":"4,7",
+    "distene":"800m away",
 
     }
+  ];
+  List drlist=[
+    {
+      "image":ImageIcons.drmarcus,
+      "name":"Dr. Marcus",
+    },
+    {
+      "image":ImageIcons.drmaria,
+      "name":"Dr. Maria",
+    },
+    {
+      "image":ImageIcons.drstevi,
+      "name":"Dr. Stevi",
+    }
+    ,{
+      "image":ImageIcons.drluke,
+      "name":"Dr. Luke",
+    }
+
+
   ];
 
 
@@ -155,11 +176,11 @@ class _FindDoctorState extends State<FindDoctor> {
                       fontSize: width*0.05,
                       fontWeight: FontWeight.w800,
                       color:Colour.thirdcolour
-                  ),),
+                  ),
+                ),
               ],
             ),
             SizedBox(height: width*0.03,),
-
             Expanded(
               child: GridView.builder(
                 itemCount:category.length,
@@ -191,7 +212,8 @@ class _FindDoctorState extends State<FindDoctor> {
                           style: TextStyle(
                             color: Colour.color1,
                             fontSize: width*0.03
-                          ),)
+                          ),
+                          )
                         ],
                       ),
                     );
@@ -202,69 +224,102 @@ class _FindDoctorState extends State<FindDoctor> {
               ),
             ),
             SizedBox(height: width*0.03,),
+            Row(
+              children: [
+                Text("Recommended Doctors",
+                  style: TextStyle(
+                      fontSize: width*0.05,
+                      fontWeight: FontWeight.w800,
+                      color:Colour.thirdcolour
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(height: width*0.03,),
+
+
             Container(
-              height: height*0.5,
+              height: height*0.2,
               width: width*1,
+              decoration: BoxDecoration(
+                  border: Border.all(color: Colour.gray.withOpacity(0.2)),
+                  borderRadius: BorderRadius.circular(width*0.04)
+              ),
               child: ListView.separated(
                   shrinkWrap: true,
                   // physics: BouncingScrollPhysics(),
 
                   itemBuilder: (context, index) {
-                    return Column(
-                      children: [
-                        Center(
-                          child: Container(
-                            height: width*0.25,
-                            width: width*0.89,
-                            // margin:  EdgeInsets.only(left: width*0.05),
-                            decoration: BoxDecoration(
-                                border: Border.all(color: Colour.gray.withOpacity(0.2)),
-                                borderRadius: BorderRadius.circular(width*0.04)
-                            ),
-                            child: Padding(
-                              padding:  EdgeInsets.all(width*0.0122),
-                              child: Row(
-                                children: [
-                                  Image.asset(d[index]["image"],width: width*0.2,),
-                                  SizedBox(width: width*0.03,),
-                                  Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Container(
-                                          height: width*0.17,
-                                          width: width*0.63,
-                                          child: Column(
-                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                            children: [
-                                              Row(
-                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                children: [
-                                                  Text(
-                                                    d[index]["text1"],
-                                                    style: TextStyle(
-                                                        fontWeight: FontWeight.w600,fontSize: width*0.04
-                                                    ),
-                                                  ),
-                                                  SvgPicture.asset( d[index]["icon"],width: width*0.065,),
-                                                ],
-                                              ),
-                                              Row(
-                                                children: [
-                                                  Text( d[index]["text2"]),
-                                                  Text( d[index]["text3"],style: TextStyle(color: Colour.primarycolour),),
-                                                ],
-                                              )
-                                            ],
-                                          )),
-                                    ],
-                                  ),
-                                ],
+                    return Padding(
+                      padding:  EdgeInsets.all(width*0.03),
+                      child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          CircleAvatar(
+                              radius: width*0.13,
+                              backgroundImage:AssetImage(doctor[index]['image']) ,
                               ),
-                            ),
-                          ),
-                        )
-                      ],
+                          Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Text(doctor[index]["name"],
+                                style: TextStyle(
+                                    fontSize: width*0.05,
+                                    fontWeight: FontWeight.w800,
+                                    color:Colour.thirdcolour
+                                ),
+
+                              ),
+                              Text(doctor[index]["spl"],
+                                style: TextStyle(
+                                    color: Colour.color1,
+                                    fontSize: width*0.04
+                                ),
+
+                              ),
+                              Divider(color:Colour.gray.withOpacity(0.2),
+                              ),
+                              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Container(
+                                    width: width*0.15,
+                                    height: height*0.05,
+                                    decoration: BoxDecoration(
+                                        color: Colour.lightgreen,
+                                        borderRadius: BorderRadius.circular(width*0.01)
+                                    ),
+
+                                    child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                      children: [
+                                       SvgPicture.asset(ImageIcons.star) ,
+                                        Text(doctor[index]["star"],
+                                          style: TextStyle(
+                                              color: Colour.primarycolour,
+                                              fontWeight: FontWeight.w500
+                                          ),
+                                  ),
+                                      ],
+                                    ),
+                                  ),
+
+                                  Container(
+                                    width: width*0.3,
+                                    height: height*0.05,
+                                    child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                      children: [
+                                       SvgPicture.asset(ImageIcons.location) ,
+                                        Text(doctor[index]["distene"])
+                                      ],
+                                    ),
+                                  )
+                                ],
+                              )
+                            ],
+                          )
+
+
+                        ],
+                      ),
                     );
+
                   },
                   separatorBuilder: (context, index) {
                     return SizedBox(
@@ -273,7 +328,58 @@ class _FindDoctorState extends State<FindDoctor> {
                   },
                   itemCount: doctor.length
               ),
-            )
+            ),
+            SizedBox(height: width*0.03,),
+            Row(
+              children: [
+                Text("Your Recent Doctors",
+                  style: TextStyle(
+                      fontSize: width*0.05,
+                      fontWeight: FontWeight.w800,
+                      color:Colour.thirdcolour
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(height: width*0.03,),
+            Container(
+              height: height*0.17,
+              width: width*1,
+              child: ListView.separated(
+                  // shrinkWrap: true,
+                  scrollDirection: Axis.horizontal,
+                  // physics: BouncingScrollPhysics(),
+
+                  itemBuilder: (context, index) {
+                    return Container(
+                      child: Column(mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          CircleAvatar(
+                            radius: width*0.10,
+                            backgroundImage:AssetImage(drlist[index]['image']) ,
+                          ),
+                          Text(drlist[index]["name"]),
+
+
+                        ],
+                      ),
+
+                    );
+
+                  },
+                  separatorBuilder: (context, index) {
+                    return SizedBox(
+                      width: width*0.03,
+                    );
+                  },
+                  itemCount: drlist.length
+              ),
+            ),
+
+
+
+
+
 
 
 

@@ -18,6 +18,8 @@ class ImageIcons{
   static const apple = "assets/icons/apple.svg";
   static const facebook = "assets/icons/facebook.svg";
   static const save = "assets/icons/save.svg";
+  static const star = "assets/icons/Star.svg";
+  static const location = "assets/icons/Location.svg";
 
 
 
@@ -30,6 +32,10 @@ class ImageIcons{
   static const covid5 = "assets/image/covid_19_5.png";
   static const covid6 = "assets/image/covid_19_6.png";
   static const covid7 = "assets/image/covid_19_7.png";
+  static const drmarcus = "assets/images/drimage.png";
+  static const drmaria = "assets/images/drmaria.png";
+  static const drstevi = "assets/images/drStevi.png";
+  static const drluke = "assets/images/drLuke.png";
 
 
 
