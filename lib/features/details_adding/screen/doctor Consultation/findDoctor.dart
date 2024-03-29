@@ -47,6 +47,16 @@ class _FindDoctorState extends State<FindDoctor> {
       "text":"Cardiologist",
     },
   ];
+  List doctor=[
+    {
+      "image":
+      "name":
+      "spl":
+       "star":
+    "distene":
+
+    }
+  ];
 
 
 
@@ -191,6 +201,9 @@ class _FindDoctorState extends State<FindDoctor> {
 
               ),
             ),
+            SizedBox(height: width*0.03,),
+            Listv
+
 
 
 
