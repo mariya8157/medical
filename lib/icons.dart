@@ -15,6 +15,7 @@ class ImageIcons{
   static const lock = "assets/icons/lock.svg";
   static const eyeOff = "assets/icons/eyeoff.svg";
   static const google = "assets/icons/google.svg";
+  static const apple = "assets/icons/apple.svg";
 
 
 
