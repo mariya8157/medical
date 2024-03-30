@@ -250,7 +250,8 @@ class _FindDoctorState extends State<FindDoctor> {
                   // physics: BouncingScrollPhysics(),
 
                   itemBuilder: (context, index) {
-                    return Padding(
+                    return
+                      Padding(
                       padding:  EdgeInsets.all(width*0.03),
                       child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
@@ -259,6 +260,7 @@ class _FindDoctorState extends State<FindDoctor> {
                               backgroundImage:AssetImage(doctor[index]['image']) ,
                               ),
                           Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(doctor[index]["name"],
                                 style: TextStyle(
@@ -275,7 +277,14 @@ class _FindDoctorState extends State<FindDoctor> {
                                 ),
 
                               ),
-                              Divider(color:Colour.gray.withOpacity(0.2),
+                              Divider(
+                                // color:Colour.gray.withOpacity(0.2),
+                                color: Colors.blue,
+                                thickness: width*0.003,
+                                  indent: width*0.05,
+                                  endIndent: width*0.05,
+
+
                               ),
                               Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
@@ -318,7 +327,8 @@ class _FindDoctorState extends State<FindDoctor> {
 
                         ],
                       ),
-                    );
+                    )
+                    ;
 
                   },
                   separatorBuilder: (context, index) {
@@ -329,7 +339,17 @@ class _FindDoctorState extends State<FindDoctor> {
                   itemCount: doctor.length
               ),
             ),
+
             SizedBox(height: width*0.03,),
+            Divider(
+              color:Colour.gray.withOpacity(0.2),
+              thickness: width*0.003,
+              indent: width*0.05,
+              endIndent: width*0.05,
+
+
+            ),
+
             Row(
               children: [
                 Text("Your Recent Doctors",

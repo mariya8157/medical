@@ -32,6 +32,7 @@ class ImageIcons{
   static const covid6 = "assets/images/covid_19_6.png";
   static const covid7 = "assets/images/covid_19_7.png";
   static const drmarcus = "assets/images/drimage.png";
+  static const drmarcus1 = "assets/images/drmarcus1.png";
   static const drmaria = "assets/images/drmaria.png";
   static const drstevi = "assets/images/drStevi.png";
   static const drluke = "assets/images/drLuke.png";
