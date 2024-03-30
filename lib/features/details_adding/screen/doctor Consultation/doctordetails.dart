@@ -180,6 +180,20 @@ class _DoctordetailsPageState extends State<DoctordetailsPage> {
               ],
             ),
             SizedBox(height: width*0.03,),
+            Row(
+              children: [
+                Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit,\n"
+                    " sed do eiusmod tempor incididunt ut labore et dolore\n"
+                    " magna aliqua. Ut enim ad minim veniam... Read more",
+                  style: TextStyle(
+                      fontSize: width*0.03,
+                      fontWeight: FontWeight.w400,
+                      color:Colour.color1
+                  ),
+                ),
+              ],
+            ),
+
 
 
 
