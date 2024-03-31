@@ -6,7 +6,9 @@ import '../../../../icons.dart';
 import '../../../../main.dart';
 
 class BookingPage extends StatefulWidget {
-  const BookingPage({super.key});
+  final  List time;
+  final  List date;
+  const BookingPage({super.key, required this.time, required this.date});
 
   @override
   State<BookingPage> createState() => _BookingPageState();
@@ -199,7 +201,25 @@ class _BookingPageState extends State<BookingPage> {
                   backgroundColor: Colour.lightgreen,
                   child: Center(child: SvgPicture.asset(ImageIcons.calendar)),
                 ),
-
+                // Text("${widget.date}  II ${widget.time}",
+                //   style: TextStyle(
+                //       fontSize: width*0.04,
+                //       fontWeight: FontWeight.w500,
+                //       color:Colour.gray
+                //   ),
+                // ),
+              ],
+            ),
+            SizedBox(height: width*0.03,),
+            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text("Reason",
+                  style: TextStyle(
+                      fontSize: width*0.05,
+                      fontWeight: FontWeight.w800,
+                      color:Colour.thirdcolour
+                  ),
+                ),
                 Text("Change",
                   style: TextStyle(
                       fontSize: width*0.04,
@@ -210,8 +230,23 @@ class _BookingPageState extends State<BookingPage> {
 
               ],
             ),
-
-
+            SizedBox(height: width*0.03,),
+            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                CircleAvatar(
+                  radius: width*0.05,
+                  backgroundColor: Colour.lightgreen,
+                  child: Center(child: SvgPicture.asset(ImageIcons.square)),
+                ),
+                Text("Chest pain",
+                  style: TextStyle(
+                      fontSize: width*0.04,
+                      fontWeight: FontWeight.w500,
+                      color:Colour.secondarycolour
+                  ),
+                ),
+              ],
+            ),
 
 
 

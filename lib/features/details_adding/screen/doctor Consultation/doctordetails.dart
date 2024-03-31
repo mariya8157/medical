@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:medical/features/details_adding/screen/doctor%20Consultation/bookingdoctor.dart';
 import 'package:readmore/readmore.dart';
 
 import '../../../../colour.dart';
@@ -29,26 +30,36 @@ class _DoctordetailsPageState extends State<DoctordetailsPage> {
   List size=[
     {
       "day":"Mon",
+      "name":"Monday",
       "date":21,
     },
     {
       "day":"Tue",
+      "name":"Monday",
       "date":22,
     },
     {
       "day":"Wed",
+      "name":"Monday",
+
       "date":23,
     },
     {
       "day":"Thu",
+      "name":"Monday",
+
       "date":24,
     } ,
     {
       "day":"Fri",
+      "name":"Monday",
+
       "date":25,
     },
     {
       "day":"Sat",
+      "name":"Monday",
+
       "date":27,
     }
   ];
@@ -65,6 +76,7 @@ List time=[
   "08:00 PM",
 ];
 int selectIndex1=0;
+List day=[];
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
@@ -355,20 +367,29 @@ int selectIndex1=0;
                     child: SvgPicture.asset(ImageIcons.chat)
                   ),
                 ),
-                Container(
-                  height: height*0.07,
-                  width: width*0.6,
-                  decoration: BoxDecoration(
-                      color: Colour.primarycolour,
-                      borderRadius: BorderRadius.circular(width*0.07)
-                  ),
-                  child: Center(
-                    child: Text("Book Apointment",
-                      style: TextStyle(
-                          fontSize: width*0.045,
-                          fontWeight: FontWeight.w600,
-                          color: Colour.secondarycolour
-                      ),),
+                InkWell(
+                  onTap: () {
+                    day.add({
+                  "name":size[selectIndex]["name"]});
+                    time.add({"time":time[selectIndex1]});
+
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => BookingPage(time: time, date: day,),));
+                  },
+                  child: Container(
+                    height: height*0.07,
+                    width: width*0.6,
+                    decoration: BoxDecoration(
+                        color: Colour.primarycolour,
+                        borderRadius: BorderRadius.circular(width*0.07)
+                    ),
+                    child: Center(
+                      child: Text("Book Apointment",
+                        style: TextStyle(
+                            fontSize: width*0.045,
+                            fontWeight: FontWeight.w600,
+                            color: Colour.secondarycolour
+                        ),),
+                    ),
                   ),
                 ),
               ],
