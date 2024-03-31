@@ -20,6 +20,7 @@ class ImageIcons{
   static const facebook = "assets/icons/facebook.svg";
   static const star = "assets/icons/Star.svg";
   static const location = "assets/icons/Location.svg";
+  static const chat = "assets/icons/Chat.svg";
 
 
   ///png

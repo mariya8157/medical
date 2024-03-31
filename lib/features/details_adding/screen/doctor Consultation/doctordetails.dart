@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:readmore/readmore.dart';
 
 import '../../../../colour.dart';
 import '../../../../icons.dart';
@@ -24,7 +26,45 @@ class _DoctordetailsPageState extends State<DoctordetailsPage> {
 
     }
   ];
-
+  List size=[
+    {
+      "day":"Mon",
+      "date":21,
+    },
+    {
+      "day":"Tue",
+      "date":22,
+    },
+    {
+      "day":"Wed",
+      "date":23,
+    },
+    {
+      "day":"Thu",
+      "date":24,
+    } ,
+    {
+      "day":"Fri",
+      "date":25,
+    },
+    {
+      "day":"Sat",
+      "date":27,
+    }
+  ];
+int selectIndex=0;
+List time=[
+  "09:00 AM",
+  "10:00 AM",
+  "11:00 AM",
+  "01:00 PM",
+  "02:00 PM",
+  "03:00 PM",
+  "04:00 PM",
+  "07:00 PM",
+  "08:00 PM",
+];
+int selectIndex1=0;
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
@@ -106,7 +146,7 @@ class _DoctordetailsPageState extends State<DoctordetailsPage> {
                               ),
                               Text(doctor[index]["spl"],
                                 style: TextStyle(
-                                    color: Colour.color1,
+                                    color: Colour.gray,
                                     fontSize: width*0.04
                                 ),
 
@@ -143,7 +183,7 @@ class _DoctordetailsPageState extends State<DoctordetailsPage> {
                                     SvgPicture.asset(ImageIcons.location,) ,
                                     Text(doctor[index]["distene"],
                                     style: TextStyle(
-                                      color: Colour.color1,
+                                      color: Colour.gray,
 
                                     ),)
                                   ],
@@ -180,20 +220,168 @@ class _DoctordetailsPageState extends State<DoctordetailsPage> {
               ],
             ),
             SizedBox(height: width*0.03,),
-            Row(
+            ReadMoreText(
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit,\n"
+                  " sed do eiusmod tempor incididunt ut labore et dolore\n"
+                " magna aliqua. Ut enim ad minim veniam\n"
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit,\n"
+                " sed do eiusmod tempor incididunt ut labore et\n",
+              trimLines: 3,
+              colorClickableText: Colors.pink,
+              trimMode: TrimMode.Line,
+              trimCollapsedText: 'read more',
+              style: TextStyle(
+                fontSize: width*0.03, fontWeight:FontWeight.w400,color: Colour.gray
+              ),
+              trimExpandedText: 'less',
+              lessStyle: TextStyle(fontSize:width*0.03, fontWeight: FontWeight.bold,color:Colour.primarycolour ),
+              moreStyle: TextStyle(fontSize:width*0.03, fontWeight: FontWeight.bold,color:Colour.primarycolour ),
+            ),
+            SizedBox(height: width*0.03,),
+            Container(
+              height: height*0.10,
+              width: width*1,
+              child: ListView.separated(
+                itemCount:size.length ,
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (BuildContext context, int index) {
+                  return InkWell(
+                      onTap: () {
+                        selectIndex=index;
+                        setState(() {
+
+
+                        });
+                      },
+
+                      child: Container(
+                        width:width*0.14,
+                        height: width*0.08,
+                        decoration: BoxDecoration(
+                          border: Border.all(color:Colour.lightgreen),
+                          borderRadius: BorderRadius.circular(width*0.03),
+                          color:selectIndex==index?Colour.primarycolour: Colour.secondarycolour,
+                        ),
+                        child:  Column(crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Text(size[index]["day"],
+                                style: TextStyle(
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: width*0.04, color:selectIndex==index?Colour.secondarycolour:Colour.color1
+                                )),
+                            Text(size[index]["date"].toString(),
+                                style: TextStyle(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: width*0.06, color:selectIndex==index?Colour.secondarycolour:Colour.thirdcolour
+                                )),
+                          ],
+                        ),
+
+
+                      )
+                  );
+                }, separatorBuilder: (BuildContext context, int index) {
+                return SizedBox(width: width*0.03,);
+              },
+
+              ),
+            ),
+            SizedBox(height: width*0.03,),
+            Divider(thickness: width*0.004,
+              color: Colour.lightgreen,
+              // indent: width*0.03,
+              // endIndent: width*0.03,
+            ),
+            SizedBox(height: width*0.03,),
+            Container(
+              width: width*1,
+              height: height*0.3,
+              child: GridView.builder(
+                itemCount:time.length,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  childAspectRatio: 1.9,
+                  crossAxisSpacing:height*0.01,
+                  mainAxisSpacing: width*0.02,
+                  crossAxisCount: 3,
+                ),
+
+                physics: BouncingScrollPhysics(),
+                shrinkWrap: true,
+                // scrollDirection: Axis.horizontal,
+                itemBuilder: (context, index) {
+                  return
+                    InkWell(onTap: () {
+                      selectIndex1=index;
+                      setState(() {
+
+                      });
+                    },
+                      child: Container(
+                          width: width*0.3,
+                          height: height*0.01,
+                          decoration: BoxDecoration(color: selectIndex1==index?Colour.primarycolour:Colour.secondarycolour,
+                              borderRadius: BorderRadius.circular(width*0.03),
+                            border: Border.all(color: Colour.lightgreen,
+                            width: width*0.005)
+                          ),
+
+                          child: Center(
+                            child: Text(time[index],
+                                                  style: TextStyle(
+                              color: selectIndex1==index?Colour.secondarycolour:Colour.thirdcolour,
+                              fontSize: width*0.04
+                                                  ),
+                                                ),
+                          )),
+                    );
+
+                },
+
+
+              ),
+            ),
+            // SizedBox(height: width*0.03,),
+            Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit,\n"
-                    " sed do eiusmod tempor incididunt ut labore et dolore\n"
-                    " magna aliqua. Ut enim ad minim veniam... Read more",
-                  style: TextStyle(
-                      fontSize: width*0.03,
-                      fontWeight: FontWeight.w400,
-                      color:Colour.color1
+                
+                Container(
+                  height: height*0.07,
+                  width: width*0.2,
+                  decoration: BoxDecoration(
+                      color: Colour.lightgreen,
+                      borderRadius: BorderRadius.circular(width*0.07)
+                  ),
+                  child: Center(
+                    child: SvgPicture.asset(ImageIcons.chat)
+                  ),
+                ),
+                Container(
+                  height: height*0.07,
+                  width: width*0.6,
+                  decoration: BoxDecoration(
+                      color: Colour.primarycolour,
+                      borderRadius: BorderRadius.circular(width*0.07)
+                  ),
+                  child: Center(
+                    child: Text("Book Apointment",
+                      style: TextStyle(
+                          fontSize: width*0.045,
+                          fontWeight: FontWeight.w600,
+                          color: Colour.secondarycolour
+                      ),),
                   ),
                 ),
               ],
             ),
-            SizedBox(height: width*0.03,),
+
+
+
+
+
+
+
+
 
 
 
