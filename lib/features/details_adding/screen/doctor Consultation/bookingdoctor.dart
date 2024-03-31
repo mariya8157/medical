@@ -231,22 +231,32 @@ class _BookingPageState extends State<BookingPage> {
               ],
             ),
             SizedBox(height: width*0.03,),
-            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            Row(
               children: [
                 CircleAvatar(
                   radius: width*0.05,
                   backgroundColor: Colour.lightgreen,
                   child: Center(child: SvgPicture.asset(ImageIcons.square)),
                 ),
+                SizedBox(width: width*0.05,),
+
                 Text("Chest pain",
                   style: TextStyle(
-                      fontSize: width*0.04,
+                      fontSize: width*0.05,
                       fontWeight: FontWeight.w500,
-                      color:Colour.secondarycolour
+                      color:Colour.thirdcolour
                   ),
                 ),
               ],
             ),
+            SizedBox(height: width*0.03,),
+            Divider(thickness: width*0.004,
+              color: Colour.lightgreen,
+              // indent: width*0.03,
+              // endIndent: width*0.03,
+            ),
+
+
 
 
 
