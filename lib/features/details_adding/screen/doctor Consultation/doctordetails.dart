@@ -92,7 +92,7 @@ int selectIndex1=0;
           ),
         ),
         title:  Text(
-          "Find Doctors",
+          "Doctor Detail",
           style: TextStyle(
               color: Colors.black,
               fontWeight: FontWeight.w700,
@@ -103,8 +103,7 @@ int selectIndex1=0;
           children: [
             SvgPicture.asset(ImageIcons.columnDot),
             SizedBox(width: width*0.05,)
-          ],)
-        ],
+          ],),]
       ),
       body: Padding(
         padding:  EdgeInsets.all(width*0.03),

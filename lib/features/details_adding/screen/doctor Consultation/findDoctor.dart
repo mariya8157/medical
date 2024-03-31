@@ -115,12 +115,11 @@ class _FindDoctorState extends State<FindDoctor> {
                 fontSize: width*0.063
             ),
           ),
-          actions: [Row(
-              children: [
-                SvgPicture.asset(ImageIcons.columnDot),
-                SizedBox(width: width*0.05,)
-              ],)
-              ],
+          // actions: [Row(
+          //     children: [
+          //       SvgPicture.asset(ImageIcons.columnDot),
+          //       SizedBox(width: width*0.05,)
+          //     ],)],
           ),
 
       body:Padding(
@@ -242,7 +241,7 @@ class _FindDoctorState extends State<FindDoctor> {
               height: height*0.2,
               width: width*1,
               decoration: BoxDecoration(
-                  border: Border.all(color: Colour.gray.withOpacity(0.2)),
+                  border: Border.all(color: Colour.lightgreen),
                   borderRadius: BorderRadius.circular(width*0.04)
               ),
               child: ListView.separated(
