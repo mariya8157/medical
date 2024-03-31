@@ -140,7 +140,7 @@ class _DoctordetailsPageState extends State<DoctordetailsPage> {
                                 height: height*0.05,
                                 child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
                                   children: [
-                                    SvgPicture.asset(ImageIcons.location,color: Colour.color1,) ,
+                                    SvgPicture.asset(ImageIcons.location,) ,
                                     Text(doctor[index]["distene"],
                                     style: TextStyle(
                                       color: Colour.color1,
@@ -193,6 +193,8 @@ class _DoctordetailsPageState extends State<DoctordetailsPage> {
                 ),
               ],
             ),
+            SizedBox(height: width*0.03,),
+
 
 
 
