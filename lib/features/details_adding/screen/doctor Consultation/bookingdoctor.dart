@@ -173,7 +173,6 @@ class _BookingPageState extends State<BookingPage> {
                   itemCount: doctor.length
               ),
             ),
-            SizedBox(height: width*0.03,),
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text("Date",
@@ -193,7 +192,6 @@ class _BookingPageState extends State<BookingPage> {
 
               ],
             ),
-            SizedBox(height: width*0.03,),
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 CircleAvatar(
@@ -210,7 +208,11 @@ class _BookingPageState extends State<BookingPage> {
                 // ),
               ],
             ),
-            SizedBox(height: width*0.03,),
+            Divider(thickness: width*0.004,
+              color: Colour.lightgreen,
+              // indent: width*0.03,
+              // endIndent: width*0.03,
+            ),
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text("Reason",
@@ -230,7 +232,6 @@ class _BookingPageState extends State<BookingPage> {
 
               ],
             ),
-            SizedBox(height: width*0.03,),
             Row(
               children: [
                 CircleAvatar(
@@ -249,12 +250,223 @@ class _BookingPageState extends State<BookingPage> {
                 ),
               ],
             ),
-            SizedBox(height: width*0.03,),
             Divider(thickness: width*0.004,
               color: Colour.lightgreen,
               // indent: width*0.03,
               // endIndent: width*0.03,
             ),
+            Row(
+              children: [
+                Text("Payment Detail",
+                  style: TextStyle(
+                      fontSize: width*0.05,
+                      fontWeight: FontWeight.w800,
+                      color:Colour.thirdcolour
+                  ),
+                ),
+
+              ],
+            ),
+            SizedBox(height: width*0.02,),
+            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text("Consultation",
+                  style: TextStyle(
+                      fontSize: width*0.05,
+                      fontWeight: FontWeight.w500,
+                      color:Colour.gray
+                  ),
+                ),
+                Text("\$60",
+                  style: TextStyle(
+                      fontSize: width*0.05,
+                      fontWeight: FontWeight.w500,
+                      color:Colour.thirdcolour
+                  ),
+                ),
+
+              ],
+            ),
+            SizedBox(height: width*0.01,),
+            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text("Admin Fee",
+                  style: TextStyle(
+                      fontSize: width*0.05,
+                      fontWeight: FontWeight.w500,
+                      color:Colour.gray
+                  ),
+                ),
+                Text("\$60",
+                  style: TextStyle(
+                      fontSize: width*0.05,
+                      fontWeight: FontWeight.w500,
+                      color:Colour.thirdcolour
+                  ),
+                ),
+
+              ],
+            ),
+            SizedBox(height: width*0.01,),
+            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text("Aditional Discount",
+                  style: TextStyle(
+                      fontSize: width*0.05,
+                      fontWeight: FontWeight.w500,
+                      color:Colour.gray
+                  ),
+                ),
+                Text("\$60",
+                  style: TextStyle(
+                      fontSize: width*0.05,
+                      fontWeight: FontWeight.w500,
+                      color:Colour.thirdcolour
+                  ),
+                ),
+
+              ],
+            ),
+            SizedBox(height: width*0.02,),
+            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text("Total",
+                  style: TextStyle(
+                      fontSize: width*0.05,
+                      fontWeight: FontWeight.w600,
+                      color:Colour.thirdcolour
+                  ),
+                ),
+                Text("\$60",
+                  style: TextStyle(
+                      fontSize: width*0.05,
+                      fontWeight: FontWeight.w600,
+                      color:Colour.primarycolour
+                  ),
+                ),
+
+              ],
+            ),
+            Divider(thickness: width*0.004,
+              color: Colour.lightgreen,
+              // indent: width*0.03,
+              // endIndent: width*0.03,
+            ),
+            Row(
+              children: [
+                Text("Payment Method",
+                  style: TextStyle(
+                      fontSize: width*0.05,
+                      fontWeight: FontWeight.w800,
+                      color:Colour.thirdcolour
+                  ),
+                ),
+
+              ],
+            ),
+            InkWell(
+              onTap: () {
+                // select1=true;
+                // select2=false;
+                // select3=false;
+                // select4=false;
+                // setState(() {
+                //
+                // });
+              },
+              child: Container(
+                height: width*0.15,
+                width: width*1,
+                decoration:BoxDecoration(
+                  borderRadius: BorderRadius.circular(width*0.03),
+                  // color: ColourTheme.thirtyth5Color,
+                  border: Border.all(
+                      // color:select1==true? ColourTheme.primaryColor:ColourTheme.thirtyth5Color
+                  ),
+
+                ) ,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Image.asset(ImageIcons.visa),
+                    SizedBox(width: width*0.1),
+
+                    Text("Change",
+                        style: TextStyle(
+                            fontWeight: FontWeight.w500,
+                            fontSize: width*0.04,
+                            // color:ColourTheme.thirtyth6Color
+                        ))
+
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(height: width*0.02,),
+
+            Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+
+                Container(
+                  height: height*0.08,
+                  width: width*0.3,
+                  child: Center(
+                      child: Column(
+                        children: [
+                          Text("Total",
+                            style: TextStyle(
+                                fontSize: width*0.05,
+                                fontWeight: FontWeight.w600,
+                                color:Colour.gray
+                            ),
+                          ),
+                          Text("\$60",
+                            style: TextStyle(
+                                fontSize: width*0.05,
+                                fontWeight: FontWeight.w800,
+                                color:Colour.thirdcolour
+                            ),
+                          ),
+
+                        ],
+                      )
+                  ),
+                ),
+                InkWell(
+                  onTap: () {
+
+                  },
+                  child: Container(
+                    height: height*0.07,
+                    width: width*0.6,
+                    decoration: BoxDecoration(
+                        color: Colour.primarycolour,
+                        borderRadius: BorderRadius.circular(width*0.07)
+                    ),
+                    child: Center(
+                      child: Text("Booking",
+                        style: TextStyle(
+                            fontSize: width*0.045,
+                            fontWeight: FontWeight.w600,
+                            color: Colour.secondarycolour
+                        ),),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
