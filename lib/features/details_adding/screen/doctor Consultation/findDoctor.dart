@@ -4,6 +4,7 @@ import 'package:flutter/painting.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:medical/colour.dart';
+import 'package:medical/features/details_adding/screen/doctor%20Consultation/doctordetails.dart';
 import 'package:medical/icons.dart';
 
 import '../../../../main.dart';
@@ -32,7 +33,7 @@ class _FindDoctorState extends State<FindDoctor> {
       "text":"Dentist",
     },
     {
-      "image":ImageIcons.catogory9,
+      "image":ImageIcons.catogory10,
       "text":"Psychiatrist",
     },
     {
@@ -62,22 +63,40 @@ class _FindDoctorState extends State<FindDoctor> {
     {
       "image":ImageIcons.drmarcus,
       "name":"Dr. Marcus",
+      "spl":"Chardiologist",
+      "star":"4,7",
+      "distene":"800m away",
+
     },
     {
       "image":ImageIcons.drmaria,
       "name":"Dr. Maria",
+      "spl":"Gynecologist",
+      "star":"4,7",
+      "distene":"500m away",
+
     },
     {
       "image":ImageIcons.drstevi,
       "name":"Dr. Stevi",
+      "spl":"dermatologist",
+      "star":"4,8",
+      "distene":"900m away",
+
     }
     ,{
       "image":ImageIcons.drluke,
       "name":"Dr. Luke",
+      "spl":"General medicine",
+      "star":"4,7",
+      "distene":"800m away",
+
     }
 
 
   ];
+  int selectIndex=0;
+  List a=[];
 
 
 
@@ -237,105 +256,117 @@ class _FindDoctorState extends State<FindDoctor> {
             SizedBox(height: width*0.03,),
 
 
-            Container(
-              height: height*0.2,
-              width: width*1,
-              decoration: BoxDecoration(
-                  border: Border.all(color: Colour.lightgreen),
-                  borderRadius: BorderRadius.circular(width*0.04)
-              ),
-              child: ListView.separated(
-                  shrinkWrap: true,
-                  // physics: BouncingScrollPhysics(),
+            InkWell(
+              onTap: () {
+                a.add({
+                  "image":drlist[selectIndex]["image"],
+                  "name":drlist[selectIndex]["name"],
+                  "spl":drlist[selectIndex]["spl"],
+                  "star":drlist[selectIndex]["star"],
+                  "distene":drlist[selectIndex]["distene"],
+                });
+                a.length==1?Navigator.push(context, MaterialPageRoute(builder: (context) => DoctordetailsPage(doctor:a,),)):a.clear();
+              },
+              child: Container(
+                height: height*0.2,
+                width: width*1,
+                decoration: BoxDecoration(
+                    border: Border.all(color: Colour.lightgreen),
+                    borderRadius: BorderRadius.circular(width*0.04)
+                ),
+                child: ListView.separated(
+                    shrinkWrap: true,
+                    // physics: BouncingScrollPhysics(),
 
-                  itemBuilder: (context, index) {
-                    return
-                      Padding(
-                      padding:  EdgeInsets.all(width*0.03),
-                      child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          CircleAvatar(
-                              radius: width*0.13,
-                              backgroundImage:AssetImage(doctor[index]['image']) ,
-                              ),
-                          Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(doctor[index]["name"],
-                                style: TextStyle(
-                                    fontSize: width*0.05,
-                                    fontWeight: FontWeight.w800,
-                                    color:Colour.thirdcolour
+                    itemBuilder: (context, index) {
+                      return
+                        Padding(
+                        padding:  EdgeInsets.all(width*0.03),
+                        child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            CircleAvatar(
+                                radius: width*0.13,
+                                backgroundImage:AssetImage(drlist[selectIndex]['image']) ,
                                 ),
-
-                              ),
-                              Text(doctor[index]["spl"],
-                                style: TextStyle(
-                                    color: Colour.color1,
-                                    fontSize: width*0.04
-                                ),
-
-                              ),
-                              Divider(
-                                // color:Colour.gray.withOpacity(0.2),
-                                color: Colors.blue,
-                                thickness: width*0.003,
-                                  indent: width*0.05,
-                                  endIndent: width*0.05,
-
-
-                              ),
-                              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Container(
-                                    width: width*0.15,
-                                    height: height*0.05,
-                                    decoration: BoxDecoration(
-                                        color: Colour.lightgreen,
-                                        borderRadius: BorderRadius.circular(width*0.01)
-                                    ),
-
-                                    child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                      children: [
-                                       SvgPicture.asset(ImageIcons.star) ,
-                                        Text(doctor[index]["star"],
-                                          style: TextStyle(
-                                              color: Colour.primarycolour,
-                                              fontWeight: FontWeight.w500
-                                          ),
-                                  ),
-                                      ],
-                                    ),
+                            Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(drlist[selectIndex]["name"],
+                                  style: TextStyle(
+                                      fontSize: width*0.05,
+                                      fontWeight: FontWeight.w800,
+                                      color:Colour.thirdcolour
                                   ),
 
-                                  Container(
-                                    width: width*0.3,
-                                    height: height*0.05,
-                                    child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                      children: [
-                                       SvgPicture.asset(ImageIcons.location) ,
-                                        Text(doctor[index]["distene"])
-                                      ],
+                                ),
+                                Text(drlist[selectIndex]["spl"],
+                                  style: TextStyle(
+                                      color: Colour.color1,
+                                      fontSize: width*0.04
+                                  ),
+
+                                ),
+                                Divider(
+                                  // color:Colour.gray.withOpacity(0.2),
+                                  color: Colors.blue,
+                                  thickness: width*0.003,
+                                    indent: width*0.05,
+                                    endIndent: width*0.05,
+
+
+                                ),
+                                Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Container(
+                                      width: width*0.15,
+                                      height: height*0.05,
+                                      decoration: BoxDecoration(
+                                          color: Colour.lightgreen,
+                                          borderRadius: BorderRadius.circular(width*0.01)
+                                      ),
+
+                                      child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                        children: [
+                                         SvgPicture.asset(ImageIcons.star) ,
+                                          Text(drlist[selectIndex]["star"],
+                                            style: TextStyle(
+                                                color: Colour.primarycolour,
+                                                fontWeight: FontWeight.w500
+                                            ),
                                     ),
-                                  )
-                                ],
-                              )
-                            ],
-                          )
+                                        ],
+                                      ),
+                                    ),
+
+                                    Container(
+                                      width: width*0.3,
+                                      height: height*0.05,
+                                      child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                        children: [
+                                         SvgPicture.asset(ImageIcons.location) ,
+                                          Text(drlist[selectIndex]["distene"])
+                                        ],
+                                      ),
+                                    )
+                                  ],
+                                )
+                              ],
+                            )
 
 
-                        ],
-                      ),
-                    )
-                    ;
+                          ],
+                        ),
+                      )
+                      ;
 
-                  },
-                  separatorBuilder: (context, index) {
-                    return SizedBox(
-                      height: height*0.03,
-                    );
-                  },
-                  itemCount: doctor.length
+                    },
+                    separatorBuilder: (context, index) {
+                      return SizedBox(
+                        height: height*0.03,
+                      );
+                    },
+                    itemCount: 1
+                ),
               ),
             ),
 
@@ -370,19 +401,28 @@ class _FindDoctorState extends State<FindDoctor> {
                   // physics: BouncingScrollPhysics(),
 
                   itemBuilder: (context, index) {
-                    return Container(
-                      child: Column(mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          CircleAvatar(
-                            radius: width*0.10,
-                            backgroundImage:AssetImage(drlist[index]['image']) ,
-                          ),
-                          Text(drlist[index]["name"]),
+                    return InkWell(
+                      onTap: () {
+                        selectIndex=index;
+                        setState(() {
+
+                        });
+
+                      },
+                      child: Container(
+                        child: Column(mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            CircleAvatar(
+                              radius: width*0.10,
+                              backgroundImage:AssetImage(drlist[index]['image']) ,
+                            ),
+                            Text(drlist[index]["name"]),
 
 
-                        ],
+                          ],
+                        ),
+
                       ),
-
                     );
 
                   },

@@ -6,9 +6,8 @@ import '../../../../icons.dart';
 import '../../../../main.dart';
 
 class BookingPage extends StatefulWidget {
-  final  List time;
-  final  List date;
-  const BookingPage({super.key, required this.time, required this.date});
+  final List d;
+  const BookingPage({super.key, required this.d, });
 
   @override
   State<BookingPage> createState() => _BookingPageState();

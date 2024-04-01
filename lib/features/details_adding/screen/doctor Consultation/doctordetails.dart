@@ -9,15 +9,17 @@ import '../../../../colour.dart';
 import '../../../../icons.dart';
 import '../../../../main.dart';
 
+
 class DoctordetailsPage extends StatefulWidget {
-  const DoctordetailsPage({super.key});
+  final List doctor;
+  const DoctordetailsPage({super.key, required this.doctor});
 
   @override
   State<DoctordetailsPage> createState() => _DoctordetailsPageState();
 }
 
 class _DoctordetailsPageState extends State<DoctordetailsPage> {
-  List doctor=[
+  List doctor1=[
     {
       "image":ImageIcons.drmarcus1,
       "name":"Dr. Marcus Horizon",
@@ -136,7 +138,7 @@ List day=[];
                             height:height*0.15,
 
                             decoration: BoxDecoration(
-                              image: DecorationImage(image: AssetImage(doctor[index]['image'])),
+                              image: DecorationImage(image: AssetImage(widget.doctor[index]['image']),fit: BoxFit.fill),
                               // color: Colors.red,
                               borderRadius: BorderRadius.circular(width*0.03),
 
@@ -147,7 +149,7 @@ List day=[];
                           Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(doctor[index]["name"],
+                              Text(widget.doctor[index]["name"],
                                 style: TextStyle(
                                     fontSize: width*0.05,
                                     fontWeight: FontWeight.w800,
@@ -155,7 +157,7 @@ List day=[];
                                 ),
 
                               ),
-                              Text(doctor[index]["spl"],
+                              Text(widget.doctor[index]["spl"],
                                 style: TextStyle(
                                     color: Colour.gray,
                                     fontSize: width*0.04
@@ -175,7 +177,7 @@ List day=[];
                                     child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
                                       children: [
                                         SvgPicture.asset(ImageIcons.star) ,
-                                        Text(doctor[index]["star"],
+                                        Text(widget.doctor[index]["star"],
                                           style: TextStyle(
                                               color: Colour.primarycolour,
                                               fontWeight: FontWeight.w500
@@ -192,7 +194,7 @@ List day=[];
                                 child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
                                   children: [
                                     SvgPicture.asset(ImageIcons.location,) ,
-                                    Text(doctor[index]["distene"],
+                                    Text(widget.doctor[index]["distene"],
                                     style: TextStyle(
                                       color: Colour.gray,
 
@@ -216,7 +218,7 @@ List day=[];
                     height: height*0.03,
                   );
                 },
-                itemCount: doctor.length
+                itemCount:widget.doctor.length
             ),
             SizedBox(height: width*0.03,),
             Row(
@@ -370,10 +372,10 @@ List day=[];
                 InkWell(
                   onTap: () {
                     day.add({
-                  "name":size[selectIndex]["name"]});
-                    time.add({"time":time[selectIndex1]});
 
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => BookingPage(time: time, date: day,),));
+                     });
+
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => BookingPage(d: day,),));
                   },
                   child: Container(
                     height: height*0.07,

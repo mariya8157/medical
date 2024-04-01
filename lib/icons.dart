@@ -8,6 +8,7 @@ class ImageIcons{
   static const catogory7="assets/icons/health.svg";
   static const catogory8="assets/icons/leftIcon.svg";
   static const catogory9="assets/icons/leftIcon.svg";
+  static const catogory10="assets/icons/Psychiatrist.svg";
   static const back = "assets/icons/back.svg";
   static const columnDot = "assets/icons/3 dot.svg";
   static const search = "assets/icons/Search.svg";
