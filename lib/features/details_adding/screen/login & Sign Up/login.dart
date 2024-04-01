@@ -43,7 +43,7 @@ class _LoginPageState extends State<LoginPage> {
             key: formKey,
             child: Column(
               children: [
-                SizedBox(height: width*0.01,),
+                SizedBox(height: width*0.02,),
                 Container(
                   decoration: BoxDecoration(
                     color: Colour.color3,
