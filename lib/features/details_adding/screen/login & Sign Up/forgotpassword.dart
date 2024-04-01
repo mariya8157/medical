@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:medical/colour.dart';
+import 'package:medical/features/details_adding/screen/login%20&%20Sign%20Up/verify.dart';
 
 import '../../../../icons.dart';
 import '../../../../main.dart';
@@ -214,6 +215,38 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                         ),
                         borderRadius: BorderRadius.circular(width*0.07),
                       ),
+                    ),
+                  ),
+                ),
+                SizedBox(height: width*0.06,),
+                InkWell(
+                  onTap: () {
+                    if(
+                    emailController.text!=""||
+                    phoneController.text!=""&&
+                        formKey.currentState!.validate()
+                    )
+                      {
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => VerificationPage(
+                          email : emailController.text,
+                          phone : phoneController.text,
+                        ),));
+                      }
+                  },
+                  child: Container(
+                    height: width*0.16,
+                    width: width*0.93,
+                    decoration: BoxDecoration(
+                        color: Colour.primarycolour,
+                        borderRadius: BorderRadius.circular(width*0.07)
+                    ),
+                    child: Center(
+                      child: Text("Reset Password",
+                        style: GoogleFonts.inter(
+                            fontSize: width*0.045,
+                            fontWeight: FontWeight.w600,
+                            color: Colour.secondarycolour
+                        ),),
                     ),
                   ),
                 ),

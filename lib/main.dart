@@ -6,6 +6,7 @@ import 'package:medical/features/details_adding/screen/doctor%20Consultation/doc
 import 'package:medical/features/details_adding/screen/login%20&%20Sign%20Up/forgotpassword.dart';
 import 'package:medical/features/details_adding/screen/login%20&%20Sign%20Up/login.dart';
 import 'package:medical/features/details_adding/screen/login%20&%20Sign%20Up/signup.dart';
+import 'package:medical/features/details_adding/screen/login%20&%20Sign%20Up/verify.dart';
 import 'package:medical/features/details_adding/screen/onlinePharmacy/pharmacy.dart';
 
 
