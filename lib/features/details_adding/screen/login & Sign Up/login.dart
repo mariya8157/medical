@@ -4,6 +4,8 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:medical/colour.dart';
+import 'package:medical/features/details_adding/screen/login%20&%20Sign%20Up/forgotpassword.dart';
+import 'package:medical/features/details_adding/screen/login%20&%20Sign%20Up/signup.dart';
 import 'package:medical/icons.dart';
 
 import '../../../../main.dart';
@@ -138,12 +140,17 @@ class _LoginPageState extends State<LoginPage> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    Container(
-                      child: Text("Forgot Password?",
-                        style: TextStyle(
-                            fontWeight: FontWeight.w600,
-                            fontSize: width*0.033,
-                            color: Colour.primarycolour),),
+                    InkWell(
+                      onTap: () {
+                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => ForgotPasswordPage(),));
+                      },
+                      child: Container(
+                        child: Text("Forgot Password?",
+                          style: TextStyle(
+                              fontWeight: FontWeight.w600,
+                              fontSize: width*0.033,
+                              color: Colour.primarycolour),),
+                      ),
                     ),
                   ],),
                 SizedBox(height: width*0.05,),
@@ -234,12 +241,17 @@ class _LoginPageState extends State<LoginPage> {
                               fontWeight: FontWeight.w500,
                               color: Colour.color5
                           ),),
-                           Text("Sign Up",
-                            style: TextStyle(
-                                fontSize: width*0.035,
-                                fontWeight: FontWeight.w600,
-                                color: Colour.primarycolour
-                            ),),
+                           InkWell(
+                             onTap: () {
+                               Navigator.push(context, MaterialPageRoute(builder: (context) => SignupPage(),));
+                             },
+                             child: Text("Sign Up",
+                              style: TextStyle(
+                                  fontSize: width*0.035,
+                                  fontWeight: FontWeight.w600,
+                                  color: Colour.primarycolour
+                              ),),
+                           ),
                       ],
                     )
                 ),
