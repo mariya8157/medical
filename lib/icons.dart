@@ -11,13 +11,15 @@ class ImageIcons{
   static const back = "assets/icons/back.svg";
   static const columnDot = "assets/icons/3 dot.svg";
   static const search = "assets/icons/Search.svg";
-  static const save = "assets/icons/save.svg";
   static const email = "assets/icons/email.svg";
   static const lock = "assets/icons/lock.svg";
   static const eyeOff = "assets/icons/eyeoff.svg";
   static const google = "assets/icons/google.svg";
   static const apple = "assets/icons/apple.svg";
   static const facebook = "assets/icons/facebook.svg";
+  static const eye = "assets/icons/eye.svg";
+  static const save = "assets/icons/save.svg";
+
   static const star = "assets/icons/Star.svg";
   static const location = "assets/icons/Location.svg";
   static const chat = "assets/icons/Chat.svg";
