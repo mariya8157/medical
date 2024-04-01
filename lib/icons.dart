@@ -47,6 +47,7 @@ class ImageIcons{
   static const konidin = "assets/images/konidin.png";
   static const calvit = "assets/images/calvit.png";
   static const visa = "assets/icons/VISA.png";
+  static const done = "assets/icons/done.png";
 
 
 

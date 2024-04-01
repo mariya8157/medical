@@ -20,6 +20,7 @@ class _LoginPageState extends State<LoginPage> {
   TextEditingController passwordController = TextEditingController();
   final passwordValidation=RegExp(r"^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$");
   final formKey=GlobalKey<FormState>();
+  bool selectIcon = false;
 
   @override
   Widget build(BuildContext context) {
@@ -85,7 +86,7 @@ class _LoginPageState extends State<LoginPage> {
                     controller: passwordController,
                     textInputAction: TextInputAction.next,
                     keyboardType: TextInputType.text,
-                    obscureText: true,
+                    obscureText: selectIcon?false:true,
                     autovalidateMode: AutovalidateMode.onUserInteraction,
                     validator: (value) {
                       if(!passwordValidation.hasMatch(value!)){
@@ -101,9 +102,21 @@ class _LoginPageState extends State<LoginPage> {
                         padding: EdgeInsets.all(width*0.03),
                         child: SvgPicture.asset(ImageIcons.lock),
                       ),
-                      suffixIcon: Padding(
-                        padding: EdgeInsets.all(width*0.03),
-                        child: SvgPicture.asset(ImageIcons.eyeOff),
+                      suffixIcon: InkWell(
+                        onTap: () {
+                          selectIcon=!selectIcon;
+                          setState(() {
+
+                          });
+                        },
+                        child: Padding(
+                          padding: EdgeInsets.all(width*0.045),
+                          child: Container(
+                            height: width*0.09,
+                            width: width*0.09,
+                              child: selectIcon?SvgPicture.asset(ImageIcons.eye,color: Colour.color1,):
+                              SvgPicture.asset(ImageIcons.eyeOff)),
+                        ),
                       ),
                       labelText: "Enter your password",
                       labelStyle: TextStyle(fontWeight: FontWeight.w500,fontSize: width*0.04, color: Colour.color1),
@@ -131,20 +144,41 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ],),
                 SizedBox(height: width*0.05,),
-                Container(
-                  height: width*0.16,
-                  width: width*0.93,
-                  decoration: BoxDecoration(
-                    color: Colour.primarycolour,
-                    borderRadius: BorderRadius.circular(width*0.07)
-                  ),
-                  child: Center(
-                    child: Text("Login",
-                    style: TextStyle(
-                      fontSize: width*0.045,
-                      fontWeight: FontWeight.w600,
-                      color: Colour.secondarycolour
-                    ),),
+                InkWell(
+                  onTap: () {
+                    showDialog(
+                        context: context,
+                        barrierDismissible: false,
+
+                        builder: (context) {
+                          return AlertDialog(
+                            content: Container(
+                              height: width*0.85,
+                              width: width*0.4,
+                              child: Column(
+                                children: [
+                                  Image.asset(ImageIcons.done)
+                                ],
+                              ),
+                            ),
+                          );
+                        },);
+                  },
+                  child: Container(
+                    height: width*0.16,
+                    width: width*0.93,
+                    decoration: BoxDecoration(
+                      color: Colour.primarycolour,
+                      borderRadius: BorderRadius.circular(width*0.07)
+                    ),
+                    child: Center(
+                      child: Text("Login",
+                      style: TextStyle(
+                        fontSize: width*0.045,
+                        fontWeight: FontWeight.w600,
+                        color: Colour.secondarycolour
+                      ),),
+                    ),
                   ),
                 ),
                 SizedBox(height: width*0.05,),

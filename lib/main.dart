@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
             theme: ThemeData(
               textTheme: GoogleFonts.interTextTheme()
             ),
-            home:DoctordetailsPage(),
+            home:LoginPage(),
     ),);
   }
 }
