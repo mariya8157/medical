@@ -140,7 +140,10 @@ class _LoginPageState extends State<LoginPage> {
                   children: [
                     Container(
                       child: Text("Forgot Password?",
-                        style: TextStyle(fontWeight: FontWeight.w600,fontSize: width*0.033,color: Colour.primarycolour),),
+                        style: TextStyle(
+                            fontWeight: FontWeight.w600,
+                            fontSize: width*0.033,
+                            color: Colour.primarycolour),),
                     ),
                   ],),
                 SizedBox(height: width*0.05,),
@@ -149,15 +152,53 @@ class _LoginPageState extends State<LoginPage> {
                     showDialog(
                         context: context,
                         barrierDismissible: false,
-
                         builder: (context) {
                           return AlertDialog(
                             content: Container(
                               height: width*0.85,
                               width: width*0.4,
                               child: Column(
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                 children: [
-                                  Image.asset(ImageIcons.done)
+                                  Container(
+                                      height: width*0.25,
+                                      width: width*0.25,
+                                      child: Image.asset(ImageIcons.done)),
+                                  Container(
+                                      child: Column(
+                                        children: [
+                                          Text("Yeay! Welcome Back",
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.w600,
+                                                fontSize: width*0.04,
+                                                color: Colour.thirdcolour),),
+                                          Text("Once again you login successfully",
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.w500,
+                                                fontSize: width*0.034,
+                                                color: Colour.color1),),
+                                          Text("into medidoc app",
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.w500,
+                                                fontSize: width*0.034,
+                                                color: Colour.color1),),
+                                        ],)),
+                                  Container(
+                                    height: width*0.12,
+                                    width: width*0.34,
+                                    decoration: BoxDecoration(
+                                        color: Colour.primarycolour,
+                                        borderRadius: BorderRadius.circular(width*0.05)
+                                    ),
+                                    child: Center(
+                                      child: Text("Go to home",
+                                        style: TextStyle(
+                                            fontSize: width*0.04,
+                                            fontWeight: FontWeight.w600,
+                                            color: Colour.secondarycolour
+                                        ),),
+                                    ),
+                                  ),
                                 ],
                               ),
                             ),
