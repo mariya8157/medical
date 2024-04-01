@@ -30,7 +30,7 @@ class _LoginPageState extends State<LoginPage> {
         padding:  EdgeInsets.all(width*0.005),
         child: SvgPicture.asset(ImageIcons.catogory8),
       ),
-      title: Text("Login",style: TextStyle(
+      title: Text("Login",style: GoogleFonts.inter(
         fontWeight: FontWeight.w800,
         fontSize: width*0.05
       )),
@@ -84,7 +84,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   child: TextFormField(
                     controller: passwordController,
-                    textInputAction: TextInputAction.next,
+                    textInputAction: TextInputAction.done,
                     keyboardType: TextInputType.text,
                     obscureText: selectIcon?false:true,
                     autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -214,7 +214,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     child: Center(
                       child: Text("Login",
-                      style: TextStyle(
+                      style: GoogleFonts.inter(
                         fontSize: width*0.045,
                         fontWeight: FontWeight.w600,
                         color: Colour.secondarycolour

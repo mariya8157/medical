@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../../../../colour.dart';
 import '../../../../icons.dart';
@@ -30,7 +31,7 @@ class _SignupPageState extends State<SignupPage> {
           padding:  EdgeInsets.all(width*0.005),
           child: SvgPicture.asset(ImageIcons.catogory8),
         ),
-        title: Text("Sign Up",style: TextStyle(
+        title: Text("Sign Up",style: GoogleFonts.inter(
             fontWeight: FontWeight.w800,
             fontSize: width*0.05
         )),
@@ -117,7 +118,7 @@ class _SignupPageState extends State<SignupPage> {
                   ),
                   child: TextFormField(
                     controller: passwordController,
-                    textInputAction: TextInputAction.next,
+                    textInputAction: TextInputAction.done,
                     keyboardType: TextInputType.text,
                     obscureText: selectIcon?false:true,
                     autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -291,7 +292,7 @@ class _SignupPageState extends State<SignupPage> {
                     ),
                     child: Center(
                       child: Text("Sign Up",
-                        style: TextStyle(
+                        style: GoogleFonts.inter(
                             fontSize: width*0.045,
                             fontWeight: FontWeight.w600,
                             color: Colour.secondarycolour
