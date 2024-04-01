@@ -23,10 +23,15 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Padding(
-          padding:  EdgeInsets.all(width*0.005),
-          child: SvgPicture.asset(ImageIcons.catogory8),
-        ),
+          leading: InkWell(
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: Padding(
+              padding:  EdgeInsets.all(width*0.005),
+              child: SvgPicture.asset(ImageIcons.catogory8),
+            ),
+          )
       ),
       body: SingleChildScrollView(
         child: Padding(

@@ -7,6 +7,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '../../../../colour.dart';
 import '../../../../icons.dart';
 import '../../../../main.dart';
+import 'login.dart';
 
 class SignupPage extends StatefulWidget {
   const SignupPage({super.key});
@@ -27,10 +28,15 @@ class _SignupPageState extends State<SignupPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Padding(
-          padding:  EdgeInsets.all(width*0.005),
-          child: SvgPicture.asset(ImageIcons.catogory8),
-        ),
+          leading: InkWell(
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: Padding(
+              padding:  EdgeInsets.all(width*0.005),
+              child: SvgPicture.asset(ImageIcons.catogory8),
+            ),
+          ),
         title: Text("Sign Up",style: GoogleFonts.inter(
             fontWeight: FontWeight.w800,
             fontSize: width*0.05
@@ -261,20 +267,25 @@ class _SignupPageState extends State<SignupPage> {
                                                 fontSize: width*0.032,
                                                 color: Colour.color1),),
                                         ],)),
-                                  Container(
-                                    height: width*0.12,
-                                    width: width*0.34,
-                                    decoration: BoxDecoration(
-                                        color: Colour.primarycolour,
-                                        borderRadius: BorderRadius.circular(width*0.05)
-                                    ),
-                                    child: Center(
-                                      child: Text("Login",
-                                        style: TextStyle(
-                                            fontSize: width*0.04,
-                                            fontWeight: FontWeight.w600,
-                                            color: Colour.secondarycolour
-                                        ),),
+                                  InkWell(
+                                    onTap: () {
+                                      Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => LoginPage(),), (route) => false);
+                                    },
+                                    child: Container(
+                                      height: width*0.12,
+                                      width: width*0.34,
+                                      decoration: BoxDecoration(
+                                          color: Colour.primarycolour,
+                                          borderRadius: BorderRadius.circular(width*0.05)
+                                      ),
+                                      child: Center(
+                                        child: Text("Login",
+                                          style: TextStyle(
+                                              fontSize: width*0.04,
+                                              fontWeight: FontWeight.w600,
+                                              color: Colour.secondarycolour
+                                          ),),
+                                      ),
                                     ),
                                   ),
                                 ],
