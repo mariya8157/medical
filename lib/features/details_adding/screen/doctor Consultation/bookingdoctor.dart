@@ -198,13 +198,13 @@ class _BookingPageState extends State<BookingPage> {
                   backgroundColor: Colour.lightgreen,
                   child: Center(child: SvgPicture.asset(ImageIcons.calendar)),
                 ),
-                // Text("${widget.date}  II ${widget.time}",
-                //   style: TextStyle(
-                //       fontSize: width*0.04,
-                //       fontWeight: FontWeight.w500,
-                //       color:Colour.gray
-                //   ),
-                // ),
+                Text("${widget.d}  II ",
+                  style: TextStyle(
+                      fontSize: width*0.04,
+                      fontWeight: FontWeight.w500,
+                      color:Colour.gray
+                  ),
+                ),
               ],
             ),
             Divider(thickness: width*0.004,

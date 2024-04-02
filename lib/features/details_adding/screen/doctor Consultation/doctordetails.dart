@@ -37,31 +37,27 @@ class _DoctordetailsPageState extends State<DoctordetailsPage> {
     },
     {
       "day":"Tue",
-      "name":"Monday",
+      "name":"Tuesday",
       "date":22,
     },
     {
       "day":"Wed",
-      "name":"Monday",
-
+      "name":"Wednesday",
       "date":23,
     },
     {
       "day":"Thu",
-      "name":"Monday",
-
+      "name":"Thursday",
       "date":24,
     } ,
     {
       "day":"Fri",
-      "name":"Monday",
-
+      "name":"Friday",
       "date":25,
     },
     {
       "day":"Sat",
-      "name":"Monday",
-
+      "name":"Saturday",
       "date":27,
     }
   ];
@@ -371,7 +367,13 @@ List day=[];
                 ),
                 InkWell(
                   onTap: () {
-                    day.add({
+                    day.add(
+                        {
+                      "day":size[selectIndex]["day"],
+                      "name":size[selectIndex]["name"],
+                      "date":size[selectIndex]["date"],
+                      "time":time[selectIndex1]["time"],
+
 
                      });
 
