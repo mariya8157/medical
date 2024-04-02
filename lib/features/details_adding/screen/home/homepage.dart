@@ -43,7 +43,7 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
       body: Padding(
-        padding: EdgeInsets.all(12.0),
+        padding: EdgeInsets.all(8.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
@@ -155,7 +155,33 @@ class _HomePageState extends State<HomePage> {
                 ],
               )
             ],
-          )
+          ),
+            SizedBox(height: width*0.04,),
+            Container(
+              height: width*0.4,
+              width: width*0.85,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(width*0.04),
+                image: DecorationImage(
+                    image: AssetImage(ImageIcons.CTA),fit: BoxFit.fill)
+              ),
+            ),SizedBox(height: width*0.04,),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+
+              children: [
+                Text("Top Doctor",style: TextStyle(
+                  fontWeight: FontWeight.w700,
+                  fontSize: width*0.04
+                ),),
+                 SizedBox(width: width*0.05,),
+                Text("See all",style: TextStyle(
+                    fontSize: width*0.03,
+                  color: Colour.primarycolour
+                ),)
+              ],
+            )
+
 
           ],
         ),
