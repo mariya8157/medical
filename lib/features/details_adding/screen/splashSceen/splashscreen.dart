@@ -1,10 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:medical/colour.dart';
+import 'package:medical/features/details_adding/screen/splashSceen/onbording.dart';
 import 'package:medical/icons.dart';
 
 import '../../../../main.dart';
-import '../../../../pageone.dart';
+
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -20,7 +21,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Future.delayed(Duration(
       seconds: 5
     )).then((value) =>
-         Navigator.push(context, MaterialPageRoute(builder: (context) => PageOne(),)));
+         Navigator.push(context, MaterialPageRoute(builder: (context) => OnBordingPage(),)));
     super.initState();
   }
   Widget build(BuildContext context) {

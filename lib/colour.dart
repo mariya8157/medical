@@ -16,5 +16,4 @@ class Colour{
   static const color6 = Color(0xff101623);
 
 
-
 }
