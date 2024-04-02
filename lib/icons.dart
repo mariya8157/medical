@@ -23,6 +23,7 @@ class ImageIcons{
   static const user = "assets/icons/user.svg";
   static const email2 = "assets/icons/email2.svg";
   static const call = "assets/icons/call.svg";
+  static const Pharmacy = "assets/icons/Pharmacy.svg";
 
   static const star = "assets/icons/Star.svg";
   static const location = "assets/icons/Location.svg";
