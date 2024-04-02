@@ -21,9 +21,9 @@ class _HomePageState extends State<HomePage> {
     },
     {"images":ImageIcons.Pharmacy,
       "text":"Pharmacy"
-    },{"images":ImageIcons.catogory1,
+    },{"images":ImageIcons.Hospital,
       "text":"Hospital"
-    },{"images":ImageIcons.catogory1,
+    },{"images":ImageIcons.Ambulance,
       "text":"Ambulance"
     }
   ];

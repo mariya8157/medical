@@ -24,6 +24,8 @@ class ImageIcons{
   static const email2 = "assets/icons/email2.svg";
   static const call = "assets/icons/call.svg";
   static const Pharmacy = "assets/icons/Pharmacy.svg";
+  static const Hospital = "assets/icons/Hospital.svg";
+  static const Ambulance = "assets/icons/Ambulance.svg";
 
   static const star = "assets/icons/Star.svg";
   static const location = "assets/icons/Location.svg";
