@@ -377,7 +377,7 @@ List day=[];
 
                      });
 
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => BookingPage(d: day,),));
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => BookingPage(),));
                   },
                   child: Container(
                     height: height*0.07,

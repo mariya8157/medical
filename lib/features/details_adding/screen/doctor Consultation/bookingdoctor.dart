@@ -7,8 +7,7 @@ import '../../../../icons.dart';
 import '../../../../main.dart';
 
 class BookingPage extends StatefulWidget {
-  final List d;
-  const BookingPage({super.key, required this.d, });
+  const BookingPage({super.key,  });
 
   @override
   State<BookingPage> createState() => _BookingPageState();
@@ -199,7 +198,7 @@ class _BookingPageState extends State<BookingPage> {
                   backgroundColor: Colour.lightgreen,
                   child: Center(child: SvgPicture.asset(ImageIcons.calendar)),
                 ),
-                Text("${widget.d}  II ",
+                Text("",
                   style: TextStyle(
                       fontSize: width*0.04,
                       fontWeight: FontWeight.w500,
@@ -432,28 +431,28 @@ class _BookingPageState extends State<BookingPage> {
                       )
                   ),
                 ),
-                InkWell(
-                  onTap: () {
-
-
-                  },
-                  child: Container(
-                    height: height*0.07,
-                    width: width*0.6,
-                    decoration: BoxDecoration(
-                        color: Colour.primarycolour,
-                        borderRadius: BorderRadius.circular(width*0.07)
-                    ),
-                    child: Center(
-                      child: Text("Booking",
-                        style: TextStyle(
-                            fontSize: width*0.045,
-                            fontWeight: FontWeight.w600,
-                            color: Colour.secondarycolour
-                        ),),
-                    ),
-                  ),
-                ),
+                // InkWell(
+                //   onTap: () {
+                //
+                //
+                //   },
+                //   child: Container(
+                //     height: height*0.07,
+                //     width: width*0.6,
+                //     decoration: BoxDecoration(
+                //         color: Colour.primarycolour,
+                //         borderRadius: BorderRadius.circular(width*0.07)
+                //     ),
+                //     child: Center(
+                //       child: Text("Booking",
+                //         style: TextStyle(
+                //             fontSize: width*0.045,
+                //             fontWeight: FontWeight.w600,
+                //             color: Colour.secondarycolour
+                //         ),),
+                //     ),
+                //   ),
+                // ),
                 InkWell(
                   onTap: () {
                     showDialog(
@@ -523,15 +522,15 @@ class _BookingPageState extends State<BookingPage> {
                       },);
                   },
                   child: Container(
-                    height: width*0.16,
-                    width: width*0.93,
+                    height: height*0.07,
+                    width: width*0.6,
                     decoration: BoxDecoration(
                         color: Colour.primarycolour,
                         borderRadius: BorderRadius.circular(width*0.07)
                     ),
                     child: Center(
                       child: Text("Booking",
-                        style: GoogleFonts.inter(
+                        style: TextStyle(
                             fontSize: width*0.045,
                             fontWeight: FontWeight.w600,
                             color: Colour.secondarycolour
