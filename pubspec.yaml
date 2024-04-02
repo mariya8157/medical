@@ -40,6 +40,9 @@ dependencies:
   cached_network_image: ^3.2.3
   image_picker: ^1.0.3
   google_fonts: ^6.1.0
+  readmore: ^2.2.0
+  pinput: ^3.0.1
+
 
 dev_dependencies:
   flutter_test:

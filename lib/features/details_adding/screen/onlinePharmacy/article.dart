@@ -121,6 +121,7 @@ class _articlesState extends State<articles> {
         shrinkWrap: true,
         physics: BouncingScrollPhysics(),
         children: [
+          SizedBox(height: width*0.05,),
           Center(
             child: Container(
               height: width*0.14,
@@ -379,8 +380,7 @@ class _articlesState extends State<articles> {
             width: width*1,
             child: ListView.separated(
               shrinkWrap: true,
-                // physics: BouncingScrollPhysics(),
-
+                physics: BouncingScrollPhysics(),
                 itemBuilder: (context, index) {
                   return Column(
                     children: [
