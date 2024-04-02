@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
@@ -16,14 +17,16 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   TextEditingController search_controller=TextEditingController();
   List items=[
-    {"images":ImageIcons.catogory1,
+    {"images":"ImageIcons.catogory1",
       "text":"Doctor"
     },
-    {"images":ImageIcons.Pharmacy,
+    {"images":"ImageIcons.Pharmacy",
       "text":"Pharmacy"
-    },{"images":ImageIcons.Hospital,
+    },
+    {"images":"ImageIcons.Hospital",
       "text":"Hospital"
-    },{"images":ImageIcons.Ambulance,
+    },
+    {"images":"ImageIcons.Ambulance",
       "text":"Ambulance"
     }
   ];
@@ -87,31 +90,72 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             SizedBox(height: width*0.05,),
-           Container(
-             height: width*0.3,
-             width: width*0.9,
-             color: Colors.blue,
-             child: ListView.separated(
-               shrinkWrap: true,
-               scrollDirection: Axis.horizontal,
-               physics: NeverScrollableScrollPhysics(),
-               itemCount: 4,
-                 itemBuilder: (context, index) {
-                 return Column(
-                   children: [
-                     Container(
-                      height: width*0.3,
-                      width: width*0.2,
-                      child: SvgPicture.asset(ImageIcons.catogory1),
-                     ),
-                   ],
-                 );
-                 },
-                 separatorBuilder: (context, index) {
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Column(
+                children: [
+                  Container(
+                    height:height*0.06,
+                    width: width*0.08,
+                    child: SvgPicture.asset(ImageIcons.catogory1),
 
-                 return  SizedBox(width: width*0.04,);
-                 }, ),
-           )
+                  ),
+                  SizedBox(height: width*0.04,),
+                  Text("Doctor",
+                    style: TextStyle(
+                        fontSize: width*0.03,
+                      color: Colour.gray
+                    ),)
+                ],
+              ),
+              Column(
+                children: [
+                  Container(
+                    height:height*0.06,
+                    width: width*0.08,
+                    child: SvgPicture.asset(ImageIcons.Pharmacy),
+
+                  ),SizedBox(height: width*0.04,),
+                  Text("Pharmacy",
+                    style: TextStyle(
+                        fontSize: width*0.03,
+                        color: Colour.gray
+                    ),)
+                ],
+              ),
+              Column(
+                children: [
+                  Container(
+                    height:height*0.06,
+                    width: width*0.08,
+                    child: SvgPicture.asset(ImageIcons.Hospital),
+
+                  ),SizedBox(height: width*0.04,),
+                  Text("Hospital",
+                    style: TextStyle(
+                        fontSize: width*0.03,
+                        color: Colour.gray
+                    ),)
+                ],
+              ),
+              Column(
+                children: [
+                  Container(
+                    height:height*0.06,
+                    width: width*0.08,
+                    child: SvgPicture.asset(ImageIcons.Ambulance),
+
+                  ),SizedBox(height: width*0.04,),
+                  Text("Ambulance",
+                    style: TextStyle(
+                        fontSize: width*0.03,
+                        color: Colour.gray
+                    ),)
+                ],
+              )
+            ],
+          )
 
           ],
         ),
