@@ -37,14 +37,6 @@ class _TopDoctorPageState extends State<TopDoctorPage> {
       "star":"4,8",
       "distene":"900m away",
 
-    }
-    ,{
-      "image":ImageIcons.drluke,
-      "name":"Dr. Luke",
-      "spl":"General medicine",
-      "star":"4,7",
-      "distene":"800m away",
-
     },
     {
       "image":ImageIcons.drgerty,
@@ -128,11 +120,11 @@ class _TopDoctorPageState extends State<TopDoctorPage> {
                             )
                           ),
                           child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
+                            // mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [SizedBox(width: width*0.03,),
                               Container(
                                 width: width*0.35,
-                                height:height*0.15,
+                                height:height*0.17,
 
                                 decoration: BoxDecoration(
                                   image: DecorationImage(image: AssetImage(drlist[index]['image']),fit: BoxFit.fill),
@@ -142,65 +134,69 @@ class _TopDoctorPageState extends State<TopDoctorPage> {
                                 ),
 
 
-                              ),
-                              Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(drlist[index]["name"],
-                                    style: TextStyle(
-                                        fontSize: width*0.05,
-                                        fontWeight: FontWeight.w800,
-                                        color:Colour.thirdcolour
-                                    ),
+                              ),SizedBox(width: width*0.04,),
+                              Container(
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
 
-                                  ),
-                                  Text(drlist[index]["spl"],
-                                    style: TextStyle(
-                                        color: Colour.gray,
-                                        fontSize: width*0.04
-                                    ),
-
-                                  ),
-                                  Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Container(
-                                        width: width*0.15,
-                                        height: height*0.04,
-                                        decoration: BoxDecoration(
-                                            color: Colour.lightgreen,
-                                            borderRadius: BorderRadius.circular(width*0.01)
-                                        ),
-
-                                        child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                          children: [
-                                            SvgPicture.asset(ImageIcons.star) ,
-                                            Text(drlist[index]["star"],
-                                              style: TextStyle(
-                                                  color: Colour.primarycolour,
-                                                  fontWeight: FontWeight.w500
-                                              ),
-                                            ),
-                                          ],
-                                        ),
+                                    Text(drlist[index]["name"],
+                                      style: TextStyle(
+                                          fontSize: width*0.05,
+                                          fontWeight: FontWeight.w800,
+                                          color:Colour.thirdcolour
                                       ),
-                                    ],
-                                  ),
-                                  Container(
-                                    width: width*0.3,
-                                    height: height*0.05,
-                                    child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                      children: [
-                                        SvgPicture.asset(ImageIcons.location,) ,
-                                        Text(drlist[index]["distene"],
-                                          style: TextStyle(
-                                            color: Colour.gray,
 
-                                          ),)
+                                    ),
+                                    Text(drlist[index]["spl"],
+                                      style: TextStyle(
+                                          color: Colour.gray,
+                                          fontSize: width*0.04
+                                      ),
+
+                                    ),
+                                    Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Container(
+                                          width: width*0.15,
+                                          height: height*0.04,
+                                          decoration: BoxDecoration(
+                                              color: Colour.lightgreen,
+                                              borderRadius: BorderRadius.circular(width*0.01)
+                                          ),
+
+                                          child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                            children: [
+                                              SvgPicture.asset(ImageIcons.star) ,
+                                              Text(drlist[index]["star"],
+                                                style: TextStyle(
+                                                    color: Colour.primarycolour,
+                                                    fontWeight: FontWeight.w500
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
                                       ],
                                     ),
-                                  )
+                                    Container(
+                                      width: width*0.3,
+                                      height: height*0.05,
+                                      child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                        children: [
+                                          SvgPicture.asset(ImageIcons.location,) ,
+                                          Text(drlist[index]["distene"],
+                                            style: TextStyle(
+                                              color: Colour.color1,
 
-                                ],
+                                            ),)
+                                        ],
+                                      ),
+                                    )
+
+                                  ],
+                                ),
                               )
 
 
