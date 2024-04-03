@@ -40,7 +40,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
             key: formKey,
             child: Column(
               children: [
-                SizedBox(height: width*0.02,),
+                SizedBox(height: width*0.02),
                 Row(
                   children: [
                     Text("Forgot Your Password?",

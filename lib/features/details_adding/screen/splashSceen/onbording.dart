@@ -22,7 +22,6 @@ class _OnBordingPageState extends State<OnBordingPage> {
 
   @override
   Widget build(BuildContext context) {
-    var constants;
     return Scaffold(
       body: SingleChildScrollView(
         physics: NeverScrollableScrollPhysics(),
