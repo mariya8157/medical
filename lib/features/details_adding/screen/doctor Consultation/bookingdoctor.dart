@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:medical/features/details_adding/screen/doctor%20Consultation/chatwithdoctor.dart';
 
 import '../../../../colour.dart';
 import '../../../../icons.dart';
@@ -198,7 +199,7 @@ class _BookingPageState extends State<BookingPage> {
                   backgroundColor: Colour.lightgreen,
                   child: Center(child: SvgPicture.asset(ImageIcons.calendar)),
                 ),
-                Text("",
+                Text("Wednesday, Jun 23, 2021 | 10:00AM",
                   style: TextStyle(
                       fontSize: width*0.04,
                       fontWeight: FontWeight.w500,
@@ -496,6 +497,7 @@ class _BookingPageState extends State<BookingPage> {
                                       ],)),
                                 InkWell(
                                   onTap: () {
+                                    Navigator.push(context,MaterialPageRoute(builder: (context) => ChatPage(),));
 
                                   },
                                   child: Container(
