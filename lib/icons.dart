@@ -80,12 +80,4 @@ class ImageIcons{
   static const attach= "assets/images/attach.png";
 
 
-
-
-
-
-
-
-
-
 }

@@ -18,9 +18,11 @@ class OnBordingPage extends StatefulWidget {
 class _OnBordingPageState extends State<OnBordingPage> {
   int currentIndex=0;
   PageController controller=PageController();
+  
 
   @override
   Widget build(BuildContext context) {
+    var constants;
     return Scaffold(
       body: SingleChildScrollView(
         physics: NeverScrollableScrollPhysics(),
