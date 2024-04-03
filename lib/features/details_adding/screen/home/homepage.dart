@@ -231,7 +231,7 @@ class _HomePageState extends State<HomePage> {
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(width*0.04),
                           border: Border.all(
-                            color: Colour.gray
+                            color: Colour.color2
                           )
                         ),
                         child: Padding(

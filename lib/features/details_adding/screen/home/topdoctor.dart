@@ -116,7 +116,7 @@ class _TopDoctorPageState extends State<TopDoctorPage> {
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(width*0.03),
                             border: Border.all(
-                              color: Colour.gray
+                              color: Colour.color2
                             )
                           ),
                           child: Row(
