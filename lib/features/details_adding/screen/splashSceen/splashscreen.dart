@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:medical/colour.dart';
 import 'package:medical/features/details_adding/screen/splashSceen/onbording.dart';
 import 'package:medical/icons.dart';
@@ -40,8 +41,8 @@ class _SplashScreenState extends State<SplashScreen> {
              )
            ),
          ),
-       ),Text("Medics",style: TextStyle(
-              fontSize:width*0.1,
+       ),Text("Medics",style: GoogleFonts.inter(
+              fontSize:width*0.12,
           fontWeight: FontWeight.w900,
           color: Colour.secondarycolour),)
         ],
