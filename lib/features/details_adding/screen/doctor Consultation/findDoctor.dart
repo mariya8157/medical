@@ -131,7 +131,7 @@ class _FindDoctorState extends State<FindDoctor> {
             style: TextStyle(
                 color: Colors.black,
                 fontWeight: FontWeight.w700,
-                fontSize: width*0.063
+                fontSize: width*0.06
             ),
           ),
           // actions: [Row(
@@ -146,7 +146,7 @@ class _FindDoctorState extends State<FindDoctor> {
         child: Column(
           children: [
             Container(
-              height: height*0.06,
+              height: height*0.12,
               decoration: BoxDecoration(
                   color: Colour.color3,
                   borderRadius: BorderRadius.circular(width*0.07)
