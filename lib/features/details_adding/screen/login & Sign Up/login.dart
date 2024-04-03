@@ -4,6 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:medical/colour.dart';
+import 'package:medical/features/details_adding/screen/home/homepage.dart';
 import 'package:medical/features/details_adding/screen/login%20&%20Sign%20Up/forgotpassword.dart';
 import 'package:medical/features/details_adding/screen/login%20&%20Sign%20Up/signup.dart';
 import 'package:medical/icons.dart';
@@ -28,9 +29,14 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
     appBar: AppBar(
-      leading: Padding(
-        padding:  EdgeInsets.all(width*0.005),
-        child: SvgPicture.asset(ImageIcons.catogory8),
+      leading: InkWell(
+        onTap: () {
+          Navigator.pop(context);
+        },
+        child: Padding(
+          padding:  EdgeInsets.all(width*0.005),
+          child: SvgPicture.asset(ImageIcons.catogory8),
+        ),
       ),
       title: Text("Login",style: GoogleFonts.inter(
         fontWeight: FontWeight.w800,
@@ -190,20 +196,25 @@ class _LoginPageState extends State<LoginPage> {
                                                 fontSize: width*0.034,
                                                 color: Colour.color1),),
                                         ],)),
-                                  Container(
-                                    height: width*0.12,
-                                    width: width*0.34,
-                                    decoration: BoxDecoration(
-                                        color: Colour.primarycolour,
-                                        borderRadius: BorderRadius.circular(width*0.05)
-                                    ),
-                                    child: Center(
-                                      child: Text("Go to home",
-                                        style: TextStyle(
-                                            fontSize: width*0.04,
-                                            fontWeight: FontWeight.w600,
-                                            color: Colour.secondarycolour
-                                        ),),
+                                  InkWell(
+                                    onTap: () {
+                                      Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage(),));
+                                    },
+                                    child: Container(
+                                      height: width*0.12,
+                                      width: width*0.34,
+                                      decoration: BoxDecoration(
+                                          color: Colour.primarycolour,
+                                          borderRadius: BorderRadius.circular(width*0.05)
+                                      ),
+                                      child: Center(
+                                        child: Text("Go to home",
+                                          style: TextStyle(
+                                              fontSize: width*0.04,
+                                              fontWeight: FontWeight.w600,
+                                              color: Colour.secondarycolour
+                                          ),),
+                                      ),
                                     ),
                                   ),
                                 ],
