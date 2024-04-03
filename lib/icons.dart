@@ -66,6 +66,8 @@ class ImageIcons{
   static const visa = "assets/icons/VISA.png";
   static const done = "assets/images/done.png";
   static const CTA= "assets/images/CTA.png";
+  static const drgerty= "assets/images/drgerty.png";
+  static const drdiandrs= "assets/images/drdiandra.png";
 
 
 

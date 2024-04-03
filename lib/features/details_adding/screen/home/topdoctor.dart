@@ -44,7 +44,23 @@ class _TopDoctorPageState extends State<TopDoctorPage> {
       "star":"4,7",
       "distene":"800m away",
 
-    }
+    },
+    {
+      "image":ImageIcons.drgerty,
+      "name":"Dr. Gerty Cori",
+      "spl":"Orthopedist",
+      "star":"4,7",
+      "distene":"800m away",
+
+    },
+    {
+      "image":ImageIcons.drgerty,
+      "name":"Dr. Gerty Cori",
+      "spl":"Orthopedist",
+      "star":"4,7",
+      "distene":"800m away",
+
+    },
 
 
   ];
