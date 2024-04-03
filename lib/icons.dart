@@ -35,6 +35,8 @@ class ImageIcons{
   static const medics1 = "assets/icons/medics1.svg";
   static const bell = "assets/icons/bell.svg";
   static const button = "assets/icons/Button.svg";
+  static const Paperclip = "assets/icons/Paperclip.svg";
+
 
 
   ///png
@@ -74,6 +76,8 @@ class ImageIcons{
   static const CTA= "assets/images/CTA.png";
   static const drgerty= "assets/images/drgerty.png";
   static const drdiandra= "assets/images/drdiandra.png";
+  static const tick= "assets/images/coolicon.png";
+  static const attach= "assets/images/attach.png";
 
 
 
@@ -85,30 +89,3 @@ class ImageIcons{
 
 
 }
-class UnboardingConstant{
-  String image;
-  String discription;
-  String discription2;
-  UnboardingConstant({required this.image,required this.discription,required this.discription2});
-}
-List<UnboardingConstant> constants=[
-  UnboardingConstant(
-
-    image:"assets/images/doc1.png",
-    discription:"Consult only with a doctor",
-    discription2:"you trust",
-  ),
-  UnboardingConstant(
-
-    image:"assets/images/doc2.png",
-    discription:"Find a lot of specialist",
-    discription2:"doctors in one place",
-  ),
-  UnboardingConstant(
-
-    image:"assets/images/doc3.png",
-    discription:"Get connect our Online",
-    discription2:"Consultation",
-  ),
-
-];
