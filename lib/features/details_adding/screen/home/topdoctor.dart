@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
+import '../../../../colour.dart';
 import '../../../../icons.dart';
 import '../../../../main.dart';
 
@@ -14,7 +15,7 @@ class TopDoctorPage extends StatefulWidget {
 class _TopDoctorPageState extends State<TopDoctorPage> {
   List drlist=[
     {
-      "image":ImageIcons.drmarcus,
+      "image":ImageIcons.drmarcus1,
       "name":"Dr. Marcus",
       "spl":"Chardiologist",
       "star":"4,7",
@@ -22,7 +23,7 @@ class _TopDoctorPageState extends State<TopDoctorPage> {
 
     },
     {
-      "image":ImageIcons.drmaria,
+      "image":ImageIcons.drmaria1,
       "name":"Dr. Maria",
       "spl":"Gynecologist",
       "star":"4,7",
@@ -54,8 +55,8 @@ class _TopDoctorPageState extends State<TopDoctorPage> {
 
     },
     {
-      "image":ImageIcons.drgerty,
-      "name":"Dr. Gerty Cori",
+      "image":ImageIcons.drdiandra,
+      "name":"Dr. Diandra",
       "spl":"Orthopedist",
       "star":"4,7",
       "distene":"800m away",
@@ -98,12 +99,130 @@ class _TopDoctorPageState extends State<TopDoctorPage> {
                 fontSize: width*0.063
             ),
           ),
-          actions: [Row(
+          actions: [
+            Row(
             children: [
               SvgPicture.asset(ImageIcons.columnDot),
               SizedBox(width: width*0.05,)
             ],),]
       ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
+              child: ListView.separated(
+                  shrinkWrap: true,
+                   physics: BouncingScrollPhysics(),
+                      scrollDirection: Axis.vertical,
+                  itemBuilder: (context, index) {
+                    return
+                      Padding(
+                        padding:  EdgeInsets.all(width*0.03),
+                        child: Container(
+                          height: width*0.4,
+                          width: width*1,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(width*0.03),
+                            border: Border.all(
+                              color: Colour.gray
+                            )
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Container(
+                                width: width*0.35,
+                                height:height*0.15,
+
+                                decoration: BoxDecoration(
+                                  image: DecorationImage(image: AssetImage(drlist[index]['image']),fit: BoxFit.fill),
+                                  // color: Colors.red,
+                                  borderRadius: BorderRadius.circular(width*0.03),
+
+                                ),
+
+
+                              ),
+                              Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(drlist[index]["name"],
+                                    style: TextStyle(
+                                        fontSize: width*0.05,
+                                        fontWeight: FontWeight.w800,
+                                        color:Colour.thirdcolour
+                                    ),
+
+                                  ),
+                                  Text(drlist[index]["spl"],
+                                    style: TextStyle(
+                                        color: Colour.gray,
+                                        fontSize: width*0.04
+                                    ),
+
+                                  ),
+                                  Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Container(
+                                        width: width*0.15,
+                                        height: height*0.04,
+                                        decoration: BoxDecoration(
+                                            color: Colour.lightgreen,
+                                            borderRadius: BorderRadius.circular(width*0.01)
+                                        ),
+
+                                        child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                          children: [
+                                            SvgPicture.asset(ImageIcons.star) ,
+                                            Text(drlist[index]["star"],
+                                              style: TextStyle(
+                                                  color: Colour.primarycolour,
+                                                  fontWeight: FontWeight.w500
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Container(
+                                    width: width*0.3,
+                                    height: height*0.05,
+                                    child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                      children: [
+                                        SvgPicture.asset(ImageIcons.location,) ,
+                                        Text(drlist[index]["distene"],
+                                          style: TextStyle(
+                                            color: Colour.gray,
+
+                                          ),)
+                                      ],
+                                    ),
+                                  )
+
+                                ],
+                              )
+
+
+                            ],
+                          ),
+                        ),
+                      )
+                    ;
+
+                  },
+                  separatorBuilder: (context, index) {
+                    return SizedBox(
+                      height: width*0.03,
+                    );
+                  },
+                  itemCount:drlist.length
+              ),
+            ),
+          ],
+        ),
+      ),
+
     );
   }
 }

@@ -56,6 +56,7 @@ class ImageIcons{
   static const drmarcus = "assets/images/drimage.png";
   static const drmarcus1 = "assets/images/drmarcus1.png";
   static const drmaria = "assets/images/drmaria.png";
+  static const drmaria1 = "assets/images/drmaria1.png";
   static const drstevi = "assets/images/drStevi.png";
   static const drluke = "assets/images/drLuke.png";
   static const tablet = "assets/images/tablet.png";
@@ -67,7 +68,7 @@ class ImageIcons{
   static const done = "assets/images/done.png";
   static const CTA= "assets/images/CTA.png";
   static const drgerty= "assets/images/drgerty.png";
-  static const drdiandrs= "assets/images/drdiandra.png";
+  static const drdiandra= "assets/images/drdiandra.png";
 
 
 
