@@ -31,7 +31,7 @@ class _TopDoctorPageState extends State<TopDoctorPage> {
 
     },
     {
-      "image":ImageIcons.drstevi,
+      "image":ImageIcons.drstevi1,
       "name":"Dr. Stevi",
       "spl":"dermatologist",
       "star":"4,8",

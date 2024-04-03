@@ -58,6 +58,7 @@ class ImageIcons{
   static const drmaria = "assets/images/drmaria.png";
   static const drmaria1 = "assets/images/drmaria1.png";
   static const drstevi = "assets/images/drStevi.png";
+  static const drstevi1 = "assets/images/drStevi1.png";
   static const drluke = "assets/images/drLuke.png";
   static const tablet = "assets/images/tablet.png";
   static const panadol = "assets/images/panadol.png";
