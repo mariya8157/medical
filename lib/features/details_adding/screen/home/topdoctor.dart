@@ -119,89 +119,102 @@ class _TopDoctorPageState extends State<TopDoctorPage> {
                               color: Colour.color2
                             )
                           ),
-                          child: Row(
-                            // mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [SizedBox(width: width*0.03,),
-                              Container(
-                                width: width*0.35,
-                                height:height*0.17,
+                            child: Row(
+                              // mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                 SizedBox(width: width*0.03,),
+                                Container(
+                                  height: width*0.5,
+                                  width: width*0.78,
 
-                                decoration: BoxDecoration(
-                                  image: DecorationImage(image: AssetImage(drlist[index]['image']),fit: BoxFit.fill),
-                                  // color: Colors.red,
-                                  borderRadius: BorderRadius.circular(width*0.03),
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Container(
+                                        width: width*0.35,
+                                        height:height*0.17,
 
-                                ),
+                                        decoration: BoxDecoration(
+                                          image: DecorationImage(image: AssetImage(drlist[index]['image']),fit: BoxFit.fill),
+                                          // color: Colors.red,
+                                          borderRadius: BorderRadius.circular(width*0.03),
 
-
-                              ),SizedBox(width: width*0.04,),
-                              Container(
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-
-                                    Text(drlist[index]["name"],
-                                      style: TextStyle(
-                                          fontSize: width*0.05,
-                                          fontWeight: FontWeight.w800,
-                                          color:Colour.thirdcolour
-                                      ),
-
-                                    ),
-                                    Text(drlist[index]["spl"],
-                                      style: TextStyle(
-                                          color: Colour.gray,
-                                          fontSize: width*0.04
-                                      ),
-
-                                    ),
-                                    Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Container(
-                                          width: width*0.15,
-                                          height: height*0.04,
-                                          decoration: BoxDecoration(
-                                              color: Colour.lightgreen,
-                                              borderRadius: BorderRadius.circular(width*0.01)
-                                          ),
-
-                                          child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                            children: [
-                                              SvgPicture.asset(ImageIcons.star) ,
-                                              Text(drlist[index]["star"],
-                                                style: TextStyle(
-                                                    color: Colour.primarycolour,
-                                                    fontWeight: FontWeight.w500
-                                                ),
-                                              ),
-                                            ],
-                                          ),
                                         ),
-                                      ],
-                                    ),
-                                    Container(
-                                      width: width*0.3,
-                                      height: height*0.05,
-                                      child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                        children: [
-                                          SvgPicture.asset(ImageIcons.location,) ,
-                                          Text(drlist[index]["distene"],
-                                            style: TextStyle(
-                                              color: Colour.color1,
 
-                                            ),)
-                                        ],
+
                                       ),
-                                    )
+                                       SizedBox(width: width*0.04,),
+                                      Container(
+                                        child: Column(
+                                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          children: [
 
-                                  ],
-                                ),
-                              )
+                                            Text(drlist[index]["name"],
+                                              style: TextStyle(
+                                                  fontSize: width*0.05,
+                                                  fontWeight: FontWeight.w800,
+                                                  color:Colour.thirdcolour
+                                              ),
+
+                                            ),
+                                            Text(drlist[index]["spl"],
+                                              style: TextStyle(
+                                                  color: Colour.gray,
+                                                  fontSize: width*0.04
+                                              ),
+
+                                            ),
+                                            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                              children: [
+                                                Container(
+                                                  width: width*0.15,
+                                                  height: height*0.04,
+                                                  decoration: BoxDecoration(
+                                                      color: Colour.lightgreen,
+                                                      borderRadius: BorderRadius.circular(width*0.01)
+                                                  ),
+
+                                                  child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                                    children: [
+                                                      SvgPicture.asset(ImageIcons.star) ,
+                                                      Text(drlist[index]["star"],
+                                                        style: TextStyle(
+                                                            color: Colour.primarycolour,
+                                                            fontWeight: FontWeight.w500
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                            Container(
+                                              width: width*0.3,
+                                              height: height*0.05,
+                                              child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                                children: [
+                                                  SvgPicture.asset(ImageIcons.location,) ,
+                                                  Text(drlist[index]["distene"],
+                                                    style: TextStyle(
+                                                      color: Colour.color1,
+
+                                                    ),)
+                                                ],
+                                              ),
+                                            )
+
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                )
 
 
-                            ],
-                          ),
+                              ],
+                            ),
+
                         ),
                       )
                     ;
@@ -209,7 +222,7 @@ class _TopDoctorPageState extends State<TopDoctorPage> {
                   },
                   separatorBuilder: (context, index) {
                     return SizedBox(
-                      height: width*0.03,
+                      height: width*0.01,
                     );
                   },
                   itemCount:drlist.length
