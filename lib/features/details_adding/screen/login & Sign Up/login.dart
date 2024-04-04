@@ -4,6 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:medical/colour.dart';
+import 'package:medical/features/details_adding/screen/home/bottomnavigation.dart';
 import 'package:medical/features/details_adding/screen/home/homepage.dart';
 import 'package:medical/features/details_adding/screen/login%20&%20Sign%20Up/forgotpassword.dart';
 import 'package:medical/features/details_adding/screen/login%20&%20Sign%20Up/signup.dart';
@@ -68,7 +69,7 @@ class _LoginPageState extends State<LoginPage> {
                         child: SvgPicture.asset(ImageIcons.email),
                       ),
                       labelText: "Enter your email",
-                      labelStyle: TextStyle(fontWeight: FontWeight.w500,fontSize: width*0.04, color: Colour.color1),
+                      labelStyle: TextStyle(fontWeight: FontWeight.w500,fontSize: width*0.045, color: Colour.color1),
                       focusedBorder: OutlineInputBorder(
                         borderSide: BorderSide(
                           color: Colour.color2,
@@ -120,14 +121,14 @@ class _LoginPageState extends State<LoginPage> {
                         child: Padding(
                           padding: EdgeInsets.all(width*0.045),
                           child: Container(
-                            height: width*0.09,
-                            width: width*0.09,
+                            height: width*0.08,
+                            width: width*0.08,
                               child: selectIcon?SvgPicture.asset(ImageIcons.eye,color: Colour.color1,):
-                              SvgPicture.asset(ImageIcons.eyeOff)),
+                              SvgPicture.asset(ImageIcons.eyeOff,)),
                         ),
                       ),
                       labelText: "Enter your password",
-                      labelStyle: TextStyle(fontWeight: FontWeight.w500,fontSize: width*0.04, color: Colour.color1),
+                      labelStyle: TextStyle(fontWeight: FontWeight.w500,fontSize: width*0.045, color: Colour.color1),
                       focusedBorder: OutlineInputBorder(
                         borderSide: BorderSide(
                           color: Colour.color2,
@@ -198,7 +199,7 @@ class _LoginPageState extends State<LoginPage> {
                                         ],)),
                                   InkWell(
                                     onTap: () {
-                                      Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage(),));
+                                      Navigator.push(context, MaterialPageRoute(builder: (context) => BottomNavigationPage(),));
                                     },
                                     child: Container(
                                       height: width*0.12,

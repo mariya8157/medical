@@ -1,9 +1,14 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:medical/colour.dart';
 import 'package:medical/features/details_adding/screen/Profile/profile.dart';
 import 'package:medical/features/details_adding/screen/doctor%20Consultation/bookingdoctor.dart';
 import 'package:medical/features/details_adding/screen/doctor%20Consultation/chatwithdoctor.dart';
+import 'package:medical/features/details_adding/screen/doctor%20Consultation/findDoctor.dart';
 import 'package:medical/features/details_adding/screen/home/homepage.dart';
+import 'package:medical/features/details_adding/screen/onlinePharmacy/article.dart';
+import 'package:medical/icons.dart';
 
 class BottomNavigationPage extends StatefulWidget {
   const BottomNavigationPage({super.key});
@@ -15,8 +20,8 @@ class BottomNavigationPage extends StatefulWidget {
 class _HomeState extends State<BottomNavigationPage> {
   List pages=[
     HomePage(),
-    ChatPage(),
-    BookingPage(),
+    FindDoctor(),
+    articles(),
     ProfilePage()
   ];
   int selectedIndex=0;
@@ -40,10 +45,11 @@ class _HomeState extends State<BottomNavigationPage> {
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home),
               label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.email),
-              label: 'Chat'),
-          BottomNavigationBarItem(icon: Icon(Icons.calendar_month_outlined),
-              label: 'Booking'),
+          BottomNavigationBarItem(icon: SvgPicture.asset(ImageIcons.catogory1,color: Colour.gray,
+          ),
+              label: 'Doctors'),
+          BottomNavigationBarItem(icon: SvgPicture.asset(ImageIcons.Pharmacy),
+              label: 'Pharmacy'),
           BottomNavigationBarItem(icon: Icon(Icons.person ),
               label: 'Profile'),
         ],
