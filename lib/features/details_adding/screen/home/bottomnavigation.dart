@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:medical/colour.dart';
+import 'package:medical/features/details_adding/screen/Profile/profile.dart';
+import 'package:medical/features/details_adding/screen/doctor%20Consultation/bookingdoctor.dart';
+import 'package:medical/features/details_adding/screen/doctor%20Consultation/chatwithdoctor.dart';
+import 'package:medical/features/details_adding/screen/home/homepage.dart';
 
 class BottomNavigationPage extends StatefulWidget {
   const BottomNavigationPage({super.key});
@@ -10,7 +14,10 @@ class BottomNavigationPage extends StatefulWidget {
 
 class _HomeState extends State<BottomNavigationPage> {
   List pages=[
-
+    HomePage(),
+    ChatPage(),
+    BookingPage(),
+    ProfilePage()
   ];
   int selectedIndex=0;
   @override

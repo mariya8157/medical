@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:medical/features/details_adding/screen/home/topdoctor.dart';
 import 'package:pinput/pinput.dart';
 
 import '../../../../colour.dart';
@@ -211,10 +212,15 @@ class _HomePageState extends State<HomePage> {
                     fontSize: width*0.04
                   ),),
                    SizedBox(width: width*0.05,),
-                  Text("See all",style: TextStyle(
-                      fontSize: width*0.03,
-                    color: Colour.primarycolour
-                  ),)
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => TopDoctorPage(),));
+                    },
+                    child: Text("See all",style: TextStyle(
+                        fontSize: width*0.03,
+                      color: Colour.primarycolour
+                    ),),
+                  )
                 ],
               ),
               Container(
