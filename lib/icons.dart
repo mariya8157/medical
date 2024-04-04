@@ -32,6 +32,14 @@ class ImageIcons{
   static const chat = "assets/icons/Chat.svg";
   static const calendar = "assets/icons/Calendar.svg";
   static const square = "assets/icons/Square.svg";
+  static const c_add = "assets/icons/c.add.svg";
+  static const wallet = "assets/icons/Wallet.svg";
+  static const nxtback = "assets/icons/nxtback.svg";
+  static const heartbeat = "assets/icons/Heartbeat.svg";
+  static const fire = "assets/icons/Fire.svg";
+  static const danger = "assets/icons/Danger Circle.svg";
+  static const appoitmnet = "assets/icons/appotmnet.svg";
+  static const logout = "assets/icons/-logout.svg";
   static const medics1 = "assets/icons/medics1.svg";
   static const bell = "assets/icons/bell.svg";
   static const button = "assets/icons/Button.svg";
@@ -78,6 +86,10 @@ class ImageIcons{
   static const drdiandra= "assets/images/drdiandra.png";
   static const tick= "assets/images/coolicon.png";
   static const attach= "assets/images/attach.png";
+  static const lady = "assets/images/lady.png";
+  static const line = "assets/images/line.png";
+
+
 
 
 }

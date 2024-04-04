@@ -22,18 +22,21 @@ class _PharmacyPageState extends State<PharmacyPage> {
      "text1": "Panadol",
      "text2": "20pcs",
      "text3": "\$15.99",
+      "icon":ImageIcons.c_add
     },
     {
      "image":ImageIcons.herbal,
      "text1": "Bodrex Herbal",
      "text2": "100ml",
      "text3": "\$7.99",
+      "icon":ImageIcons.c_add
     },
     {
      "image":ImageIcons.konidin,
      "text1": "Konidin",
      "text2": "3pcs",
      "text3": "\$5.99",
+      "icon":ImageIcons.c_add
     },
   ];
   List c=[
@@ -43,6 +46,7 @@ class _PharmacyPageState extends State<PharmacyPage> {
       "text2": "75ml",
       "text3": "\$9.99",
       "text4": "\$10.99",
+      "icon":ImageIcons.c_add
     },
     {
       "image":ImageIcons.herbal,
@@ -50,6 +54,7 @@ class _PharmacyPageState extends State<PharmacyPage> {
       "text2": "50ml",
       "text3": "\$6.99",
       "text4": "\$8.99",
+      "icon":ImageIcons.c_add
     },
     {
       "image":ImageIcons.konidin,
@@ -57,6 +62,7 @@ class _PharmacyPageState extends State<PharmacyPage> {
       "text2": "75ml",
       "text3": "\$7.99",
       "text4": "\$8.99",
+      "icon":ImageIcons.c_add
     },
   ];
   @override
@@ -95,7 +101,7 @@ class _PharmacyPageState extends State<PharmacyPage> {
           Row(
             children: [
               Icon(Icons.shopping_cart_outlined),
-              // SvgPicture.asset(ImageIcons.columnDot),
+              SvgPicture.asset(ImageIcons.columnDot),
               SizedBox(
                 width: width * 0.05,
               )
@@ -318,15 +324,7 @@ class _PharmacyPageState extends State<PharmacyPage> {
                                           fontWeight: FontWeight.w900,
                                           fontSize: width*0.05
                                       ),),
-                                    Container(
-                                      height: width*0.06,
-                                      width: width*0.06,
-                                      decoration: BoxDecoration(
-                                        color: Colour.primarycolour,
-                                        borderRadius: BorderRadius.circular(width*0.01)
-                                      ),
-                                      child: Icon(Icons.add,color: Colors.white,),
-                                    )
+                                    SvgPicture.asset(a[index]["icon"],width: width*0.06,)
                                   ],
                                 ),
                               )
@@ -466,15 +464,16 @@ class _PharmacyPageState extends State<PharmacyPage> {
                                         )
                                       ],
                                     ),
-                                    Container(
-                                      height: width*0.06,
-                                      width: width*0.06,
-                                      decoration: BoxDecoration(
-                                          color: Colour.primarycolour,
-                                          borderRadius: BorderRadius.circular(width*0.01)
-                                      ),
-                                      child: Icon(Icons.add,color: Colors.white,),
-                                    )
+                                    SvgPicture.asset(c[index]["icon"],width: width*0.06,)
+                                    // Container(
+                                    //   height: width*0.06,
+                                    //   width: width*0.06,
+                                    //   decoration: BoxDecoration(
+                                    //       color: Colour.primarycolour,
+                                    //       borderRadius: BorderRadius.circular(width*0.01)
+                                    //   ),
+                                    //   child: Icon(Icons.add,color: Colors.white,),
+                                    // )
                                   ],
                                 ),
                               )

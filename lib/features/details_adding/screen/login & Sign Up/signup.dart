@@ -64,7 +64,7 @@ class _SignupPageState extends State<SignupPage> {
                     decoration: InputDecoration(
                       prefixIcon: Padding(
                         padding: EdgeInsets.all(width*0.03),
-                        child: SvgPicture.asset(ImageIcons.user),
+                        // child: SvgPicture.asset(ImageIcons.user),
                       ),
                       labelText: "Enter your name",
                       labelStyle: TextStyle(fontWeight: FontWeight.w500,fontSize: width*0.04, color: Colour.color1),

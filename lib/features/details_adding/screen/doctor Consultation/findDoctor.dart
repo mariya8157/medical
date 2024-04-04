@@ -32,10 +32,7 @@ class _FindDoctorState extends State<FindDoctor> {
       "image":ImageIcons.catogory3,
       "text":"Dentist",
     },
-    {
-      "image":ImageIcons.catogory10,
-      "text":"Psychiatrist",
-    },
+
     {
       "image":ImageIcons.catogory5,
       "text":"Covid-19",
@@ -265,7 +262,7 @@ class _FindDoctorState extends State<FindDoctor> {
                   "star":drlist[selectIndex]["star"],
                   "distene":drlist[selectIndex]["distene"],
                 });
-                a.length==1?Navigator.push(context, MaterialPageRoute(builder: (context) => DoctordetailsPage(doctor:a,),)):a.clear();
+                a.length==1?Navigator.push(context, MaterialPageRoute(builder: (context) => DoctordetailsPage(),)):a.clear();
               },
               child: Container(
                 height: height*0.2,
