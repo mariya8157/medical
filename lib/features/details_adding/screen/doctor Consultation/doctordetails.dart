@@ -252,55 +252,82 @@ List day=[];
                 moreStyle: TextStyle(fontSize:width*0.03, fontWeight: FontWeight.bold,color:Colour.primarycolour ),
               ),
               SizedBox(height: width*0.03,),
-              Container(
-                height: height*0.10,
-                width: width*1,
-                child: ListView.separated(
-                  itemCount:size.length ,
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: (BuildContext context, int index) {
-                    return InkWell(
-                        onTap: () {
-                          selectIndex=index;
-                          setState(() {
-
-
-                          });
-                        },
-
-                        child: Container(
-                          width:width*0.14,
-                          height: width*0.08,
-                          decoration: BoxDecoration(
-                            border: Border.all(color:Colour.lightgreen),
-                            borderRadius: BorderRadius.circular(width*0.03),
-                            color:selectIndex==index?Colour.primarycolour: Colour.secondarycolour,
-                          ),
-                          child:  Column(crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              Text(size[index]["day"],
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: width*0.04, color:selectIndex==index?Colour.secondarycolour:Colour.color1
-                                  )),
-                              Text(size[index]["date"].toString(),
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.w600,
-                                      fontSize: width*0.06, color:selectIndex==index?Colour.secondarycolour:Colour.thirdcolour
-                                  )),
-                            ],
-                          ),
-
-
-                        )
-                    );
-                  }, separatorBuilder: (BuildContext context, int index) {
-                  return SizedBox(width: width*0.03,);
+              EasyDateTimeLine(
+                initialDate: DateTime.now(),
+                onDateChange: (selectedDate) {
+                  //`selectedDate` the new date selected.
                 },
-
+                headerProps: const EasyHeaderProps(
+                  monthPickerType: MonthPickerType.switcher,
+                  dateFormatter: DateFormatter.fullDateDMY(),
+                ),
+                dayProps: const EasyDayProps(
+                  dayStructure: DayStructure.dayStrDayNum,
+                  activeDayStyle: DayStyle(
+                    decoration: BoxDecoration(
+                      color: Colour.primarycolour,
+                      borderRadius: BorderRadius.all(Radius.circular(8)),
+                      // gradient: LinearGradient(
+                      //   begin: Alignment.topCenter,
+                      //   end: Alignment.bottomCenter,
+                      //   colors: [
+                      //     Color(0xff3371FF),
+                      //     Color(0xff8426D6),
+                      //   ],
+                      // ),
+                    ),
+                  ),
                 ),
               ),
+              // Container(
+              //   height: height*0.10,
+              //   width: width*1,
+              //   child: ListView.separated(
+              //     itemCount:size.length ,
+              //     scrollDirection: Axis.horizontal,
+              //     itemBuilder: (BuildContext context, int index) {
+              //       return InkWell(
+              //           onTap: () {
+              //             selectIndex=index;
+              //             setState(() {
+              //
+              //
+              //             });
+              //           },
+              //
+              //           child: Container(
+              //             width:width*0.14,
+              //             height: width*0.08,
+              //             decoration: BoxDecoration(
+              //               border: Border.all(color:Colour.lightgreen),
+              //               borderRadius: BorderRadius.circular(width*0.03),
+              //               color:selectIndex==index?Colour.primarycolour: Colour.secondarycolour,
+              //             ),
+              //             child:  Column(crossAxisAlignment: CrossAxisAlignment.center,
+              //               mainAxisAlignment: MainAxisAlignment.spaceAround,
+              //               children: [
+              //                 Text(size[index]["day"],
+              //                     style: TextStyle(
+              //                         fontWeight: FontWeight.w400,
+              //                         fontSize: width*0.04, color:selectIndex==index?Colour.secondarycolour:Colour.color1
+              //                     )),
+              //                 Text(size[index]["date"].toString(),
+              //                     style: TextStyle(
+              //                         fontWeight: FontWeight.w600,
+              //                         fontSize: width*0.06, color:selectIndex==index?Colour.secondarycolour:Colour.thirdcolour
+              //                     )),
+              //               ],
+              //             ),
+              //
+              //
+              //           )
+              //       );
+              //     }, separatorBuilder: (BuildContext context, int index) {
+              //     return SizedBox(width: width*0.03,);
+              //   },
+              //
+              //   ),
+              // ),
               SizedBox(height: width*0.03,),
               Divider(thickness: width*0.004,
                 color: Colour.lightgreen,
