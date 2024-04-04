@@ -173,7 +173,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                     decoration: InputDecoration(
                       prefixIcon: Padding(
                         padding: EdgeInsets.all(width*0.03),
-                        child: SvgPicture.asset(ImageIcons.call),
+                        // child: SvgPicture.asset(ImageIcons.call),
                       ),
                       labelText: "Enter your number",
                       labelStyle: TextStyle(fontWeight: FontWeight.w500,fontSize: width*0.04, color: Colour.color1),
@@ -204,7 +204,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                     decoration: InputDecoration(
                       prefixIcon: Padding(
                         padding: EdgeInsets.all(width*0.03),
-                        child: SvgPicture.asset(ImageIcons.email2),
+                        // child: SvgPicture.asset(ImageIcons.email2),
                       ),
                       labelText: "Enter your email",
                       labelStyle: TextStyle(fontWeight: FontWeight.w500,fontSize: width*0.04, color: Colour.color1),

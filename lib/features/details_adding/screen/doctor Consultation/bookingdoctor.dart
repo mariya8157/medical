@@ -381,7 +381,7 @@ class _BookingPageState extends State<BookingPage> {
                   borderRadius: BorderRadius.circular(width*0.03),
                   // color: ColourTheme.thirtyth5Color,
                   border: Border.all(
-                      // color:select1==true? ColourTheme.primaryColor:ColourTheme.thirtyth5Color
+                    // color:select1==true? ColourTheme.primaryColor:ColourTheme.thirtyth5Color
                   ),
 
                 ) ,
@@ -393,9 +393,9 @@ class _BookingPageState extends State<BookingPage> {
 
                     Text("Change",
                         style: TextStyle(
-                            fontWeight: FontWeight.w500,
-                            fontSize: width*0.04,
-                            // color:ColourTheme.thirtyth6Color
+                          fontWeight: FontWeight.w500,
+                          fontSize: width*0.04,
+                          // color:ColourTheme.thirtyth6Color
                         ))
 
                   ],

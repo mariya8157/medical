@@ -3,24 +3,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:medical/features/details_adding/screen/doctor%20Consultation/bookingdoctor.dart';
-import 'package:medical/features/details_adding/screen/doctor%20Consultation/chatwithdoctor.dart';
 import 'package:readmore/readmore.dart';
 
 import '../../../../colour.dart';
 import '../../../../icons.dart';
 import '../../../../main.dart';
 
-
 class DoctordetailsPage extends StatefulWidget {
-  final List doctor;
-  const DoctordetailsPage({super.key, required this.doctor});
+  const DoctordetailsPage({super.key});
 
   @override
   State<DoctordetailsPage> createState() => _DoctordetailsPageState();
 }
 
 class _DoctordetailsPageState extends State<DoctordetailsPage> {
-  List doctor1=[
+  List doctor=[
     {
       "image":ImageIcons.drmarcus1,
       "name":"Dr. Marcus Horizon",
@@ -38,27 +35,31 @@ class _DoctordetailsPageState extends State<DoctordetailsPage> {
     },
     {
       "day":"Tue",
-      "name":"Tuesday",
+      "name":"Monday",
       "date":22,
     },
     {
       "day":"Wed",
-      "name":"Wednesday",
+      "name":"Monday",
+
       "date":23,
     },
     {
       "day":"Thu",
-      "name":"Thursday",
+      "name":"Monday",
+
       "date":24,
     } ,
     {
       "day":"Fri",
-      "name":"Friday",
+      "name":"Monday",
+
       "date":25,
     },
     {
       "day":"Sat",
-      "name":"Saturday",
+      "name":"Monday",
+
       "date":27,
     }
   ];
@@ -88,10 +89,18 @@ List day=[];
           onTap: () {
             Navigator.pop(context);
           },
-          child: Padding(
-            padding: EdgeInsets.all(width*0.05),
-            child: SvgPicture.asset(
-              ImageIcons.catogory8,),
+          child: SizedBox(
+            height: width * 0.05,
+            width: width * 0.8,
+            child: Padding(
+              padding: EdgeInsets.only(left: width*0.023),
+              child: Padding(
+                padding:  EdgeInsets.all(width*0.007),
+                child:
+                SvgPicture.asset(
+                  ImageIcons.back,),
+              ),
+            ),
           ),
         ),
         title:  Text(
@@ -99,7 +108,7 @@ List day=[];
           style: TextStyle(
               color: Colors.black,
               fontWeight: FontWeight.w700,
-              fontSize: width*0.055
+              fontSize: width*0.063
           ),
         ),
         actions: [Row(
@@ -108,6 +117,23 @@ List day=[];
             SizedBox(width: width*0.05,)
           ],),]
       ),
+      body: Padding(
+        padding:  EdgeInsets.all(width*0.03),
+        child: Column(
+          children: [
+            ListView.separated(
+                shrinkWrap: true,
+                // physics: BouncingScrollPhysics(),
+
+                itemBuilder: (context, index) {
+                  return
+                    Padding(
+                      padding:  EdgeInsets.all(width*0.03),
+                      child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Container(
+                            width: width*0.35,
+                            height:height*0.15,
 
       body: Padding(
         padding:  EdgeInsets.all(width*0.03),
@@ -128,6 +154,10 @@ List day=[];
                             height:height*0.15,
 
                             decoration: BoxDecoration(
+                              image: DecorationImage(image: AssetImage(doctor[index]['image'])),
+                              // color: Colors.red,
+                              borderRadius: BorderRadius.circular(width*0.03),
+                            decoration: BoxDecoration(
                               image: DecorationImage(image: AssetImage(widget.doctor[index]['image']),fit: BoxFit.fill),
                               // color: Colors.red,
                               borderRadius: BorderRadius.circular(width*0.03),
@@ -139,6 +169,16 @@ List day=[];
                           Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
+                              Text(doctor[index]["name"],
+                                style: TextStyle(
+                                    fontSize: width*0.05,
+                                    fontWeight: FontWeight.w800,
+                                    color:Colour.thirdcolour
+                                ),
+                          ),
+                          Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
                               Text(widget.doctor[index]["name"],
                                 style: TextStyle(
                                     fontSize: width*0.05,
@@ -146,6 +186,23 @@ List day=[];
                                     color:Colour.thirdcolour
                                 ),
 
+                              ),
+                              Text(doctor[index]["spl"],
+                                style: TextStyle(
+                                    color: Colour.gray,
+                                    fontSize: width*0.04
+                                ),
+
+                              ),
+                              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Container(
+                                    width: width*0.15,
+                                    height: height*0.04,
+                                    decoration: BoxDecoration(
+                                        color: Colour.lightgreen,
+                                        borderRadius: BorderRadius.circular(width*0.01)
+                                    ),
                               ),
                               Text(widget.doctor[index]["spl"],
                                 style: TextStyle(
@@ -164,6 +221,94 @@ List day=[];
                                         borderRadius: BorderRadius.circular(width*0.01)
                                     ),
 
+                                    child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                      children: [
+                                        SvgPicture.asset(ImageIcons.star) ,
+                                        Text(doctor[index]["star"],
+                                          style: TextStyle(
+                                              color: Colour.primarycolour,
+                                              fontWeight: FontWeight.w500
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              Container(
+                                width: width*0.3,
+                                height: height*0.05,
+                                child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                  children: [
+                                    SvgPicture.asset(ImageIcons.location,) ,
+                                    Text(doctor[index]["distene"],
+                                    style: TextStyle(
+                                      color: Colour.gray,
+
+                                    ),)
+                                  ],
+                                ),
+                              )
+
+                            ],
+                          )
+
+
+                        ],
+                      ),
+                    )
+                  ;
+
+                },
+                separatorBuilder: (context, index) {
+                  return SizedBox(
+                    height: height*0.03,
+                  );
+                },
+                itemCount: doctor.length
+            ),
+            SizedBox(height: width*0.03,),
+            Row(
+              children: [
+                Text("About",
+                  style: TextStyle(
+                      fontSize: width*0.05,
+                      fontWeight: FontWeight.w800,
+                      color:Colour.thirdcolour
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(height: width*0.03,),
+            ReadMoreText(
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit,\n"
+                  " sed do eiusmod tempor incididunt ut labore et dolore\n"
+                " magna aliqua. Ut enim ad minim veniam\n"
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit,\n"
+                " sed do eiusmod tempor incididunt ut labore et\n",
+              trimLines: 3,
+              colorClickableText: Colors.pink,
+              trimMode: TrimMode.Line,
+              trimCollapsedText: 'read more',
+              style: TextStyle(
+                fontSize: width*0.03, fontWeight:FontWeight.w400,color: Colour.gray
+              ),
+              trimExpandedText: 'less',
+              lessStyle: TextStyle(fontSize:width*0.03, fontWeight: FontWeight.bold,color:Colour.primarycolour ),
+              moreStyle: TextStyle(fontSize:width*0.03, fontWeight: FontWeight.bold,color:Colour.primarycolour ),
+            ),
+            SizedBox(height: width*0.03,),
+            Container(
+              height: height*0.10,
+              width: width*1,
+              child: ListView.separated(
+                itemCount:size.length ,
+                scrollDirection: Axis.horizontal,
+                itemBuilder: (BuildContext context, int index) {
+                  return InkWell(
+                      onTap: () {
+                        selectIndex=index;
+                        setState(() {
                                     child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
                                       children: [
                                         SvgPicture.asset(ImageIcons.star) ,
@@ -318,6 +463,52 @@ List day=[];
                       selectIndex1=index;
                       setState(() {
 
+                      });
+                    },
+                      child: Container(
+                          width: width*0.3,
+                          height: height*0.01,
+                          decoration: BoxDecoration(color: selectIndex1==index?Colour.primarycolour:Colour.secondarycolour,
+                              borderRadius: BorderRadius.circular(width*0.03),
+                            border: Border.all(color: Colour.lightgreen,
+                            width: width*0.005)
+                          ),
+
+                          child: Center(
+                            child: Text(time[index],
+                                                  style: TextStyle(
+                              color: selectIndex1==index?Colour.secondarycolour:Colour.thirdcolour,
+                              fontSize: width*0.04
+                                                  ),
+                                                ),
+                          )),
+                    );
+
+                },
+
+
+              ),
+            ),
+            // SizedBox(height: width*0.03,),
+            Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+
+                Container(
+                  height: height*0.07,
+                  width: width*0.2,
+                  decoration: BoxDecoration(
+                      color: Colour.lightgreen,
+                      borderRadius: BorderRadius.circular(width*0.07)
+                  ),
+                  child: Center(
+                    child: SvgPicture.asset(ImageIcons.chat)
+                  ),
+                ),
+                InkWell(
+                  onTap: () {
+                    day.add({
+                  "name":size[selectIndex]["name"]});
+                    time.add({"time":time[selectIndex1]});
                       });
                     },
                       child: Container(
