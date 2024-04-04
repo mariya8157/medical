@@ -45,10 +45,10 @@ class _HomeState extends State<BottomNavigationPage> {
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home),
               label: 'Home'),
-          BottomNavigationBarItem(icon: SvgPicture.asset(ImageIcons.catogory1,color: Colour.gray,
+          BottomNavigationBarItem(icon:Icon(Icons.call
           ),
               label: 'Doctors'),
-          BottomNavigationBarItem(icon: SvgPicture.asset(ImageIcons.Pharmacy),
+          BottomNavigationBarItem(icon: Icon(Icons.local_pharmacy),
               label: 'Pharmacy'),
           BottomNavigationBarItem(icon: Icon(Icons.person ),
               label: 'Profile'),
