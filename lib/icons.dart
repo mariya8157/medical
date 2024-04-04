@@ -50,12 +50,12 @@ class ImageIcons{
   ///png
   static const covid1 = "assets/images/covid_19_1.png";
   static const medics="assets/images/medics.png";
-  static const covid2 = "assets/image/covid_19_2.png";
-  static const covid3 = "assets/image/covid_19_3.png";
-  static const covid4 = "assets/image/covid_19_4.png";
-  static const covid5 = "assets/image/covid_19_5.png";
-  static const covid6 = "assets/image/covid_19_6.png";
-  static const covid7 = "assets/image/covid_19_7.png";
+  static const covid2 = "assets/images/covid_19_2.png";
+  static const covid3 = "assets/images/covid_19_3.png";
+  static const covid4 = "assets/images/covid_19_4.png";
+  static const covid5 = "assets/images/covid_19_5.png";
+  static const covid6 = "assets/images/covid_19_6.png";
+  static const covid7 = "assets/images/covid_19_7.png";
   // static const covid1 = "assets/images/covid_19_1.png";
   // static const medics="assets/images/medics.png";
   // static const covid2 = "assets/images/covid_19_2.png";
