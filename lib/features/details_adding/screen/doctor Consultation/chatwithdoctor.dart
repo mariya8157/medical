@@ -288,8 +288,14 @@ class _ChatPageState extends State<ChatPage> {
                       keyboardType: TextInputType.emailAddress,
 
                       decoration: InputDecoration(
-                        suffixIcon:SvgPicture.asset(ImageIcons.Paperclip,height: height*0.01,
-                        width: width*0.01,) ,
+                        suffixIcon:Container(
+                          height: height*0.015,
+                          width: width*0.06,
+                          child: Center(
+                            child: SvgPicture.asset(ImageIcons.Paperclip,
+                            width: width*0.06,),
+                          ),
+                        ) ,
 
                         focusColor: Colour.lightgreen,
                         fillColor: Colour.secondarycolour,

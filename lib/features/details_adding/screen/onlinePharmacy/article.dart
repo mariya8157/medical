@@ -111,7 +111,8 @@ class _articlesState extends State<articles> {
               fontSize: width*0.063
           ),
         ),
-        actions: [Row(
+        actions: [
+          Row(
           children: [
             SvgPicture.asset(ImageIcons.columnDot),
             SizedBox(width: width*0.05,)
@@ -178,22 +179,13 @@ class _articlesState extends State<articles> {
               ),
             ),
           ),
-          Row(
-            children: [
-              Container(
-                  height: width*0.16,
-                  width: width*0.53,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text("Popular Articles",
-                        style: TextStyle(
-                            fontSize: width*0.07,
-                            fontWeight: FontWeight.w700
-                        ),),
-                    ],
-                  )),
-            ],
+          Text("Popular Articles",
+            style: TextStyle(
+                fontSize: width*0.05,
+                fontWeight: FontWeight.w700
+            ),),
+          SizedBox(
+              height: height*0.015
           ),
           // SizedBox(width: width*0.05,),
           Container(
@@ -241,19 +233,16 @@ class _articlesState extends State<articles> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Container(
-                  height: width*0.16,
-                  width: width*0.545,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text("Trending Articles",
-                        style: TextStyle(
-                            fontSize: width*0.07,
-                            fontWeight: FontWeight.w700
-                        ),),
-                    ],
-                  )),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text("Trending Articles",
+                    style: TextStyle(
+                        fontSize: width*0.07,
+                        fontWeight: FontWeight.w700
+                    ),),
+                ],
+              ),
               Container(
                   height: width*0.16,
                   width: width*0.22,
