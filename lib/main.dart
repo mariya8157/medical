@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:medical/features/details_adding/screen/doctor%20Consultation/doctordetails.dart';
 import 'package:medical/features/details_adding/screen/home/bottomnavigation.dart';
 import 'package:medical/features/details_adding/screen/home/homepage.dart';
 import 'package:medical/features/details_adding/screen/home/topdoctor.dart';
@@ -9,6 +10,7 @@ import 'package:medical/features/details_adding/screen/splashSceen/getstarted.da
 import 'package:medical/features/details_adding/screen/splashSceen/splashscreen.dart';
 
 
+import 'features/details_adding/screen/doctor Consultation/bookingdoctor.dart';
 import 'features/details_adding/screen/doctor Consultation/findDoctor.dart';
 
 import 'features/details_adding/screen/onlinePharmacy/article.dart';

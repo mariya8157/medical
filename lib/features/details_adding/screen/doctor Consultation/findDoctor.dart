@@ -5,6 +5,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:medical/colour.dart';
 import 'package:medical/features/details_adding/screen/doctor%20Consultation/doctordetails.dart';
+import 'package:medical/features/details_adding/screen/home/bottomnavigation.dart';
 import 'package:medical/icons.dart';
 
 import '../../../../main.dart';
@@ -107,7 +108,7 @@ class _FindDoctorState extends State<FindDoctor> {
           elevation: 0,
           leading: InkWell(
             onTap: () {
-              Navigator.pop(context);
+              Navigator.push(context, MaterialPageRoute(builder: (context) => BottomNavigationPage(),));
             },
             child: SizedBox(
               height: width * 0.05,
@@ -140,311 +141,313 @@ class _FindDoctorState extends State<FindDoctor> {
 
       body:Padding(
         padding:  EdgeInsets.all(width*0.03),
-        child: Column(
-          children: [
-            Container(
-              height: height*0.12,
-              decoration: BoxDecoration(
-                  color: Colour.color3,
-                  borderRadius: BorderRadius.circular(width*0.07)
-              ),
-              child: TextFormField(
-                controller:searchController ,
-                keyboardType: TextInputType.name,
-                textInputAction: TextInputAction.search,
-                style: TextStyle(fontSize: width*0.045,fontWeight: FontWeight.w500,color: Colour.thirdcolour),
-                decoration: InputDecoration(
-                    prefixIcon:Padding(
-                      padding:  EdgeInsets.all(width*0.03),
-                      child: SvgPicture.asset(ImageIcons.search),
-                    ),
-                    labelText: "Search any Product..",
-                    labelStyle: TextStyle(fontWeight: FontWeight.w500,fontSize: width*0.04, color: Colour.color1),
-                    hintText: "please enter search product",
-                    hintStyle: TextStyle(
-                      fontSize: width*0.05,
-                      fontWeight: FontWeight.w400,
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Colour.color2,
+        child: SingleChildScrollView(
+          physics: BouncingScrollPhysics(),
+          child: Container(
+            width: width*1,
+            height: height*1,
+            child: Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Container(
+                  height: height*0.06,
+                  width: width*0.9,
+                  decoration: BoxDecoration(
+                      color: Colour.color3,
+                      borderRadius: BorderRadius.circular(width*0.07)
+                  ),
 
+                  child: TextFormField(
+                    controller:searchController ,
+                    keyboardType: TextInputType.name,
+                    textInputAction: TextInputAction.search,
+                    style: TextStyle(fontSize: width*0.045,fontWeight: FontWeight.w500,color: Colour.thirdcolour),
+                    decoration: InputDecoration(
+                        prefixIcon:Padding(
+                          padding:  EdgeInsets.all(width*0.03),
+                          child: SvgPicture.asset(ImageIcons.search),
                         ),
-                        borderRadius: BorderRadius.circular(
-                            width*0.07)
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(width*0.07),
-                        borderSide: BorderSide(
-                          color: Colour.color2,
-
+                        labelText: "Find Doctor",
+                        labelStyle: TextStyle(fontWeight: FontWeight.w500,fontSize: width*0.04, color: Colour.color1),
+                        hintText: "search doctors here",
+                        hintStyle: TextStyle(
+                          fontSize: width*0.05,
+                          fontWeight: FontWeight.w400,
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Colour.color2,
+          
+                            ),
+                            borderRadius: BorderRadius.circular(
+                                width*0.07)
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(width*0.07),
+                            borderSide: BorderSide(
+                              color: Colour.color2,
+          
+                            )
                         )
-                    )
-                ),
-              ),
-            ),
-            SizedBox(height: width*0.03,),
-            Row(
-              children: [
-                Text("Category",
-                  style: TextStyle(
-                      fontSize: width*0.05,
-                      fontWeight: FontWeight.w800,
-                      color:Colour.thirdcolour
+                    ),
                   ),
                 ),
-              ],
-            ),
-            SizedBox(height: width*0.03,),
-            Expanded(
-              child: GridView.builder(
-                itemCount:category.length,
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  childAspectRatio: 1,
-                  crossAxisSpacing:height*0.009,
-                  mainAxisSpacing: width*0.03,
-                  crossAxisCount: 4,
-                ),
-
-                physics: BouncingScrollPhysics(),
-                shrinkWrap: true,
-                // scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) {
-                  return
-                    Container(
-                      width: width*0.25,
-                      height: width*0.25,
-                      child: Column(
-                        children: [
-
-                          Container(
-                            width: width*0.07,
-                            height: height*0.05,
-                              child: SvgPicture.asset(category[index]["image"],)
-                          ),
-
-                          Text(category[index]["text"],
-                          style: TextStyle(
-                            color: Colour.color1,
-                            fontSize: width*0.03
-                          ),
-                          )
-                        ],
+                Row(
+                  children: [
+                    Text("Category",
+                      style: TextStyle(
+                          fontSize: width*0.05,
+                          fontWeight: FontWeight.w800,
+                          color:Colour.thirdcolour
                       ),
-                    );
+                    ),
+                  ],
+                ),
+                Container(
+                  width: width*1,
+                  child: Expanded(
+                    child: GridView.builder(
+                      itemCount:category.length,
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        childAspectRatio: 1,
+                        crossAxisSpacing:height*0.009,
+                        mainAxisSpacing: width*0.03,
+                        crossAxisCount: 4,
+                      ),
 
-                },
+                      physics: BouncingScrollPhysics(),
+                      shrinkWrap: true,
+                      // scrollDirection: Axis.horizontal,
+                      itemBuilder: (context, index) {
+                        return
+                          Container(
+                            width: width*0.25,
+                            height: width*0.25,
+                            child: Column(
+                              children: [
+
+                                Container(
+                                  width: width*0.07,
+                                  height: height*0.05,
+                                    child: SvgPicture.asset(category[index]["image"],)
+                                ),
+
+                                Text(category[index]["text"],
+                                style: TextStyle(
+                                  color: Colour.color1,
+                                  fontSize: width*0.03
+                                ),
+                                )
+                              ],
+                            ),
+                          );
+
+                      },
 
 
-              ),
-            ),
-            SizedBox(height: width*0.03,),
-            Row(
-              children: [
-                Text("Recommended Doctors",
-                  style: TextStyle(
-                      fontSize: width*0.05,
-                      fontWeight: FontWeight.w800,
-                      color:Colour.thirdcolour
+                    ),
                   ),
                 ),
-              ],
-            ),
-            SizedBox(height: width*0.03,),
-
-
-            InkWell(
-              onTap: () {
-                a.add({
-                  "image":drlist[selectIndex]["image"],
-                  "name":drlist[selectIndex]["name"],
-                  "spl":drlist[selectIndex]["spl"],
-                  "star":drlist[selectIndex]["star"],
-                  "distene":drlist[selectIndex]["distene"],
-                });
-                a.length==1?Navigator.push(context, MaterialPageRoute(builder: (context) => DoctordetailsPage(),)):a.clear();
-              },
-              child: Container(
-                height: height*0.2,
-                width: width*1,
-                decoration: BoxDecoration(
-                    border: Border.all(color: Colour.lightgreen),
-                    borderRadius: BorderRadius.circular(width*0.04)
+                Row(
+                  children: [
+                    Text("Recommended Doctors",
+                      style: TextStyle(
+                          fontSize: width*0.05,
+                          fontWeight: FontWeight.w800,
+                          color:Colour.thirdcolour
+                      ),
+                    ),
+                  ],
                 ),
-                child: ListView.separated(
-                    shrinkWrap: true,
-                    // physics: BouncingScrollPhysics(),
-
-                    itemBuilder: (context, index) {
-                      return
-                        Padding(
-                        padding:  EdgeInsets.all(width*0.03),
-                        child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            CircleAvatar(
-                                radius: width*0.13,
-                                backgroundImage:AssetImage(drlist[selectIndex]['image']) ,
-                                ),
-                            Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              crossAxisAlignment: CrossAxisAlignment.start,
+                InkWell(
+                  onTap: () {
+                    a.add({
+                      "image":drlist[selectIndex]["image"],
+                      "name":drlist[selectIndex]["name"],
+                      "spl":drlist[selectIndex]["spl"],
+                      "star":drlist[selectIndex]["star"],
+                      "distene":drlist[selectIndex]["distene"],
+                    });
+                    a.length==1?Navigator.push(context, MaterialPageRoute(builder: (context) => DoctordetailsPage(),)):a.clear();
+                  },
+                  child: Container(
+                    height: height*0.2,
+                    width: width*1,
+                    decoration: BoxDecoration(
+                        border: Border.all(color: Colour.lightgreen),
+                        borderRadius: BorderRadius.circular(width*0.04)
+                    ),
+                    child: ListView.separated(
+                        shrinkWrap: true,
+                        // physics: BouncingScrollPhysics(),
+          
+                        itemBuilder: (context, index) {
+                          return
+                            Padding(
+                            padding:  EdgeInsets.all(width*0.03),
+                            child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
-                                Text(drlist[selectIndex]["name"],
-                                  style: TextStyle(
-                                      fontSize: width*0.05,
-                                      fontWeight: FontWeight.w800,
-                                      color:Colour.thirdcolour
-                                  ),
-
-                                ),
-                                Text(drlist[selectIndex]["spl"],
-                                  style: TextStyle(
-                                      color: Colour.color1,
-                                      fontSize: width*0.04
-                                  ),
-
-                                ),
-                                Divider(
-                                  // color:Colour.gray.withOpacity(0.2),
-                                  color: Colors.blue,
-                                  thickness: width*0.003,
-                                    indent: width*0.05,
-                                    endIndent: width*0.05,
-
-
-                                ),
-                                Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                CircleAvatar(
+                                    radius: width*0.13,
+                                    backgroundImage:AssetImage(drlist[selectIndex]['image']) ,
+                                    ),
+                                Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Container(
-                                      width: width*0.15,
-                                      height: height*0.05,
-                                      decoration: BoxDecoration(
-                                          color: Colour.lightgreen,
-                                          borderRadius: BorderRadius.circular(width*0.01)
+                                    Text(drlist[selectIndex]["name"],
+                                      style: TextStyle(
+                                          fontSize: width*0.05,
+                                          fontWeight: FontWeight.w800,
+                                          color:Colour.thirdcolour
                                       ),
-
-                                      child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                        children: [
-                                         SvgPicture.asset(ImageIcons.star) ,
-                                          Text(drlist[selectIndex]["star"],
-                                            style: TextStyle(
-                                                color: Colour.primarycolour,
-                                                fontWeight: FontWeight.w500
-                                            ),
+          
                                     ),
-                                        ],
+                                    Text(drlist[selectIndex]["spl"],
+                                      style: TextStyle(
+                                          color: Colour.color1,
+                                          fontSize: width*0.04
                                       ),
+          
                                     ),
-
-                                    Container(
-                                      width: width*0.3,
-                                      height: height*0.05,
-                                      child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                        children: [
-                                         SvgPicture.asset(ImageIcons.location) ,
-                                          Text(drlist[selectIndex]["distene"])
-                                        ],
-                                      ),
+                                    Divider(
+                                      // color:Colour.gray.withOpacity(0.2),
+                                      color: Colors.blue,
+                                      thickness: width*0.003,
+                                        indent: width*0.05,
+                                        endIndent: width*0.05,
+          
+          
+                                    ),
+                                    Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Container(
+                                          width: width*0.15,
+                                          height: height*0.05,
+                                          decoration: BoxDecoration(
+                                              color: Colour.lightgreen,
+                                              borderRadius: BorderRadius.circular(width*0.01)
+                                          ),
+          
+                                          child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                            children: [
+                                             SvgPicture.asset(ImageIcons.star) ,
+                                              Text(drlist[selectIndex]["star"],
+                                                style: TextStyle(
+                                                    color: Colour.primarycolour,
+                                                    fontWeight: FontWeight.w500
+                                                ),
+                                        ),
+                                            ],
+                                          ),
+                                        ),
+          
+                                        Container(
+                                          width: width*0.3,
+                                          height: height*0.05,
+                                          child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                            children: [
+                                             SvgPicture.asset(ImageIcons.location) ,
+                                              Text(drlist[selectIndex]["distene"])
+                                            ],
+                                          ),
+                                        )
+                                      ],
                                     )
                                   ],
                                 )
+          
+          
                               ],
-                            )
-
-
-                          ],
-                        ),
-                      )
-                      ;
-
-                    },
-                    separatorBuilder: (context, index) {
-                      return SizedBox(
-                        height: height*0.03,
-                      );
-                    },
-                    itemCount: 1
-                ),
-              ),
-            ),
-
-            SizedBox(height: width*0.03,),
-            Divider(
-              color:Colour.gray.withOpacity(0.2),
-              thickness: width*0.003,
-              indent: width*0.05,
-              endIndent: width*0.05,
-
-
-            ),
-
-            Row(
-              children: [
-                Text("Your Recent Doctors",
-                  style: TextStyle(
-                      fontSize: width*0.05,
-                      fontWeight: FontWeight.w800,
-                      color:Colour.thirdcolour
+                            ),
+                          )
+                          ;
+          
+                        },
+                        separatorBuilder: (context, index) {
+                          return SizedBox(
+                            height: height*0.03,
+                          );
+                        },
+                        itemCount: 1
+                    ),
                   ),
                 ),
+                Divider(
+                  color:Colour.gray.withOpacity(0.2),
+                  thickness: width*0.003,
+                  indent: width*0.05,
+                  endIndent: width*0.05,
+          
+          
+                ),
+                Row(
+                  children: [
+                    Text("Your Recent Doctors",
+                      style: TextStyle(
+                          fontSize: width*0.05,
+                          fontWeight: FontWeight.w800,
+                          color:Colour.thirdcolour
+                      ),
+                    ),
+                  ],
+                ),
+                Container(
+                  height: height*0.17,
+                  width: width*1,
+                  child: ListView.separated(
+                      // shrinkWrap: true,
+                      scrollDirection: Axis.horizontal,
+                      // physics: BouncingScrollPhysics(),
+          
+                      itemBuilder: (context, index) {
+                        return InkWell(
+                          onTap: () {
+                            selectIndex=index;
+                            setState(() {
+          
+                            });
+          
+                          },
+                          child: Container(
+                            child: Column(mainAxisAlignment: MainAxisAlignment.spaceAround,
+                              children: [
+                                CircleAvatar(
+                                  radius: width*0.10,
+                                  backgroundImage:AssetImage(drlist[index]['image']) ,
+                                ),
+                                Text(drlist[index]["name"]),
+          
+          
+                              ],
+                            ),
+          
+                          ),
+                        );
+          
+                      },
+                      separatorBuilder: (context, index) {
+                        return SizedBox(
+                          width: width*0.03,
+                        );
+                      },
+                      itemCount: drlist.length
+                  ),
+                ),
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
               ],
             ),
-            SizedBox(height: width*0.03,),
-            Container(
-              height: height*0.17,
-              width: width*1,
-              child: ListView.separated(
-                  // shrinkWrap: true,
-                  scrollDirection: Axis.horizontal,
-                  // physics: BouncingScrollPhysics(),
-
-                  itemBuilder: (context, index) {
-                    return InkWell(
-                      onTap: () {
-                        selectIndex=index;
-                        setState(() {
-
-                        });
-
-                      },
-                      child: Container(
-                        child: Column(mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            CircleAvatar(
-                              radius: width*0.10,
-                              backgroundImage:AssetImage(drlist[index]['image']) ,
-                            ),
-                            Text(drlist[index]["name"]),
-
-
-                          ],
-                        ),
-
-                      ),
-                    );
-
-                  },
-                  separatorBuilder: (context, index) {
-                    return SizedBox(
-                      width: width*0.03,
-                    );
-                  },
-                  itemCount: drlist.length
-              ),
-            ),
-
-
-
-
-
-
-
-
-
-
-
-
-
-          ],
+          ),
         ),
       ),
 

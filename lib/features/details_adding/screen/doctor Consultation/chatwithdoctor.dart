@@ -11,6 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:medical/colour.dart';
+import 'package:medical/features/details_adding/screen/doctor%20Consultation/findDoctor.dart';
 import 'package:medical/features/details_adding/screen/widgets/chat_info.dart';
 import 'package:medical/features/details_adding/screen/widgets/chat_doctor.dart';
 
@@ -38,7 +39,7 @@ class _ChatPageState extends State<ChatPage> {
           elevation: 0,
           leading: InkWell(
             onTap: () {
-              Navigator.pop(context);
+              Navigator.push(context, MaterialPageRoute(builder: (context) => FindDoctor(),));
             },
             child: SizedBox(
               height: width * 0.05,
