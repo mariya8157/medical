@@ -82,150 +82,177 @@ class _HomePageState extends State<HomePage> {
         padding: EdgeInsets.all(8.0),
         child: SingleChildScrollView(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              SizedBox(height: width*0.05,),
-              Container(
-                height: height*0.06,
-                decoration: BoxDecoration(
-                    color: Colour.color3,
-                    borderRadius: BorderRadius.circular(width*0.07)
-                ),
-                child: TextFormField(
-                  controller:search_controller ,
-                  keyboardType: TextInputType.name,
-                  textInputAction: TextInputAction.search,
-                  style: TextStyle(fontSize: width*0.045,fontWeight: FontWeight.w500,color: Colour.thirdcolour),
-                  decoration: InputDecoration(
-                      prefixIcon:Padding(
-                        padding:  EdgeInsets.all(width*0.03),
-                        child: SvgPicture.asset(ImageIcons.search),
-                      ),
-                      labelText: "Search doctors,drugs,articles...",
-                      labelStyle: TextStyle(fontWeight: FontWeight.w500,fontSize: width*0.04, color: Colour.color1),
-                      hintText: "please enter search ",
-                      hintStyle: TextStyle(
-                        fontSize: width*0.05,
-                        fontWeight: FontWeight.w400,
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Colour.color2,
-          
-                          ),
-                          borderRadius: BorderRadius.circular(
-                              width*0.07)
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(width*0.07),
-                          borderSide: BorderSide(
-                            color: Colour.color2,
-          
-                          )
-                      )
-                  ),
-                ),
-              ),
-              SizedBox(height: width*0.05,),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Column(
-                  children: [
-                    Container(
-                      height:height*0.06,
-                      width: width*0.08,
-                      child: SvgPicture.asset(ImageIcons.catogory1),
-          
-                    ),
-                    SizedBox(height: width*0.04,),
-                    Text("Doctor",
-                      style: TextStyle(
-                          fontSize: width*0.03,
-                        color: Colour.gray
-                      ),)
-                  ],
-                ),
-                Column(
-                  children: [
-                    Container(
-                      height:height*0.06,
-                      width: width*0.08,
-                      child: SvgPicture.asset(ImageIcons.Pharmacy),
-          
-                    ),SizedBox(height: width*0.04,),
-                    Text("Pharmacy",
-                      style: TextStyle(
-                          fontSize: width*0.03,
-                          color: Colour.gray
-                      ),)
-                  ],
-                ),
-                Column(
-                  children: [
-                    Container(
-                      height:height*0.06,
-                      width: width*0.08,
-                      child: SvgPicture.asset(ImageIcons.Hospital),
-          
-                    ),SizedBox(height: width*0.04,),
-                    Text("Hospital",
-                      style: TextStyle(
-                          fontSize: width*0.03,
-                          color: Colour.gray
-                      ),)
-                  ],
-                ),
-                Column(
-                  children: [
-                    Container(
-                      height:height*0.06,
-                      width: width*0.08,
-                      child: SvgPicture.asset(ImageIcons.Ambulance),
-          
-                    ),SizedBox(height: width*0.04,),
-                    Text("Ambulance",
-                      style: TextStyle(
-                          fontSize: width*0.03,
-                          color: Colour.gray
-                      ),)
-                  ],
-                )
-              ],
-            ),
-              SizedBox(height: width*0.04,),
+              // SizedBox(height: width*0.05,),
               Container(
                 height: width*0.4,
-                width: width*0.85,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(width*0.04),
-                  image: DecorationImage(
-                      image: AssetImage(ImageIcons.CTA),fit: BoxFit.fill)
+                width: width*1,
+
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Container(
+                      height: height*0.06,
+                      width: width*0.88,
+                      decoration: BoxDecoration(
+                          color: Colour.color3,
+                          borderRadius: BorderRadius.circular(width*0.07)
+                      ),
+                      child: TextFormField(
+                        controller:search_controller ,
+                        keyboardType: TextInputType.name,
+                        textInputAction: TextInputAction.search,
+                        style: TextStyle(fontSize: width*0.045,fontWeight: FontWeight.w500,color: Colour.thirdcolour),
+                        decoration: InputDecoration(
+                            prefixIcon:Padding(
+                              padding:  EdgeInsets.all(width*0.03),
+                              child: SvgPicture.asset(ImageIcons.search),
+                            ),
+                            labelText: "Search doctors,drugs,articles...",
+                            labelStyle: TextStyle(fontWeight: FontWeight.w500,fontSize: width*0.04, color: Colour.color1),
+                            hintText: "please enter search ",
+                            hintStyle: TextStyle(
+                              fontSize: width*0.05,
+                              fontWeight: FontWeight.w400,
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                  color: Colour.color2,
+
+                                ),
+                                borderRadius: BorderRadius.circular(
+                                    width*0.07)
+                            ),
+                            enabledBorder: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(width*0.07),
+                                borderSide: BorderSide(
+                                  color: Colour.color2,
+
+                                )
+                            )
+                        ),
+                      ),
+                    ),
+                    // SizedBox(height: width*0.05,),
+                    Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Column(
+                        children: [
+                          Container(
+                            height:height*0.06,
+                            width: width*0.08,
+                            child: SvgPicture.asset(ImageIcons.catogory1),
+
+                          ),
+                          // SizedBox(height: width*0.04,),
+                          Text("Doctor",
+                            style: TextStyle(
+                                fontSize: width*0.03,
+                              color: Colour.gray
+                            ),)
+                        ],
+                      ),
+                      Column(
+                        children: [
+                          Container(
+                            height:height*0.06,
+                            width: width*0.08,
+                            child: SvgPicture.asset(ImageIcons.Pharmacy),
+
+                          ),
+                          // SizedBox(height: width*0.04,),
+                          Text("Pharmacy",
+                            style: TextStyle(
+                                fontSize: width*0.03,
+                                color: Colour.gray
+                            ),)
+                        ],
+                      ),
+                      Column(
+                        children: [
+                          Container(
+                            height:height*0.06,
+                            width: width*0.08,
+                            child: SvgPicture.asset(ImageIcons.Hospital),
+
+                          ),
+                          // SizedBox(height: width*0.04,),
+                          Text("Hospital",
+                            style: TextStyle(
+                                fontSize: width*0.03,
+                                color: Colour.gray
+                            ),)
+                        ],
+                      ),
+                      Column(
+                        children: [
+                          Container(
+                            height:height*0.06,
+                            width: width*0.08,
+                            child: SvgPicture.asset(ImageIcons.Ambulance),
+
+                          ),
+                          // SizedBox(height: width*0.04,),
+                          Text("Ambulance",
+                            style: TextStyle(
+                                fontSize: width*0.03,
+                                color: Colour.gray
+                            ),)
+                        ],
+                      )
+                    ],
+                                ),
+                  ],
                 ),
-              ),SizedBox(height: width*0.04,),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-          
-                children: [
-                  Text("Top Doctor",style: TextStyle(
-                    fontWeight: FontWeight.w700,
-                    fontSize: width*0.04
-                  ),),
-                   SizedBox(width: width*0.05,),
-                  InkWell(
-                    onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => TopDoctorPage(),));
-                    },
-                    child: Text("See all",style: TextStyle(
-                        fontSize: width*0.03,
-                      color: Colour.primarycolour
-                    ),),
-                  )
-                ],
+              ),
+              // SizedBox(height: width*0.04,),
+              Container(
+                height: width*0.6,
+                width: width*1,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Container(
+                      height: width*0.4,
+                      width: width*0.9,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(width*0.04),
+                        image: DecorationImage(
+                            image: AssetImage(ImageIcons.CTA),fit: BoxFit.fill)
+                      ),
+                    ),
+                    // SizedBox(height: width*0.04,),
+                    Container(
+                      width: width*0.9,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+                        children: [
+                          Text("Top Doctor",style: TextStyle(
+                            fontWeight: FontWeight.w700,
+                            fontSize: width*0.04
+                          ),),
+                           // SizedBox(width: width*0.05,),
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => TopDoctorPage(),));
+                            },
+                            child: Text("See all",style: TextStyle(
+                                fontSize: width*0.03,
+                              color: Colour.primarycolour
+                            ),),
+                          )
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
               ),
               Container(
                 height: width*0.55,
                 width: width*1,
+                margin: EdgeInsets.only(left: width*0.03),
                 child: ListView.separated(
                   physics: BouncingScrollPhysics(),
                   scrollDirection: Axis.horizontal,
@@ -284,7 +311,7 @@ class _HomePageState extends State<HomePage> {
                                       ),
                                   ),
 
-                                  SizedBox(width: width*0.02,),
+                                  // SizedBox(width: width*0.02,),
                                   SvgPicture.asset(ImageIcons.location,color: Colors.grey,),
                                   Text(doctor[index]["distene"],style: TextStyle(
                                     color: Colors.grey
