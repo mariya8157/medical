@@ -284,7 +284,7 @@ class _HomePageState extends State<HomePage> {
                                       ),
                                   ),
 
-                                  SizedBox(width: width*0.04,),
+                                  SizedBox(width: width*0.02,),
                                   SvgPicture.asset(ImageIcons.location,color: Colors.grey,),
                                   Text(doctor[index]["distene"],style: TextStyle(
                                     color: Colors.grey
