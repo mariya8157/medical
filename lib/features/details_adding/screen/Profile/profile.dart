@@ -6,6 +6,9 @@ import 'package:medical/colour.dart';
 import 'package:medical/icons.dart';
 import 'package:medical/main.dart';
 
+import '../doctor Consultation/bookingdoctor.dart';
+import '../onlinePharmacy/mycart.dart';
+
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
 
@@ -192,36 +195,50 @@ class _ProfilePageState extends State<ProfilePage> {
                           SizedBox(
                             height: width * 0.03,
                           ),
-                          ListTile(
-                            leading: CircleAvatar(
-                              radius: width * 0.06,
-                              backgroundColor: Colour.lightgreen,
-                              child: SvgPicture.asset(ImageIcons.appoitmnet),
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                  context, MaterialPageRoute(
+                                  builder: (context) =>BookingPage() ));
+                            },
+                            child: ListTile(
+                              leading: CircleAvatar(
+                                radius: width * 0.06,
+                                backgroundColor: Colour.lightgreen,
+                                child: SvgPicture.asset(ImageIcons.appoitmnet),
+                              ),
+                              title: Text(
+                                "Appointment",
+                                style: TextStyle(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: width * 0.05),
+                              ),
+                              trailing: SvgPicture.asset(ImageIcons.nxtback),
                             ),
-                            title: Text(
-                              "Appointmnet",
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: width * 0.05),
-                            ),
-                            trailing: SvgPicture.asset(ImageIcons.nxtback),
                           ),
                           Divider(
                             thickness: width * 0.002,
                             endIndent: width * 0.08,
                             indent: width * 0.06,
                           ),
-                          ListTile(
-                            leading: CircleAvatar(
-                              radius: width * 0.06,
-                              backgroundColor: Colour.lightgreen,
-                              child: SvgPicture.asset(ImageIcons.wallet),
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                  context, MaterialPageRoute(
+                                builder: (context) =>MyCartPage() ));
+                            },
+                            child: ListTile(
+                              leading: CircleAvatar(
+                                radius: width * 0.06,
+                                backgroundColor: Colour.lightgreen,
+                                child: SvgPicture.asset(ImageIcons.wallet),
+                              ),
+                              title: Text("Payment Method",
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: width * 0.05)),
+                              trailing: SvgPicture.asset(ImageIcons.nxtback),
                             ),
-                            title: Text("Payment Method",
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: width * 0.05)),
-                            trailing: SvgPicture.asset(ImageIcons.nxtback),
                           ),
                           Divider(
                             thickness: width * 0.002,
@@ -289,12 +306,23 @@ class _ProfilePageState extends State<ProfilePage> {
                                                   ),
                                                 ),
                                               ),
-                                              Text(
-                                                "Cancel",
-                                                style: TextStyle(
-                                                    fontSize: width * 0.047,
-                                                    color:
-                                                        Colour.primarycolour),
+                                              InkWell(
+                                                onTap: () {
+                                                  Navigator.pop(context);
+                                                },
+                                                child: Container(
+                                                  height: width*0.09,
+                                                  width: width*0.2,
+                                                  child: Center(
+                                                    child: Text(
+                                                      "Cancel",
+                                                      style: TextStyle(
+                                                          fontSize: width * 0.047,
+                                                          color:
+                                                              Colour.primarycolour),
+                                                    ),
+                                                  ),
+                                                ),
                                               )
                                             ],
                                           ),
