@@ -179,11 +179,17 @@ class _articlesState extends State<articles> {
               ),
             ),
           ),
-          Text("Popular Articles",
-            style: TextStyle(
-                fontSize: width*0.05,
-                fontWeight: FontWeight.w700
-            ),),
+          SizedBox(height: width*0.05,),
+          Row(
+            children: [
+              SizedBox(width: width*0.05,),
+              Text("Popular Articles",
+                style: TextStyle(
+                    fontSize: width*0.065,
+                    fontWeight: FontWeight.w700
+                ),),
+            ],
+          ),
           SizedBox(
               height: height*0.015
           ),
@@ -236,9 +242,10 @@ class _articlesState extends State<articles> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  SizedBox(width: width*0.05,),
                   Text("Trending Articles",
                     style: TextStyle(
-                        fontSize: width*0.07,
+                        fontSize: width*0.065,
                         fontWeight: FontWeight.w700
                     ),),
                 ],
@@ -337,19 +344,17 @@ class _articlesState extends State<articles> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Container(
-                  height: width*0.16,
-                  width: width*0.55,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text("Related Articles",
-                        style: TextStyle(
-                            fontSize: width*0.07,
-                            fontWeight: FontWeight.w700
-                        ),),
-                    ],
-                  )),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(width: width*0.06,),
+                  Text("Related Articles",
+                    style: TextStyle(
+                        fontSize: width*0.065,
+                        fontWeight: FontWeight.w700
+                    ),),
+                ],
+              ),
               Container(
                   height: width*0.175,
                   width: width*0.24,
