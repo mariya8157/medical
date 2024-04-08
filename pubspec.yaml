@@ -43,6 +43,8 @@ dependencies:
   readmore: ^2.2.0
   pinput: ^3.0.1
   easy_date_timeline: ^1.0.6
+  firebase_core: ^2.24.2
+
 
 
 dev_dependencies:
