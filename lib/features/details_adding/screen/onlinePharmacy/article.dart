@@ -391,40 +391,32 @@ class _articlesState extends State<articles> {
                           child: Padding(
                             padding:  EdgeInsets.all(width*0.0122),
                             child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
                                 Image.asset(d[index]["image"],width: width*0.2,),
                                 SizedBox(width: width*0.03,),
-                                Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Container(
-                                        height: width*0.17,
-                                        width: width*0.63,
-                                        child: Column(
-                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Row(
-                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                              children: [
-                                                Text(
-                                                    d[index]["text1"],
-                                                  style: TextStyle(
-                                                    fontWeight: FontWeight.w600,fontSize: width*0.04
-                                                  ),
-                                                ),
-                                                SvgPicture.asset( d[index]["icon"],width: width*0.065,),
-                                              ],
-                                            ),
-                                            Row(
-                                              children: [
-                                                Text( d[index]["text2"]),
-                                                Text( d[index]["text3"],style: TextStyle(color: Colour.primarycolour),),
-                                              ],
-                                            )
-                                          ],
-                                        )),
-                                  ],
+                                Container(
+                                  width: width*0.54,
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                          d[index]["text1"],
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.w600,fontSize: width*0.04
+                                        ),
+                                      ),
+                                      Row(
+                                        children: [
+                                          Text( d[index]["text2"]),
+                                          Text( d[index]["text3"],style: TextStyle(color: Colour.primarycolour),),
+                                        ],
+                                      )
+                                    ],
+                                  ),
                                 ),
+                                SvgPicture.asset( d[index]["icon"],width: width*0.065,),
                               ],
                             ),
                           ),

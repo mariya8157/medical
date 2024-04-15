@@ -8,13 +8,44 @@ import '../../../../icons.dart';
 import '../../../../main.dart';
 
 class DrugDetailsPage extends StatefulWidget {
+
   const DrugDetailsPage({super.key});
 
   @override
   State<DrugDetailsPage> createState() => _DrugDetailsPageState();
 }
-
+int total = 0;
 class _DrugDetailsPageState extends State<DrugDetailsPage> {
+  dynamic added;
+  List a=[];
+  // totalprice(){
+  //   for(int i=0;i<widget.c.length;i++){
+  //     if(widget.c[i]["quantity"]>0){
+  //       added=widget.c[i];
+  //       a.add(added);
+  //     }
+  //     // print(a);
+  //     // print("oooooooooooooooooooooooooooooooo");
+  //
+  //   }
+  //
+  //   setState(() {
+  //
+  //   });
+  // }
+  totalprice() {
+    total = 0;
+    for (int i = 0; i < a.length; i++) {
+      total = a[i]["quantity"] * a[i]["Price"] +
+          total;
+    }
+  }
+  void initState() {
+    totalprice();
+    // tascprice();
+    // TODO: implement initState
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -88,10 +119,10 @@ class _DrugDetailsPageState extends State<DrugDetailsPage> {
                       style:
                           TextStyle(color: Colors.grey, fontSize: width * 0.05),
                     ),
-                    // SvgPicture.asset(ImageIcons.heart)
+                    SvgPicture.asset(ImageIcons.heart)
                   ],
                 ),
-                // SvgPicture.asset(ImageIcons.star4),
+                SvgPicture.asset(ImageIcons.star4),
                 SizedBox(
                   height: width * 0.05,
                 ),
@@ -110,14 +141,22 @@ class _DrugDetailsPageState extends State<DrugDetailsPage> {
                               fontSize: width * 0.06,
                               fontWeight: FontWeight.w700),
                         ),
-                        // SvgPicture.asset(
-                        //   ImageIcons.c_add,
-                        //   width: width * 0.05,
-                        // ),
+                        InkWell(
+                          // onTap: () {
+                          //   c[index]
+                          //   ["quantity"] ++;
+                          //   // totalprice();
+                          //   setState(() {});
+                          // },
+                          child: SvgPicture.asset(
+                            ImageIcons.c_add,
+                            width: width * 0.05,
+                          ),
+                        ),
                       ],
                     ),
                     Text(
-                      "\$9.99",
+                      "$total",
                       style: TextStyle(
                           fontWeight: FontWeight.w800, fontSize: width * 0.06),
                     )

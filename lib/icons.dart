@@ -44,6 +44,8 @@ class ImageIcons{
   static const bell = "assets/icons/bell.svg";
   static const button = "assets/icons/Button.svg";
   static const Paperclip = "assets/icons/Paperclip.svg";
+  static const heart = "assets/icons/Heart.svg";
+  static const star4 = "assets/icons/star4.svg";
 
 
 

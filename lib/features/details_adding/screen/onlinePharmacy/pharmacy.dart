@@ -6,6 +6,7 @@ import 'package:flutter_svg/svg.dart';
 import '../../../../colour.dart';
 import '../../../../icons.dart';
 import '../../../../main.dart';
+import 'drugsdetail.dart';
 
 class PharmacyPage extends StatefulWidget {
   const PharmacyPage({super.key});
@@ -464,7 +465,14 @@ class _PharmacyPageState extends State<PharmacyPage> {
                                         )
                                       ],
                                     ),
-                                    SvgPicture.asset(c[index]["icon"],width: width*0.06,)
+                                    InkWell(
+                                        onTap: () {
+
+                                          Navigator.push(
+                                              context, MaterialPageRoute(
+                                            builder: (context) => DrugDetailsPage(),));
+                                        },
+                                        child: SvgPicture.asset(c[index]["icon"],width: width*0.06,))
                                     // Container(
                                     //   height: width*0.06,
                                     //   width: width*0.06,
