@@ -69,7 +69,7 @@ class _articlesState extends State<articles> {
     },
     {
       "image":ImageIcons.covid6,
-      "text1":"Beauty Tips For Face: 10 Dos and \n Naturally Beautiful Skin",
+      "text1":"Beauty Tips For Face: 10 Dos  \n Naturally Beautiful Skin",
       "icon":ImageIcons.save,
       "text2":"Jun 10, 2021 . ",
       "text3":"7min read",
