@@ -55,7 +55,7 @@ class _articlesState extends State<articles> {
   List d=[
     {
       "image":ImageIcons.covid4,
-      "text1":"The 25 Healthiest Fruits You Can \nEat According to a Nutritionist",
+      "text1":"The 25 Healthiest Fruits  \nEat According to a Nutritionist",
       "icon":ImageIcons.save,
       "text2":"Jun 10, 2021 . ",
       "text3":"5min read",
@@ -69,7 +69,7 @@ class _articlesState extends State<articles> {
     },
     {
       "image":ImageIcons.covid6,
-      "text1":"Beauty Tips For Face: 10 Dos and \nDon'ts for Naturally Beautiful Skin",
+      "text1":"Beauty Tips For Face: 10 Dos and \n Naturally Beautiful Skin",
       "icon":ImageIcons.save,
       "text2":"Jun 10, 2021 . ",
       "text3":"7min read",
