@@ -397,8 +397,7 @@ class _articlesState extends State<articles> {
                                 SizedBox(width: width*0.03,),
                                 Container(
                                   width: width*0.56,
-                                  height: width*0.2,
-                                  color: Colors.red,
+                                  height: width*0.15,
                                   child: Column(
                                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                                     crossAxisAlignment: CrossAxisAlignment.start,
