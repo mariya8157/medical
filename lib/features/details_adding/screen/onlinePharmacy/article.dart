@@ -396,7 +396,9 @@ class _articlesState extends State<articles> {
                                 Image.asset(d[index]["image"],width: width*0.2,),
                                 SizedBox(width: width*0.03,),
                                 Container(
-                                  width: width*0.54,
+                                  width: width*0.56,
+                                  height: width*0.2,
+                                  color: Colors.red,
                                   child: Column(
                                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                                     crossAxisAlignment: CrossAxisAlignment.start,
