@@ -267,7 +267,7 @@ class _FindDoctorState extends State<FindDoctor> {
                       "star":drlist[selectIndex]["star"],
                       "distene":drlist[selectIndex]["distene"],
                     });
-                    a.length==1?Navigator.push(context, MaterialPageRoute(builder: (context) => DoctordetailsPage(),)):a.clear();
+                    a.length==1?Navigator.push(context, MaterialPageRoute(builder: (context) => DoctordetailsPage(dr: a,),)):a.clear();
                   },
                   child: Container(
                     height: height*0.2,

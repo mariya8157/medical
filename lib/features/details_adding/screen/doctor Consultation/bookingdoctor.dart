@@ -25,6 +25,7 @@ class _BookingPageState extends State<BookingPage> {
 
     }
   ];
+  TextEditingController reason=TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -247,15 +248,55 @@ class _BookingPageState extends State<BookingPage> {
                           backgroundColor: Colour.lightgreen,
                           child: Center(child: SvgPicture.asset(ImageIcons.square)),
                         ),
-                        SizedBox(width: width*0.05,),
+                        Container(
+                          width: width*0.6,
+                          child:
+                          TextFormField(
+                            controller: reason,
+                            keyboardType: TextInputType.text,
+                            textInputAction: TextInputAction.next,
+                            style: TextStyle(
+                              fontSize: width*0.04,
+                              fontWeight: FontWeight.w400,
+                              color: Colour.thirdcolour
+                            ),
 
-                        Text("Chest pain",
-                          style: TextStyle(
-                              fontSize: width*0.05,
-                              fontWeight: FontWeight.w500,
-                              color:Colour.thirdcolour
+                            // decoration:
+                            // InputDecoration(
+                            //     fillColor: ,
+                            //     filled: true,
+                            //     suffixIcon:  Icon(Icons.person),
+                            //     labelText: "Name",
+                            //     labelStyle: TextStyle(
+                            //       fontSize: width*0.04,
+                            //       fontWeight: FontWeight.w600,
+                            //     ),
+                            //     hintText: "please enter your name",
+                            //     hintStyle: TextStyle(
+                            //       fontWeight: FontWeight.w500,
+                            //       fontSize: width*0.05,
+                            //     ),
+                            //     border: OutlineInputBorder
+                            //       (borderSide: BorderSide.none,
+                            //       borderRadius: BorderRadius.circular(width*0.03),
+                            //     )
+                            //
+                            //
+                            //
+                            // ),
+
                           ),
+
                         ),
+
+                        // Text("Chest pain",
+                        //   style: TextStyle(
+                        //       fontSize: width*0.05,
+                        //       fontWeight: FontWeight.w500,
+                        //       color:Colour.thirdcolour
+                        //   ),
+                        // ),
+                        SizedBox(width: width*0.05,)
                       ],
                     ),
                     Divider(thickness: width*0.004,
