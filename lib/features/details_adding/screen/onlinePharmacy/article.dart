@@ -381,7 +381,7 @@ class _articlesState extends State<articles> {
                     children: [
                       Center(
                         child: Container(
-                          height: width*0.25,
+                          height: width*0.3,
                           width: width*0.89,
                           // margin:  EdgeInsets.only(left: width*0.05),
                           decoration: BoxDecoration(
