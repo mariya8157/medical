@@ -91,7 +91,13 @@ class ImageIcons{
   static const lady = "assets/images/lady.png";
   static const line = "assets/images/line.png";
 
+ //jpg
+static const banner1="assets/images/banner1.jpg";
+static const banner2="assets/images/banner2.jpg";
 
+
+//
+  static const banner3="assets/images/banner3.webp";
 
 
 }

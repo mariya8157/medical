@@ -1,9 +1,11 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:medical/features/details_adding/screen/home/topdoctor.dart';
 import 'package:pinput/pinput.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../../../../colour.dart';
 import '../../../../icons.dart';
@@ -32,6 +34,14 @@ class _HomePageState extends State<HomePage> {
   //     "text":"Ambulance"
   //   }
   // ];
+  int currentIndex=0;
+  List pages=[
+   ImageIcons.banner1,
+   ImageIcons.banner2,
+   ImageIcons.banner3,
+    ImageIcons.CTA
+
+  ];
   List doctor=[
     {
       "image":ImageIcons.drmarcus1,
@@ -208,20 +218,60 @@ class _HomePageState extends State<HomePage> {
               ),
               // SizedBox(height: width*0.04,),
               Container(
-                height: width*0.6,
+                height: width*0.7,
                 width: width*1,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Container(
-                      height: width*0.4,
-                      width: width*0.9,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(width*0.04),
-                        image: DecorationImage(
-                            image: AssetImage(ImageIcons.CTA),fit: BoxFit.fill)
-                      ),
-                    ),
+                    CarouselSlider.builder(
+                        itemCount: 4,
+                        itemBuilder: (BuildContext context, int index, int realIndex) {
+                          return Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Container(
+                                height: width*0.2,
+                                width: width*1,
+                                decoration: BoxDecoration(
+
+                                  color:Colors.green,
+                                  borderRadius: BorderRadius.circular(10),
+                                  image: DecorationImage(
+                                      image: AssetImage(pages[index]),fit: BoxFit.fill
+                                  ),
+                                )
+
+                            ),
+                          );
+                        },
+                        options: CarouselOptions(
+                          autoPlay: true,
+                          viewportFraction: 0.8,
+                          autoPlayAnimationDuration: Duration(milliseconds: 200),
+                          onPageChanged: (index, reason) {
+                            setState(() {
+                              currentIndex=index;
+                            });
+                          },
+                        )),
+                    SizedBox(height: width*0.02,),
+                    AnimatedSmoothIndicator(
+                        activeIndex: currentIndex,
+                        count: pages.length,
+                        effect: ExpandingDotsEffect(
+                          activeDotColor: Colour.primarycolour,
+                          dotColor: Colour.gray,
+                          dotHeight: width*0.02,
+                          dotWidth: width*0.02,
+                        )),
+                    // Container(
+                    //   height: width*0.4,
+                    //   width: width*0.9,
+                    //   decoration: BoxDecoration(
+                    //     borderRadius: BorderRadius.circular(width*0.04),
+                    //     image: DecorationImage(
+                    //         image: AssetImage(ImageIcons.CTA),fit: BoxFit.fill)
+                    //   ),
+                    // ),
                     // SizedBox(height: width*0.04,),
                     Container(
                       width: width*0.9,
