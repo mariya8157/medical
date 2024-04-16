@@ -8,6 +8,7 @@ import 'package:medical/features/details_adding/screen/doctor%20Consultation/cha
 import 'package:medical/features/details_adding/screen/doctor%20Consultation/findDoctor.dart';
 import 'package:medical/features/details_adding/screen/home/homepage.dart';
 import 'package:medical/features/details_adding/screen/onlinePharmacy/article.dart';
+import 'package:medical/features/details_adding/screen/onlinePharmacy/pharmacy.dart';
 import 'package:medical/icons.dart';
 
 class BottomNavigationPage extends StatefulWidget {
@@ -20,8 +21,9 @@ class BottomNavigationPage extends StatefulWidget {
 class _HomeState extends State<BottomNavigationPage> {
   List pages=[
     HomePage(),
-    FindDoctor(),
     articles(),
+    FindDoctor(),
+    PharmacyPage(),
     ProfilePage()
   ];
   int selectedIndex=0;
@@ -45,6 +47,8 @@ class _HomeState extends State<BottomNavigationPage> {
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home),
               label: 'Home'),
+          BottomNavigationBarItem(icon: Icon(Icons.article_outlined),
+              label: 'Article'),
           BottomNavigationBarItem(icon:Icon(Icons.call
           ),
               label: 'Doctors'),
