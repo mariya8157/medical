@@ -6,6 +6,7 @@ import 'package:medical/features/details_adding/screen/doctor%20Consultation/cha
 import '../../../../colour.dart';
 import '../../../../icons.dart';
 import '../../../../main.dart';
+import '../onlinePharmacy/drugsdetail.dart';
 
 class BookingPage extends StatefulWidget {
   const BookingPage({super.key,  });
@@ -26,6 +27,27 @@ class _BookingPageState extends State<BookingPage> {
     }
   ];
   TextEditingController reason=TextEditingController();
+  TextEditingController cunsult=TextEditingController();
+  TextEditingController admission=TextEditingController();
+  TextEditingController addition=TextEditingController();
+  // int total =0;
+
+
+  List p=[
+  {
+    "con":60,
+    "admin":20,
+    "dis":12
+  }
+  ];
+  addCost(){
+      total=0;
+      for(int i=0;i<p!.length;i++)
+      {
+        total=p![i]["con"]+p![i]["admin"]-p![i]["dis"];
+      }
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -231,11 +253,18 @@ class _BookingPageState extends State<BookingPage> {
                               color:Colour.thirdcolour
                           ),
                         ),
-                        Text("Change",
-                          style: TextStyle(
-                              fontSize: width*0.04,
-                              fontWeight: FontWeight.w500,
-                              color:Colour.gray
+                        InkWell(
+                          onTap: () {
+                            reason.clear();
+                          },
+                          child: Container(
+                            child: Text("Change",
+                              style: TextStyle(
+                                  fontSize: width*0.04,
+                                  fontWeight: FontWeight.w500,
+                                  color:Colour.gray
+                              ),
+                            ),
                           ),
                         ),
 
@@ -248,55 +277,33 @@ class _BookingPageState extends State<BookingPage> {
                           backgroundColor: Colour.lightgreen,
                           child: Center(child: SvgPicture.asset(ImageIcons.square)),
                         ),
+                        SizedBox(width: width*0.05,),
+
                         Container(
                           width: width*0.6,
                           child:
                           TextFormField(
                             controller: reason,
                             keyboardType: TextInputType.text,
-                            textInputAction: TextInputAction.next,
+                            textInputAction: TextInputAction.done,
+                            textCapitalization: TextCapitalization.words,
+                            decoration: InputDecoration(
+                              border: OutlineInputBorder(
+                                borderSide: BorderSide.none
+                              )
+                            ),
+
                             style: TextStyle(
-                              fontSize: width*0.04,
-                              fontWeight: FontWeight.w400,
+                              fontSize: width*0.05,
+                              fontWeight: FontWeight.w500,
                               color: Colour.thirdcolour
                             ),
 
-                            // decoration:
-                            // InputDecoration(
-                            //     fillColor: ,
-                            //     filled: true,
-                            //     suffixIcon:  Icon(Icons.person),
-                            //     labelText: "Name",
-                            //     labelStyle: TextStyle(
-                            //       fontSize: width*0.04,
-                            //       fontWeight: FontWeight.w600,
-                            //     ),
-                            //     hintText: "please enter your name",
-                            //     hintStyle: TextStyle(
-                            //       fontWeight: FontWeight.w500,
-                            //       fontSize: width*0.05,
-                            //     ),
-                            //     border: OutlineInputBorder
-                            //       (borderSide: BorderSide.none,
-                            //       borderRadius: BorderRadius.circular(width*0.03),
-                            //     )
-                            //
-                            //
-                            //
-                            // ),
 
                           ),
 
                         ),
 
-                        // Text("Chest pain",
-                        //   style: TextStyle(
-                        //       fontSize: width*0.05,
-                        //       fontWeight: FontWeight.w500,
-                        //       color:Colour.thirdcolour
-                        //   ),
-                        // ),
-                        SizedBox(width: width*0.05,)
                       ],
                     ),
                     Divider(thickness: width*0.004,
@@ -325,6 +332,32 @@ class _BookingPageState extends State<BookingPage> {
                               color:Colour.gray
                           ),
                         ),
+                        // Container(
+                        //   width: width*0.15,
+                        //   height: height*0.05,
+                        //
+                        //   child:TextFormField(
+                        //     controller: cunsult,
+                        //     keyboardType: TextInputType.text,
+                        //     textInputAction: TextInputAction.done,
+                        //     textCapitalization: TextCapitalization.words,
+                        //     decoration: InputDecoration(
+                        //         border: OutlineInputBorder(
+                        //             borderSide: BorderSide.none
+                        //         )
+                        //     ),
+                        //
+                        //     style: TextStyle(
+                        //         fontSize: width*0.05,
+                        //         fontWeight: FontWeight.w500,
+                        //         color: Colour.thirdcolour
+                        //     ),
+                        //
+                        //
+                        //   ),
+                        //
+                        // )
+
                         Text("\$60",
                           style: TextStyle(
                               fontSize: width*0.05,
@@ -344,6 +377,31 @@ class _BookingPageState extends State<BookingPage> {
                               color:Colour.gray
                           ),
                         ),
+                        // Container(
+                        //   width: width*0.15,
+                        //   height: height*0.05,
+                        //   child:TextFormField(
+                        //     controller: admission,
+                        //     keyboardType: TextInputType.text,
+                        //     textInputAction: TextInputAction.done,
+                        //     textCapitalization: TextCapitalization.words,
+                        //     decoration: InputDecoration(
+                        //         border: OutlineInputBorder(
+                        //             borderSide: BorderSide.none
+                        //         )
+                        //     ),
+                        //
+                        //     style: TextStyle(
+                        //         fontSize: width*0.05,
+                        //         fontWeight: FontWeight.w500,
+                        //         color: Colour.thirdcolour
+                        //     ),
+                        //
+                        //
+                        //   ),
+                        //
+                        // )
+
                         Text("\$60",
                           style: TextStyle(
                               fontSize: width*0.05,
@@ -363,6 +421,32 @@ class _BookingPageState extends State<BookingPage> {
                               color:Colour.gray
                           ),
                         ),
+                        // Container(
+                        //   width: width*0.15,
+                        //   height: height*0.05,
+                        //
+                        //   child:TextFormField(
+                        //     controller: addition,
+                        //     keyboardType: TextInputType.text,
+                        //     textInputAction: TextInputAction.done,
+                        //     textCapitalization: TextCapitalization.words,
+                        //     decoration: InputDecoration(
+                        //         border: OutlineInputBorder(
+                        //             borderSide: BorderSide.none
+                        //         )
+                        //     ),
+                        //
+                        //     style: TextStyle(
+                        //         fontSize: width*0.05,
+                        //         fontWeight: FontWeight.w500,
+                        //         color: Colour.thirdcolour
+                        //     ),
+                        //
+                        //
+                        //   ),
+                        //
+                        // )
+
                         Text("\$60",
                           style: TextStyle(
                               fontSize: width*0.05,
@@ -382,13 +466,14 @@ class _BookingPageState extends State<BookingPage> {
                               color:Colour.thirdcolour
                           ),
                         ),
-                        Text("\$60",
-                          style: TextStyle(
-                              fontSize: width*0.05,
-                              fontWeight: FontWeight.w600,
-                              color:Colour.primarycolour
-                          ),
-                        ),
+                        // addCost(),
+                        // Text("\$60",
+                        //   style: TextStyle(
+                        //       fontSize: width*0.05,
+                        //       fontWeight: FontWeight.w600,
+                        //       color:Colour.primarycolour
+                        //   ),
+                        // ),
 
                       ],
                     ),

@@ -69,7 +69,7 @@ class _FindDoctorState extends State<FindDoctor> {
     {
       "image":ImageIcons.drmaria,
       "name":"Dr. Maria",
-      "spl":"Gynecologist",
+      "spl":"Psychologist",
       "star":"4,7",
       "distene":"500m away",
 
@@ -77,7 +77,7 @@ class _FindDoctorState extends State<FindDoctor> {
     {
       "image":ImageIcons.drstevi,
       "name":"Dr. Stevi",
-      "spl":"dermatologist",
+      "spl":"Orthopedist",
       "star":"4,8",
       "distene":"900m away",
 

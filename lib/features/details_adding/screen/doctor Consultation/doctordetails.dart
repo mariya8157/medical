@@ -400,11 +400,11 @@ List day=[];
                   ),
                   InkWell(
                     onTap: () {
-                      day.add({
-                    "name":size[selectIndex]["name"]});
-                      time.add({"time":time[selectIndex1]});
+                      // day.add({
+                    // "name":size[selectIndex]["name"]});
+                    //   time.add({"time":time[selectIndex1]});
 
-                      time.length==selectIndex1?Navigator.push(context, MaterialPageRoute(builder: (context) => BookingPage())):time.clear();
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => BookingPage()));
                     },
                     child: Container(
                       height: height*0.07,
