@@ -53,7 +53,7 @@ class _VerificationPageState extends State<VerificationPage> {
               SizedBox(height: width*0.02,),
               Row(
                 children: [
-                  Text("Enter code thet we have send to your",
+                  Text("Enter code that we have send to your",
                     style: TextStyle(
                         fontSize: width*0.037,
                         fontWeight: FontWeight.w500,

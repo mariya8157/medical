@@ -258,11 +258,11 @@ List day=[];
                 onDateChange: (selectedDate) {
                   //`selectedDate` the new date selected.
                 },
-                headerProps: const EasyHeaderProps(
+                headerProps:  EasyHeaderProps(
                   monthPickerType: MonthPickerType.switcher,
                   dateFormatter: DateFormatter.fullDateDMY(),
                 ),
-                dayProps: const EasyDayProps(
+                dayProps: EasyDayProps(
                   dayStructure: DayStructure.dayStrDayNum,
                   activeDayStyle: DayStyle(
                     decoration: BoxDecoration(

@@ -151,7 +151,6 @@ class _articlesState extends State<articles> {
                     fontWeight: FontWeight.w600
                 ),
                 decoration: InputDecoration(
-
                   prefixIcon: SizedBox(
                       height: width*0.03,
                       width: width*0.05,
