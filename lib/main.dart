@@ -19,8 +19,8 @@ import 'features/details_adding/screen/onlinePharmacy/article.dart';
 var height;
 var width;
 Future<void> main() async {
-  // WidgetsFlutterBinding.ensureInitialized();
-  // await Firebase.initializeApp();
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(  MyApp());
 }
 class MyApp extends StatelessWidget {
