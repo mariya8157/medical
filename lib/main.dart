@@ -13,7 +13,7 @@ import 'package:medical/features/details_adding/screen/splashSceen/splashscreen.
 import 'features/details_adding/screen/Profile/profile.dart';
 import 'features/details_adding/screen/doctor Consultation/findDoctor.dart';
 import 'features/details_adding/screen/onlinePharmacy/article.dart';
- // import 'firebase_options.dart';
+ import 'firebase_options.dart';
 
 
 var height;
@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
             theme: ThemeData(
               textTheme: GoogleFonts.interTextTheme()
             ),
-            home:HomePage()
+            home:SplashScreen()
     ),);
   }
 }
