@@ -79,20 +79,23 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Find your desire\n health solution",style: TextStyle(
-            fontWeight: FontWeight.w700
-        ),),
-        actions: [
-          SvgPicture.asset(ImageIcons.bell,),
-          SizedBox(width: width*0.03,)
-        ],
-      ),
+
       body: Padding(
-        padding: EdgeInsets.all(8.0),
+        padding: EdgeInsets.all(width*0.05),
         child: SingleChildScrollView(
           child: Column(
             children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text("Find your desire\nhealth solution",style: TextStyle(
+                    fontSize: width*0.06,
+                      fontWeight: FontWeight.w700
+                  ),),
+                  SvgPicture.asset(ImageIcons.bell,),
+                ],
+              ),
+
               // SizedBox(height: width*0.05,),
               Container(
                 height: width*0.4,
@@ -145,7 +148,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                     // SizedBox(height: width*0.05,),
                     Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Column(
                         children: [
@@ -302,7 +305,7 @@ class _HomePageState extends State<HomePage> {
               Container(
                 height: width*0.55,
                 width: width*1,
-                margin: EdgeInsets.only(left: width*0.03),
+                // margin: EdgeInsets.only(left: width*0.03),
                 child: ListView.separated(
                   physics: BouncingScrollPhysics(),
                   scrollDirection: Axis.horizontal,
