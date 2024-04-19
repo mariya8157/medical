@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:givestarreviews/givestarreviews.dart';
 import 'package:medical/colour.dart';
 
 import '../../../../icons.dart';
@@ -141,7 +142,19 @@ class _DrugDetailsPageState extends State<DrugDetailsPage> {
                                   SvgPicture.asset(d[index]["icon1"])
                                 ],
                               ),
-                              SvgPicture.asset(d[index]["star"]),
+                              Row(
+                                children: [
+                                  GiveStarReviews(
+                                    starData: [
+                                      GiveStarData(onChanged: (rate) {},text: '',activeStarColor: Colour.primarycolour,size: width*0.065),
+                                      // GiveStarData(text: '', onChanged: null),
+                                      // GiveStarData(text: '', starCount: 5, onChanged: (rate) {},),
+
+                                    ],
+                                  ),
+                                ],
+                              ),
+                              // SvgPicture.asset(d[index]["star"]),
                               SizedBox(
                                 height: width * 0.05,
                               ),

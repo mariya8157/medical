@@ -76,7 +76,9 @@ class _articlesState extends State<articles> {
     },
 
   ];
-
+bool k=false;
+bool g=false;
+bool o=false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -360,11 +362,57 @@ class _articlesState extends State<articles> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text("See all",
-                        style: TextStyle(
-                            fontSize: width*0.045,
-                            color:  Colour.primarycolour
-                        ),),
+                      Row(
+                        children: [
+                          o==false?
+                          InkWell(
+                            onTap: () {
+                              setState(() {
+                                k=true;
+                                g=false;
+                                o=true;
+                              });
+                            },
+                            child: Container(
+                                height: width * 0.13,
+                                width: width * 0.25,
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      "See all",
+                                      style: TextStyle(
+                                          fontSize: width * 0.045,
+                                          color: Colour.primarycolour),
+                                    ),
+                                  ],
+                                )),
+                          )
+                              :InkWell(
+                            onTap: () {
+                              setState(() {
+                                k = false;
+                                g = true;
+                                o = false;
+                              });
+                            },
+                            child: Container(
+                                height: width * 0.13,
+                                width: width * 0.25,
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      "See less",
+                                      style: TextStyle(
+                                          fontSize: width * 0.045,
+                                          color: Colour.primarycolour),
+                                    ),
+                                  ],
+                                )),
+                          ),
+                        ],
+                      ),
                     ],
                   )),
             ],
@@ -430,7 +478,7 @@ class _articlesState extends State<articles> {
                     height: width*0.03,
                   );
                 },
-                itemCount: d.length
+                itemCount:o==true? d.length:2
             ),
           )
         ],
