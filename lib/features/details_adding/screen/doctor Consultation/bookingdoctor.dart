@@ -30,7 +30,7 @@ class _BookingPageState extends State<BookingPage> {
   TextEditingController cunsult=TextEditingController();
   TextEditingController admission=TextEditingController();
   TextEditingController addition=TextEditingController();
-  // int total =0;
+  int total =0;
 
 
   List p=[

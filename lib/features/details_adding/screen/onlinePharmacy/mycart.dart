@@ -6,31 +6,62 @@ import '../../../../icons.dart';
 import '../../../../main.dart';
 
 class MyCartPage extends StatefulWidget {
-  const MyCartPage({super.key});
+  final List c;
+  const MyCartPage({super.key, required this.c});
 
   @override
   State<MyCartPage> createState() => _MyCartPageState();
 }
-
+int total =0;
 class _MyCartPageState extends State<MyCartPage> {
-  List a = [
-    {
-      "image": ImageIcons.herbal,
-      "text1": "OBH Combi",
-      "text2": "75ml",
-      "text3": "1",
-      "icon": ImageIcons.c_add,
-      "text4": "\$9.99",
-    },
-    {
-      "image": ImageIcons.calvit,
-      "text1": "Panadol",
-      "text2": "20pcs",
-      "text3": "2",
-      "icon": ImageIcons.c_add,
-      "text4": "\$15.99",
-    },
-  ];
+  // List a = [
+  //   {
+  //     "image": ImageIcons.herbal,
+  //     "text1": "OBH Combi",
+  //     "text2": "75ml",
+  //     "text3": "1",
+  //     "icon": ImageIcons.c_add,
+  //     "text4": "\$9.99",
+  //   },
+  //   {
+  //     "image": ImageIcons.calvit,
+  //     "text1": "Panadol",
+  //     "text2": "20pcs",
+  //     "text3": "2",
+  //     "icon": ImageIcons.c_add,
+  //     "text4": "\$15.99",
+  //   },
+  // ];
+  dynamic added;
+  List a=[];
+  totalprice(){
+    for(int i=0;i<widget.c.length;i++){
+      if(widget.c[i]["quantity"]>0){
+        added=widget.c[i];
+        a.add(added);
+      }
+      // print(a);
+      // print("oooooooooooooooooooooooooooooooo");
+
+    }
+
+    setState(() {
+
+    });
+  }
+  tascprice() {
+    total = 0;
+    for (int i = 0; i < a.length; i++) {
+      total = a[i]["quantity"] * a[i]["Price"] +
+          total;
+    }
+  }
+  void initState() {
+    totalprice();
+    tascprice();
+    // TODO: implement initState
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(

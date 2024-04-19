@@ -7,6 +7,7 @@ import 'package:medical/icons.dart';
 import 'package:medical/main.dart';
 
 import '../doctor Consultation/bookingdoctor.dart';
+import '../login & Sign Up/signup.dart';
 import '../onlinePharmacy/mycart.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -227,7 +228,7 @@ class _ProfilePageState extends State<ProfilePage> {
                               onTap: () {
                                 Navigator.push(
                                     context, MaterialPageRoute(
-                                  builder: (context) =>MyCartPage() ));
+                                  builder: (context) =>MyCartPage(c: [],) ));
                               },
                               child: ListTile(
                                 leading: CircleAvatar(
@@ -289,22 +290,29 @@ class _ProfilePageState extends State<ProfilePage> {
                                                             fontSize: width * 0.055)),
                                                   ],
                                                 ),
-                                                Container(
-                                                  height: width * 0.13,
-                                                  width: width * 0.45,
-                                                  decoration: BoxDecoration(
-                                                      color: Colour.primarycolour,
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              width * 0.08)),
-                                                  child: Center(
-                                                    child: Text(
-                                                      "Log Out",
-                                                      style: TextStyle(
-                                                          fontSize: width * 0.055,
-                                                          fontWeight:
-                                                              FontWeight.w700,
-                                                          color: Colors.white),
+                                                InkWell(
+                                                  onTap: () {
+                                                    Navigator.pushReplacement(
+                                                        context, MaterialPageRoute(
+                                                        builder: (context) => SignupPage(),));
+                                                  },
+                                                  child: Container(
+                                                    height: width * 0.13,
+                                                    width: width * 0.45,
+                                                    decoration: BoxDecoration(
+                                                        color: Colour.primarycolour,
+                                                        borderRadius:
+                                                            BorderRadius.circular(
+                                                                width * 0.08)),
+                                                    child: Center(
+                                                      child: Text(
+                                                        "Log Out",
+                                                        style: TextStyle(
+                                                            fontSize: width * 0.055,
+                                                            fontWeight:
+                                                                FontWeight.w700,
+                                                            color: Colors.white),
+                                                      ),
                                                     ),
                                                   ),
                                                 ),
