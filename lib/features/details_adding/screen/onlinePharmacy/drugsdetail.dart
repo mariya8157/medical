@@ -279,7 +279,8 @@ class _DrugDetailsPageState extends State<DrugDetailsPage> {
                           height: width * 0.05,
                         ),
                         Container(
-                          height: width * 0.3,
+                          color: Colors.yellow,
+                          height: width * 0.35,
                           width: width * 0.9,
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
