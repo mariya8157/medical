@@ -313,7 +313,7 @@ class _HomePageState extends State<HomePage> {
                     itemBuilder: (context, index) {
                       return Container(
                        height: width*0.25,
-                        width: width*0.45,
+                        width: width*0.47,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(width*0.04),
                           border: Border.all(
