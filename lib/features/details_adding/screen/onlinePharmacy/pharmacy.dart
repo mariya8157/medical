@@ -417,16 +417,20 @@ class _PharmacyPageState extends State<PharmacyPage> {
                                   children: [
                                     Container(
                                       height: width*0.15,
-                                      width: width*0.3,
+                                      width: width*0.32,
                                       child: Column(
                                         crossAxisAlignment: CrossAxisAlignment.start,
                                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                         children: [
-                                          Text(
-                                            a[index]["text1"],
-                                            style: TextStyle(
-                                                fontWeight: FontWeight.w800,
-                                                fontSize: width * 0.045),
+                                          Row(
+                                            children: [
+                                              Text(
+                                                a[index]["text1"],
+                                                style: TextStyle(
+                                                    fontWeight: FontWeight.w800,
+                                                    fontSize: width * 0.045),
+                                              ),
+                                            ],
                                           ),
                                           Text(
                                             a[index]["text2"],
