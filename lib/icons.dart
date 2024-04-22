@@ -46,6 +46,7 @@ class ImageIcons{
   static const Paperclip = "assets/icons/Paperclip.svg";
   static const heart = "assets/icons/Heart.svg";
   static const star4 = "assets/icons/star4.svg";
+  static const Vector = "assets/icons/Vector.svg";
 
 
 
