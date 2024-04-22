@@ -28,7 +28,7 @@ class _ProfilePageState extends State<ProfilePage> {
             children: [
               Container(
                 width: width * 1,
-                height: height * 0.962,
+                height: height * 0.981,
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
                       begin: Alignment.topRight,
@@ -116,7 +116,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                   Text(
                                     "215bpm",
                                     style: TextStyle(
-                                        fontSize: width * 0.06,
+                                        fontSize: width * 0.059,
                                         fontWeight: FontWeight.w700,
                                         color: Colors.white,
                                         shadows: [
@@ -160,7 +160,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                   Text(
                                     "756cal",
                                     style: TextStyle(
-                                        fontSize: width * 0.06,
+                                        fontSize: width * 0.059,
                                         fontWeight: FontWeight.w700,
                                         color: Colors.white,
                                         shadows: [
