@@ -14,31 +14,31 @@ class MyCartPage extends StatefulWidget {
 }
 int total =0;
 class _MyCartPageState extends State<MyCartPage> {
-  // List a = [
-  //   {
-  //     "image": ImageIcons.herbal,
-  //     "text1": "OBH Combi",
-  //     "text2": "75ml",
-  //     "text3": "1",
-  //     "icon": ImageIcons.c_add,
-  //     "text4": "\$9.99",
-  //   },
-  //   {
-  //     "image": ImageIcons.calvit,
-  //     "text1": "Panadol",
-  //     "text2": "20pcs",
-  //     "text3": "2",
-  //     "icon": ImageIcons.c_add,
-  //     "text4": "\$15.99",
-  //   },
-  // ];
+  List a = [
+    {
+      "image": ImageIcons.herbal,
+      "text1": "OBH Combi",
+      "text2": "75ml",
+      "text3": "1",
+      "icon": ImageIcons.c_add,
+      "text4": "\$9.99",
+    },
+    {
+      "image": ImageIcons.calvit,
+      "text1": "Panadol",
+      "text2": "20pcs",
+      "text3": "2",
+      "icon": ImageIcons.c_add,
+      "text4": "\$15.99",
+    },
+  ];
   dynamic added;
-  List a=[];
+  List d=[];
   totalprice(){
     for(int i=0;i<widget.c.length;i++){
       if(widget.c[i]["quantity"]>0){
         added=widget.c[i];
-        a.add(added);
+        d.add(added);
       }
       // print(a);
       // print("oooooooooooooooooooooooooooooooo");
@@ -51,8 +51,8 @@ class _MyCartPageState extends State<MyCartPage> {
   }
   tascprice() {
     total = 0;
-    for (int i = 0; i < a.length; i++) {
-      total = a[i]["quantity"] * a[i]["Price"] +
+    for (int i = 0; i < d.length; i++) {
+      total = d[i]["quantity"] * d[i]["Price"] +
           total;
     }
   }

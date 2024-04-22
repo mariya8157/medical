@@ -426,7 +426,7 @@ class _PharmacyPageState extends State<PharmacyPage> {
                                             a[index]["text1"],
                                             style: TextStyle(
                                                 fontWeight: FontWeight.w800,
-                                                fontSize: width * 0.05),
+                                                fontSize: width * 0.045),
                                           ),
                                           Text(
                                             a[index]["text2"],

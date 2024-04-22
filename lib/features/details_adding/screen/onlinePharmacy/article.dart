@@ -356,65 +356,62 @@ bool o=false;
                     ),),
                 ],
               ),
-              Container(
-                  height: width*0.175,
-                  width: width*0.24,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Row(
                     children: [
-                      Row(
-                        children: [
-                          o==false?
-                          InkWell(
-                            onTap: () {
-                              setState(() {
-                                k=true;
-                                g=false;
-                                o=true;
-                              });
-                            },
-                            child: Container(
-                                height: width * 0.13,
-                                width: width * 0.25,
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      "See all",
-                                      style: TextStyle(
-                                          fontSize: width * 0.045,
-                                          color: Colour.primarycolour),
-                                    ),
-                                  ],
-                                )),
-                          )
-                              :InkWell(
-                            onTap: () {
-                              setState(() {
-                                k = false;
-                                g = true;
-                                o = false;
-                              });
-                            },
-                            child: Container(
-                                height: width * 0.13,
-                                width: width * 0.25,
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      "See less",
-                                      style: TextStyle(
-                                          fontSize: width * 0.045,
-                                          color: Colour.primarycolour),
-                                    ),
-                                  ],
-                                )),
-                          ),
-                        ],
+                      o==false?
+                      InkWell(
+                        onTap: () {
+                          setState(() {
+                            k=true;
+                            g=false;
+                            o=true;
+                          });
+                        },
+                        child: Container(
+                            height: width * 0.13,
+                            width: width * 0.25,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  "See all",
+                                  style: TextStyle(
+                                      fontSize: width * 0.045,
+                                      color: Colour.primarycolour),
+                                ),
+                              ],
+                            )),
+                      )
+                          :InkWell(
+                        onTap: () {
+                          setState(() {
+                            k = false;
+                            g = true;
+                            o = false;
+                          });
+                        },
+                        child: Container(
+                            height: width * 0.13,
+                            width: width * 0.25,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  "See less",
+                                  style: TextStyle(
+                                      fontSize: width * 0.045,
+                                      color: Colour.primarycolour),
+                                ),
+                              ],
+                            )),
                       ),
                     ],
-                  )),
+                  ),
+                ],
+              ),
             ],
           ),
           Container(

@@ -7,6 +7,7 @@ import 'package:medical/colour.dart';
 
 import '../../../../icons.dart';
 import '../../../../main.dart';
+import 'mycart.dart';
 
 class DrugDetailsPage extends StatefulWidget {
   final List c;
@@ -320,20 +321,27 @@ class _DrugDetailsPageState extends State<DrugDetailsPage> {
                                       color: Colors.green,
                                     ),
                                   ),
-                                  Container(
-                                    height: width * 0.14,
-                                    width: width * 0.64,
-                                    decoration: BoxDecoration(
-                                        color: Colour.primarycolour,
-                                        borderRadius: BorderRadius.circular(
-                                            width * 0.07)),
-                                    child: Center(
-                                      child: Text(
-                                        "Buy Now",
-                                        style: TextStyle(
-                                            fontSize: width * 0.06,
-                                            fontWeight: FontWeight.w700,
-                                            color: Colors.white),
+                                  InkWell(
+                                    onTap: () {
+                                      Navigator.push(
+                                          context, MaterialPageRoute(
+                                        builder: (context) => MyCartPage(c: [],),));
+                                    },
+                                    child: Container(
+                                      height: width * 0.14,
+                                      width: width * 0.64,
+                                      decoration: BoxDecoration(
+                                          color: Colour.primarycolour,
+                                          borderRadius: BorderRadius.circular(
+                                              width * 0.07)),
+                                      child: Center(
+                                        child: Text(
+                                          "Buy Now",
+                                          style: TextStyle(
+                                              fontSize: width * 0.06,
+                                              fontWeight: FontWeight.w700,
+                                              color: Colors.white),
+                                        ),
                                       ),
                                     ),
                                   )
