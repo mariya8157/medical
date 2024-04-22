@@ -16,6 +16,7 @@ class BookingPage extends StatefulWidget {
 }
 
 class _BookingPageState extends State<BookingPage> {
+  int selectedOption=1;
   List doctor=[
     {
       "image":ImageIcons.drmarcus1,
@@ -90,10 +91,10 @@ class _BookingPageState extends State<BookingPage> {
           ],)
         ],
       ),
-      body: Padding(
-        padding: EdgeInsets.all(width*0.03),
-        child: SingleChildScrollView(
-          physics: BouncingScrollPhysics(),
+      body: SingleChildScrollView(
+        physics: BouncingScrollPhysics(),
+        child: Padding(
+          padding:  EdgeInsets.all(width*0.03),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
@@ -494,44 +495,116 @@ class _BookingPageState extends State<BookingPage> {
 
                       ],
                     ),
-                    InkWell(
-                      onTap: () {
-                        // select1=true;
-                        // select2=false;
-                        // select3=false;
-                        // select4=false;
-                        // setState(() {
-                        //
-                        // });
-                      },
-                      child: Container(
-                        height: width*0.15,
-                        width: width*1,
-                        decoration:BoxDecoration(
-                          borderRadius: BorderRadius.circular(width*0.03),
-                          // color: ColourTheme.thirtyth5Color,
-                          border: Border.all(
-                            // color:select1==true? ColourTheme.primaryColor:ColourTheme.thirtyth5Color
+                    // InkWell(
+                    //   onTap: () {
+                    //     // select1=true;
+                    //     // select2=false;
+                    //     // select3=false;
+                    //     // select4=false;
+                    //     // setState(() {
+                    //     //
+                    //     // });
+                    //   },
+                    //   child: Container(
+                    //     height: width*0.15,
+                    //     width: width*1,
+                    //     decoration:BoxDecoration(
+                    //       borderRadius: BorderRadius.circular(width*0.03),
+                    //       // color: ColourTheme.thirtyth5Color,
+                    //       border: Border.all(
+                    //         // color:select1==true? ColourTheme.primaryColor:ColourTheme.thirtyth5Color
+                    //       ),
+                    //
+                    //     ) ,
+                    //     child: Row(
+                    //       mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    //       children: [
+                    //         Image.asset(ImageIcons.visa),
+                    //         SizedBox(width: width*0.1),
+                    //
+                    //         Text("Change",
+                    //             style: TextStyle(
+                    //               fontWeight: FontWeight.w500,
+                    //               fontSize: width*0.04,
+                    //               // color:ColourTheme.thirtyth6Color
+                    //             ))
+                    //
+                    //       ],
+                    //     ),
+                    //   ),
+                    // ),
+                    Column(
+                        children: [
+                          Container(
+                              height: width*0.18,
+                              width: width*80,
+                              color: Colour.lightgreen,
+
+
+
+                              child: ListTile(
+                                leading: Container(
+                                  height: width*0.07,
+                                  width: width*0.07,
+                                  child: SvgPicture.asset(ImageIcons.paypal,fit: BoxFit.fill,),),
+                                title: Text("Paypal"),
+                                trailing: Radio(value: 1,
+                                  groupValue: selectedOption,
+                                  onChanged: ( value) {
+                                    setState(() {
+                                      selectedOption=value!;
+                                    });
+                                  },
+                                ),
+                              )),
+                          Container(
+                            height: width*0.18,
+                            width: width*80,
+                            color: Colour.lightgreen,
+                            child: ListTile(
+                              leading: Image(image: AssetImage(ImageIcons.Google)),
+                              title: Text("Google Pay"),
+                              trailing: Radio(value: 2,
+                                groupValue: selectedOption,
+                                onChanged: ( value) {
+                                  setState(() {
+                                    selectedOption=value!;
+                                  });
+                                },),
+                            ),),
+                          Container(
+                            height: width*0.18,
+                            width: width*80,
+                            color: Colour.lightgreen,
+                            child: ListTile(
+                              leading: SvgPicture.asset(ImageIcons.apple),
+                              title: Text("Apple Pay"),
+                              trailing: Radio(value: 3,
+                                groupValue: selectedOption,
+                                onChanged: ( value) {
+                                  setState(() {
+                                    selectedOption=value!;
+                                  });
+                                },),),
                           ),
-
-                        ) ,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Image.asset(ImageIcons.visa),
-                            SizedBox(width: width*0.1),
-
-                            Text("Change",
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: width*0.04,
-                                  // color:ColourTheme.thirtyth6Color
-                                ))
-
-                          ],
+                          // Container(
+                          //   height: width*0.18,
+                          //   width: width*80,
+                          //   color: Colors.blue,
+                          //   child: ListTile(
+                          //     leading: SvgPicture.asset(ImageIcons.circle),
+                          //     title: Text("**** **** **** ****4679"),
+                          //     trailing: Radio(value: 4,
+                          //       groupValue: selectedOption,
+                          //       onChanged: ( value) {
+                          //         setState(() {
+                          //           selectedOption=value!;
+                          //         });
+                          //       },),
+                          //   ),)
+                        ]
                         ),
-                      ),
-                    ),
+
                     Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
 
