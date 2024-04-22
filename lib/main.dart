@@ -1,4 +1,3 @@
-
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -10,12 +9,10 @@ import 'package:medical/features/details_adding/screen/onlinePharmacy/drugsdetai
 import 'package:medical/features/details_adding/screen/onlinePharmacy/pharmacy.dart';
 import 'package:medical/features/details_adding/screen/splashSceen/getstarted.dart';
 import 'package:medical/features/details_adding/screen/splashSceen/splashscreen.dart';
-
-
 import 'features/details_adding/screen/Profile/profile.dart';
 import 'features/details_adding/screen/doctor Consultation/findDoctor.dart';
 import 'features/details_adding/screen/onlinePharmacy/article.dart';
- import 'firebase_options.dart';
+import 'firebase_options.dart';
 
 
 var height;
