@@ -118,7 +118,7 @@ class _DrugDetailsPageState extends State<DrugDetailsPage> {
                           height: width * 0.05,
                         ),
                         Container(
-                          height: width * 0.4,
+                          height: width * 0.45,
                           width: width * 0.9,
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -279,7 +279,7 @@ class _DrugDetailsPageState extends State<DrugDetailsPage> {
                           height: width * 0.05,
                         ),
                         Container(
-                          height: width * 0.35,
+                          height: width * 0.37,
                           width: width * 0.9,
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -299,7 +299,7 @@ class _DrugDetailsPageState extends State<DrugDetailsPage> {
                           ),
                         ),
                         Container(
-                          height: width * 0.488,
+                          height: width * 0.45,
                           width: width * 0.9,
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.end,

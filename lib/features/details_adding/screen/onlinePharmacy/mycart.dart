@@ -95,296 +95,298 @@ class _MyCartPageState extends State<MyCartPage> {
               fontSize: width * 0.063),
         ),
       ),
-      body: Column(
-        children: [
-          SizedBox(
-            height: width * 0.05,
-          ),
-          ListView.separated(
-              shrinkWrap: true,
-              physics: BouncingScrollPhysics(),
-              itemBuilder: (context, index) {
-                return Column(
-                  children: [
-                    Center(
-                      child: Container(
-                        height: width * 0.35,
-                        width: width * 0.9,
-                        decoration: BoxDecoration(
-                            border: Border.all(
-                                color: Colors.grey.withOpacity(0.15)),
-                            borderRadius: BorderRadius.circular(width * 0.04)),
-                        child: Row(
-                          children: [
-                            Container(
-                              height: width * 0.2,
-                              width: width * 0.27,
-                              child: Image.asset(
-                                a[index]["image"],
-                                width: width * 0.25,
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            SizedBox(
+              height: width * 0.05,
+            ),
+            ListView.separated(
+                shrinkWrap: true,
+                physics: BouncingScrollPhysics(),
+                itemBuilder: (context, index) {
+                  return Column(
+                    children: [
+                      Center(
+                        child: Container(
+                          height: width * 0.35,
+                          width: width * 0.9,
+                          decoration: BoxDecoration(
+                              border: Border.all(
+                                  color: Colors.grey.withOpacity(0.15)),
+                              borderRadius: BorderRadius.circular(width * 0.04)),
+                          child: Row(
+                            children: [
+                              Container(
+                                height: width * 0.2,
+                                width: width * 0.27,
+                                child: Image.asset(
+                                  a[index]["image"],
+                                  width: width * 0.25,
+                                ),
                               ),
-                            ),
-                            Container(
-                              height: width * 0.27,
-                              width: width * 0.6,
-                              child: Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Text(
-                                        a[index]["text1"],
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.w800,
-                                            fontSize: width * 0.06),
-                                      ),
-                                      Icon(
-                                        Icons.delete_outline_rounded,
-                                        color: Colors.grey,
-                                      ),
-                                    ],
-                                  ),
-                                  Row(
-                                    children: [
-                                      Column(
-                                        children: [
-                                          Text(
-                                            a[index]["text2"],
-                                            style: TextStyle(
-                                                fontSize: width * 0.05,
-                                                color: Colors.grey),
-                                          ),
-                                        ],
-                                      ),
-                                    ],
-                                  ),
-                                  SizedBox(
-                                    height: width * 0.03,
-                                  ),
-                                  Row(
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Container(
-                                        width: width * 0.2,
-                                        // color: Colors.red,
-                                        child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
+                              Container(
+                                height: width * 0.27,
+                                width: width * 0.6,
+                                child: Column(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Text(
+                                          a[index]["text1"],
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.w800,
+                                              fontSize: width * 0.06),
+                                        ),
+                                        Icon(
+                                          Icons.delete_outline_rounded,
+                                          color: Colors.grey,
+                                        ),
+                                      ],
+                                    ),
+                                    Row(
+                                      children: [
+                                        Column(
                                           children: [
-                                            Icon(
-                                              Icons.remove,
-                                              size: width * 0.08,
-                                            ),
                                             Text(
-                                              a[index]["text3"],
+                                              a[index]["text2"],
                                               style: TextStyle(
-                                                  fontSize: width * 0.06,
-                                                  fontWeight: FontWeight.w700),
-                                            ),
-                                            SvgPicture.asset(
-                                              a[index]["icon"],
-                                              width: width * 0.05,
+                                                  fontSize: width * 0.05,
+                                                  color: Colors.grey),
                                             ),
                                           ],
                                         ),
-                                      ),
-                                      Text(
-                                        a[index]["text4"],
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.w800,
-                                            fontSize: width * 0.06),
-                                      )
-                                    ],
-                                  ),
-                                ],
+                                      ],
+                                    ),
+                                    SizedBox(
+                                      height: width * 0.03,
+                                    ),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Container(
+                                          width: width * 0.2,
+                                          // color: Colors.red,
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Icon(
+                                                Icons.remove,
+                                                size: width * 0.08,
+                                              ),
+                                              Text(
+                                                a[index]["text3"],
+                                                style: TextStyle(
+                                                    fontSize: width * 0.06,
+                                                    fontWeight: FontWeight.w700),
+                                              ),
+                                              SvgPicture.asset(
+                                                a[index]["icon"],
+                                                width: width * 0.05,
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                        Text(
+                                          a[index]["text4"],
+                                          style: TextStyle(
+                                              fontWeight: FontWeight.w800,
+                                              fontSize: width * 0.06),
+                                        )
+                                      ],
+                                    ),
+                                  ],
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                    // SizedBox(height: width*0.03,),
-                  ],
-                );
-              },
-              separatorBuilder: (context, index) {
-                return SizedBox(
-                  height: width * 0.05,
-                );
-              },
-              itemCount: a.length),
-          SizedBox(
-            height: width * 0.05,
-          ),
-          Container(
-            height: width * 0.3,
-            width: width * 0.9,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  "Payment Detail",
-                  style: TextStyle(
-                      fontSize: width * 0.05, fontWeight: FontWeight.w600),
-                ),
-                SizedBox(
-                  height: width * 0.02,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text("Subtotal",
-                        style: TextStyle(
-                            fontSize: width * 0.043, color: Colors.grey)),
-                    Text("\$25.98",
-                        style: TextStyle(
-                            fontSize: width * 0.045, color: Colors.grey)),
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "Taxes",
-                      style: TextStyle(
-                          fontSize: width * 0.043, color: Colors.grey),
-                    ),
-                    Text("\$1.00",
-                        style: TextStyle(
-                            fontSize: width * 0.045, color: Colors.grey)),
-                  ],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "Total",
-                      style: TextStyle(
-                          fontWeight: FontWeight.w600, fontSize: width * 0.047),
-                    ),
-                    Text("\$26.98",
-                        style: TextStyle(
-                            fontWeight: FontWeight.w600,
-                            fontSize: width * 0.047)),
-                  ],
-                )
-              ],
+                      // SizedBox(height: width*0.03,),
+                    ],
+                  );
+                },
+                separatorBuilder: (context, index) {
+                  return SizedBox(
+                    height: width * 0.05,
+                  );
+                },
+                itemCount: a.length),
+            SizedBox(
+              height: width * 0.05,
             ),
-          ),
-          Container(
-            height: width * 0.37,
-            width: width * 0.9,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Divider(
-                  thickness: width * 0.0005,
-                  endIndent: width * 0.01,
-                  indent: width * 0.01,
-                  color: Colors.grey,
-                ),
-                Row(
-                  children: [
-                    Text(
-                      "Payment Method",
-                      style: TextStyle(
-                          fontSize: width * 0.055, fontWeight: FontWeight.w600),
-                    ),
-                  ],
-                ),
-                Container(
-                  height: width * 0.16,
-                  width: width * 0.9,
-                  decoration: BoxDecoration(
-                      border: Border.all(color: Colors.grey.withOpacity(0.13)),
-                      borderRadius: BorderRadius.circular(width * 0.04)),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+            Container(
+              height: width * 0.3,
+              width: width * 0.9,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Payment Detail",
+                    style: TextStyle(
+                        fontSize: width * 0.05, fontWeight: FontWeight.w600),
+                  ),
+                  SizedBox(
+                    height: width * 0.02,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Container(
-                        height: width * 0.09,
-                        width: width * 0.8,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            SvgPicture.asset(
-                              ImageIcons.visa,
-                              width: width * 0.15,
-                            ),
-                            Text(
-                              "Change",
-                              style: TextStyle(
-                                  fontSize: width * 0.046, color: Colors.grey),
-                            ),
-                          ],
-                        ),
-                      )
+                      Text("Subtotal",
+                          style: TextStyle(
+                              fontSize: width * 0.043, color: Colors.grey)),
+                      Text("\$25.98",
+                          style: TextStyle(
+                              fontSize: width * 0.045, color: Colors.grey)),
                     ],
                   ),
-                ),
-              ],
-            ),
-          ),
-          Container(
-            height: width * 0.28,
-            width: width * 0.9,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                Container(
-                  height: width * 0.16,
-                  width: width * 0.2,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        "Taxes",
+                        style: TextStyle(
+                            fontSize: width * 0.043, color: Colors.grey),
+                      ),
+                      Text("\$1.00",
+                          style: TextStyle(
+                              fontSize: width * 0.045, color: Colors.grey)),
+                    ],
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
                         "Total",
                         style: TextStyle(
-                            fontSize: width * 0.042,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.grey),
+                            fontWeight: FontWeight.w600, fontSize: width * 0.047),
                       ),
+                      Text("\$26.98",
+                          style: TextStyle(
+                              fontWeight: FontWeight.w600,
+                              fontSize: width * 0.047)),
+                    ],
+                  )
+                ],
+              ),
+            ),
+            Container(
+              height: width * 0.37,
+              width: width * 0.9,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Divider(
+                    thickness: width * 0.0005,
+                    endIndent: width * 0.01,
+                    indent: width * 0.01,
+                    color: Colors.grey,
+                  ),
+                  Row(
+                    children: [
                       Text(
-                        "\$ 26.98",
+                        "Payment Method",
                         style: TextStyle(
-                            fontSize: width * 0.045,
-                            fontWeight: FontWeight.w800),
+                            fontSize: width * 0.055, fontWeight: FontWeight.w600),
                       ),
                     ],
                   ),
-                ),
-                InkWell(
-                  onTap: () {
-                    
-                  },
-                  child: Container(
-                    height: width * 0.15,
-                    width: width * 0.55,
+                  Container(
+                    height: width * 0.16,
+                    width: width * 0.9,
                     decoration: BoxDecoration(
-                        color: Colour.primarycolour,
-                        borderRadius: BorderRadius.circular(width * 0.9)),
-                    child: Center(
-                      child: Text(
-                        "Checkout",
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.w600,
-                            fontSize: width * 0.055),
-                      ),
+                        border: Border.all(color: Colors.grey.withOpacity(0.13)),
+                        borderRadius: BorderRadius.circular(width * 0.04)),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          height: width * 0.09,
+                          width: width * 0.8,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              SvgPicture.asset(
+                                ImageIcons.visa,
+                                width: width * 0.15,
+                              ),
+                              Text(
+                                "Change",
+                                style: TextStyle(
+                                    fontSize: width * 0.046, color: Colors.grey),
+                              ),
+                            ],
+                          ),
+                        )
+                      ],
                     ),
                   ),
-                )
-              ],
+                ],
+              ),
             ),
-          )
-        ],
+            Container(
+              height: width * 0.28,
+              width: width * 0.9,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Container(
+                    height: width * 0.16,
+                    width: width * 0.2,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Total",
+                          style: TextStyle(
+                              fontSize: width * 0.042,
+                              fontWeight: FontWeight.w500,
+                              color: Colors.grey),
+                        ),
+                        Text(
+                          "\$ 26.98",
+                          style: TextStyle(
+                              fontSize: width * 0.045,
+                              fontWeight: FontWeight.w800),
+                        ),
+                      ],
+                    ),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      
+                    },
+                    child: Container(
+                      height: width * 0.15,
+                      width: width * 0.55,
+                      decoration: BoxDecoration(
+                          color: Colour.primarycolour,
+                          borderRadius: BorderRadius.circular(width * 0.9)),
+                      child: Center(
+                        child: Text(
+                          "Checkout",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w600,
+                              fontSize: width * 0.055),
+                        ),
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
