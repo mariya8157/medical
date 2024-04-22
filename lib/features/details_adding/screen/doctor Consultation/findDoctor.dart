@@ -82,8 +82,17 @@ class _FindDoctorState extends State<FindDoctor> {
       "distene":"900m away",
 
     }
-    ,{
+    ,
+    {
       "image":ImageIcons.drluke,
+      "name":"Dr. Luke",
+      "spl":"General medicine",
+      "star":"4,7",
+      "distene":"800m away",
+
+    },
+    {
+      "image":ImageIcons.drdiandra,
       "name":"Dr. Luke",
       "spl":"General medicine",
       "star":"4,7",
