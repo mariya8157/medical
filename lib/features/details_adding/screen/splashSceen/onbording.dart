@@ -59,7 +59,7 @@ class _OnBordingPageState extends State<OnBordingPage> {
                               style: GoogleFonts.inter(
                                 fontWeight: FontWeight.w800,
                                 color: Colour.thirdcolour,
-                                fontSize: width*0.062,
+                                fontSize: width*0.06,
                               ),),
                           ],
                         ),
@@ -70,7 +70,7 @@ class _OnBordingPageState extends State<OnBordingPage> {
                               style: GoogleFonts.inter(
                                 fontWeight: FontWeight.w800,
                                 color: Colour.thirdcolour,
-                                fontSize: width*0.062,
+                                fontSize: width*0.06,
                               ),),
                           ],
                         ),
