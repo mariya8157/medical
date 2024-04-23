@@ -73,6 +73,7 @@ class _CreatePasswordPageState extends State<CreatePasswordPage> {
                   textInputAction: TextInputAction.done,
                   keyboardType: TextInputType.text,
                   obscureText: selectIcon?false:true,
+                  maxLength: 12,
                   autovalidateMode: AutovalidateMode.onUserInteraction,
                   validator: (value) {
                     if(!passwordValidation.hasMatch(value!)){
@@ -84,6 +85,7 @@ class _CreatePasswordPageState extends State<CreatePasswordPage> {
                   },
                   style: TextStyle(fontSize: width*0.045,fontWeight: FontWeight.w500,color: Colour.thirdcolour),
                   decoration: InputDecoration(
+                    counterText: "",
                     prefixIcon: Padding(
                       padding: EdgeInsets.all(width*0.03),
                       child: SvgPicture.asset(ImageIcons.lock),
@@ -106,17 +108,11 @@ class _CreatePasswordPageState extends State<CreatePasswordPage> {
                     ),
                     labelText: "Enter new password",
                     labelStyle: TextStyle(fontWeight: FontWeight.w500,fontSize: width*0.04, color: Colour.color1),
-                    focusedBorder: OutlineInputBorder(
+                    border: OutlineInputBorder(
                         borderSide: BorderSide(
                           color: Colour.color2,
                         ),
                         borderRadius: BorderRadius.circular(width*0.07)
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                          color: Colour.color2
-                      ),
-                      borderRadius: BorderRadius.circular(width*0.07),
                     ),
                   ),
                 ),
@@ -132,10 +128,11 @@ class _CreatePasswordPageState extends State<CreatePasswordPage> {
                   textInputAction: TextInputAction.done,
                   keyboardType: TextInputType.text,
                   obscureText: selectIcon?false:true,
+                  maxLength: 12,
                   autovalidateMode: AutovalidateMode.onUserInteraction,
                   validator: (value) {
-                    if(!passwordValidation2.hasMatch(value!)){
-                      return "*The password you entered is wrong";
+                    if(passwordController.text!=passwordController2.text){
+                      return "Dismatch Password";
                     }
                     else{
                       return null;
@@ -143,6 +140,7 @@ class _CreatePasswordPageState extends State<CreatePasswordPage> {
                   },
                   style: TextStyle(fontSize: width*0.045,fontWeight: FontWeight.w500,color: Colour.thirdcolour),
                   decoration: InputDecoration(
+                    counterText: "",
                     prefixIcon: Padding(
                       padding: EdgeInsets.all(width*0.03),
                       child: SvgPicture.asset(ImageIcons.lock),
@@ -165,17 +163,11 @@ class _CreatePasswordPageState extends State<CreatePasswordPage> {
                     ),
                     labelText: "Confirm Password",
                     labelStyle: TextStyle(fontWeight: FontWeight.w500,fontSize: width*0.04, color: Colour.color1),
-                    focusedBorder: OutlineInputBorder(
+                    border: OutlineInputBorder(
                         borderSide: BorderSide(
                           color: Colour.color2,
                         ),
                         borderRadius: BorderRadius.circular(width*0.07)
-                    ),
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(
-                          color: Colour.color2
-                      ),
-                      borderRadius: BorderRadius.circular(width*0.07),
                     ),
                   ),
                 ),
@@ -183,20 +175,25 @@ class _CreatePasswordPageState extends State<CreatePasswordPage> {
               SizedBox(height: width*0.07,),
               InkWell(
                 onTap: () {
-                  showDialog(
-                    barrierDismissible: false,
+                  if (
+                  passwordController.text != "" &&
+                      passwordController2.text != "" &&
+                      formKey.currentState!.validate()
+                  )
+                    showDialog(
                       context: context,
+                      barrierDismissible: false,
                       builder: (context) {
                         return AlertDialog(
                           content: Container(
-                            height: width*0.8,
-                            width: width*0.4,
+                            height: width * 0.8,
+                            width: width * 0.4,
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
                                 Container(
-                                    height: width*0.25,
-                                    width: width*0.25,
+                                    height: width * 0.25,
+                                    width: width * 0.25,
                                     child: Image.asset(ImageIcons.done)),
                                 Container(
                                     child: Column(
@@ -204,34 +201,41 @@ class _CreatePasswordPageState extends State<CreatePasswordPage> {
                                         Text("Success",
                                           style: TextStyle(
                                               fontWeight: FontWeight.w600,
-                                              fontSize: width*0.042,
+                                              fontSize: width * 0.042,
                                               color: Colour.thirdcolour),),
-                                        Text("Your have successfully reset your",
+                                        Text(
+                                          "Your have successfully reset your",
                                           style: TextStyle(
                                               fontWeight: FontWeight.w500,
-                                              fontSize: width*0.032,
+                                              fontSize: width * 0.032,
                                               color: Colour.color1),),
                                         Text("password.",
                                           style: TextStyle(
                                               fontWeight: FontWeight.w500,
-                                              fontSize: width*0.032,
+                                              fontSize: width * 0.032,
                                               color: Colour.color1),),
                                       ],)),
                                 InkWell(
-                                 onTap: () {
-                                   Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => LoginPage(),), (route) => false);
-                                 },
+                                  onTap: () {
+                                    Navigator.pushAndRemoveUntil(context,
+                                        MaterialPageRoute(builder: (context) =>
+                                            LoginPage(
+                                              email: passwordController.text,
+                                              password: passwordController2.text,
+                                            ),), (route) => false);
+                                  },
                                   child: Container(
-                                    height: width*0.12,
-                                    width: width*0.34,
+                                    height: width * 0.12,
+                                    width: width * 0.34,
                                     decoration: BoxDecoration(
                                         color: Colour.primarycolour,
-                                        borderRadius: BorderRadius.circular(width*0.05)
+                                        borderRadius: BorderRadius.circular(
+                                            width * 0.05)
                                     ),
                                     child: Center(
                                       child: Text("Login",
                                         style: TextStyle(
-                                            fontSize: width*0.04,
+                                            fontSize: width * 0.04,
                                             fontWeight: FontWeight.w600,
                                             color: Colour.secondarycolour
                                         ),),
@@ -243,6 +247,19 @@ class _CreatePasswordPageState extends State<CreatePasswordPage> {
                           ),
                         );
                       },);
+                  else {
+                    passwordController.text == "" ?
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                        backgroundColor: Colour.primarycolour,
+                        content: Text("Please enter your Password!"))) :
+                    passwordController2.text == "" ?
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                        backgroundColor: Colour.primarycolour,
+                        content: Text("Please enter your Confirm Password!"))) :
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                        backgroundColor: Colour.primarycolour,
+                        content: Text("Please enter your Valid Details!")));
+                  }
                 },
                 child: Container(
                   height: width*0.16,

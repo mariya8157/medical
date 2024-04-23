@@ -13,7 +13,11 @@ import 'package:medical/icons.dart';
 import '../../../../main.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+  final String email;
+  final String password;
+  const LoginPage({super.key,
+    required this.email,
+    required this.password});
 
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -23,6 +27,7 @@ class _LoginPageState extends State<LoginPage> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   final passwordValidation=RegExp(r"^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$");
+  final emailValidation=RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
   final formKey=GlobalKey<FormState>();
   bool selectIcon = false;
 
@@ -62,6 +67,15 @@ class _LoginPageState extends State<LoginPage> {
                     controller: emailController,
                     textInputAction: TextInputAction.next,
                     keyboardType: TextInputType.emailAddress,
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
+                    validator: (value) {
+                      if(!emailValidation.hasMatch(value!)){
+                        return "Enter valid Email";
+                      }
+                      else{
+                        return null;
+                      }
+                    },
                     style: TextStyle(fontSize: width*0.045,fontWeight: FontWeight.w500,color: Colour.thirdcolour),
                     decoration: InputDecoration(
                       prefixIcon: Padding(
@@ -70,17 +84,11 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       labelText: "Enter your email",
                       labelStyle: TextStyle(fontWeight: FontWeight.w500,fontSize: width*0.045, color: Colour.color1),
-                      focusedBorder: OutlineInputBorder(
+                      border: OutlineInputBorder(
                         borderSide: BorderSide(
                           color: Colour.color2,
                         ),
                         borderRadius: BorderRadius.circular(width*0.07)
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Colour.color2
-                        ),
-                        borderRadius: BorderRadius.circular(width*0.07),
                       ),
                     ),
                   ),
@@ -129,17 +137,11 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       labelText: "Enter your password",
                       labelStyle: TextStyle(fontWeight: FontWeight.w500,fontSize: width*0.045, color: Colour.color1),
-                      focusedBorder: OutlineInputBorder(
+                      border: OutlineInputBorder(
                         borderSide: BorderSide(
                           color: Colour.color2,
                         ),
                         borderRadius: BorderRadius.circular(width*0.07)
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Colour.color2
-                        ),
-                        borderRadius: BorderRadius.circular(width*0.07),
                       ),
                     ),
                   ),
@@ -163,6 +165,11 @@ class _LoginPageState extends State<LoginPage> {
                 SizedBox(height: width*0.05,),
                 InkWell(
                   onTap: () {
+                    if(
+                     emailController.text!=""&&
+                     passwordController.text!=""&&
+                     formKey.currentState!.validate()
+                   )
                     showDialog(
                         context: context,
                         barrierDismissible: false,
@@ -199,7 +206,10 @@ class _LoginPageState extends State<LoginPage> {
                                         ],)),
                                   InkWell(
                                     onTap: () {
-                                      Navigator.push(context, MaterialPageRoute(builder: (context) => BottomNavigationPage(),));
+                                      Navigator.push(context, MaterialPageRoute(builder: (context) => BottomNavigationPage(
+                                        email: emailController.text,
+                                        password: passwordController.text,
+                                      ),));
                                     },
                                     child: Container(
                                       height: width*0.12,
@@ -223,6 +233,19 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                           );
                         },);
+                     else{
+                     emailController.text==""?
+                     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                         backgroundColor: Colour.primarycolour,
+                         content: Text("Please enter your Email!"))):
+                      passwordController.text==""?
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                          backgroundColor: Colour.primarycolour,
+                          content: Text("Please enter your Password!"))):
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                          backgroundColor: Colour.primarycolour,
+                          content: Text("Please enter your Valid Details!")));
+                  }
                   },
                   child: Container(
                     height: width*0.16,

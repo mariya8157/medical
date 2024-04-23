@@ -89,7 +89,7 @@ bool o=false;
         elevation: 0,
         leading: InkWell(
           onTap: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) => BottomNavigationPage(),));
+            Navigator.push(context, MaterialPageRoute(builder: (context) => BottomNavigationPage(email: '', password: '',),));
           },
           child: SizedBox(
             height: width * 0.05,
