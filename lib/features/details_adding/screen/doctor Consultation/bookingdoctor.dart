@@ -84,12 +84,6 @@ class _BookingPageState extends State<BookingPage> {
               fontSize: width*0.063
           ),
         ),
-        actions: [Row(
-          children: [
-            SvgPicture.asset(ImageIcons.columnDot),
-            SizedBox(width: width*0.05,)
-          ],)
-        ],
       ),
       body: SingleChildScrollView(
         physics: BouncingScrollPhysics(),
@@ -200,551 +194,576 @@ class _BookingPageState extends State<BookingPage> {
                     itemCount: doctor.length
                 ),
               ),
-              Container(
-                width: width*1,
-                height: height*0.8,
-                child:Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text("Date",
-                          style: TextStyle(
-                              fontSize: width*0.05,
-                              fontWeight: FontWeight.w800,
-                              color:Colour.thirdcolour
-                          ),
+              SizedBox(height: height*0.02,),
+
+              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text("Date",
+                    style: TextStyle(
+                        fontSize: width*0.05,
+                        fontWeight: FontWeight.w800,
+                        color:Colour.thirdcolour
+                    ),
+                  ),
+                  Text("Change",
+                    style: TextStyle(
+                        fontSize: width*0.04,
+                        fontWeight: FontWeight.w500,
+                        color:Colour.gray
+                    ),
+                  ),
+
+                ],
+              ),
+              SizedBox(height: height*0.02,),
+
+              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  CircleAvatar(
+                    radius: width*0.05,
+                    backgroundColor: Colour.lightgreen,
+                    child: Center(child: SvgPicture.asset(ImageIcons.calendar)),
+                  ),
+                  Text("Wednesday, Jun 23, 2021 | 10:00AM",
+                    style: TextStyle(
+                        fontSize: width*0.04,
+                        fontWeight: FontWeight.w500,
+                        color:Colour.gray
+                    ),
+                  ),
+                ],
+              ),
+              Divider(thickness: width*0.004,
+                color: Colour.lightgreen,
+                // indent: width*0.03,
+                // endIndent: width*0.03,
+              ),
+              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text("Reason",
+                    style: TextStyle(
+                        fontSize: width*0.05,
+                        fontWeight: FontWeight.w800,
+                        color:Colour.thirdcolour
+                    ),
+                  ),
+                  InkWell(
+                    onTap: () {
+                      reason.clear();
+                    },
+                    child: Container(
+                      child: Text("Change",
+                        style: TextStyle(
+                            fontSize: width*0.04,
+                            fontWeight: FontWeight.w500,
+                            color:Colour.gray
                         ),
-                        Text("Change",
-                          style: TextStyle(
-                              fontSize: width*0.04,
-                              fontWeight: FontWeight.w500,
-                              color:Colour.gray
-                          ),
+                      ),
+                    ),
+                  ),
+
+                ],
+              ),
+              Row(
+                children: [
+                  CircleAvatar(
+                    radius: width*0.05,
+                    backgroundColor: Colour.lightgreen,
+                    child: Center(child: SvgPicture.asset(ImageIcons.square)),
+                  ),
+                  SizedBox(width: width*0.05,),
+
+                  Container(
+                    width: width*0.6,
+                    child:
+                    TextFormField(
+                      controller: reason,
+                      keyboardType: TextInputType.text,
+                      textInputAction: TextInputAction.done,
+                      textCapitalization: TextCapitalization.words,
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                          borderSide: BorderSide.none
+                        )
+                      ),
+
+                      style: TextStyle(
+                        fontSize: width*0.05,
+                        fontWeight: FontWeight.w500,
+                        color: Colour.thirdcolour
+                      ),
+
+
+                    ),
+
+                  ),
+
+                ],
+              ),
+              Divider(thickness: width*0.004,
+                color: Colour.lightgreen,
+                // indent: width*0.03,
+                // endIndent: width*0.03,
+              ),
+              Row(
+                children: [
+                  Text("Payment Detail",
+                    style: TextStyle(
+                        fontSize: width*0.05,
+                        fontWeight: FontWeight.w800,
+                        color:Colour.thirdcolour
+                    ),
+                  ),
+
+                ],
+              ),
+              SizedBox(height: height*0.02,),
+
+              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text("Consultation",
+                    style: TextStyle(
+                        fontSize: width*0.05,
+                        fontWeight: FontWeight.w500,
+                        color:Colour.gray
+                    ),
+                  ),
+                  // Container(
+                  //   width: width*0.15,
+                  //   height: height*0.05,
+                  //
+                  //   child:TextFormField(
+                  //     controller: cunsult,
+                  //     keyboardType: TextInputType.text,
+                  //     textInputAction: TextInputAction.done,
+                  //     textCapitalization: TextCapitalization.words,
+                  //     decoration: InputDecoration(
+                  //         border: OutlineInputBorder(
+                  //             borderSide: BorderSide.none
+                  //         )
+                  //     ),
+                  //
+                  //     style: TextStyle(
+                  //         fontSize: width*0.05,
+                  //         fontWeight: FontWeight.w500,
+                  //         color: Colour.thirdcolour
+                  //     ),
+                  //
+                  //
+                  //   ),
+                  //
+                  // )
+
+                  Text("\$60",
+                    style: TextStyle(
+                        fontSize: width*0.05,
+                        fontWeight: FontWeight.w500,
+                        color:Colour.thirdcolour
+                    ),
+                  ),
+
+                ],
+              ),
+              SizedBox(height: height*0.01,),
+              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text("Admin Fee",
+                    style: TextStyle(
+                        fontSize: width*0.05,
+                        fontWeight: FontWeight.w500,
+                        color:Colour.gray
+                    ),
+                  ),
+                  // Container(
+                  //   width: width*0.15,
+                  //   height: height*0.05,
+                  //   child:TextFormField(
+                  //     controller: admission,
+                  //     keyboardType: TextInputType.text,
+                  //     textInputAction: TextInputAction.done,
+                  //     textCapitalization: TextCapitalization.words,
+                  //     decoration: InputDecoration(
+                  //         border: OutlineInputBorder(
+                  //             borderSide: BorderSide.none
+                  //         )
+                  //     ),
+                  //
+                  //     style: TextStyle(
+                  //         fontSize: width*0.05,
+                  //         fontWeight: FontWeight.w500,
+                  //         color: Colour.thirdcolour
+                  //     ),
+                  //
+                  //
+                  //   ),
+                  //
+                  // )
+
+                  Text("\$60",
+                    style: TextStyle(
+                        fontSize: width*0.05,
+                        fontWeight: FontWeight.w500,
+                        color:Colour.thirdcolour
+                    ),
+                  ),
+
+                ],
+              ),
+              SizedBox(height: height*0.01,),
+              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text("Aditional Discount",
+                    style: TextStyle(
+                        fontSize: width*0.05,
+                        fontWeight: FontWeight.w500,
+                        color:Colour.gray
+                    ),
+                  ),
+                  // Container(
+                  //   width: width*0.15,
+                  //   height: height*0.05,
+                  //
+                  //   child:TextFormField(
+                  //     controller: addition,
+                  //     keyboardType: TextInputType.text,
+                  //     textInputAction: TextInputAction.done,
+                  //     textCapitalization: TextCapitalization.words,
+                  //     decoration: InputDecoration(
+                  //         border: OutlineInputBorder(
+                  //             borderSide: BorderSide.none
+                  //         )
+                  //     ),
+                  //
+                  //     style: TextStyle(
+                  //         fontSize: width*0.05,
+                  //         fontWeight: FontWeight.w500,
+                  //         color: Colour.thirdcolour
+                  //     ),
+                  //
+                  //
+                  //   ),
+                  //
+                  // )
+
+                  Text("\$60",
+                    style: TextStyle(
+                        fontSize: width*0.05,
+                        fontWeight: FontWeight.w500,
+                        color:Colour.thirdcolour
+                    ),
+                  ),
+
+                ],
+              ),
+              SizedBox(height: height*0.02,),
+
+              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text("Total",
+                    style: TextStyle(
+                        fontSize: width*0.05,
+                        fontWeight: FontWeight.w600,
+                        color:Colour.thirdcolour
+                    ),
+                  ),
+                  // addCost(),
+                  // Text("\$60",
+                  //   style: TextStyle(
+                  //       fontSize: width*0.05,
+                  //       fontWeight: FontWeight.w600,
+                  //       color:Colour.primarycolour
+                  //   ),
+                  // ),
+
+                ],
+              ),
+              SizedBox(height: height*0.01,),
+
+              Divider(thickness: width*0.004,
+                color: Colour.lightgreen,
+                // indent: width*0.03,
+                // endIndent: width*0.03,
+              ),
+              Row(
+                children: [
+                  Text("Payment Method",
+                    style: TextStyle(
+                        fontSize: width*0.05,
+                        fontWeight: FontWeight.w800,
+                        color:Colour.thirdcolour
+                    ),
+                  ),
+
+                ],
+              ),
+              SizedBox(height: height*0.02,),
+
+              // InkWell(
+              //   onTap: () {
+              //     // select1=true;
+              //     // select2=false;
+              //     // select3=false;
+              //     // select4=false;
+              //     // setState(() {
+              //     //
+              //     // });
+              //   },
+              //   child: Container(
+              //     height: width*0.15,
+              //     width: width*1,
+              //     decoration:BoxDecoration(
+              //       borderRadius: BorderRadius.circular(width*0.03),
+              //       // color: ColourTheme.thirtyth5Color,
+              //       border: Border.all(
+              //         // color:select1==true? ColourTheme.primaryColor:ColourTheme.thirtyth5Color
+              //       ),
+              //
+              //     ) ,
+              //     child: Row(
+              //       mainAxisAlignment: MainAxisAlignment.spaceAround,
+              //       children: [
+              //         Image.asset(ImageIcons.visa),
+              //         SizedBox(width: width*0.1),
+              //
+              //         Text("Change",
+              //             style: TextStyle(
+              //               fontWeight: FontWeight.w500,
+              //               fontSize: width*0.04,
+              //               // color:ColourTheme.thirtyth6Color
+              //             ))
+              //
+              //       ],
+              //     ),
+              //   ),
+              // ),
+              Column(
+                  children: [
+                    Container(
+                        height: width*0.18,
+                        width: width*80,
+                        decoration: BoxDecoration(
+                            color: Colour.lightgreen,
+                            borderRadius: BorderRadius.circular(width*0.03)
                         ),
 
-                      ],
-                    ),
-                    Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        CircleAvatar(
-                          radius: width*0.05,
-                          backgroundColor: Colour.lightgreen,
-                          child: Center(child: SvgPicture.asset(ImageIcons.calendar)),
-                        ),
-                        Text("Wednesday, Jun 23, 2021 | 10:00AM",
-                          style: TextStyle(
-                              fontSize: width*0.04,
-                              fontWeight: FontWeight.w500,
-                              color:Colour.gray
+
+
+                        child: ListTile(
+                          leading: Container(
+                            height: width*0.07,
+                            width: width*0.07,
+                            child: Image(image: NetworkImage("https://pbs.twimg.com/profile_images/1615271089705463811/v-emhrqu_400x400.png"),
+                            // SvgPicture.asset(ImageIcons.paypal,
+                              // color: Colors.red,
+                              // fit: BoxFit.fill,
+                            ),),
+                          title: Text("Paypal"),
+                          trailing: Radio(value: 1,
+                            groupValue: selectedOption,
+                            onChanged: ( value) {
+                              setState(() {
+                                selectedOption=value!;
+                              });
+                            },
                           ),
-                        ),
-                      ],
+                        )),
+                    SizedBox(height: height*0.01,),
+
+                    Container(
+                      height: width*0.18,
+                      width: width*80,
+                      decoration: BoxDecoration(
+                          color: Colour.lightgreen,
+                          borderRadius: BorderRadius.circular(width*0.03)
+                      ),
+                      child: ListTile(
+                        leading: Image(image: AssetImage(ImageIcons.Google)),
+                        title: Text("Google Pay"),
+                        trailing: Radio(value: 2,
+                          groupValue: selectedOption,
+                          onChanged: ( value) {
+                            setState(() {
+                              selectedOption=value!;
+                            });
+                          },),
+                      ),),
+                    SizedBox(height: height*0.01,),
+
+                    Container(
+                      height: width*0.18,
+                      width: width*80,
+                      decoration: BoxDecoration(
+                          color: Colour.lightgreen,
+                          borderRadius: BorderRadius.circular(width*0.03)
+                      ),
+                      child: ListTile(
+                        leading: SvgPicture.asset(ImageIcons.apple),
+                        title: Text("Apple Pay"),
+                        trailing: Radio(value: 3,
+                          groupValue: selectedOption,
+                          onChanged: ( value) {
+                            setState(() {
+                              selectedOption=value!;
+                            });
+                          },),),
                     ),
-                    Divider(thickness: width*0.004,
-                      color: Colour.lightgreen,
-                      // indent: width*0.03,
-                      // endIndent: width*0.03,
-                    ),
-                    Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text("Reason",
-                          style: TextStyle(
-                              fontSize: width*0.05,
-                              fontWeight: FontWeight.w800,
-                              color:Colour.thirdcolour
-                          ),
-                        ),
-                        InkWell(
-                          onTap: () {
-                            reason.clear();
-                          },
-                          child: Container(
-                            child: Text("Change",
+                    SizedBox(height: height*0.01,),
+
+                    // Container(
+                    //   height: width*0.18,
+                    //   width: width*80,
+                    //   color: Colors.blue,
+                    //   child: ListTile(
+                    //     leading: SvgPicture.asset(ImageIcons.circle),
+                    //     title: Text("**** **** **** ****4679"),
+                    //     trailing: Radio(value: 4,
+                    //       groupValue: selectedOption,
+                    //       onChanged: ( value) {
+                    //         setState(() {
+                    //           selectedOption=value!;
+                    //         });
+                    //       },),
+                    //   ),)
+                  ]
+                  ),
+
+              Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+
+                  Container(
+                    height: height*0.08,
+                    width: width*0.3,
+                    child: Center(
+                        child: Column(
+                          children: [
+                            Text("Total",
                               style: TextStyle(
-                                  fontSize: width*0.04,
-                                  fontWeight: FontWeight.w500,
+                                  fontSize: width*0.05,
+                                  fontWeight: FontWeight.w600,
                                   color:Colour.gray
                               ),
                             ),
-                          ),
-                        ),
-
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        CircleAvatar(
-                          radius: width*0.05,
-                          backgroundColor: Colour.lightgreen,
-                          child: Center(child: SvgPicture.asset(ImageIcons.square)),
-                        ),
-                        SizedBox(width: width*0.05,),
-
-                        Container(
-                          width: width*0.6,
-                          child:
-                          TextFormField(
-                            controller: reason,
-                            keyboardType: TextInputType.text,
-                            textInputAction: TextInputAction.done,
-                            textCapitalization: TextCapitalization.words,
-                            decoration: InputDecoration(
-                              border: OutlineInputBorder(
-                                borderSide: BorderSide.none
-                              )
+                            Text("\$60",
+                              style: TextStyle(
+                                  fontSize: width*0.05,
+                                  fontWeight: FontWeight.w800,
+                                  color:Colour.thirdcolour
+                              ),
                             ),
 
-                            style: TextStyle(
-                              fontSize: width*0.05,
-                              fontWeight: FontWeight.w500,
-                              color: Colour.thirdcolour
-                            ),
-
-
-                          ),
-
-                        ),
-
-                      ],
+                          ],
+                        )
                     ),
-                    Divider(thickness: width*0.004,
-                      color: Colour.lightgreen,
-                      // indent: width*0.03,
-                      // endIndent: width*0.03,
-                    ),
-                    Row(
-                      children: [
-                        Text("Payment Detail",
-                          style: TextStyle(
-                              fontSize: width*0.05,
-                              fontWeight: FontWeight.w800,
-                              color:Colour.thirdcolour
-                          ),
-                        ),
-
-                      ],
-                    ),
-                    Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text("Consultation",
-                          style: TextStyle(
-                              fontSize: width*0.05,
-                              fontWeight: FontWeight.w500,
-                              color:Colour.gray
-                          ),
-                        ),
-                        // Container(
-                        //   width: width*0.15,
-                        //   height: height*0.05,
-                        //
-                        //   child:TextFormField(
-                        //     controller: cunsult,
-                        //     keyboardType: TextInputType.text,
-                        //     textInputAction: TextInputAction.done,
-                        //     textCapitalization: TextCapitalization.words,
-                        //     decoration: InputDecoration(
-                        //         border: OutlineInputBorder(
-                        //             borderSide: BorderSide.none
-                        //         )
-                        //     ),
-                        //
-                        //     style: TextStyle(
-                        //         fontSize: width*0.05,
-                        //         fontWeight: FontWeight.w500,
-                        //         color: Colour.thirdcolour
-                        //     ),
-                        //
-                        //
-                        //   ),
-                        //
-                        // )
-
-                        Text("\$60",
-                          style: TextStyle(
-                              fontSize: width*0.05,
-                              fontWeight: FontWeight.w500,
-                              color:Colour.thirdcolour
-                          ),
-                        ),
-
-                      ],
-                    ),
-                    Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text("Admin Fee",
-                          style: TextStyle(
-                              fontSize: width*0.05,
-                              fontWeight: FontWeight.w500,
-                              color:Colour.gray
-                          ),
-                        ),
-                        // Container(
-                        //   width: width*0.15,
-                        //   height: height*0.05,
-                        //   child:TextFormField(
-                        //     controller: admission,
-                        //     keyboardType: TextInputType.text,
-                        //     textInputAction: TextInputAction.done,
-                        //     textCapitalization: TextCapitalization.words,
-                        //     decoration: InputDecoration(
-                        //         border: OutlineInputBorder(
-                        //             borderSide: BorderSide.none
-                        //         )
-                        //     ),
-                        //
-                        //     style: TextStyle(
-                        //         fontSize: width*0.05,
-                        //         fontWeight: FontWeight.w500,
-                        //         color: Colour.thirdcolour
-                        //     ),
-                        //
-                        //
-                        //   ),
-                        //
-                        // )
-
-                        Text("\$60",
-                          style: TextStyle(
-                              fontSize: width*0.05,
-                              fontWeight: FontWeight.w500,
-                              color:Colour.thirdcolour
-                          ),
-                        ),
-
-                      ],
-                    ),
-                    Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text("Aditional Discount",
-                          style: TextStyle(
-                              fontSize: width*0.05,
-                              fontWeight: FontWeight.w500,
-                              color:Colour.gray
-                          ),
-                        ),
-                        // Container(
-                        //   width: width*0.15,
-                        //   height: height*0.05,
-                        //
-                        //   child:TextFormField(
-                        //     controller: addition,
-                        //     keyboardType: TextInputType.text,
-                        //     textInputAction: TextInputAction.done,
-                        //     textCapitalization: TextCapitalization.words,
-                        //     decoration: InputDecoration(
-                        //         border: OutlineInputBorder(
-                        //             borderSide: BorderSide.none
-                        //         )
-                        //     ),
-                        //
-                        //     style: TextStyle(
-                        //         fontSize: width*0.05,
-                        //         fontWeight: FontWeight.w500,
-                        //         color: Colour.thirdcolour
-                        //     ),
-                        //
-                        //
-                        //   ),
-                        //
-                        // )
-
-                        Text("\$60",
-                          style: TextStyle(
-                              fontSize: width*0.05,
-                              fontWeight: FontWeight.w500,
-                              color:Colour.thirdcolour
-                          ),
-                        ),
-
-                      ],
-                    ),
-                    Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text("Total",
-                          style: TextStyle(
-                              fontSize: width*0.05,
-                              fontWeight: FontWeight.w600,
-                              color:Colour.thirdcolour
-                          ),
-                        ),
-                        // addCost(),
-                        // Text("\$60",
-                        //   style: TextStyle(
-                        //       fontSize: width*0.05,
-                        //       fontWeight: FontWeight.w600,
-                        //       color:Colour.primarycolour
-                        //   ),
-                        // ),
-
-                      ],
-                    ),
-                    Divider(thickness: width*0.004,
-                      color: Colour.lightgreen,
-                      // indent: width*0.03,
-                      // endIndent: width*0.03,
-                    ),
-                    Row(
-                      children: [
-                        Text("Payment Method",
-                          style: TextStyle(
-                              fontSize: width*0.05,
-                              fontWeight: FontWeight.w800,
-                              color:Colour.thirdcolour
-                          ),
-                        ),
-
-                      ],
-                    ),
-                    // InkWell(
-                    //   onTap: () {
-                    //     // select1=true;
-                    //     // select2=false;
-                    //     // select3=false;
-                    //     // select4=false;
-                    //     // setState(() {
-                    //     //
-                    //     // });
-                    //   },
-                    //   child: Container(
-                    //     height: width*0.15,
-                    //     width: width*1,
-                    //     decoration:BoxDecoration(
-                    //       borderRadius: BorderRadius.circular(width*0.03),
-                    //       // color: ColourTheme.thirtyth5Color,
-                    //       border: Border.all(
-                    //         // color:select1==true? ColourTheme.primaryColor:ColourTheme.thirtyth5Color
-                    //       ),
-                    //
-                    //     ) ,
-                    //     child: Row(
-                    //       mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    //       children: [
-                    //         Image.asset(ImageIcons.visa),
-                    //         SizedBox(width: width*0.1),
-                    //
-                    //         Text("Change",
-                    //             style: TextStyle(
-                    //               fontWeight: FontWeight.w500,
-                    //               fontSize: width*0.04,
-                    //               // color:ColourTheme.thirtyth6Color
-                    //             ))
-                    //
-                    //       ],
-                    //     ),
-                    //   ),
-                    // ),
-                    Column(
-                        children: [
-                          Container(
-                              height: width*0.18,
-                              width: width*80,
-                              color: Colour.lightgreen,
-
-
-
-                              child: ListTile(
-                                leading: Container(
-                                  height: width*0.07,
-                                  width: width*0.07,
-                                  child: SvgPicture.asset(ImageIcons.paypal,fit: BoxFit.fill,),),
-                                title: Text("Paypal"),
-                                trailing: Radio(value: 1,
-                                  groupValue: selectedOption,
-                                  onChanged: ( value) {
-                                    setState(() {
-                                      selectedOption=value!;
-                                    });
-                                  },
-                                ),
-                              )),
-                          Container(
-                            height: width*0.18,
-                            width: width*80,
-                            color: Colour.lightgreen,
-                            child: ListTile(
-                              leading: Image(image: AssetImage(ImageIcons.Google)),
-                              title: Text("Google Pay"),
-                              trailing: Radio(value: 2,
-                                groupValue: selectedOption,
-                                onChanged: ( value) {
-                                  setState(() {
-                                    selectedOption=value!;
-                                  });
-                                },),
-                            ),),
-                          Container(
-                            height: width*0.18,
-                            width: width*80,
-                            color: Colour.lightgreen,
-                            child: ListTile(
-                              leading: SvgPicture.asset(ImageIcons.apple),
-                              title: Text("Apple Pay"),
-                              trailing: Radio(value: 3,
-                                groupValue: selectedOption,
-                                onChanged: ( value) {
-                                  setState(() {
-                                    selectedOption=value!;
-                                  });
-                                },),),
-                          ),
-                          // Container(
-                          //   height: width*0.18,
-                          //   width: width*80,
-                          //   color: Colors.blue,
-                          //   child: ListTile(
-                          //     leading: SvgPicture.asset(ImageIcons.circle),
-                          //     title: Text("**** **** **** ****4679"),
-                          //     trailing: Radio(value: 4,
-                          //       groupValue: selectedOption,
-                          //       onChanged: ( value) {
-                          //         setState(() {
-                          //           selectedOption=value!;
-                          //         });
-                          //       },),
-                          //   ),)
-                        ]
-                        ),
-
-                    Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-
-                        Container(
-                          height: height*0.08,
-                          width: width*0.3,
-                          child: Center(
+                  ),
+                  // InkWell(
+                  //   onTap: () {
+                  //
+                  //
+                  //   },
+                  //   child: Container(
+                  //     height: height*0.07,
+                  //     width: width*0.6,
+                  //     decoration: BoxDecoration(
+                  //         color: Colour.primarycolour,
+                  //         borderRadius: BorderRadius.circular(width*0.07)
+                  //     ),
+                  //     child: Center(
+                  //       child: Text("Booking",
+                  //         style: TextStyle(
+                  //             fontSize: width*0.045,
+                  //             fontWeight: FontWeight.w600,
+                  //             color: Colour.secondarycolour
+                  //         ),),
+                  //     ),
+                  //   ),
+                  // ),
+                  InkWell(
+                    onTap: () {
+                      showDialog(
+                        barrierDismissible: false,
+                        context: context,
+                        builder: (context) {
+                          return AlertDialog(
+                            content: Container(
+                              height: width*0.8,
+                              width: width*0.4,
                               child: Column(
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                 children: [
-                                  Text("Total",
-                                    style: TextStyle(
-                                        fontSize: width*0.05,
-                                        fontWeight: FontWeight.w600,
-                                        color:Colour.gray
-                                    ),
-                                  ),
-                                  Text("\$60",
-                                    style: TextStyle(
-                                        fontSize: width*0.05,
-                                        fontWeight: FontWeight.w800,
-                                        color:Colour.thirdcolour
-                                    ),
-                                  ),
+                                  Container(
+                                      height: width*0.25,
+                                      width: width*0.25,
+                                      child: Image.asset(ImageIcons.done)),
+                                  Container(
+                                      child: Column(
+                                        children: [
+                                          Text("Payment Success",
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.w600,
+                                                fontSize: width*0.042,
+                                                color: Colour.thirdcolour),),
+                                          Text("Your payment has been successful,",
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.w500,
+                                                fontSize: width*0.032,
+                                                color: Colour.color1),),
+                                          Text("you can have a consultation session",
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.w500,
+                                                fontSize: width*0.032,
+                                                color: Colour.color1),),
+                                          Text("with your trusted doctor",
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.w500,
+                                                fontSize: width*0.032,
+                                                color: Colour.color1),),
+                                        ],)),
+                                  InkWell(
+                                    onTap: () {
+                                      Navigator.push(context,MaterialPageRoute(builder: (context) => ChatPage(),));
 
+                                    },
+                                    child: Container(
+                                      height: width*0.12,
+                                      width: width*0.34,
+                                      decoration: BoxDecoration(
+                                          color: Colour.primarycolour,
+                                          borderRadius: BorderRadius.circular(width*0.05)
+                                      ),
+                                      child: Center(
+                                        child: Text("Chat Doctor",
+                                          style: TextStyle(
+                                              fontSize: width*0.04,
+                                              fontWeight: FontWeight.w600,
+                                              color: Colour.secondarycolour
+                                          ),),
+                                      ),
+                                    ),
+                                  ),
                                 ],
-                              )
-                          ),
-                        ),
-                        // InkWell(
-                        //   onTap: () {
-                        //
-                        //
-                        //   },
-                        //   child: Container(
-                        //     height: height*0.07,
-                        //     width: width*0.6,
-                        //     decoration: BoxDecoration(
-                        //         color: Colour.primarycolour,
-                        //         borderRadius: BorderRadius.circular(width*0.07)
-                        //     ),
-                        //     child: Center(
-                        //       child: Text("Booking",
-                        //         style: TextStyle(
-                        //             fontSize: width*0.045,
-                        //             fontWeight: FontWeight.w600,
-                        //             color: Colour.secondarycolour
-                        //         ),),
-                        //     ),
-                        //   ),
-                        // ),
-                        InkWell(
-                          onTap: () {
-                            showDialog(
-                              barrierDismissible: false,
-                              context: context,
-                              builder: (context) {
-                                return AlertDialog(
-                                  content: Container(
-                                    height: width*0.8,
-                                    width: width*0.4,
-                                    child: Column(
-                                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                      children: [
-                                        Container(
-                                            height: width*0.25,
-                                            width: width*0.25,
-                                            child: Image.asset(ImageIcons.done)),
-                                        Container(
-                                            child: Column(
-                                              children: [
-                                                Text("Payment Success",
-                                                  style: TextStyle(
-                                                      fontWeight: FontWeight.w600,
-                                                      fontSize: width*0.042,
-                                                      color: Colour.thirdcolour),),
-                                                Text("Your payment has been successful,",
-                                                  style: TextStyle(
-                                                      fontWeight: FontWeight.w500,
-                                                      fontSize: width*0.032,
-                                                      color: Colour.color1),),
-                                                Text("you can have a consultation session",
-                                                  style: TextStyle(
-                                                      fontWeight: FontWeight.w500,
-                                                      fontSize: width*0.032,
-                                                      color: Colour.color1),),
-                                                Text("with your trusted doctor",
-                                                  style: TextStyle(
-                                                      fontWeight: FontWeight.w500,
-                                                      fontSize: width*0.032,
-                                                      color: Colour.color1),),
-                                              ],)),
-                                        InkWell(
-                                          onTap: () {
-                                            Navigator.push(context,MaterialPageRoute(builder: (context) => ChatPage(),));
-
-                                          },
-                                          child: Container(
-                                            height: width*0.12,
-                                            width: width*0.34,
-                                            decoration: BoxDecoration(
-                                                color: Colour.primarycolour,
-                                                borderRadius: BorderRadius.circular(width*0.05)
-                                            ),
-                                            child: Center(
-                                              child: Text("Chat Doctor",
-                                                style: TextStyle(
-                                                    fontSize: width*0.04,
-                                                    fontWeight: FontWeight.w600,
-                                                    color: Colour.secondarycolour
-                                                ),),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                );
-                              },);
-                          },
-                          child: Container(
-                            height: height*0.07,
-                            width: width*0.6,
-                            decoration: BoxDecoration(
-                                color: Colour.primarycolour,
-                                borderRadius: BorderRadius.circular(width*0.07)
+                              ),
                             ),
-                            child: Center(
-                              child: Text("Booking",
-                                style: TextStyle(
-                                    fontSize: width*0.045,
-                                    fontWeight: FontWeight.w600,
-                                    color: Colour.secondarycolour
-                                ),),
-                            ),
-                          ),
-                        ),
-                      ],
+                          );
+                        },);
+                    },
+                    child: Container(
+                      height: height*0.07,
+                      width: width*0.6,
+                      decoration: BoxDecoration(
+                          color: Colour.primarycolour,
+                          borderRadius: BorderRadius.circular(width*0.07)
+                      ),
+                      child: Center(
+                        child: Text("Booking",
+                          style: TextStyle(
+                              fontSize: width*0.045,
+                              fontWeight: FontWeight.w600,
+                              color: Colour.secondarycolour
+                          ),),
+                      ),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
 
 
