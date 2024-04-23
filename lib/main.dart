@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
             theme: ThemeData(
               textTheme: GoogleFonts.interTextTheme()
             ),
-            home:SplashScreen()
+            home:ProfilePage()
     ),);
   }
 }
