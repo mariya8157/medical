@@ -1,7 +1,10 @@
+
+import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:medical/colour.dart';
 import 'package:medical/icons.dart';
 import 'package:medical/main.dart';
@@ -18,6 +21,16 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
+  var file;
+  pickFile(ImageSource) async {
+    final imgFile = await ImagePicker.platform.pickImage(source: ImageSource);
+    file = File(imgFile!.path);
+    if (mounted) {
+      setState(() {
+        file = File(imgFile.path);
+      });
+    }
+  }
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -51,22 +64,29 @@ class _ProfilePageState extends State<ProfilePage> {
                             left: width * 0.182, top: width * 0.25),
                         child: Stack(
                           children: [
-                            CircleAvatar(
-                              radius: width * 0.125,
-                              child: Image.asset(
-                                ImageIcons.lady,
-                                fit: BoxFit.fill,
-                              ),
+                            file == null
+                            ?Image.asset(
+                              ImageIcons.lady,
+                              width: width * 0.29,
+                            )
+                        : CircleAvatar(
+                            radius: width * 0.147,
+                            backgroundImage: FileImage(file),
                             ),
                             Padding(
                               padding: EdgeInsets.only(
-                                  left: width * 0.185, top: width * 0.163),
-                              child: CircleAvatar(
-                                radius: width * 0.035,
-                                child: Icon(
-                                  Icons.camera_alt_outlined,
-                                  color: Colour.primarycolour,
-                                  size: width * 0.05,
+                                  left: width * 0.1895, top: width * 0.222),
+                              child: InkWell(
+                                onTap: () {
+                                  pickFile(ImageSource.camera);
+                                },
+                                child: CircleAvatar(
+                                  radius: width * 0.035,
+                                  child: Icon(
+                                    Icons.camera_alt_outlined,
+                                    color: Colour.primarycolour,
+                                    size: width * 0.05,
+                                  ),
                                 ),
                               ),
                             ),
@@ -292,9 +312,9 @@ class _ProfilePageState extends State<ProfilePage> {
                                                 ),
                                                 InkWell(
                                                   onTap: () {
-                                                    Navigator.pushReplacement(
+                                                    Navigator.pushAndRemoveUntil(
                                                         context, MaterialPageRoute(
-                                                        builder: (context) => SignupPage(),));
+                                                        builder: (context) => SignupPage(),),(route) => false,);
                                                   },
                                                   child: Container(
                                                     height: width * 0.13,

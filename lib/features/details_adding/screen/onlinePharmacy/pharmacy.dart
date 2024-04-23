@@ -31,7 +31,6 @@ class _PharmacyPageState extends State<PharmacyPage> {
       "text6":0,
       "text5":"PANADOL  is a cough medicine containing,"
           " Paracetamol, Ephedrine HCl, and Chlorphenamine maleate"
-          " which is used to relieve coughs accompanied by flu symptoms "
           "such as fever, headache, and sneezing...",
     },
     {
@@ -46,7 +45,6 @@ class _PharmacyPageState extends State<PharmacyPage> {
       "text6":0,
       "text5":"BODREX HERBAL  is a cough medicine containing,"
           " Paracetamol, Ephedrine HCl, and Chlorphenamine maleate"
-          " which is used to relieve coughs accompanied by flu symptoms "
           "such as fever, headache, and sneezing...",
     },
     {
@@ -61,7 +59,6 @@ class _PharmacyPageState extends State<PharmacyPage> {
       "text6":0,
       "text5":"KONIDIN  is a cough medicine containing,"
           " Paracetamol, Ephedrine HCl, and Chlorphenamine maleate"
-          " which is used to relieve coughs accompanied by flu symptoms "
           "such as fever, headache, and sneezing...",
     },
   ];
@@ -79,7 +76,6 @@ class _PharmacyPageState extends State<PharmacyPage> {
       "text6":0,
       "text5":"OBH COMBI  is a cough medicine containing,"
     " Paracetamol, Ephedrine HCl, and Chlorphenamine maleate"
-        " which is used to relieve coughs accompanied by flu symptoms "
         "such as fever, headache, and sneezing...",
     },
     {
@@ -95,7 +91,6 @@ class _PharmacyPageState extends State<PharmacyPage> {
       "text6":0,
       "text5":"Betadine  is a cough medicine containing,"
           " Paracetamol, Ephedrine HCl, and Chlorphenamine maleate"
-          " which is used to relieve coughs accompanied by flu symptoms "
           "such as fever, headache, and sneezing...",
     },
     {
@@ -111,7 +106,6 @@ class _PharmacyPageState extends State<PharmacyPage> {
       "text6":0,
       "text5":" Bodrexin is a cough medicine containing,"
           " Paracetamol, Ephedrine HCl, and Chlorphenamine maleate"
-          " which is used to relieve coughs accompanied by flu symptoms "
           "such as fever, headache, and sneezing...",
     },
   ];
@@ -257,7 +251,7 @@ class _PharmacyPageState extends State<PharmacyPage> {
                                     fontSize: width * 0.05),
                               ),
                               Container(
-                                height: width * 0.08,
+                                height: width * 0.099,
                                 width: width * 0.33,
                                 decoration: BoxDecoration(
                                     color: Colour.primarycolour,

@@ -298,6 +298,7 @@ class _DrugDetailsPageState extends State<DrugDetailsPage> {
                             ],
                           ),
                         ),
+                        SizedBox(height: width*0.05,),
                         Container(
                           height: width * 0.45,
                           width: width * 0.9,

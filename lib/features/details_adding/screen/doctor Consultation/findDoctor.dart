@@ -54,49 +54,69 @@ class _FindDoctorState extends State<FindDoctor> {
       "spl":"Chardiologist",
        "star":"4,7",
     "distene":"800m away",
+      "consultation":60.00,
+      "Admin Fee":01.00,
+      "Aditional Discount":00.00,
+
 
     }
   ];
   List drlist=[
     {
-      "image":ImageIcons.drmarcus,
+      "image":ImageIcons.drmarcus1,
       "name":"Dr. Marcus",
       "spl":"Chardiologist",
       "star":"4,7",
       "distene":"800m away",
+      "consultation":60.00,
+      "Admin Fee":01.00,
+      "Aditional Discount":00.00,
 
     },
     {
-      "image":ImageIcons.drmaria,
+      "image":ImageIcons.drmaria1,
       "name":"Dr. Maria",
-      "spl":"Psychologist",
+      "spl":"Gynecologist",
       "star":"4,7",
       "distene":"500m away",
+      "consultation":70.00,
+      "Admin Fee":01.00,
+      "Aditional Discount":10.00,
+
 
     },
     {
-      "image":ImageIcons.drstevi,
+      "image":ImageIcons.drstevi1,
       "name":"Dr. Stevi",
-      "spl":"Orthopedist",
+      "spl":"dermatologist",
       "star":"4,8",
       "distene":"900m away",
+      "consultation":80.00,
+      "Admin Fee":02.00,
+      "Aditional Discount":00.00,
 
     }
     ,
     {
-      "image":ImageIcons.drluke,
-      "name":"Dr. Luke",
-      "spl":"General medicine",
+      "image":ImageIcons.drgerty,
+      "name":"Dr. Gerty Cori",
+      "spl":"Orthopedist",
       "star":"4,7",
       "distene":"800m away",
+      "consultation":65.00,
+      "Admin Fee":01.50,
+      "Aditional Discount":00.00,
 
     },
     {
       "image":ImageIcons.drdiandra,
-      "name":"Dr. Luke",
-      "spl":"General medicine",
+      "name":"Dr. Diandra",
+      "spl":"Orthopedist",
       "star":"4,7",
       "distene":"800m away",
+      "consultation":70.00,
+      "Admin Fee":01.00,
+      "Aditional Discount":01.00,
 
     }
 

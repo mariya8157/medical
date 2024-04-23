@@ -46,6 +46,9 @@ class ImageIcons{
   static const Paperclip = "assets/icons/Paperclip.svg";
   static const heart = "assets/icons/Heart.svg";
   static const star4 = "assets/icons/star4.svg";
+  static const Vector = "assets/icons/Vector.svg";
+  static const circle = "assets/icons/circle.svg";
+  static const paypal = "assets/icons/paypal.svg";
 
 
 
@@ -58,6 +61,7 @@ class ImageIcons{
   static const covid5 = "assets/images/covid_19_5.png";
   static const covid6 = "assets/images/covid_19_6.png";
   static const covid7 = "assets/images/covid_19_7.png";
+  static const Google = "assets/images/Google.png";
   // static const covid1 = "assets/images/covid_19_1.png";
   // static const medics="assets/images/medics.png";
   // static const covid2 = "assets/images/covid_19_2.png";
