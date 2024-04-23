@@ -88,7 +88,7 @@ List day=[];
     return  Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        backgroundColor: Colors.white24,
+        backgroundColor: Colour.secondarycolour,
         // resizeToAvoidBottomInset: false,
         elevation: 0,
         leading: InkWell(
@@ -117,6 +117,7 @@ List day=[];
               fontSize: width*0.063
           ),
         ),
+surfaceTintColor:Colour.thirdcolour ,
       ),
       body: Padding(
         padding:  EdgeInsets.all(width*0.03),
