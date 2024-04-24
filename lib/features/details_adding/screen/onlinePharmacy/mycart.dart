@@ -35,6 +35,7 @@ class _MyCartPageState extends State<MyCartPage> {
   // ];
   dynamic total =0;
   dynamic added;
+  dynamic c= 1;
   List f=[];
   totalprice(){
     for(int i=0;i<widget.d.length;i++){
@@ -63,17 +64,16 @@ class _MyCartPageState extends State<MyCartPage> {
     });
   }
 
-  int total1=0;
-  int a=0;
-  int b=0;
+  dynamic total1=0;
+  dynamic a=0;
+  dynamic b=0;
   totalAdd(){
     total1=0;
     a=0;
     b=0;
     for(int i=0;i<widget.d.length;i++){
-      a=widget.d[i]['price']*widget.d[i]["text6"]+a;
-      b=widget.d[i]['price']*widget.d[i]["text6"]+b;
-      total1=a+b+total1;
+      a=widget.d[i]['price']*widget.d[i]["text6"]+a+c;
+      total1=a+total1;
     }
     setState(() {
 
@@ -330,9 +330,13 @@ class _MyCartPageState extends State<MyCartPage> {
                         style: TextStyle(
                             fontSize: width * 0.043, color: Colors.grey),
                       ),
-                      Text("\$1.00",
-                          style: TextStyle(
-                              fontSize: width * 0.045, color: Colors.grey)),
+                      Row(
+                        children: [
+                          Text(c.toString(),
+                              style: TextStyle(
+                                  fontSize: width * 0.045, color: Colors.grey)),
+                        ],
+                      ),
                     ],
                   ),
                   Row(
