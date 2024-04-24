@@ -248,7 +248,7 @@ class _ProfilePageState extends State<ProfilePage> {
                               onTap: () {
                                 Navigator.push(
                                     context, MaterialPageRoute(
-                                  builder: (context) =>MyCartPage(c: [],) ));
+                                  builder: (context) =>MyCartPage(d: [],) ));
                               },
                               child: ListTile(
                                 leading: CircleAvatar(

@@ -27,7 +27,6 @@ class _PharmacyPageState extends State<PharmacyPage> {
       "price":15.99,
       "icon":ImageIcons.c_add,
       "icon1":ImageIcons.heart,
-      "star":ImageIcons.star4,
       "text6":0,
       "text5":"PANADOL  is a cough medicine containing,"
           " Paracetamol, Ephedrine HCl, and Chlorphenamine maleate"
@@ -41,7 +40,6 @@ class _PharmacyPageState extends State<PharmacyPage> {
       "price":7.99,
       "icon":ImageIcons.c_add,
       "icon1":ImageIcons.heart,
-      "star":ImageIcons.star4,
       "text6":0,
       "text5":"BODREX HERBAL  is a cough medicine containing,"
           " Paracetamol, Ephedrine HCl, and Chlorphenamine maleate"
@@ -55,7 +53,6 @@ class _PharmacyPageState extends State<PharmacyPage> {
       "price":5.99,
       "icon":ImageIcons.c_add,
       "icon1":ImageIcons.heart,
-      "star":ImageIcons.star4,
       "text6":0,
       "text5":"KONIDIN  is a cough medicine containing,"
           " Paracetamol, Ephedrine HCl, and Chlorphenamine maleate"
@@ -72,7 +69,6 @@ class _PharmacyPageState extends State<PharmacyPage> {
       "text4": "\$10.99",
       "icon":ImageIcons.c_add,
       "icon1":ImageIcons.heart,
-      "star":ImageIcons.star4,
       "text6":0,
       "text5":"OBH COMBI  is a cough medicine containing,"
     " Paracetamol, Ephedrine HCl, and Chlorphenamine maleate"
@@ -87,7 +83,6 @@ class _PharmacyPageState extends State<PharmacyPage> {
       "text4": "\$8.99",
       "icon":ImageIcons.c_add,
       "icon1":ImageIcons.heart,
-      "star":ImageIcons.star4,
       "text6":0,
       "text5":"Betadine  is a cough medicine containing,"
           " Paracetamol, Ephedrine HCl, and Chlorphenamine maleate"
@@ -102,7 +97,6 @@ class _PharmacyPageState extends State<PharmacyPage> {
       "text4": "\$8.99",
       "icon":ImageIcons.c_add,
       "icon1":ImageIcons.heart,
-      "star":ImageIcons.star4,
       "text6":0,
       "text5":" Bodrexin is a cough medicine containing,"
           " Paracetamol, Ephedrine HCl, and Chlorphenamine maleate"
@@ -162,7 +156,7 @@ class _PharmacyPageState extends State<PharmacyPage> {
             onTap: () {
               Navigator.push(
                   context, MaterialPageRoute(
-                  builder: (context) => MyCartPage(c: c,),));
+                  builder: (context) => MyCartPage(d: [],),));
             },
               child: Icon(Icons.shopping_cart_outlined)),
           SizedBox(
@@ -375,7 +369,6 @@ class _PharmacyPageState extends State<PharmacyPage> {
                             "price":a[index]["price"],
                             "icon":a[index]["icon"],
                             "icon1":a[index]["icon1"],
-                            "star":a[index]["star"],
                             "text6":a[index]["text6"],
                             "text5":a[index]["text5"],
                           });
@@ -559,7 +552,6 @@ class _PharmacyPageState extends State<PharmacyPage> {
                             "price":c[index]["price"],
                             "icon":c[index]["icon"],
                             "icon1":c[index]["icon1"],
-                            "star":c[index]["star"],
                             "text6":c[index]["text6"],
                             "text5":c[index]["text5"],
                           });

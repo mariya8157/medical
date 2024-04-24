@@ -143,22 +143,7 @@ class _DrugDetailsPageState extends State<DrugDetailsPage> {
                                   SvgPicture.asset(d[index]["icon1"])
                                 ],
                               ),
-                              Row(
-                                children: [
-                                  GiveStarReviews(
-                                    starData: [
-                                      GiveStarData(onChanged: (rate) {},text: '',activeStarColor: Colour.primarycolour,size: width*0.065),
-                                      // GiveStarData(text: '', onChanged: null),
-                                      // GiveStarData(text: '', starCount: 5, onChanged: (rate) {},),
 
-                                    ],
-                                  ),
-                                ],
-                              ),
-                              // SvgPicture.asset(d[index]["star"]),
-                              SizedBox(
-                                height: width * 0.05,
-                              ),
                               Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
@@ -326,7 +311,7 @@ class _DrugDetailsPageState extends State<DrugDetailsPage> {
                                     onTap: () {
                                       Navigator.push(
                                           context, MaterialPageRoute(
-                                        builder: (context) => MyCartPage(c: [],),));
+                                        builder: (context) => MyCartPage(d: d,),));
                                     },
                                     child: Container(
                                       height: width * 0.14,
