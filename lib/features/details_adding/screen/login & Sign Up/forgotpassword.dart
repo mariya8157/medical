@@ -17,7 +17,10 @@ class ForgotPasswordPage extends StatefulWidget {
 class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
   TextEditingController emailController = TextEditingController();
   TextEditingController phoneController = TextEditingController();
+  final phoneValidation=RegExp(r"[0-9]{10}$");
+  final emailValidation=RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
   final formKey=GlobalKey<FormState>();
+
   bool toggle = false;
   @override
   Widget build(BuildContext context) {
@@ -169,25 +172,31 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                     controller: phoneController,
                     textInputAction: TextInputAction.next,
                     keyboardType: TextInputType.number,
+                    maxLength: 10,
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
+                    validator: (value) {
+                      if(!phoneValidation.hasMatch(value!))
+                      {
+                        return "Enter valid Number";
+                      }
+                      else{
+                        return null;
+                      }
+                    },
                     style: TextStyle(fontSize: width*0.045,fontWeight: FontWeight.w500,color: Colour.thirdcolour),
                     decoration: InputDecoration(
+                      counterText: '',
                       prefixIcon: Padding(
                         padding: EdgeInsets.all(width*0.03),
-                        // child: SvgPicture.asset(ImageIcons.call),
+                        child: SvgPicture.asset(ImageIcons.call),
                       ),
                       labelText: "Enter your number",
                       labelStyle: TextStyle(fontWeight: FontWeight.w500,fontSize: width*0.04, color: Colour.color1),
-                      focusedBorder: OutlineInputBorder(
+                      border: OutlineInputBorder(
                           borderSide: BorderSide(
                             color: Colour.color2,
                           ),
                           borderRadius: BorderRadius.circular(width*0.07)
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                        borderSide: BorderSide(
-                            color: Colour.color2
-                        ),
-                        borderRadius: BorderRadius.circular(width*0.07),
                       ),
                     ),
                   ),
@@ -200,21 +209,24 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                     controller: emailController,
                     textInputAction: TextInputAction.next,
                     keyboardType: TextInputType.emailAddress,
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
+                    validator: (value) {
+                      if(!emailValidation.hasMatch(value!)){
+                        return "Enter valid Email";
+                      }
+                      else{
+                        return null;
+                      }
+                    },
                     style: TextStyle(fontSize: width*0.045,fontWeight: FontWeight.w500,color: Colour.thirdcolour),
                     decoration: InputDecoration(
                       prefixIcon: Padding(
                         padding: EdgeInsets.all(width*0.03),
-                        // child: SvgPicture.asset(ImageIcons.email2),
+                        child: SvgPicture.asset(ImageIcons.email2),
                       ),
                       labelText: "Enter your email",
                       labelStyle: TextStyle(fontWeight: FontWeight.w500,fontSize: width*0.04, color: Colour.color1),
-                      focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Colour.color2,
-                          ),
-                          borderRadius: BorderRadius.circular(width*0.07)
-                      ),
-                      enabledBorder: OutlineInputBorder(
+                      border: OutlineInputBorder(
                         borderSide: BorderSide(
                             color: Colour.color2
                         ),
@@ -231,11 +243,22 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                     phoneController.text!=""&&
                         formKey.currentState!.validate()
                     )
-                      {
                         Navigator.push(context, MaterialPageRoute(builder: (context) => VerificationPage(
                           email : emailController.text,
                           phone : phoneController.text,
                         ),));
+                      else{
+                      emailController.text==""?
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                          backgroundColor: Colour.primarycolour,
+                          content: Text("Please enter your Email!"))):
+                      phoneController.text==""?
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                          backgroundColor: Colour.primarycolour,
+                          content: Text("Please enter your Number!"))):
+                       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                           backgroundColor: Colour.primarycolour,
+                           content: Text("Please enter your Valid Details!")));
                       }
                   },
                   child: Container(

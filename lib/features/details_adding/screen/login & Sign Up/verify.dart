@@ -97,6 +97,10 @@ class _VerificationPageState extends State<VerificationPage> {
 
                 },
                 focusedPinTheme: PinTheme(
+                    textStyle: TextStyle(
+                      fontSize: width*0.045,
+                      fontWeight: FontWeight.w600
+                    ),
                     height: width*0.19,
                     width: width*0.17,
                     decoration: BoxDecoration(

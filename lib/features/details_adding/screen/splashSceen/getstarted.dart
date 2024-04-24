@@ -42,7 +42,7 @@ class _GetStartedPageState extends State<GetStartedPage> {
           SizedBox(height: width*0.05,),
           InkWell(
             onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage(),));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage(email: '', password: '',),));
             },
             child: Container(
               height: width*0.14,

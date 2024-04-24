@@ -9,6 +9,7 @@ import 'package:readmore/readmore.dart';
 import '../../../../colour.dart';
 import '../../../../icons.dart';
 import '../../../../main.dart';
+import 'chatwithdoctor.dart';
 
 class DoctordetailsPage extends StatefulWidget {
 final List dr;
@@ -19,6 +20,9 @@ final List dr;
 }
 
 class _DoctordetailsPageState extends State<DoctordetailsPage> {
+
+  DateTime? date;
+
   List doctor=[
     {
       "image":ImageIcons.drmarcus1,
@@ -84,7 +88,7 @@ List day=[];
     return  Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        backgroundColor: Colors.white24,
+        backgroundColor: Colour.secondarycolour,
         // resizeToAvoidBottomInset: false,
         elevation: 0,
         leading: InkWell(
@@ -113,11 +117,7 @@ List day=[];
               fontSize: width*0.063
           ),
         ),
-        actions: [Row(
-          children: [
-            SvgPicture.asset(ImageIcons.columnDot),
-            SizedBox(width: width*0.05,)
-          ],),]
+surfaceTintColor:Colour.thirdcolour ,
       ),
       body: Padding(
         padding:  EdgeInsets.all(width*0.03),
@@ -253,21 +253,29 @@ List day=[];
                 moreStyle: TextStyle(fontSize:width*0.03, fontWeight: FontWeight.bold,color:Colour.primarycolour ),
               ),
               SizedBox(height: width*0.03,),
-              EasyDateTimeLine(
-                initialDate: DateTime.now(),
+              EasyInfiniteDateTimeLine(
+                firstDate: DateTime.now(),
+                lastDate: DateTime(DateTime.now().year, DateTime.now().month+1),
+                focusDate: date ?? DateTime.now(),
                 onDateChange: (selectedDate) {
-                  //`selectedDate` the new date selected.
+                  date=selectedDate;
+                  setState(() {
+
+                  });
                 },
-                headerProps:  EasyHeaderProps(
-                  monthPickerType: MonthPickerType.switcher,
-                  dateFormatter: DateFormatter.fullDateDMY(),
-                ),
+                // headerProps:  EasyHeaderProps(
+                //   monthPickerType: MonthPickerType.switcher,
+                //   dateFormatter: DateFormatter.fullDateDMY(),
+                // ),
                 dayProps: EasyDayProps(
                   dayStructure: DayStructure.dayStrDayNum,
+                  height: height*0.1,
+                  width: width*0.18,
+                  borderColor:Colour.lightgreen ,
                   activeDayStyle: DayStyle(
                     decoration: BoxDecoration(
                       color: Colour.primarycolour,
-                      borderRadius: BorderRadius.all(Radius.circular(8)),
+                      borderRadius: BorderRadius.all(Radius.circular(width*0.06)),
                       // gradient: LinearGradient(
                       //   begin: Alignment.topCenter,
                       //   end: Alignment.bottomCenter,
@@ -361,9 +369,9 @@ List day=[];
                       },
                         child: Container(
                             width: width*0.3,
-                            height: height*0.01,
+                            height: height*0.005,
                             decoration: BoxDecoration(color: selectIndex1==index?Colour.primarycolour:Colour.secondarycolour,
-                                borderRadius: BorderRadius.circular(width*0.03),
+                                borderRadius: BorderRadius.circular(width*0.06),
                               border: Border.all(color: Colour.lightgreen,
                               width: width*0.005)
                             ),
@@ -387,15 +395,20 @@ List day=[];
               Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
 
-                  Container(
-                    height: height*0.07,
-                    width: width*0.2,
-                    decoration: BoxDecoration(
-                        color: Colour.lightgreen,
-                        borderRadius: BorderRadius.circular(width*0.07)
-                    ),
-                    child: Center(
-                      child: SvgPicture.asset(ImageIcons.chat)
+                  InkWell(
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => ChatPage(),));
+                    },
+                    child: Container(
+                      height: height*0.07,
+                      width: width*0.2,
+                      decoration: BoxDecoration(
+                          color: Colour.lightgreen,
+                          borderRadius: BorderRadius.circular(width*0.07)
+                      ),
+                      child: Center(
+                        child: SvgPicture.asset(ImageIcons.chat)
+                      ),
                     ),
                   ),
                   InkWell(

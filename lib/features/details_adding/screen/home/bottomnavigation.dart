@@ -12,7 +12,11 @@ import 'package:medical/features/details_adding/screen/onlinePharmacy/pharmacy.d
 import 'package:medical/icons.dart';
 
 class BottomNavigationPage extends StatefulWidget {
-  const BottomNavigationPage({super.key});
+  final String email;
+  final String password;
+  const BottomNavigationPage({super.key,
+    required this.email,
+    required this.password});
 
   @override
   State<BottomNavigationPage> createState() => _HomeState();
