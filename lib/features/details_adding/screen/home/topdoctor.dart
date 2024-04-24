@@ -65,6 +65,7 @@ class _TopDoctorPageState extends State<TopDoctorPage> {
           backgroundColor: Colors.white24,
           // resizeToAvoidBottomInset: false,
           elevation: 0,
+          surfaceTintColor: Colour.secondarycolour,
           leading: InkWell(
             onTap: () {
               Navigator.pop(context);
@@ -190,9 +191,10 @@ class _TopDoctorPageState extends State<TopDoctorPage> {
                                               ],
                                             ),
                                             Container(
-                                              width: width*0.3,
+                                              width: width*0.22,
                                               height: height*0.05,
-                                              child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                              child: Row(
+                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                 children: [
                                                   SvgPicture.asset(ImageIcons.location,) ,
                                                   Text(drlist[index]["distene"],
