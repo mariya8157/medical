@@ -70,7 +70,6 @@ class _MyCartPageState extends State<MyCartPage> {
   totalAdd(){
     total1=0;
     a=0;
-    b=0;
     for(int i=0;i<widget.d.length;i++){
       a=widget.d[i]['price']*widget.d[i]["text6"]+a+c;
       total1=a+total1;

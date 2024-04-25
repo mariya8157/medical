@@ -21,6 +21,7 @@ class _CreatePasswordPageState extends State<CreatePasswordPage> {
   final passwordValidation2=RegExp(r"^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$");
   final formKey=GlobalKey<FormState>();
   bool selectIcon = false;
+  bool selectIcon1 = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -129,7 +130,7 @@ class _CreatePasswordPageState extends State<CreatePasswordPage> {
                     controller: passwordController2,
                     textInputAction: TextInputAction.done,
                     keyboardType: TextInputType.text,
-                    obscureText: selectIcon?false:true,
+                    obscureText: selectIcon1?false:true,
                     maxLength: 12,
                     autovalidateMode: AutovalidateMode.onUserInteraction,
                     validator: (value) {
@@ -149,7 +150,7 @@ class _CreatePasswordPageState extends State<CreatePasswordPage> {
                       ),
                       suffixIcon: InkWell(
                         onTap: () {
-                          selectIcon=!selectIcon;
+                          selectIcon1=!selectIcon1;
                           setState(() {
 
                           });
@@ -159,7 +160,7 @@ class _CreatePasswordPageState extends State<CreatePasswordPage> {
                           child: Container(
                               height: width*0.09,
                               width: width*0.09,
-                              child: selectIcon?SvgPicture.asset(ImageIcons.eye,color: Colour.color1,):
+                              child: selectIcon1?SvgPicture.asset(ImageIcons.eye,color: Colour.color1,):
                               SvgPicture.asset(ImageIcons.eyeOff)),
                         ),
                       ),
