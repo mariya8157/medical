@@ -35,7 +35,6 @@ class _MyCartPageState extends State<MyCartPage> {
   // ];
   dynamic total =0;
   dynamic added;
-  dynamic c= 1;
   List f=[];
   totalprice(){
     for(int i=0;i<widget.d.length;i++){
@@ -67,6 +66,7 @@ class _MyCartPageState extends State<MyCartPage> {
   dynamic total1=0;
   dynamic a=0;
   dynamic b=0;
+  dynamic c= 1.00;
   totalAdd(){
     total1=0;
     a=0;
@@ -194,86 +194,18 @@ class _MyCartPageState extends State<MyCartPage> {
                                       SizedBox(
                                         height: width * 0.03,
                                       ),
-                                      Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          f[index]["text6"] != 0
-                                              ? Container(
-                                            height: width * 0.095,
-                                            width: width * 0.22,
-                                            decoration: BoxDecoration(
-                                                color: Colors.black,
-                                                borderRadius:
-                                                BorderRadius.circular(
-                                                    width * 0.03)),
-                                            child: Row(
-                                              mainAxisAlignment:
-                                              MainAxisAlignment
-                                                  .spaceBetween,
-                                              children: [
-                                                InkWell(
-                                                    onTap: () {
-                                                      f[index]
-                                                      ["text6"] --;
-                                                      totalnprice();
-                                                      setState(() {});
-                                                    },
-                                                    child: const Icon(
-                                                      Icons.remove,
-                                                      color: Colors.white,
-                                                    )),
-                                                Text(
-                                                  f[index]["text6"]
-                                                      .toString(),
-                                                  style: TextStyle(
-                                                      color: Colors.white),
-                                                ),
-                                                InkWell(
-                                                    onTap: () {
-                                                      f[index]
-                                                      ["text6"] ++;
-                                                      totalnprice();
-                                                      setState(() {});
-                                                    },
-                                                    child: Icon(
-                                                      Icons.add,
-                                                      color: Colors.white,
-                                                    )),
-                                              ],
-                                            ),
-                                          )
-                                              : InkWell(
-                                            onTap: () {
-                                              f[index]["text6"] ++;
-                                              totalnprice();
-                                              setState(() {});
-                                            },
-                                            child: Container(
-                                              height: width * 0.095,
-                                              width: width * 0.22,
-                                              decoration: BoxDecoration(
-                                                color: Colors.black,
-                                                borderRadius:
-                                                BorderRadius.circular(
-                                                    width * 0.03),
-                                              ),
-                                              child: Center(
-                                                  child: Text(
-                                                    "Add item",
-                                                    style: TextStyle(
-                                                        color: Colors.white),
-                                                  )),
-                                            ),
-                                          ),
-                                          Text(
-                                            "\$$total",
-                                            style: TextStyle(
-                                                fontWeight: FontWeight.w800,
-                                                fontSize: width * 0.06),
-                                          )
-                                        ],
-                                      ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    children: [
+                                    Text("Price",style: TextStyle(fontSize: width*0.063,fontWeight: FontWeight.w900),),
+                                      Text(
+                                        "\$$total",
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.w800,
+                                            fontSize: width * 0.06),
+                                      )
+                                    ],
+                                  )
                                     ],
                                   ),
                                 ),
@@ -332,9 +264,12 @@ class _MyCartPageState extends State<MyCartPage> {
                       ),
                       Row(
                         children: [
+                          Text("\$", style: TextStyle(
+                              fontSize: width * 0.045, color: Colors.grey)),
                           Text(c.toString(),
                               style: TextStyle(
                                   fontSize: width * 0.045, color: Colors.grey)),
+                          Text("0")
                         ],
                       ),
                     ],
@@ -432,7 +367,7 @@ class _MyCartPageState extends State<MyCartPage> {
                               color: Colors.grey),
                         ),
                         Text(
-                          "\$$total",
+                          "\$$total1",
                           style: TextStyle(
                               fontSize: width * 0.045,
                               fontWeight: FontWeight.w800),
