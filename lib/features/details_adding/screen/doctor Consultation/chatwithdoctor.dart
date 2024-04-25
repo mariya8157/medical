@@ -293,8 +293,9 @@ class _ChatPageState extends State<ChatPage> {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       Container(
-                        width: width * 0.4,
-                        child: TextField(
+                        width: width * 0.35,
+
+                        child: TextFormField(
                           textAlign: TextAlign.start,
                           keyboardType: TextInputType.emailAddress,
                           decoration: InputDecoration(
@@ -327,79 +328,80 @@ class _ChatPageState extends State<ChatPage> {
                             isDismissible: false,
                             builder: (context) {
                               return Container(
-                                width: width * 0.6,
-                                height: height * 0.4,
+                                width: width * 0.5,
+                                height: height * 0.3,
                                 child: Column(
                                   children: [
-                                    Container(
-                                      height: height * 0.1,
-                                      width: width * 1,
-
-
-                                      margin: EdgeInsets.only(bottom: width*0.01),
-                                      decoration: BoxDecoration(
-                                        borderRadius:
+                                    Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Container(
+                                          height: height * 0.1,
+                                          width: width *0.2,
+                                          margin: EdgeInsets.only(bottom: width*0.01),
+                                          decoration: BoxDecoration(
+                                            borderRadius:
                                             BorderRadius.circular(width * 0.03),
-                                        color: Colour.secondarycolour.withOpacity(0.8),
-                                      ),
-                                      child: InkWell(
-                                        onTap: () {
-                                          pickFile(ImageSource.gallery);
-                                          Navigator.pop(context);
-                                        },
-                                        child: Center(
-                                          child: Column(mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                            children: [
-                                              Icon(CupertinoIcons.photo_fill_on_rectangle_fill),
-                                              Text("Gallery",
-                                                  style: TextStyle(
-                                                      fontSize: width * 0.05,
-                                                      fontWeight: FontWeight.w400,
-                                                      color:
+                                            color: Colour.secondarycolour.withOpacity(0.8),
+                                          ),
+                                          child: InkWell(
+                                            onTap: () {
+                                              pickFile(ImageSource.gallery);
+                                              Navigator.pop(context);
+                                            },
+                                            child: Center(
+                                              child: Column(mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                                children: [
+                                                  Icon(CupertinoIcons.photo_fill_on_rectangle_fill),
+                                                  Text("Gallery",
+                                                      style: TextStyle(
+                                                          fontSize: width * 0.05,
+                                                          fontWeight: FontWeight.w400,
+                                                          color:
                                                           Colour.primarycolour)),
-                                            ],
+                                                ],
+                                              ),
+                                            ),
                                           ),
                                         ),
-                                      ),
-                                    ),
-                                    Container(
-                                      height: height * 0.1,
-                                      width: width * 1,
-
-
-
-                                      decoration: BoxDecoration(
-                                        borderRadius:
+                                        Container(
+                                          height: height * 0.1,
+                                          width: width * 0.2,
+                                          decoration: BoxDecoration(
+                                            borderRadius:
                                             BorderRadius.circular(width * 0.03),
-                                        color: Colour.secondarycolour.withOpacity(0.8),
-                                      ),
-                                      child: InkWell(
-                                        onTap: () {
-                                          pickFile(ImageSource.camera);
-                                          Navigator.pop(context);
-                                        },
-                                        child: Center(
-                                          child: Column(mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                            children: [
-                                              Icon(CupertinoIcons.camera),
-                                              Text("camera",
-                                                  style: TextStyle(
-                                                      fontSize: width * 0.05,
-                                                      fontWeight: FontWeight.w400,
-                                                      color:
+                                            color: Colour.secondarycolour.withOpacity(0.8),
+                                          ),
+                                          child: InkWell(
+                                            onTap: () {
+                                              pickFile(ImageSource.camera);
+                                              Navigator.pop(context);
+                                            },
+                                            child: Center(
+                                              child: Column(mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                                children: [
+                                                  Icon(CupertinoIcons.camera),
+                                                  Text("camera",
+                                                      style: TextStyle(
+                                                          fontSize: width * 0.05,
+                                                          fontWeight: FontWeight.w400,
+                                                          color:
                                                           Colour.primarycolour)),
-                                            ],
+                                                ],
+                                              ),
+                                            ),
                                           ),
                                         ),
-                                      ),
+
+                                      ],
                                     ),
+
                                     InkWell(
                                       onTap: () {
                                         Navigator.pop(context);
                                       },
                                       child: Container(
                                         width: width * 1,
-                                        height: height * 0.1,
+                                        height: height * 0.05,
                                         margin: EdgeInsets.only(top: width*0.03),
                                         decoration: BoxDecoration(
                                           borderRadius: BorderRadius.circular(

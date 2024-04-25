@@ -557,7 +557,7 @@ class _BookingPageState extends State<BookingPage> {
                               // color: Colors.red,
                               // fit: BoxFit.fill,
                             ),),
-                          title: Text("Paypal"),
+                          title: Text("PhonePe"),
                           trailing: Radio(value: 1,
                             groupValue: selectedOption,
                             onChanged: ( value) {
@@ -577,8 +577,11 @@ class _BookingPageState extends State<BookingPage> {
                           borderRadius: BorderRadius.circular(width*0.03)
                       ),
                       child: ListTile(
-                        leading: Image(image: AssetImage(ImageIcons.Google)),
-                        title: Text("Google Pay"),
+                        leading: Container(
+                            height: width*0.07,
+                            width: width*0.07,
+                            child: Image(image: NetworkImage("https://www.computerhope.com/jargon/g/google-pay.png"))),
+                        title: Text("GPay"),
                         trailing: Radio(value: 2,
                           groupValue: selectedOption,
                           onChanged: ( value) {

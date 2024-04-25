@@ -86,6 +86,8 @@ class _MyCartPageState extends State<MyCartPage> {
     // TODO: implement initState
     super.initState();
   }
+  int selectedOption=1;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -311,6 +313,100 @@ class _MyCartPageState extends State<MyCartPage> {
                       ),
                     ],
                   ),
+                  // Column(
+                  //     children: [
+                  //       Container(
+                  //           height: width*0.18,
+                  //           width: width*80,
+                  //           decoration: BoxDecoration(
+                  //               color: Colour.lightgreen,
+                  //               borderRadius: BorderRadius.circular(width*0.03)
+                  //           ),
+                  //
+                  //
+                  //
+                  //           child: ListTile(
+                  //             leading: Container(
+                  //               height: width*0.07,
+                  //               width: width*0.07,
+                  //               child: Image(image: NetworkImage("https://pbs.twimg.com/profile_images/1615271089705463811/v-emhrqu_400x400.png"),
+                  //                 // SvgPicture.asset(ImageIcons.paypal,
+                  //                 // color: Colors.red,
+                  //                 // fit: BoxFit.fill,
+                  //               ),),
+                  //             title: Text("PhonePe"),
+                  //             trailing: Radio(value: 1,
+                  //               groupValue: selectedOption,
+                  //               onChanged: ( value) {
+                  //                 setState(() {
+                  //                   selectedOption=value!;
+                  //                 });
+                  //               },
+                  //             ),
+                  //           )),
+                  //       SizedBox(height: height*0.01,),
+                  //
+                  //       Container(
+                  //         height: width*0.18,
+                  //         width: width*80,
+                  //         decoration: BoxDecoration(
+                  //             color: Colour.lightgreen,
+                  //             borderRadius: BorderRadius.circular(width*0.03)
+                  //         ),
+                  //         child: ListTile(
+                  //           leading: Container(
+                  //               height: width*0.07,
+                  //               width: width*0.07,
+                  //               child: Image(image: NetworkImage("https://www.computerhope.com/jargon/g/google-pay.png"))),
+                  //           title: Text("GPay"),
+                  //           trailing: Radio(value: 2,
+                  //             groupValue: selectedOption,
+                  //             onChanged: ( value) {
+                  //               setState(() {
+                  //                 selectedOption=value!;
+                  //               });
+                  //             },),
+                  //         ),),
+                  //       SizedBox(height: height*0.01,),
+                  //
+                  //       Container(
+                  //         height: width*0.18,
+                  //         width: width*80,
+                  //         decoration: BoxDecoration(
+                  //             color: Colour.lightgreen,
+                  //             borderRadius: BorderRadius.circular(width*0.03)
+                  //         ),
+                  //         child: ListTile(
+                  //           leading: SvgPicture.asset(ImageIcons.apple),
+                  //           title: Text("Apple Pay"),
+                  //           trailing: Radio(value: 3,
+                  //             groupValue: selectedOption,
+                  //             onChanged: ( value) {
+                  //               setState(() {
+                  //                 selectedOption=value!;
+                  //               });
+                  //             },),),
+                  //       ),
+                  //       SizedBox(height: height*0.01,),
+                  //
+                  //       // Container(
+                  //       //   height: width*0.18,
+                  //       //   width: width*80,
+                  //       //   color: Colors.blue,
+                  //       //   child: ListTile(
+                  //       //     leading: SvgPicture.asset(ImageIcons.circle),
+                  //       //     title: Text("**** **** **** ****4679"),
+                  //       //     trailing: Radio(value: 4,
+                  //       //       groupValue: selectedOption,
+                  //       //       onChanged: ( value) {
+                  //       //         setState(() {
+                  //       //           selectedOption=value!;
+                  //       //         });
+                  //       //       },),
+                  //       //   ),)
+                  //     ]
+                  // ),
+
                   Container(
                     height: width * 0.16,
                     width: width * 0.9,
