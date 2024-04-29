@@ -54,6 +54,10 @@ class ImageIcons{
 
   ///png
   static const covid1 = "assets/images/covid_19_1.png";
+  static const doc8 = "assets/images/doc8.png";
+  static const doc5 = "assets/images/doc5.jpeg";
+  static const doc6 = "assets/images/doc6.jpg";
+  static const doc7 = "assets/images/doc7.jpeg";
   static const medics="assets/images/medics.png";
   static const covid2 = "assets/images/covid_19_2.png";
   static const covid3 = "assets/images/covid_19_3.png";
