@@ -102,10 +102,14 @@ class ImageIcons{
  //jpg
 static const banner1="assets/images/banner1.jpg";
 static const banner2="assets/images/banner2.jpg";
+static const paracetamol="assets/images/paracetamol.jpg";
+static const cardiac="assets/images/cardiac.jpg";
 
 
 //
   static const banner3="assets/images/banner3.webp";
+  static const omega="assets/images/omega.webp";
+  static const cough="assets/images/cough.webp";
 
 
 }
