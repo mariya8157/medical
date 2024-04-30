@@ -229,10 +229,7 @@ class _CreatePasswordPageState extends State<CreatePasswordPage> {
                                       Navigator.pushAndRemoveUntil(
                                           context,
                                           MaterialPageRoute(
-                                            builder: (context) => LoginPage(
-                                              email: passwordController.text,
-                                              password: passwordController2.text,
-                                            ),
+                                            builder: (context) => LoginPage(),
                                           ),
                                           (route) => false);
                                     },

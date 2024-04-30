@@ -268,10 +268,7 @@ class _SignupPageState extends State<SignupPage> {
                                         ],)),
                                   InkWell(
                                     onTap: () {
-                                       Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => LoginPage(
-                                         email: emailController.text,
-                                         password: passwordController.text,
-                                       ),), (route) => false);
+                                       Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => LoginPage(),), (route) => false);
                                   },
                                     child: Container(
                                       height: width*0.12,

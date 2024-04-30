@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:medical/colour.dart';
@@ -9,21 +10,21 @@ import 'package:medical/features/details_adding/screen/home/homepage.dart';
 import 'package:medical/features/details_adding/screen/login%20&%20Sign%20Up/forgotpassword.dart';
 import 'package:medical/features/details_adding/screen/login%20&%20Sign%20Up/signup.dart';
 import 'package:medical/icons.dart';
+import 'package:medical/models/model1.dart';
 
 import '../../../../main.dart';
+import '../../controller/addingcontroller_page.dart';
 
-class LoginPage extends StatefulWidget {
-  final String email;
-  final String password;
-  const LoginPage({super.key,
-    required this.email,
-    required this.password});
+class LoginPage extends ConsumerStatefulWidget {
+  const LoginPage(
+      {super.key,});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  ConsumerState createState() => _LoginPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _LoginPageState extends ConsumerState<LoginPage> {
+  TextEditingController nameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   final passwordValidation=RegExp(r"^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$");
@@ -31,6 +32,9 @@ class _LoginPageState extends State<LoginPage> {
   final formKey=GlobalKey<FormState>();
   bool selectIcon = false;
 
+  addDetails(){
+    ref.read(AddingControllerProvider).addFunction(usersModel: UsersModel(name: "", email: emailController.text, password: passwordController.text));
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -165,6 +169,7 @@ class _LoginPageState extends State<LoginPage> {
                 SizedBox(height: width*0.05,),
                 InkWell(
                   onTap: () {
+                    addDetails();
                     if(
                      emailController.text!=""&&
                      passwordController.text!=""&&
@@ -418,3 +423,7 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 }
+
+
+
+
