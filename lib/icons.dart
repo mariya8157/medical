@@ -98,6 +98,9 @@ class ImageIcons{
   static const attach= "assets/images/attach.png";
   static const lady = "assets/images/lady.png";
   static const line = "assets/images/line.png";
+  static const phonepe="assets/images/phonepe .png";
+  static const googlepay="assets/images/google pay.png";
+  static const paytm="assets/images/paytm.png";
 
  //jpg
 static const banner1="assets/images/banner1.jpg";

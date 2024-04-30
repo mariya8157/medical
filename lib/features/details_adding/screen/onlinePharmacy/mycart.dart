@@ -87,12 +87,13 @@ class _MyCartPageState extends State<MyCartPage> {
     super.initState();
   }
   int selectedOption=1;
-
+  int activeIndex=0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        scrolledUnderElevation: 0,
         centerTitle: true,
         backgroundColor: Colors.white24,
         // resizeToAvoidBottomInset: false,
@@ -292,183 +293,217 @@ class _MyCartPageState extends State<MyCartPage> {
                 ],
               ),
             ),
-            Container(
-              height: width * 0.37,
-              width: width * 0.9,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Divider(
-                    thickness: width * 0.0005,
-                    endIndent: width * 0.01,
-                    indent: width * 0.01,
-                    color: Colors.grey,
-                  ),
-                  Row(
-                    children: [
-                      Text(
-                        "Payment Method",
-                        style: TextStyle(
-                            fontSize: width * 0.055, fontWeight: FontWeight.w600),
-                      ),
-                    ],
-                  ),
-                  // Column(
-                  //     children: [
-                  //       Container(
-                  //           height: width*0.18,
-                  //           width: width*80,
-                  //           decoration: BoxDecoration(
-                  //               color: Colour.lightgreen,
-                  //               borderRadius: BorderRadius.circular(width*0.03)
-                  //           ),
-                  //
-                  //
-                  //
-                  //           child: ListTile(
-                  //             leading: Container(
-                  //               height: width*0.07,
-                  //               width: width*0.07,
-                  //               child: Image(image: NetworkImage("https://pbs.twimg.com/profile_images/1615271089705463811/v-emhrqu_400x400.png"),
-                  //                 // SvgPicture.asset(ImageIcons.paypal,
-                  //                 // color: Colors.red,
-                  //                 // fit: BoxFit.fill,
-                  //               ),),
-                  //             title: Text("PhonePe"),
-                  //             trailing: Radio(value: 1,
-                  //               groupValue: selectedOption,
-                  //               onChanged: ( value) {
-                  //                 setState(() {
-                  //                   selectedOption=value!;
-                  //                 });
-                  //               },
-                  //             ),
-                  //           )),
-                  //       SizedBox(height: height*0.01,),
-                  //
-                  //       Container(
-                  //         height: width*0.18,
-                  //         width: width*80,
-                  //         decoration: BoxDecoration(
-                  //             color: Colour.lightgreen,
-                  //             borderRadius: BorderRadius.circular(width*0.03)
-                  //         ),
-                  //         child: ListTile(
-                  //           leading: Container(
-                  //               height: width*0.07,
-                  //               width: width*0.07,
-                  //               child: Image(image: NetworkImage("https://www.computerhope.com/jargon/g/google-pay.png"))),
-                  //           title: Text("GPay"),
-                  //           trailing: Radio(value: 2,
-                  //             groupValue: selectedOption,
-                  //             onChanged: ( value) {
-                  //               setState(() {
-                  //                 selectedOption=value!;
-                  //               });
-                  //             },),
-                  //         ),),
-                  //       SizedBox(height: height*0.01,),
-                  //
-                  //       Container(
-                  //         height: width*0.18,
-                  //         width: width*80,
-                  //         decoration: BoxDecoration(
-                  //             color: Colour.lightgreen,
-                  //             borderRadius: BorderRadius.circular(width*0.03)
-                  //         ),
-                  //         child: ListTile(
-                  //           leading: SvgPicture.asset(ImageIcons.apple),
-                  //           title: Text("Apple Pay"),
-                  //           trailing: Radio(value: 3,
-                  //             groupValue: selectedOption,
-                  //             onChanged: ( value) {
-                  //               setState(() {
-                  //                 selectedOption=value!;
-                  //               });
-                  //             },),),
-                  //       ),
-                  //       SizedBox(height: height*0.01,),
-                  //
-                  //       // Container(
-                  //       //   height: width*0.18,
-                  //       //   width: width*80,
-                  //       //   color: Colors.blue,
-                  //       //   child: ListTile(
-                  //       //     leading: SvgPicture.asset(ImageIcons.circle),
-                  //       //     title: Text("**** **** **** ****4679"),
-                  //       //     trailing: Radio(value: 4,
-                  //       //       groupValue: selectedOption,
-                  //       //       onChanged: ( value) {
-                  //       //         setState(() {
-                  //       //           selectedOption=value!;
-                  //       //         });
-                  //       //       },),
-                  //       //   ),)
-                  //     ]
-                  // ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Divider(
+                  thickness: width * 0.0005,
+                  endIndent: width * 0.05,
+                  indent: width * 0.05,
+                  color: Colors.grey,
+                ),
+                SizedBox(height: width*0.03,),
+                Row(
+                  children: [
+                    SizedBox(width: width*0.05,),
+                    Text(
+                      "Payment Method",
+                      style: TextStyle(
+                          fontSize: width * 0.055, fontWeight: FontWeight.w600),
+                    ),
+                  ],
+                ),
+                SizedBox(height: width*0.042,),
+                // Column(
+                //     children: [
+                //       Container(
+                //           height: width*0.18,
+                //           width: width*80,
+                //           decoration: BoxDecoration(
+                //               color: Colour.lightgreen,
+                //               borderRadius: BorderRadius.circular(width*0.03)
+                //           ),
+                //
+                //
+                //
+                //           child: ListTile(
+                //             leading: Container(
+                //               height: width*0.07,
+                //               width: width*0.07,
+                //               child: Image(image: NetworkImage("https://pbs.twimg.com/profile_images/1615271089705463811/v-emhrqu_400x400.png"),
+                //                 // SvgPicture.asset(ImageIcons.paypal,
+                //                 // color: Colors.red,
+                //                 // fit: BoxFit.fill,
+                //               ),),
+                //             title: Text("PhonePe"),
+                //             trailing: Radio(value: 1,
+                //               groupValue: selectedOption,
+                //               onChanged: ( value) {
+                //                 setState(() {
+                //                   selectedOption=value!;
+                //                 });
+                //               },
+                //             ),
+                //           )),
+                //       SizedBox(height: height*0.01,),
+                //
+                //       Container(
+                //         height: width*0.18,
+                //         width: width*80,
+                //         decoration: BoxDecoration(
+                //             color: Colour.lightgreen,
+                //             borderRadius: BorderRadius.circular(width*0.03)
+                //         ),
+                //         child: ListTile(
+                //           leading: Container(
+                //               height: width*0.07,
+                //               width: width*0.07,
+                //               child: Image(image: NetworkImage("https://www.computerhope.com/jargon/g/google-pay.png"))),
+                //           title: Text("GPay"),
+                //           trailing: Radio(value: 2,
+                //             groupValue: selectedOption,
+                //             onChanged: ( value) {
+                //               setState(() {
+                //                 selectedOption=value!;
+                //               });
+                //             },),
+                //         ),),
+                //       SizedBox(height: height*0.01,),
+                //
+                //       Container(
+                //         height: width*0.18,
+                //         width: width*80,
+                //         decoration: BoxDecoration(
+                //             color: Colour.lightgreen,
+                //             borderRadius: BorderRadius.circular(width*0.03)
+                //         ),
+                //         child: ListTile(
+                //           leading: SvgPicture.asset(ImageIcons.apple),
+                //           title: Text("Apple Pay"),
+                //           trailing: Radio(value: 3,
+                //             groupValue: selectedOption,
+                //             onChanged: ( value) {
+                //               setState(() {
+                //                 selectedOption=value!;
+                //               });
+                //             },),),
+                //       ),
+                //       SizedBox(height: height*0.01,),
+                //
+                //       // Container(
+                //       //   height: width*0.18,
+                //       //   width: width*80,
+                //       //   color: Colors.blue,
+                //       //   child: ListTile(
+                //       //     leading: SvgPicture.asset(ImageIcons.circle),
+                //       //     title: Text("**** **** **** ****4679"),
+                //       //     trailing: Radio(value: 4,
+                //       //       groupValue: selectedOption,
+                //       //       onChanged: ( value) {
+                //       //         setState(() {
+                //       //           selectedOption=value!;
+                //       //         });
+                //       //       },),
+                //       //   ),)
+                //     ]
+                // ),
 
-                  Container(
-                    height: width * 0.16,
-                    width: width * 0.9,
-                    decoration: BoxDecoration(
-                        border: Border.all(color: Colors.grey.withOpacity(0.13)),
-                        borderRadius: BorderRadius.circular(width * 0.04)),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                          height: width * 0.09,
-                          width: width * 0.8,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              SvgPicture.asset(
-                                ImageIcons.visa,
-                                width: width * 0.15,
-                              ),
-                              Text(
-                                "Change",
-                                style: TextStyle(
-                                    fontSize: width * 0.046, color: Colors.grey),
-                              ),
-                            ],
-                          ),
-                        )
-                      ],
+              ],
+            ),
+            Container(
+              height: width * 0.66,
+              width: width * 0.9,
+              decoration: BoxDecoration(
+                  color: Colors.white,
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black12,
+                      blurRadius: width*0.03,
+                    )
+                  ],
+                  borderRadius: BorderRadius.circular(width*0.06)
+              ),
+              child: Column(
+                children: [
+                  SizedBox(height: width*0.05,),
+                  ListTile(
+                    leading: Image.asset(ImageIcons.phonepe,width: width*0.098,),
+                    title: Text("PhonePe",style: TextStyle(fontWeight: FontWeight.w600,fontSize: width*0.05),),
+                    trailing: Radio(
+                      value: "0",
+                      groupValue: c,
+                      onChanged: (value) {
+                        c = value!;
+                        setState(() {});
+                      },
+                    ),
+                  ),
+                  Divider(
+                    thickness: width*0.002,
+                    color: Colors.black12,
+                    endIndent: width*0.05,
+                    indent: width*0.05,
+                  ),
+                  ListTile(
+                    leading: Image.asset(ImageIcons.googlepay,width: width*0.098,),
+                    title: Text("Google Pay",style: TextStyle(fontWeight: FontWeight.w600,fontSize: width*0.05),),
+                    trailing: Radio(
+                      value: "b",
+                      groupValue: c,
+                      onChanged: (value) {
+                        c = value!;
+                        setState(() {});
+                      },
+                    ),
+                  ),
+                  Divider(
+                    thickness: width*0.002,
+                    color: Colors.black12,
+                    endIndent: width*0.05,
+                    indent: width*0.05,
+                  ),
+                  ListTile(
+                    leading: Image.asset(ImageIcons.paytm,width: width*0.098,),
+                    title: Text("Paytm",style: TextStyle(fontWeight: FontWeight.w600,fontSize: width*0.05),),
+                    trailing: Radio(
+                      value: "a",
+                      groupValue: c,
+                      onChanged: (value) {
+                        c = value!;
+
+                        setState(() {});
+                      },
                     ),
                   ),
                 ],
               ),
             ),
+            SizedBox(height: width*0.05,),
             Container(
-              height: width * 0.28,
-              width: width * 0.9,
+              height: width*0.13,
+              width: width*0.9,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  Container(
-                    height: width * 0.16,
-                    width: width * 0.2,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          "Total",
-                          style: TextStyle(
-                              fontSize: width * 0.042,
-                              fontWeight: FontWeight.w500,
-                              color: Colors.grey),
-                        ),
-                        Text(
-                          "\$$total1",
-                          style: TextStyle(
-                              fontSize: width * 0.045,
-                              fontWeight: FontWeight.w800),
-                        ),
-                      ],
-                    ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Total",
+                        style: TextStyle(
+                            fontSize: width * 0.042,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.grey),
+                      ),
+                      Text(
+                        "\$$total1",
+                        style: TextStyle(
+                            fontSize: width * 0.045,
+                            fontWeight: FontWeight.w800),
+                      ),
+                    ],
                   ),
                   InkWell(
                     onTap: () {
@@ -490,10 +525,12 @@ class _MyCartPageState extends State<MyCartPage> {
                         ),
                       ),
                     ),
-                  )
+                  ),
+
                 ],
               ),
-            )
+            ),
+            SizedBox(height: width*0.03,)
           ],
         ),
       ),

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:givestarreviews/givestarreviews.dart';
@@ -153,7 +154,7 @@ class _DrugDetailsPageState extends State<DrugDetailsPage> {
                                     height: width * 0.095,
                                     width: width * 0.22,
                                     decoration: BoxDecoration(
-                                        color: Colors.black,
+                                        color: Colour.primarycolour,
                                         borderRadius:
                                         BorderRadius.circular(
                                             width * 0.03)),
@@ -207,7 +208,7 @@ class _DrugDetailsPageState extends State<DrugDetailsPage> {
                                       height: width * 0.095,
                                       width: width * 0.22,
                                       decoration: BoxDecoration(
-                                        color: Colors.black,
+                                        color: Colour.primarycolour,
                                         borderRadius:
                                         BorderRadius.circular(
                                             width * 0.03),
@@ -250,7 +251,7 @@ class _DrugDetailsPageState extends State<DrugDetailsPage> {
                                   //   ),
                                   // ),
                                   Text(
-                                   "\$$total",
+                                   "\$${total.toStringAsFixed(2)}",
                                     style: TextStyle(
                                         fontWeight: FontWeight.w800,
                                         fontSize: width * 0.06),
