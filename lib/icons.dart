@@ -102,6 +102,9 @@ class ImageIcons{
  //jpg
 static const banner1="assets/images/banner1.jpg";
 static const banner2="assets/images/banner2.jpg";
+static const hsptl3="assets/images/hsptl3.jpeg";
+static const hsptl4="assets/images/hsptl4.jpeg";
+static const hsptl5="assets/images/hsptl5.jpeg";
 static const paracetamol="assets/images/paracetamol.jpg";
 static const cardiac="assets/images/cardiac.jpg";
 
@@ -109,6 +112,8 @@ static const cardiac="assets/images/cardiac.jpg";
 //
   static const banner3="assets/images/banner3.webp";
   static const omega="assets/images/omega.webp";
+  static const hsptl1="assets/images/hsptl1.webp";
+  static const hsptl2="assets/images/hsptl2.webp";
   static const cough="assets/images/cough.webp";
 
 
