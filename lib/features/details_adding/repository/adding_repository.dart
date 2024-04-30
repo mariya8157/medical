@@ -11,9 +11,13 @@ class AddingRepository{
   AddingRepository({required FirebaseFirestore firestore}):_firestore=firestore;
 
   CollectionReference get _users => _firestore.collection("users");
+  CollectionReference get _signup => _firestore.collection("signup");
 
   addingFunction ({required UsersModel usersModel}){
     _users.add(usersModel.toMap());
+  }
+  addingSignup ({required UsersModel usersModel}){
+    _signup.add(usersModel.toMap());
   }
   }
 

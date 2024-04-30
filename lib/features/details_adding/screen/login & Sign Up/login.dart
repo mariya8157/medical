@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -169,7 +170,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                 SizedBox(height: width*0.05,),
                 InkWell(
                   onTap: () {
-                    addDetails();
+                   addDetails();
                     if(
                      emailController.text!=""&&
                      passwordController.text!=""&&

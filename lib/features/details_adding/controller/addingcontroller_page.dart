@@ -15,4 +15,8 @@ class AddingController{
   addFunction({required UsersModel usersModel}){
     _addingRepository.addingFunction(usersModel: usersModel);
   }
+  addSignup({required UsersModel usersModel}){
+    _addingRepository.addingSignup(usersModel: usersModel);
+  }
+
 }

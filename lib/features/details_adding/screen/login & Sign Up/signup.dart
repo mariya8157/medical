@@ -1,22 +1,25 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../../../colour.dart';
 import '../../../../icons.dart';
 import '../../../../main.dart';
+import '../../../../models/model1.dart';
+import '../../controller/addingcontroller_page.dart';
 import 'login.dart';
 
-class SignupPage extends StatefulWidget {
+class SignupPage extends ConsumerStatefulWidget {
   const SignupPage({super.key});
 
   @override
-  State<SignupPage> createState() => _SignupPageState();
+  ConsumerState createState() => _SignupPageState();
 }
 
-class _SignupPageState extends State<SignupPage> {
+class _SignupPageState extends ConsumerState<SignupPage> {
   TextEditingController nameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
@@ -25,19 +28,23 @@ class _SignupPageState extends State<SignupPage> {
   final formKey=GlobalKey<FormState>();
   bool selectIcon = false;
   bool agree = false;
+
+  addSignupDetails(){
+    ref.read(AddingControllerProvider).addSignup(usersModel: UsersModel(name: nameController.text, email: emailController.text, password: passwordController.text));
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          leading: InkWell(
-            onTap: () {
-              Navigator.pop(context);
-            },
-            child: Padding(
-              padding:  EdgeInsets.all(width*0.005),
-              child: SvgPicture.asset(ImageIcons.catogory8),
-            ),
+        leading: InkWell(
+          onTap: () {
+            Navigator.pop(context);
+          },
+          child: Padding(
+            padding:  EdgeInsets.all(width*0.005),
+            child: SvgPicture.asset(ImageIcons.catogory8),
           ),
+        ),
         title: Text("Sign Up",style: GoogleFonts.inter(
             fontWeight: FontWeight.w800,
             fontSize: width*0.05
@@ -171,14 +178,14 @@ class _SignupPageState extends State<SignupPage> {
                 Row(
                   children: [
                     Checkbox(
-                     activeColor: Colour.primarycolour,
-                        value: agree,
-                        onChanged: (value) {
-                          setState(() {
-                            agree=value!;
-                          });
-                        },
-                        ),
+                      activeColor: Colour.primarycolour,
+                      value: agree,
+                      onChanged: (value) {
+                        setState(() {
+                          agree=value!;
+                        });
+                      },
+                    ),
                     Container(
                       child: Row(
                         children: [
@@ -225,15 +232,16 @@ class _SignupPageState extends State<SignupPage> {
                 SizedBox(height: width*0.1,),
                 InkWell(
                   onTap: () {
+                    addSignupDetails();
                     if(
                     nameController.text!=""&&
-                    emailController.text!=""&&
+                        emailController.text!=""&&
                         passwordController.text!=""&&
                         formKey.currentState!.validate()&&
-                    agree==true
+                        agree==true
                     )
-                    showDialog(
-                      barrierDismissible: false,
+                      showDialog(
+                        barrierDismissible: false,
                         context: context,
                         builder: (context) {
                           return AlertDialog(
@@ -268,8 +276,8 @@ class _SignupPageState extends State<SignupPage> {
                                         ],)),
                                   InkWell(
                                     onTap: () {
-                                       Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => LoginPage(),), (route) => false);
-                                  },
+                                      Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => LoginPage(),), (route) => false);
+                                    },
                                     child: Container(
                                       height: width*0.12,
                                       width: width*0.34,
@@ -360,3 +368,5 @@ class _SignupPageState extends State<SignupPage> {
     );
   }
 }
+
+
