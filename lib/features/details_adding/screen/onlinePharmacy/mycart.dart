@@ -1,6 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:quickalert/models/quickalert_type.dart';
+import 'package:quickalert/widgets/quickalert_dialog.dart';
 
 import '../../../../colour.dart';
 import '../../../../icons.dart';
@@ -88,6 +91,12 @@ class _MyCartPageState extends State<MyCartPage> {
   }
   int selectedOption=1;
   int activeIndex=0;
+
+  String? j;
+
+  bool x=false;
+  bool y=false;
+  bool z=false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -129,7 +138,7 @@ class _MyCartPageState extends State<MyCartPage> {
               height: width * 0.05,
             ),
             f.isEmpty?Center(child: Text("Empty")):Container(
-             
+
               margin: EdgeInsets.all(width*0.02),
               child: ListView.separated(
 
@@ -173,9 +182,15 @@ class _MyCartPageState extends State<MyCartPage> {
                                                 fontWeight: FontWeight.w800,
                                                 fontSize: width * 0.06),
                                           ),
-                                          Icon(
-                                            Icons.delete_outline_rounded,
-                                            color: Colors.grey,
+                                          InkWell(
+                                            // onTap: () {
+                                            //   FirebaseFirestore.instance.collection("users").doc(data[index].id).delete();
+                                            //   Navigator.pop(context);
+                                            // },
+                                            child: Icon(
+                                              Icons.delete_outline_rounded,
+                                              color: Colors.grey,
+                                            ),
                                           ),
                                         ],
                                       ),
@@ -430,10 +445,11 @@ class _MyCartPageState extends State<MyCartPage> {
                     leading: Image.asset(ImageIcons.phonepe,width: width*0.098,),
                     title: Text("PhonePe",style: TextStyle(fontWeight: FontWeight.w600,fontSize: width*0.05),),
                     trailing: Radio(
-                      value: "0",
-                      groupValue: c,
+                      activeColor: Colour.primarycolour,
+                      value: "h",
+                      groupValue: j,
                       onChanged: (value) {
-                        c = value!;
+                        j = value!;
                         setState(() {});
                       },
                     ),
@@ -448,10 +464,11 @@ class _MyCartPageState extends State<MyCartPage> {
                     leading: Image.asset(ImageIcons.googlepay,width: width*0.098,),
                     title: Text("Google Pay",style: TextStyle(fontWeight: FontWeight.w600,fontSize: width*0.05),),
                     trailing: Radio(
-                      value: "b",
-                      groupValue: c,
+                      activeColor: Colour.primarycolour,
+                      value: "i",
+                      groupValue: j,
                       onChanged: (value) {
-                        c = value!;
+                        j = value!;
                         setState(() {});
                       },
                     ),
@@ -466,10 +483,11 @@ class _MyCartPageState extends State<MyCartPage> {
                     leading: Image.asset(ImageIcons.paytm,width: width*0.098,),
                     title: Text("Paytm",style: TextStyle(fontWeight: FontWeight.w600,fontSize: width*0.05),),
                     trailing: Radio(
-                      value: "a",
-                      groupValue: c,
+                      activeColor: Colour.primarycolour,
+                      value: "j",
+                      groupValue: j,
                       onChanged: (value) {
-                        c = value!;
+                        j = value!;
 
                         setState(() {});
                       },
@@ -507,8 +525,52 @@ class _MyCartPageState extends State<MyCartPage> {
                   ),
                   InkWell(
                     onTap: () {
-
+                      QuickAlert.show(
+                      barrierColor: Colour.primarycolour,
+                        context: context,
+                        type: QuickAlertType.success,
+                        text: 'Transaction Completed Successfully!',
+                        autoCloseDuration: const Duration(seconds: 2),
+                        showConfirmBtn: false,
+                      );
                     },
+                    // onTap: () {
+                    //   x = false;
+                    //   y = true;
+                    //   z = false;
+                    //   showDialog(
+                    //     barrierDismissible: false,
+                    //     context: context,
+                    //     builder: (context) {
+                    //       return AlertDialog(
+                    //         title: Column(
+                    //           mainAxisAlignment: MainAxisAlignment.center,
+                    //           children: [
+                    //             Center(
+                    //               child: Text(
+                    //                   "Your payment has been successful, \n"
+                    //                       "you can have a consultation session \n "
+                    //                       "with your trusted doctor",
+                    //                 style: TextStyle(fontSize: width*0.044),textAlign:TextAlign.center,
+                    //               ),
+                    //             ),
+                    //             Container(
+                    //               height: width*0.13,
+                    //               width: width*0.44,
+                    //               decoration: BoxDecoration(
+                    //                 color: Colour.primarycolour,
+                    //                 borderRadius: BorderRadius.circular(width*0.07)
+                    //               ),
+                    //               child: Center(child: Text("Back to Home",style: TextStyle(fontSize: width*0.05,color: Colors.white,fontWeight: FontWeight.w900),)),
+                    //             )
+                    //           ],
+                    //         ),
+                    //
+                    //       );
+                    //     },
+                    //   );
+                    //   setState(() {});
+                    // },
                     child: Container(
                       height: width * 0.15,
                       width: width * 0.55,

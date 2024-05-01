@@ -1,4 +1,3 @@
-
 import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -8,8 +7,11 @@ import 'package:image_picker/image_picker.dart';
 import 'package:medical/colour.dart';
 import 'package:medical/icons.dart';
 import 'package:medical/main.dart';
+import 'package:quickalert/models/quickalert_type.dart';
+import 'package:quickalert/widgets/quickalert_dialog.dart';
 
 import '../doctor Consultation/bookingdoctor.dart';
+import '../login & Sign Up/login.dart';
 import '../login & Sign Up/signup.dart';
 import '../onlinePharmacy/mycart.dart';
 
@@ -31,6 +33,7 @@ class _ProfilePageState extends State<ProfilePage> {
       });
     }
   }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -65,14 +68,14 @@ class _ProfilePageState extends State<ProfilePage> {
                         child: Stack(
                           children: [
                             file == null
-                            ?Image.asset(
-                              ImageIcons.lady,
-                              width: width * 0.29,
-                            )
-                        : CircleAvatar(
-                            radius: width * 0.147,
-                            backgroundImage: FileImage(file),
-                            ),
+                                ? Image.asset(
+                                    ImageIcons.lady,
+                                    width: width * 0.29,
+                                  )
+                                : CircleAvatar(
+                                    radius: width * 0.147,
+                                    backgroundImage: FileImage(file),
+                                  ),
                             Padding(
                               padding: EdgeInsets.only(
                                   left: width * 0.1895, top: width * 0.222),
@@ -112,7 +115,8 @@ class _ProfilePageState extends State<ProfilePage> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Column(
-                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
                                 children: [
                                   SvgPicture.asset(ImageIcons.heartbeat),
                                   SizedBox(
@@ -126,8 +130,8 @@ class _ProfilePageState extends State<ProfilePage> {
                                         color: Colors.white,
                                         shadows: [
                                           BoxShadow(
-                                              color:
-                                                  Colors.black.withOpacity(0.42),
+                                              color: Colors.black
+                                                  .withOpacity(0.42),
                                               blurRadius: width * 0.02,
                                               spreadRadius: width * 0.01,
                                               offset: Offset(0, 4))
@@ -141,8 +145,8 @@ class _ProfilePageState extends State<ProfilePage> {
                                         color: Colors.white,
                                         shadows: [
                                           BoxShadow(
-                                              color:
-                                                  Colors.black.withOpacity(0.42),
+                                              color: Colors.black
+                                                  .withOpacity(0.42),
                                               blurRadius: width * 0.02,
                                               spreadRadius: width * 0.01,
                                               offset: Offset(0, 4))
@@ -156,7 +160,8 @@ class _ProfilePageState extends State<ProfilePage> {
                                 color: Colors.white,
                               ),
                               Column(
-                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
                                 children: [
                                   SvgPicture.asset(ImageIcons.fire),
                                   SizedBox(
@@ -170,8 +175,8 @@ class _ProfilePageState extends State<ProfilePage> {
                                         color: Colors.white,
                                         shadows: [
                                           BoxShadow(
-                                              color:
-                                                  Colors.black.withOpacity(0.42),
+                                              color: Colors.black
+                                                  .withOpacity(0.42),
                                               blurRadius: width * 0.02,
                                               spreadRadius: width * 0.01,
                                               offset: Offset(0, 4))
@@ -185,8 +190,8 @@ class _ProfilePageState extends State<ProfilePage> {
                                         color: Colors.white,
                                         shadows: [
                                           BoxShadow(
-                                              color:
-                                                  Colors.black.withOpacity(0.42),
+                                              color: Colors.black
+                                                  .withOpacity(0.42),
                                               blurRadius: width * 0.02,
                                               spreadRadius: width * 0.01,
                                               offset: Offset(0, 4))
@@ -221,14 +226,16 @@ class _ProfilePageState extends State<ProfilePage> {
                             InkWell(
                               onTap: () {
                                 Navigator.push(
-                                    context, MaterialPageRoute(
-                                    builder: (context) =>BookingPage() ));
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => BookingPage()));
                               },
                               child: ListTile(
                                 leading: CircleAvatar(
                                   radius: width * 0.06,
                                   backgroundColor: Colour.lightgreen,
-                                  child: SvgPicture.asset(ImageIcons.appoitmnet),
+                                  child:
+                                      SvgPicture.asset(ImageIcons.appoitmnet),
                                 ),
                                 title: Text(
                                   "Appointment",
@@ -247,8 +254,11 @@ class _ProfilePageState extends State<ProfilePage> {
                             InkWell(
                               onTap: () {
                                 Navigator.push(
-                                    context, MaterialPageRoute(
-                                  builder: (context) =>MyCartPage(d: [],) ));
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => MyCartPage(
+                                              d: [],
+                                            )));
                               },
                               child: ListTile(
                                 leading: CircleAvatar(
@@ -270,103 +280,121 @@ class _ProfilePageState extends State<ProfilePage> {
                             ),
                             InkWell(
                               onTap: () {
-                                showDialog(
-                                  barrierDismissible: false,
-                                  context: context,
-                                  builder: (context) {
-                                    return AlertDialog(
-                                      title: Column(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.center,
-                                        children: [
-                                          SizedBox(height: width*0.05,),
-                                          CircleAvatar(
-                                            radius: width * 0.11,
-                                            backgroundColor: Colour.lightblue,
-                                            child: SvgPicture.asset(
-                                              ImageIcons.logout,
-                                              width: width * 0.13,
-                                            ),
+                                QuickAlert.show(
+                                    context: context,
+                                    type: QuickAlertType.confirm,
+                                    text: 'Do you want to logout',
+                                    confirmBtnText: 'Yes',
+                                    cancelBtnText: 'No',
+                                    confirmBtnColor: Colour.primarycolour,
+
+                                    onConfirmBtnTap: () {
+                                      Navigator.pushAndRemoveUntil(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => LoginPage(),
                                           ),
-                                          SizedBox(height: width*0.05,),
-                                          Container(
-                                            height: width * 0.55,
-                                            width: width * 0.8,
-                                            child: Column(
-                                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                              children: [
-                                                Column(
-                                                  children: [
-                                                    Text(
-                                                      "Are you sure to log out of ",
-                                                      style: TextStyle(
-                                                          fontWeight: FontWeight.w700,
-                                                          fontSize: width * 0.055),
-                                                    ),
-                                                    Text("your account?",
-                                                        style: TextStyle(
-                                                            fontWeight:
-                                                                FontWeight.w700,
-                                                            fontSize: width * 0.055)),
-                                                  ],
-                                                ),
-                                                InkWell(
-                                                  onTap: () {
-                                                    Navigator.pushAndRemoveUntil(
-                                                        context, MaterialPageRoute(
-                                                        builder: (context) => SignupPage(),),(route) => false,);
-                                                  },
-                                                  child: Container(
-                                                    height: width * 0.13,
-                                                    width: width * 0.45,
-                                                    decoration: BoxDecoration(
-                                                        color: Colour.primarycolour,
-                                                        borderRadius:
-                                                            BorderRadius.circular(
-                                                                width * 0.08)),
-                                                    child: Center(
-                                                      child: Text(
-                                                        "Log Out",
-                                                        style: TextStyle(
-                                                            fontSize: width * 0.055,
-                                                            fontWeight:
-                                                                FontWeight.w700,
-                                                            color: Colors.white),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ),
-                                                InkWell(
-                                                  onTap: () {
-                                                    Navigator.pop(context);
-                                                  },
-                                                  child: Container(
-                                                    height: width*0.09,
-                                                    width: width*0.2,
-                                                    child: Center(
-                                                      child: Text(
-                                                        "Cancel",
-                                                        style: TextStyle(
-                                                            fontSize: width * 0.047,
-                                                            color:
-                                                                Colour.primarycolour),
-                                                      ),
-                                                    ),
-                                                  ),
-                                                )
-                                              ],
-                                            ),
-                                          )
-                                        ],
-                                      ),
-                                      content: SizedBox(
-                                        height: height * 0.001,
-                                        width: width * 0.05,
-                                      ),
-                                    );
-                                  },
-                                );
+                                          ModalRoute.withName("/"));
+                                    });
                               },
+                              // onTap: () {
+                              //   showDialog(
+                              //     barrierDismissible: false,
+                              //     context: context,
+                              //     builder: (context) {
+                              //       return AlertDialog(
+                              //         title: Column(
+                              //           mainAxisAlignment:
+                              //               MainAxisAlignment.center,
+                              //           children: [
+                              //             SizedBox(height: width*0.05,),
+                              //             CircleAvatar(
+                              //               radius: width * 0.11,
+                              //               backgroundColor: Colour.lightblue,
+                              //               child: SvgPicture.asset(
+                              //                 ImageIcons.logout,
+                              //                 width: width * 0.13,
+                              //               ),
+                              //             ),
+                              //             SizedBox(height: width*0.05,),
+                              //             Container(
+                              //               height: width * 0.55,
+                              //               width: width * 0.8,
+                              //               child: Column(
+                              //                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              //                 children: [
+                              //                   Column(
+                              //                     children: [
+                              //                       Text(
+                              //                         "Are you sure to log out of ",
+                              //                         style: TextStyle(
+                              //                             fontWeight: FontWeight.w700,
+                              //                             fontSize: width * 0.055),
+                              //                       ),
+                              //                       Text("your account?",
+                              //                           style: TextStyle(
+                              //                               fontWeight:
+                              //                                   FontWeight.w700,
+                              //                               fontSize: width * 0.055)),
+                              //                     ],
+                              //                   ),
+                              //                   InkWell(
+                              //                     onTap: () {
+                              //                       Navigator.pushAndRemoveUntil(
+                              //                           context, MaterialPageRoute(
+                              //                           builder: (context) => SignupPage(),),(route) => false,);
+                              //                     },
+                              //                     child: Container(
+                              //                       height: width * 0.13,
+                              //                       width: width * 0.45,
+                              //                       decoration: BoxDecoration(
+                              //                           color: Colour.primarycolour,
+                              //                           borderRadius:
+                              //                               BorderRadius.circular(
+                              //                                   width * 0.08)),
+                              //                       child: Center(
+                              //                         child: Text(
+                              //                           "Log Out",
+                              //                           style: TextStyle(
+                              //                               fontSize: width * 0.055,
+                              //                               fontWeight:
+                              //                                   FontWeight.w700,
+                              //                               color: Colors.white),
+                              //                         ),
+                              //                       ),
+                              //                     ),
+                              //                   ),
+                              //                   InkWell(
+                              //                     onTap: () {
+                              //                       Navigator.pop(context);
+                              //                     },
+                              //                     child: Container(
+                              //                       height: width*0.09,
+                              //                       width: width*0.2,
+                              //                       child: Center(
+                              //                         child: Text(
+                              //                           "Cancel",
+                              //                           style: TextStyle(
+                              //                               fontSize: width * 0.047,
+                              //                               color:
+                              //                                   Colour.primarycolour),
+                              //                         ),
+                              //                       ),
+                              //                     ),
+                              //                   )
+                              //                 ],
+                              //               ),
+                              //             )
+                              //           ],
+                              //         ),
+                              //         content: SizedBox(
+                              //           height: height * 0.001,
+                              //           width: width * 0.05,
+                              //         ),
+                              //       );
+                              //     },
+                              //   );
+                              // },
                               child: ListTile(
                                 leading: CircleAvatar(
                                   radius: width * 0.06,

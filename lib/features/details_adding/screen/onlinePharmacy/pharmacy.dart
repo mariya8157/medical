@@ -151,18 +151,7 @@ class _PharmacyPageState extends State<PharmacyPage> {
               fontWeight: FontWeight.w700,
               fontSize: width * 0.063),
         ),
-        actions: [
-          InkWell(
-            onTap: () {
-              Navigator.push(
-                  context, MaterialPageRoute(
-                  builder: (context) => MyCartPage(d: [],),));
-            },
-              child: Icon(Icons.shopping_cart_outlined)),
-          SizedBox(
-            width: width * 0.05,
-          )
-        ],
+
       ),
       body: ListView(
         shrinkWrap: true,

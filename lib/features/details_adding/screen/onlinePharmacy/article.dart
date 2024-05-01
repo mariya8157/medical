@@ -79,6 +79,10 @@ class _articlesState extends State<articles> {
 bool k=false;
 bool g=false;
 bool o=false;
+
+  bool x=false;
+  bool y=false;
+  bool z=false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -260,11 +264,57 @@ bool o=false;
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Text("See all",
-                                style: TextStyle(
-                                    fontSize: width*0.045,
-                                    color:  Colour.primarycolour
-                                ),),
+                              Row(
+                                children: [
+                                  z==false?
+                                  InkWell(
+                                    onTap: () {
+                                      setState(() {
+                                        x=true;
+                                        y=false;
+                                        z=true;
+                                      });
+                                    },
+                                    child: Container(
+                                        height: width * 0.13,
+                                        width: width * 0.22,
+                                        child: Row(
+                                          mainAxisAlignment: MainAxisAlignment.center,
+                                          children: [
+                                            Text(
+                                              "See all",
+                                              style: TextStyle(
+                                                  fontSize: width * 0.045,
+                                                  color: Colour.primarycolour),
+                                            ),
+                                          ],
+                                        )),
+                                  )
+                                      :InkWell(
+                                    onTap: () {
+                                      setState(() {
+                                        x = false;
+                                        y = true;
+                                        z = false;
+                                      });
+                                    },
+                                    child: Container(
+                                        height: width * 0.13,
+                                        width: width * 0.22,
+                                        child: Row(
+                                          mainAxisAlignment: MainAxisAlignment.center,
+                                          children: [
+                                            Text(
+                                              "See less",
+                                              style: TextStyle(
+                                                  fontSize: width * 0.045,
+                                                  color: Colour.primarycolour),
+                                            ),
+                                          ],
+                                        )),
+                                  ),
+                                ],
+                              ),
                             ],
                           )),
                     ],
@@ -340,7 +390,7 @@ bool o=false;
                             width: width*0.04,
                           );
                         },
-                        itemCount: c.length
+                        itemCount:z==true? c.length:2
                     ),
                   ),
                   Row(

@@ -92,17 +92,7 @@ class _DrugDetailsPageState extends State<DrugDetailsPage> {
                 fontWeight: FontWeight.w700,
                 fontSize: width * 0.063),
           ),
-          actions: [
-            Row(
-              children: [
-                Icon(Icons.shopping_cart_outlined),
-                // SvgPicture.asset(ImageIcons.columnDot),
-                SizedBox(
-                  width: width * 0.05,
-                )
-              ],
-            )
-          ],
+
         ),
         body: Column(
           children: [

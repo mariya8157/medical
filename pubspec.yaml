@@ -52,6 +52,7 @@ dependencies:
   smooth_page_indicator: ^1.1.0
   givestarreviews: ^1.0.2
   flutter_riverpod: ^2.5.1
+  quickalert: ^1.1.0
 
 
 
