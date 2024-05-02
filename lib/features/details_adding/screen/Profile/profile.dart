@@ -228,7 +228,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) => BookingPage()));
+                                    builder: (context) =>BookingPage(time: [],) ));
                               },
                               child: ListTile(
                                 leading: CircleAvatar(

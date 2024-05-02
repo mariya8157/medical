@@ -23,53 +23,53 @@ class _DoctordetailsPageState extends State<DoctordetailsPage> {
 
   DateTime? date;
 
-  List doctor=[
-    {
-      "image":ImageIcons.drmarcus1,
-      "name":"Dr. Marcus Horizon",
-      "spl":"Chardiologist",
-      "star":"4,7",
-      "distene":"800m away",
-
-    }
-  ];
-  List size=[
-    {
-      "day":"Mon",
-      "name":"Monday",
-      "date":21,
-    },
-    {
-      "day":"Tue",
-      "name":"Monday",
-      "date":22,
-    },
-    {
-      "day":"Wed",
-      "name":"Monday",
-
-      "date":23,
-    },
-    {
-      "day":"Thu",
-      "name":"Monday",
-
-      "date":24,
-    } ,
-    {
-      "day":"Fri",
-      "name":"Monday",
-
-      "date":25,
-    },
-    {
-      "day":"Sat",
-      "name":"Monday",
-
-      "date":27,
-    }
-  ];
-int selectIndex=0;
+  // List doctor=[
+  //   {
+  //     "image":ImageIcons.drmarcus1,
+  //     "name":"Dr. Marcus Horizon",
+  //     "spl":"Chardiologist",
+  //     "star":"4,7",
+  //     "distene":"800m away",
+  //
+  //   }
+  // ];
+  // List size=[
+  //   {
+  //     "day":"Mon",
+  //     "name":"Monday",
+  //     "date":21,
+  //   },
+  //   {
+  //     "day":"Tue",
+  //     "name":"Monday",
+  //     "date":22,
+  //   },
+  //   {
+  //     "day":"Wed",
+  //     "name":"Monday",
+  //
+  //     "date":23,
+  //   },
+  //   {
+  //     "day":"Thu",
+  //     "name":"Monday",
+  //
+  //     "date":24,
+  //   } ,
+  //   {
+  //     "day":"Fri",
+  //     "name":"Monday",
+  //
+  //     "date":25,
+  //   },
+  //   {
+  //     "day":"Sat",
+  //     "name":"Monday",
+  //
+  //     "date":27,
+  //   }
+  // ];
+// int selectIndex=0;
 List time=[
   "09:00 AM",
   "10:00 AM",
@@ -255,10 +255,11 @@ surfaceTintColor:Colour.thirdcolour ,
               SizedBox(height: width*0.03,),
               EasyInfiniteDateTimeLine(
                 firstDate: DateTime.now(),
-                lastDate: DateTime(DateTime.now().year, DateTime.now().month+1),
+                lastDate: DateTime(DateTime.now().year, DateTime.now().month+1,DateTime.daysPerWeek),
                 focusDate: date ?? DateTime.now(),
                 onDateChange: (selectedDate) {
                   date=selectedDate;
+                  print(date);
                   setState(() {
 
                   });
@@ -413,11 +414,21 @@ surfaceTintColor:Colour.thirdcolour ,
                   ),
                   InkWell(
                     onTap: () {
-                      // day.add({
-                    // "name":size[selectIndex]["name"]});
-                    //   time.add({"time":time[selectIndex1]});
+                      day.add({
+                        "date":date,
+                        "time":time[selectIndex1],
+                        "image":widget.dr[0]["image"],
+                        "name":widget.dr[0]["name"],
+                        "spl":widget.dr[0]["spl"],
+                        "star":widget.dr[0]["star"],
+                        "distene":widget.dr[0]["distene"],
+                        "consultation":widget.dr[0]["consultation"],
+                        "Admin Fee":widget.dr[0]["Admin Fee"],
+                        "Aditional Discount":widget.dr[0]["Aditional Discount"],
 
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => BookingPage()));
+                      });
+
+                      day.length==1?Navigator.push(context, MaterialPageRoute(builder: (context) => BookingPage(time: day,))):day.clear();
                     },
                     child: Container(
                       height: height*0.07,

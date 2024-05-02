@@ -80,7 +80,7 @@ class _FindDoctorState extends State<FindDoctor> {
       "star":"4,7",
       "distene":"500m away",
       "consultation":70.00,
-      "Admin Fee":01.00,
+      "Admin Fee":1.00,
       "Aditional Discount":10.00,
 
 
@@ -295,6 +295,10 @@ class _FindDoctorState extends State<FindDoctor> {
                       "spl":drlist[selectIndex]["spl"],
                       "star":drlist[selectIndex]["star"],
                       "distene":drlist[selectIndex]["distene"],
+                      "consultation":drlist[selectIndex]["consultation"],
+                      "Admin Fee":drlist[selectIndex]["Admin Fee"],
+                      "Aditional Discount":drlist[selectIndex]["Aditional Discount"],
+
                     });
                     a.length==1?Navigator.push(context, MaterialPageRoute(builder: (context) => DoctordetailsPage(dr: a,),)):a.clear();
                   },

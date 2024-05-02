@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:medical/features/details_adding/screen/doctor%20Consultation/chatwithdoctor.dart';
+import 'package:medical/features/details_adding/screen/doctor%20Consultation/doctordetails.dart';
 
 import '../../../../colour.dart';
 import '../../../../icons.dart';
@@ -9,7 +10,8 @@ import '../../../../main.dart';
 import '../onlinePharmacy/drugsdetail.dart';
 
 class BookingPage extends StatefulWidget {
-  const BookingPage({super.key,  });
+  final List time;
+  const BookingPage({super.key, required this.time,  });
 
   @override
   State<BookingPage> createState() => _BookingPageState();
@@ -28,29 +30,28 @@ class _BookingPageState extends State<BookingPage> {
     }
   ];
   TextEditingController reason=TextEditingController();
-  TextEditingController cunsult=TextEditingController();
-  TextEditingController admission=TextEditingController();
-  TextEditingController addition=TextEditingController();
-  int total =0;
-
-
-  List p=[
-  {
-    "con":60,
-    "admin":20,
-    "dis":12
-  }
-  ];
+// dynamic total=0;
+// addCost(){
+//  total= widget.time[0]["Consultation"]*2;
+// }
+  double total =0;
   addCost(){
       total=0;
-      for(int i=0;i<p!.length;i++)
+      for(int i=0;i<widget.time.length;i++)
       {
-        total=p![i]["con"]+p![i]["admin"]-p![i]["dis"];
+        total=widget.time[i]["consultation"]+widget.time[i]["Admin Fee"]-widget.time[i]["Aditional Discount"];
+        print(total);
       }
-  }
+    }
+
 
 
   @override
+  void initState() {
+    // TODO: implement initState
+    addCost();
+    super.initState();
+  }
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -113,7 +114,7 @@ class _BookingPageState extends State<BookingPage> {
                                 width: width*0.35,
                                 height:height*0.15,
                                 decoration: BoxDecoration(
-                                  image: DecorationImage(image: AssetImage(doctor[index]['image'])),
+                                  image: DecorationImage(image: AssetImage(widget.time[0]['image'])),
                                   borderRadius: BorderRadius.circular(width*0.03),
                                 ),
 
@@ -122,7 +123,7 @@ class _BookingPageState extends State<BookingPage> {
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(doctor[index]["name"],
+                                  Text(widget.time[0]["name"],
                                     style: TextStyle(
                                         fontSize: width*0.05,
                                         fontWeight: FontWeight.w800,
@@ -130,7 +131,7 @@ class _BookingPageState extends State<BookingPage> {
                                     ),
 
                                   ),
-                                  Text(doctor[index]["spl"],
+                                  Text(widget.time[0]["spl"],
                                     style: TextStyle(
                                         color: Colour.gray,
                                         fontSize: width*0.04
@@ -150,7 +151,7 @@ class _BookingPageState extends State<BookingPage> {
                                         child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
                                           children: [
                                             SvgPicture.asset(ImageIcons.star) ,
-                                            Text(doctor[index]["star"],
+                                            Text(widget.time[0]["star"],
                                               style: TextStyle(
                                                   color: Colour.primarycolour,
                                                   fontWeight: FontWeight.w500
@@ -167,7 +168,7 @@ class _BookingPageState extends State<BookingPage> {
                                     child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
                                       children: [
                                         SvgPicture.asset(ImageIcons.location,) ,
-                                        Text(doctor[index]["distene"],
+                                        Text(widget.time[0]["distene"],
                                           style: TextStyle(
                                             color: Colour.gray,
 
@@ -205,13 +206,7 @@ class _BookingPageState extends State<BookingPage> {
                         color:Colour.thirdcolour
                     ),
                   ),
-                  Text("Change",
-                    style: TextStyle(
-                        fontSize: width*0.04,
-                        fontWeight: FontWeight.w500,
-                        color:Colour.gray
-                    ),
-                  ),
+
 
                 ],
               ),
@@ -224,11 +219,19 @@ class _BookingPageState extends State<BookingPage> {
                     backgroundColor: Colour.lightgreen,
                     child: Center(child: SvgPicture.asset(ImageIcons.calendar)),
                   ),
-                  Text("Wednesday, Jun 23, 2021 | 10:00AM",
+                  // Text("Wednesday, Jun 23, 2021 | 10:00AM",
+                  Text(widget.time[0]['date'].toString().substring(0,10),
                     style: TextStyle(
                         fontSize: width*0.04,
                         fontWeight: FontWeight.w500,
-                        color:Colour.gray
+                        color:Colour.thirdcolour
+                    ),
+                  ),
+                  Text(widget.time[0]['time'].toString(),
+                    style: TextStyle(
+                        fontSize: width*0.04,
+                        fontWeight: FontWeight.w500,
+                        color:Colour.thirdcolour
                     ),
                   ),
                 ],
@@ -354,7 +357,7 @@ class _BookingPageState extends State<BookingPage> {
                   //
                   // )
 
-                  Text("\$60",
+                  Text(widget.time[0]["consultation"].toString(),
                     style: TextStyle(
                         fontSize: width*0.05,
                         fontWeight: FontWeight.w500,
@@ -399,7 +402,7 @@ class _BookingPageState extends State<BookingPage> {
                   //
                   // )
 
-                  Text("\$60",
+                  Text(widget.time[0]["Admin Fee"].toString(),
                     style: TextStyle(
                         fontSize: width*0.05,
                         fontWeight: FontWeight.w500,
@@ -419,33 +422,8 @@ class _BookingPageState extends State<BookingPage> {
                         color:Colour.gray
                     ),
                   ),
-                  // Container(
-                  //   width: width*0.15,
-                  //   height: height*0.05,
-                  //
-                  //   child:TextFormField(
-                  //     controller: addition,
-                  //     keyboardType: TextInputType.text,
-                  //     textInputAction: TextInputAction.done,
-                  //     textCapitalization: TextCapitalization.words,
-                  //     decoration: InputDecoration(
-                  //         border: OutlineInputBorder(
-                  //             borderSide: BorderSide.none
-                  //         )
-                  //     ),
-                  //
-                  //     style: TextStyle(
-                  //         fontSize: width*0.05,
-                  //         fontWeight: FontWeight.w500,
-                  //         color: Colour.thirdcolour
-                  //     ),
-                  //
-                  //
-                  //   ),
-                  //
-                  // )
 
-                  Text("\$60",
+                  Text(widget.time[0]["Aditional Discount"].toString(),
                     style: TextStyle(
                         fontSize: width*0.05,
                         fontWeight: FontWeight.w500,
@@ -466,14 +444,13 @@ class _BookingPageState extends State<BookingPage> {
                         color:Colour.thirdcolour
                     ),
                   ),
-                  // addCost(),
-                  // Text("\$60",
-                  //   style: TextStyle(
-                  //       fontSize: width*0.05,
-                  //       fontWeight: FontWeight.w600,
-                  //       color:Colour.primarycolour
-                  //   ),
-                  // ),
+                  Text("$total",
+                    style: TextStyle(
+                        fontSize: width*0.05,
+                        fontWeight: FontWeight.w600,
+                        color:Colour.primarycolour
+                    ),
+                  ),
 
                 ],
               ),
@@ -646,7 +623,7 @@ class _BookingPageState extends State<BookingPage> {
                                   color:Colour.gray
                               ),
                             ),
-                            Text("\$60",
+                            Text("$total",
                               style: TextStyle(
                                   fontSize: width*0.05,
                                   fontWeight: FontWeight.w800,
