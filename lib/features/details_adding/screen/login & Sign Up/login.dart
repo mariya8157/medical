@@ -6,6 +6,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:medical/colour.dart';
 import 'package:medical/features/details_adding/screen/home/bottomnavigation.dart';
 import 'package:medical/features/details_adding/screen/home/homepage.dart';
@@ -16,6 +17,13 @@ import 'package:medical/models/model1.dart';
 
 import '../../../../main.dart';
 import '../../controller/addingcontroller_page.dart';
+import 'google_signIn.dart';
+
+String? userEmail;
+String? userId;
+String? userName;
+String? userImage;
+
 
 class LoginPage extends ConsumerStatefulWidget {
   const LoginPage(
@@ -37,6 +45,18 @@ class _LoginPageState extends ConsumerState<LoginPage> {
   getDetails(){
     ref.read(AddingControllerProvider).getUser(nameController.text,emailController.text, passwordController.text);
   }
+
+  final GoogleSignIn _googleSignIn = GoogleSignIn(scopes: ['email']);
+
+  _handleSignIn() async {
+    try {
+      await _googleSignIn.signIn();
+    } catch (error) {
+      print(error);
+    }
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -285,7 +305,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                           ),),
                            InkWell(
                              onTap: () {
-                               Navigator.push(context, MaterialPageRoute(builder: (context) => SignupPage(),));
+                               Navigator.push(context, MaterialPageRoute(builder: (context) => SignupPage(sign: false,),));
                              },
                              child: Text("Sign Up",
                               style: TextStyle(
@@ -322,35 +342,40 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                  ],
                ),
                 SizedBox(height: width*0.07,),
-                Container(
-                  height: width*0.16,
-                  width: width*0.93,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(width*0.07),
-                    border: Border.all(
-                      color: Colour.color2
-                    )
-                  ),
-                  child: Row(
-                    children: [
-                      Container(
-                        width: width*0.67,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Container(
-                                padding: EdgeInsets.all(width*0.04),
-                                child: SvgPicture.asset(ImageIcons.google)),
-                            Text("Sign in with Google",
-                              style: TextStyle(
-                                  fontSize: width*0.038,
-                                  fontWeight: FontWeight.w600,
-                                  color: Colour.color6
-                              ),),
-                          ],
-                        ),
+                InkWell(
+                  onTap: () {
+                    signInWithGoogle(context);
+                  },
+                  child: Container(
+                    height: width*0.16,
+                    width: width*0.93,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(width*0.07),
+                      border: Border.all(
+                        color: Colour.color2
                       )
-                    ],
+                    ),
+                    child: Row(
+                      children: [
+                        Container(
+                          width: width*0.67,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Container(
+                                  padding: EdgeInsets.all(width*0.04),
+                                  child: SvgPicture.asset(ImageIcons.google)),
+                              Text("Sign in with Google",
+                                style: TextStyle(
+                                    fontSize: width*0.038,
+                                    fontWeight: FontWeight.w600,
+                                    color: Colour.color6
+                                ),),
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 ),
                 SizedBox(height: width*0.05,),

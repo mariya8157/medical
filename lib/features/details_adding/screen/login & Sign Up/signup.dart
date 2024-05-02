@@ -13,7 +13,8 @@ import '../../controller/addingcontroller_page.dart';
 import 'login.dart';
 
 class SignupPage extends ConsumerStatefulWidget {
-  const SignupPage({super.key});
+  final bool sign;
+  const SignupPage({super.key, required this.sign});
 
   @override
   ConsumerState createState() => _SignupPageState();
@@ -31,6 +32,15 @@ class _SignupPageState extends ConsumerState<SignupPage> {
 
   addSignupDetails(){
     ref.read(AddingControllerProvider).addUser(nameController.text, emailController.text.trim(), passwordController.text);
+  }
+
+  void initState() {
+    if(widget.sign==true){
+      emailController.text=userEmail!;
+      nameController.text=userName!;
+    }
+    // TODO: implement initState
+    super.initState();
   }
   @override
   Widget build(BuildContext context) {
