@@ -106,6 +106,7 @@ class ImageIcons{
 static const banner1="assets/images/banner1.jpg";
 static const banner2="assets/images/banner2.jpg";
 static const hsptl3="assets/images/hsptl3.jpeg";
+static const doc9="assets/images/doc9.jpeg";
 static const hsptl4="assets/images/hsptl4.jpeg";
 static const hsptl5="assets/images/hsptl5.jpeg";
 static const paracetamol="assets/images/paracetamol.jpg";
