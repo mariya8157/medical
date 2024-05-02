@@ -30,7 +30,7 @@ class _SignupPageState extends ConsumerState<SignupPage> {
   bool agree = false;
 
   addSignupDetails(){
-    ref.read(AddingControllerProvider).addSignup(usersModel: UsersModel(name: nameController.text, email: emailController.text, password: passwordController.text));
+    ref.read(AddingControllerProvider).addUser(nameController.text, emailController.text.trim(), passwordController.text);
   }
   @override
   Widget build(BuildContext context) {

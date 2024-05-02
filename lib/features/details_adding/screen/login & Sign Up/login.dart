@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -33,8 +34,8 @@ class _LoginPageState extends ConsumerState<LoginPage> {
   final formKey=GlobalKey<FormState>();
   bool selectIcon = false;
 
-  addDetails(){
-    ref.read(AddingControllerProvider).addFunction(usersModel: UsersModel(name: "", email: emailController.text, password: passwordController.text));
+  getDetails(){
+    ref.read(AddingControllerProvider).getUser(nameController.text,emailController.text, passwordController.text);
   }
   @override
   Widget build(BuildContext context) {
@@ -170,7 +171,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                 SizedBox(height: width*0.05,),
                 InkWell(
                   onTap: () {
-                   addDetails();
+                   getDetails();
                     if(
                      emailController.text!=""&&
                      passwordController.text!=""&&
