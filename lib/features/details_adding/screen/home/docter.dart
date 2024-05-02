@@ -46,6 +46,14 @@ class _DocterPageState extends State<DocterPage> {
       "distene":"800m away",
 
     }
+    ,{
+      "image":ImageIcons.doc9,
+      "name":"Dr. Arun",
+      "spl":"General medicine",
+      "star":"4,7",
+      "distene":"800m away",
+
+    }
   ];
 
 
@@ -58,85 +66,7 @@ class _DocterPageState extends State<DocterPage> {
           child: Column(
             // mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // Container(
-              //   height: width*0.60,
-              //   width: width*1,
-              //   // margin: EdgeInsets.only(left: width*0.03),
-              //   child: ListView.separated(
-              //       physics: BouncingScrollPhysics(),
-              //       scrollDirection: Axis.horizontal,
-              //       shrinkWrap: true,
-              //       itemBuilder: (context, index) {
-                      // return Container(
-                      //   height: width*0.25,
-                      //   width: width*0.47,
-                      //   decoration: BoxDecoration(
-                      //       borderRadius: BorderRadius.circular(width*0.04),
-                      //       border: Border.all(
-                      //           color: Colour.color2
-                      //       )
-                      //   ),
-                      //   child: Padding(
-                      //     padding: EdgeInsets.all(8.0),
-                      //     child: Column(
-                      //       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      //       children: [
-                      //         CircleAvatar(
-                      //           radius: width*0.1,
-                      //           backgroundImage: AssetImage(doctor[index]["image"]),
-                      //         ),
-                      //         Row(
-                      //           children: [
-                      //             Text(doctor[index]["name"],style: TextStyle(
-                      //                 fontWeight: FontWeight.w600
-                      //             ),),
-                      //           ],
-                      //         ),
-                      //         Row(
-                      //           children: [
-                      //             Text(doctor[index]["spl"],style: TextStyle(
-                      //                 color: Colour.gray
-                      //             ),),
-                      //           ],
-                      //         ),
-                      //         Row(
-                      //           children: [
-                      //             Container(
-                      //               height: width*0.065,
-                      //               width: width*0.12,
-                      //               decoration: BoxDecoration(
-                      //                   borderRadius: BorderRadius.circular(width*0.03),
-                      //                   color: Colour.lightgreen
-                      //
-                      //               ),
-                      //               child: Row(
-                      //                 mainAxisAlignment: MainAxisAlignment.center,
-                      //                 children: [
-                      //                   SvgPicture.asset(ImageIcons.star),
-                      //                   Text(doctor[index]["star"],style: TextStyle(
-                      //                       color: Colour.primarycolour
-                      //                   ),),
-                      //                 ],
-                      //               ),
-                      //             ),
-                      //
-                      //             // SizedBox(width: width*0.02,),
-                      //             SvgPicture.asset(ImageIcons.location,color: Colors.grey,),
-                      //             Text(doctor[index]["distene"],style: TextStyle(
-                      //                 color: Colors.grey
-                      //             ),)
-                      //           ],
-                      //         )
-                      //       ],
-                      //     ),
-                      //   ),
-                      // );
-                    // },
-                    // separatorBuilder:(context, index) {
-                    //   return SizedBox(width: width*0.03,);
-                    // },
-                    // itemCount: doctor.length),
-              // ),
+
               Container(
                 width: width*1,
                 height: height*1,
