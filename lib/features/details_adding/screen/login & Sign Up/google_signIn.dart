@@ -38,12 +38,13 @@ signInWithGoogle(BuildContext context) async {
   //==========================================
 
   var userlist= await FirebaseFirestore.instance.collection("users").where("email",isEqualTo:userEmail).get();
+  print(userlist);
 
   if(userlist.docs.isEmpty){
-    Navigator.push(context, CupertinoPageRoute(builder: (context) => BottomNavigationPage(email: '', password: '',),));
+
   }else {
     userId = userlist.docs[0].id;
-
+    Navigator.push(context, CupertinoPageRoute(builder: (context) => BottomNavigationPage(email: userEmail!, password: '',),));
     // Navigator.push(context, CupertinoPageRoute(builder: (context) => HomePage(),));
 
   }
