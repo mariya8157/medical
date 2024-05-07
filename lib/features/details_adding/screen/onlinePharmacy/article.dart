@@ -87,6 +87,7 @@ bool o=false;
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        scrolledUnderElevation: 0,
         centerTitle: true,
         backgroundColor: Colors.white24,
         // resizeToAvoidBottomInset: false,

@@ -87,6 +87,7 @@ List day=[];
   Widget build(BuildContext context) {
     return  Scaffold(
       appBar: AppBar(
+        scrolledUnderElevation: 0,
         centerTitle: true,
         backgroundColor: Colour.secondarycolour,
         // resizeToAvoidBottomInset: false,

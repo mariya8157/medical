@@ -124,6 +124,7 @@ class _PharmacyPageState extends State<PharmacyPage> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        scrolledUnderElevation: 0,
         centerTitle: true,
         backgroundColor: Colors.white24,
         // resizeToAvoidBottomInset: false,
