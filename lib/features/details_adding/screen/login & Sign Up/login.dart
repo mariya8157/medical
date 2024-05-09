@@ -193,6 +193,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                   onTap: () {
                    getDetails();
                     if(
+
                      emailController.text!=""&&
                      passwordController.text!=""&&
                      formKey.currentState!.validate()
