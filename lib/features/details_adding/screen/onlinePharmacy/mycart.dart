@@ -526,7 +526,9 @@ class _MyCartPageState extends State<MyCartPage> {
                   InkWell(
                     onTap: () {
                       QuickAlert.show(
-                      barrierColor: Colour.primarycolour,
+                      titleColor: Colour.primarycolour,
+                        textColor: Colour.primarycolour,
+
                         context: context,
                         type: QuickAlertType.success,
                         text: 'Transaction Completed Successfully!',
