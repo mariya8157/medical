@@ -110,6 +110,9 @@ static const doc9="assets/images/doc9.jpeg";
 static const telma="assets/images/telma.jpg";
 static const hsptl4="assets/images/hsptl4.jpeg";
 static const hsptl5="assets/images/hsptl5.jpeg";
+static const ambulance1="assets/images/ambulance1.jpeg";
+static const ambulance2="assets/images/ambulance2.jpeg";
+static const ambulance3="assets/images/ambulance3.jpeg";
 static const paracetamol="assets/images/paracetamol.jpg";
 static const cardiac="assets/images/cardiac.jpg";
 
