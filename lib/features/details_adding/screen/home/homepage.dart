@@ -404,8 +404,7 @@ class _HomePageState extends State<HomePage> {
                     },
                     itemCount: doctor.length),
               )
-          
-          
+
             ],
           ),
         ),

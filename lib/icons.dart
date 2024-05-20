@@ -101,7 +101,6 @@ class ImageIcons{
   static const phonepe="assets/images/phonepe .png";
   static const googlepay="assets/images/google pay.png";
   static const paytm="assets/images/paytm.png";
-
  //jpg
 static const banner1="assets/images/banner1.jpg";
 static const banner2="assets/images/banner2.jpg";
