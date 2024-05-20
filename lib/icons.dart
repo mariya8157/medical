@@ -116,7 +116,6 @@ static const ambulance3="assets/images/ambulance3.jpeg";
 static const paracetamol="assets/images/paracetamol.jpg";
 static const cardiac="assets/images/cardiac.jpg";
 
-
 //
   static const banner3="assets/images/banner3.webp";
   static const omega="assets/images/omega.webp";

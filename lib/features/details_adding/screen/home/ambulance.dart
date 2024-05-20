@@ -75,8 +75,6 @@ class _AmbulancePageState extends State<AmbulancePage> {
                             fontWeight: FontWeight.w600
                         ),),
 
-
-
                       ],
                     ),
                   ),

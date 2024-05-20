@@ -304,7 +304,6 @@ class _HomePageState extends State<HomePage> {
                       width: width*0.9,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-
                         children: [
                           Text("Top Doctor",style: TextStyle(
                             fontWeight: FontWeight.w700,

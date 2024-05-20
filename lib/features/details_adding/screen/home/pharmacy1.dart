@@ -49,7 +49,6 @@ class _PharmacyOneState extends State<PharmacyOne> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
-
         children: [
           Container(
             width: width*1,
