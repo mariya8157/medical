@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-
-import '../../../../colour.dart';
-import '../../../../icons.dart';
+import '../../../../core/colour.dart';
+import '../../../../core/icons.dart';
 import '../../../../main.dart';
 
 class HospitalPage extends StatefulWidget {

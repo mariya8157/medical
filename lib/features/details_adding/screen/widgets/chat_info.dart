@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
-
-import '../../../../colour.dart';
+import '../../../../core/colour.dart';
 import '../../../../main.dart';
 
 class ChatInfo extends StatelessWidget {

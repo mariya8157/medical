@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:medical/colour.dart';
 import 'package:medical/features/details_adding/screen/splashSceen/onbording.dart';
-import 'package:medical/icons.dart';
 
+import '../../../../core/colour.dart';
+import '../../../../core/icons.dart';
 import '../../../../main.dart';
 
 

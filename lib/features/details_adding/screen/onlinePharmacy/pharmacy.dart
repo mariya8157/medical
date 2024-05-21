@@ -2,9 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
-
-import '../../../../colour.dart';
-import '../../../../icons.dart';
+import '../../../../core/colour.dart';
+import '../../../../core/icons.dart';
 import '../../../../main.dart';
 import 'drugsdetail.dart';
 import 'mycart.dart';

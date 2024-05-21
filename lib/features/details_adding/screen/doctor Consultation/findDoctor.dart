@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:medical/colour.dart';
 import 'package:medical/features/details_adding/screen/doctor%20Consultation/doctordetails.dart';
 import 'package:medical/features/details_adding/screen/home/bottomnavigation.dart';
-import 'package:medical/icons.dart';
 
+import '../../../../core/colour.dart';
+import '../../../../core/icons.dart';
 import '../../../../main.dart';
 
 

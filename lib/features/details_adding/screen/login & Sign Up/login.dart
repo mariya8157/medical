@@ -7,14 +7,14 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:medical/colour.dart';
 import 'package:medical/features/details_adding/screen/home/bottomnavigation.dart';
 import 'package:medical/features/details_adding/screen/home/homepage.dart';
 import 'package:medical/features/details_adding/screen/login%20&%20Sign%20Up/forgotpassword.dart';
 import 'package:medical/features/details_adding/screen/login%20&%20Sign%20Up/signup.dart';
-import 'package:medical/icons.dart';
 import 'package:medical/models/model1.dart';
 
+import '../../../../core/colour.dart';
+import '../../../../core/icons.dart';
 import '../../../../main.dart';
 import '../../controller/addingcontroller_page.dart';
 import 'google_signIn.dart';
