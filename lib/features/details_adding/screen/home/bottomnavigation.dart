@@ -11,6 +11,8 @@ import 'package:medical/features/details_adding/screen/onlinePharmacy/pharmacy.d
 
 import '../../../../core/colour.dart';
 
+import '../../../../core/colour.dart';
+
 class BottomNavigationPage extends StatefulWidget {
   final String email;
   final String password;

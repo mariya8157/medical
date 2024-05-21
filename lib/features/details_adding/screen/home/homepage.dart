@@ -6,10 +6,15 @@ import 'package:flutter_svg/svg.dart';
 import 'package:medical/features/details_adding/screen/home/ambulance.dart';
 import 'package:medical/features/details_adding/screen/home/docter.dart';
 import 'package:medical/features/details_adding/screen/home/hospital.dart';
+import 'package:medical/features/details_adding/screen/home/pharmacy1.dart';
 import 'package:medical/features/details_adding/screen/home/topdoctor.dart';
 import 'package:medical/features/details_adding/screen/onlinePharmacy/pharmacy.dart';
 import 'package:pinput/pinput.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+
+import '../../../../core/colour.dart';
+import '../../../../core/icons.dart';
+
 import '../../../../core/colour.dart';
 import '../../../../core/icons.dart';
 import '../../../../main.dart';
@@ -178,7 +183,7 @@ class _HomePageState extends State<HomePage> {
                         children: [
                           InkWell(
                             onTap: () {
-                              Navigator.push(context, MaterialPageRoute(builder: (context) => PharmacyPage(),));
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => PharmacyOne(),));
                             },
                             child: Container(
                               height:height*0.06,
