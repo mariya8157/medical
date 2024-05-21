@@ -42,9 +42,9 @@ class _LoginPageState extends ConsumerState<LoginPage> {
   final formKey=GlobalKey<FormState>();
   bool selectIcon = false;
 
-  getDetails(){
-    ref.read(AddingControllerProvider).getUser(nameController.text,emailController.text, passwordController.text);
-  }
+  // getDetails(){
+  //   ref.read(AddingControllerProvider).getUser(nameController.text,emailController.text, passwordController.text);
+  // }
 
   final GoogleSignIn _googleSignIn = GoogleSignIn(scopes: ['email']);
 
@@ -191,7 +191,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                 SizedBox(height: width*0.05,),
                 InkWell(
                   onTap: () {
-                   getDetails();
+                   // getDetails();
                     if(
 
                      emailController.text!=""&&

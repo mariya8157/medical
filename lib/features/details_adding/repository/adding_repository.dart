@@ -23,26 +23,5 @@ class AddingRepository{
   addingUser(name, email, password){
     _firebaseAuth.createUserWithEmailAndPassword(email: email, password: password);
   }
-  gettingUser(name,email,password){
-    _firebaseAuth.signInWithEmailAndPassword(email: email, password: password).then((value) async {
-      var data = await _users.where('email',isEqualTo: email).get();
-
-      if (data.docs.isNotEmpty) {
-
-
-          if (data.docs[0]['password'] == password.text) {
-            addingFunction(usersModel: UsersModel(name: name, email: email, password: password));
-          }
-          else {
-            showUploadMessage(BuildContext context, String message){
-              return ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Wrong Password"),));
-            } }
-        }
-          else{
-        showUploadMessage(BuildContext context, String message){
-          return ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Please Register"),));
-        } }
-    },);
-  }
 
   }
