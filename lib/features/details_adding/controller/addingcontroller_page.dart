@@ -16,5 +16,4 @@ class AddingController{
     _addingRepository.addingUser(name, email, password);
   }
 
-
 }

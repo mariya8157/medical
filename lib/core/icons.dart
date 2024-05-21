@@ -51,7 +51,6 @@ class ImageIcons{
   static const paypal = "assets/icons/paypal.svg";
 
 
-
   ///png
   static const covid1 = "assets/images/covid_19_1.png";
   static const doc8 = "assets/images/doc8.png";
