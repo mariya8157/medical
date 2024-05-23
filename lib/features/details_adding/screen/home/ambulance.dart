@@ -1,48 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import '../../../../core/colour.dart';
+import '../../../../core/icons.dart';
 import '../../../../core/colour.dart';
 import '../../../../core/icons.dart';
 import '../../../../main.dart';
 
-class PharmacyOne extends StatefulWidget {
-  const PharmacyOne({super.key});
+class AmbulancePage extends StatefulWidget {
+  const AmbulancePage({super.key});
 
   @override
-  State<PharmacyOne> createState() => _PharmacyOneState();
+  State<AmbulancePage> createState() => _AmbulancePageState();
 }
 
-class _PharmacyOneState extends State<PharmacyOne> {
+class _AmbulancePageState extends State<AmbulancePage> {
   List docter=[
-    {
-      "image":ImageIcons.paracetamol,
-      "name":"Paracetamol",
-      "ml":"650mg",
-      "Rs":"\$25"
+    { "image":ImageIcons.ambulance1,
+      "Text":"mob:9873546751"
     },
-    {
-      "image":ImageIcons.omega,
-      "name":"Omega",
-      "ml":"100mg",
-      "Rs":"\$155"
+    { "image":ImageIcons.ambulance2,
+      "Text":"mob:9086543211"
     },
-    {
-      "image":ImageIcons.cough,
-      "name":"Cough",
-      "ml":"500mg",
-      "Rs":"\$30"
-    },
-    {
-      "image":ImageIcons.cardiac,
-      "name":"Cardicheck",
-      "ml":"10mg",
-      "Rs":"\$80"
-    },
-    {
-      "image":ImageIcons.telma,
-      "name":"Telma",
-      "ml":"20mg",
-      "Rs":"\$80"
-    },
+    { "image":ImageIcons.ambulance3,
+      "Text":"mob:9878860441"
+    }
   ];
   @override
   Widget build(BuildContext context) {
@@ -85,26 +65,16 @@ class _PharmacyOneState extends State<PharmacyOne> {
                           width: width*0.45,
 
                           decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(width*0.03),
-                           image: DecorationImage(
-                               image: AssetImage(docter[index]["image"]),fit: BoxFit.fill)
+                              borderRadius: BorderRadius.circular(width*0.03),
+                              image: DecorationImage(
+                                  image: AssetImage(docter[index]["image"]),fit: BoxFit.fill)
                           ),
-                          
+
                         ),
-                        Text(docter[index]["name"],style: TextStyle(
-                          fontSize: width*0.05,
-                          fontWeight: FontWeight.w600
+                        Text(docter[index]["Text"],style: TextStyle(
+                            fontSize: width*0.05,
+                            fontWeight: FontWeight.w600
                         ),),
-
-                        Text(docter[index]["ml"],style: TextStyle(
-                            fontWeight: FontWeight.w500,
-                            fontSize: width*0.04
-                        ),),
-                        Text(docter[index]["Rs"],style: TextStyle(
-                            fontWeight: FontWeight.w500,
-                            fontSize: width*0.04
-                        ),),
-
                       ],
                     ),
                   ),
@@ -115,7 +85,6 @@ class _PharmacyOneState extends State<PharmacyOne> {
 
             ),
           ),
-
         ],
       ),
     );

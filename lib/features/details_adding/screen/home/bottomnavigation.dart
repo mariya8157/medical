@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:medical/colour.dart';
 import 'package:medical/features/details_adding/screen/Profile/profile.dart';
 import 'package:medical/features/details_adding/screen/doctor%20Consultation/bookingdoctor.dart';
 import 'package:medical/features/details_adding/screen/doctor%20Consultation/chatwithdoctor.dart';
@@ -9,7 +8,10 @@ import 'package:medical/features/details_adding/screen/doctor%20Consultation/fin
 import 'package:medical/features/details_adding/screen/home/homepage.dart';
 import 'package:medical/features/details_adding/screen/onlinePharmacy/article.dart';
 import 'package:medical/features/details_adding/screen/onlinePharmacy/pharmacy.dart';
-import 'package:medical/icons.dart';
+
+import '../../../../core/colour.dart';
+
+import '../../../../core/colour.dart';
 
 class BottomNavigationPage extends StatefulWidget {
   final String email;

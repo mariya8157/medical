@@ -4,9 +4,8 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-import '../../../../colour.dart';
-import '../../../../icons.dart';
+import '../../../../core/colour.dart';
+import '../../../../core/icons.dart';
 import '../../../../main.dart';
 import '../../../../models/model1.dart';
 import '../../controller/addingcontroller_page.dart';

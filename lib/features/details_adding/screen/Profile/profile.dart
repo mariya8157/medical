@@ -4,12 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:medical/colour.dart';
-import 'package:medical/icons.dart';
 import 'package:medical/main.dart';
 import 'package:quickalert/models/quickalert_type.dart';
 import 'package:quickalert/widgets/quickalert_dialog.dart';
 
+import '../../../../core/colour.dart';
+import '../../../../core/icons.dart';
 import '../doctor Consultation/bookingdoctor.dart';
 import '../login & Sign Up/login.dart';
 import '../login & Sign Up/signup.dart';

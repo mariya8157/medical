@@ -15,8 +15,5 @@ class AddingController{
   addUser(name, email, password){
     _addingRepository.addingUser(name, email, password);
   }
-  getUser(name, email, password){
-    _addingRepository.gettingUser(name, email, password);
-  }
 
 }

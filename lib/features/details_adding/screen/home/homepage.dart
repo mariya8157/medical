@@ -3,12 +3,20 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:medical/features/details_adding/screen/home/ambulance.dart';
+import 'package:medical/features/details_adding/screen/home/docter.dart';
+import 'package:medical/features/details_adding/screen/home/hospital.dart';
+import 'package:medical/features/details_adding/screen/home/pharmacy1.dart';
 import 'package:medical/features/details_adding/screen/home/topdoctor.dart';
+import 'package:medical/features/details_adding/screen/onlinePharmacy/pharmacy.dart';
 import 'package:pinput/pinput.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
-import '../../../../colour.dart';
-import '../../../../icons.dart';
+import '../../../../core/colour.dart';
+import '../../../../core/icons.dart';
+
+import '../../../../core/colour.dart';
+import '../../../../core/icons.dart';
 import '../../../../main.dart';
 
 class HomePage extends StatefulWidget {
@@ -152,11 +160,16 @@ class _HomePageState extends State<HomePage> {
                     children: [
                       Column(
                         children: [
-                          Container(
-                            height:height*0.06,
-                            width: width*0.08,
-                            child: SvgPicture.asset(ImageIcons.catogory1),
-
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => DocterPage(),));
+                            },
+                            child: Container(
+                              height:height*0.06,
+                              width: width*0.08,
+                              child: SvgPicture.asset(ImageIcons.catogory1),
+                            
+                            ),
                           ),
                           // SizedBox(height: width*0.04,),
                           Text("Doctor",
@@ -168,11 +181,16 @@ class _HomePageState extends State<HomePage> {
                       ),
                       Column(
                         children: [
-                          Container(
-                            height:height*0.06,
-                            width: width*0.08,
-                            child: SvgPicture.asset(ImageIcons.Pharmacy),
-
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => PharmacyOne(),));
+                            },
+                            child: Container(
+                              height:height*0.06,
+                              width: width*0.08,
+                              child: SvgPicture.asset(ImageIcons.Pharmacy),
+                            
+                            ),
                           ),
                           // SizedBox(height: width*0.04,),
                           Text("Pharmacy",
@@ -184,11 +202,16 @@ class _HomePageState extends State<HomePage> {
                       ),
                       Column(
                         children: [
-                          Container(
-                            height:height*0.06,
-                            width: width*0.08,
-                            child: SvgPicture.asset(ImageIcons.Hospital),
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => HospitalPage(),));
+                            },
+                            child: Container(
+                              height:height*0.06,
+                              width: width*0.08,
+                              child: SvgPicture.asset(ImageIcons.Hospital),
 
+                            ),
                           ),
                           // SizedBox(height: width*0.04,),
                           Text("Hospital",
@@ -200,11 +223,16 @@ class _HomePageState extends State<HomePage> {
                       ),
                       Column(
                         children: [
-                          Container(
-                            height:height*0.06,
-                            width: width*0.08,
-                            child: SvgPicture.asset(ImageIcons.Ambulance),
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => AmbulancePage(),));
+                            },
+                            child: Container(
+                              height:height*0.06,
+                              width: width*0.08,
+                              child: SvgPicture.asset(ImageIcons.Ambulance),
 
+                            ),
                           ),
                           // SizedBox(height: width*0.04,),
                           Text("Ambulance",
@@ -280,7 +308,6 @@ class _HomePageState extends State<HomePage> {
                       width: width*0.9,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-
                         children: [
                           Text("Top Doctor",style: TextStyle(
                             fontWeight: FontWeight.w700,
@@ -381,8 +408,7 @@ class _HomePageState extends State<HomePage> {
                     },
                     itemCount: doctor.length),
               )
-          
-          
+
             ],
           ),
         ),

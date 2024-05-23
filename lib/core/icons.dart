@@ -51,7 +51,6 @@ class ImageIcons{
   static const paypal = "assets/icons/paypal.svg";
 
 
-
   ///png
   static const covid1 = "assets/images/covid_19_1.png";
   static const doc8 = "assets/images/doc8.png";
@@ -101,7 +100,6 @@ class ImageIcons{
   static const phonepe="assets/images/phonepe .png";
   static const googlepay="assets/images/google pay.png";
   static const paytm="assets/images/paytm.png";
-
  //jpg
 static const banner1="assets/images/banner1.jpg";
 static const banner2="assets/images/banner2.jpg";
@@ -110,9 +108,11 @@ static const doc9="assets/images/doc9.jpeg";
 static const telma="assets/images/telma.jpg";
 static const hsptl4="assets/images/hsptl4.jpeg";
 static const hsptl5="assets/images/hsptl5.jpeg";
+static const ambulance1="assets/images/ambulance1.jpeg";
+static const ambulance2="assets/images/ambulance2.jpeg";
+static const ambulance3="assets/images/ambulance3.jpeg";
 static const paracetamol="assets/images/paracetamol.jpg";
 static const cardiac="assets/images/cardiac.jpg";
-
 
 //
   static const banner3="assets/images/banner3.webp";

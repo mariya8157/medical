@@ -17,5 +17,4 @@ class Colour{
   static const lightprimarycolor = Color(0xff52D1C6);
   static const lightblue = Color(0xffF5F8FF);
 
-
 }
