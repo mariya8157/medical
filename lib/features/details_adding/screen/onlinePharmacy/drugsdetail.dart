@@ -131,7 +131,10 @@ class _DrugDetailsPageState extends State<DrugDetailsPage> {
                                         color: Colors.grey,
                                         fontSize: width * 0.05),
                                   ),
-                                  SvgPicture.asset(d[index]["icon1"])
+                                      SvgPicture.asset(
+                                    d[index]["icon1"],
+                                    width: width * 0.06,
+                                  )
                                 ],
                               ),
 

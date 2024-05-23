@@ -17,87 +17,87 @@ class PharmacyPage extends StatefulWidget {
 
 class _PharmacyPageState extends State<PharmacyPage> {
   TextEditingController drugsControl = TextEditingController();
-  List a=[
+  List a = [
     {
-     "image":ImageIcons.panadol,
-     "text1": "Panadol",
-     "text2": "20pcs",
-     "text3": "\$15.98",
-      "price":15.98,
-      "icon":ImageIcons.c_add,
-      "icon1":ImageIcons.heart,
-      "text6":0,
-      "text5":"PANADOL  is a cough medicine containing,"
+      "image": ImageIcons.panadol,
+      "text1": "Panadol",
+      "text2": "20pcs",
+      "text3": "\$15.98",
+      "price": 15.98,
+      "icon": ImageIcons.c_add,
+      "icon1": ImageIcons.heart,
+      "text6": 0,
+      "text5": "PANADOL  is a cough medicine containing,"
           " Paracetamol, Ephedrine HCl, and Chlorphenamine maleate"
           "such as fever, headache, and sneezing...",
     },
     {
-     "image":ImageIcons.herbal,
-     "text1": "Bodrex Herbal",
-     "text2": "100ml",
-     "text3": "\$7.99",
-      "price":7.99,
-      "icon":ImageIcons.c_add,
-      "icon1":ImageIcons.heart,
-      "text6":0,
-      "text5":"BODREX HERBAL  is a cough medicine containing,"
+      "image": ImageIcons.herbal,
+      "text1": "Bodrex Herbal",
+      "text2": "100ml",
+      "text3": "\$7.99",
+      "price": 7.99,
+      "icon": ImageIcons.c_add,
+      "icon1": ImageIcons.heart,
+      "text6": 0,
+      "text5": "BODREX HERBAL  is a cough medicine containing,"
           " Paracetamol, Ephedrine HCl, and Chlorphenamine maleate"
           "such as fever, headache, and sneezing...",
     },
     {
-     "image":ImageIcons.konidin,
-     "text1": "Konidin",
-     "text2": "3pcs",
-     "text3": "\$5.99",
-      "price":5.99,
-      "icon":ImageIcons.c_add,
-      "icon1":ImageIcons.heart,
-      "text6":0,
-      "text5":"KONIDIN  is a cough medicine containing,"
+      "image": ImageIcons.konidin,
+      "text1": "Konidin",
+      "text2": "3pcs",
+      "text3": "\$5.99",
+      "price": 5.99,
+      "icon": ImageIcons.c_add,
+      "icon1": ImageIcons.heart,
+      "text6": 0,
+      "text5": "KONIDIN  is a cough medicine containing,"
           " Paracetamol, Ephedrine HCl, and Chlorphenamine maleate"
           "such as fever, headache, and sneezing...",
     },
   ];
-  List c=[
+  List c = [
     {
-      "image":ImageIcons.calvit,
+      "image": ImageIcons.calvit,
       "text1": "OBH Combi",
       "text2": "75ml",
       "text3": "\$9.99",
-      "price":9.99,
+      "price": 9.99,
       "text4": "\$10.99",
-      "icon":ImageIcons.c_add,
-      "icon1":ImageIcons.heart,
-      "text6":0,
-      "text5":"OBH COMBI  is a cough medicine containing,"
-    " Paracetamol, Ephedrine HCl, and Chlorphenamine maleate"
-        "such as fever, headache, and sneezing...",
-    },
-    {
-      "image":ImageIcons.herbal,
-      "text1": "Betadine",
-      "text2": "50ml",
-      "text3": "\$6.99",
-      "price":6.99,
-      "text4": "\$8.99",
-      "icon":ImageIcons.c_add,
-      "icon1":ImageIcons.heart,
-      "text6":0,
-      "text5":"Betadine  is a cough medicine containing,"
+      "icon": ImageIcons.c_add,
+      "icon1": ImageIcons.heart,
+      "text6": 0,
+      "text5": "OBH COMBI  is a cough medicine containing,"
           " Paracetamol, Ephedrine HCl, and Chlorphenamine maleate"
           "such as fever, headache, and sneezing...",
     },
     {
-      "image":ImageIcons.konidin,
+      "image": ImageIcons.herbal,
+      "text1": "Betadine",
+      "text2": "50ml",
+      "text3": "\$6.99",
+      "price": 6.99,
+      "text4": "\$8.99",
+      "icon": ImageIcons.c_add,
+      "icon1": ImageIcons.heart,
+      "text6": 0,
+      "text5": "Betadine  is a cough medicine containing,"
+          " Paracetamol, Ephedrine HCl, and Chlorphenamine maleate"
+          "such as fever, headache, and sneezing...",
+    },
+    {
+      "image": ImageIcons.konidin,
       "text1": "Bodrexin",
       "text2": "75ml",
       "text3": "\$7.99",
-      "price":7.99,
+      "price": 7.99,
       "text4": "\$8.99",
-      "icon":ImageIcons.c_add,
-      "icon1":ImageIcons.heart,
-      "text6":0,
-      "text5":" Bodrexin is a cough medicine containing,"
+      "icon": ImageIcons.c_add,
+      "icon1": ImageIcons.heart,
+      "text6": 0,
+      "text5": " Bodrexin is a cough medicine containing,"
           " Paracetamol, Ephedrine HCl, and Chlorphenamine maleate"
           "such as fever, headache, and sneezing...",
     },
@@ -106,18 +106,20 @@ class _PharmacyPageState extends State<PharmacyPage> {
   bool t = false;
 
   int count = 0;
- int selectindex=0;
- int selectindex1=0;
- List d=[];
- List f=[];
+  int selectindex = 0;
+  int selectindex1 = 0;
+  List d = [];
+  List f = [];
 
- bool k=false;
- bool g=false;
- bool o=false;
+  bool k = false;
+  bool g = false;
+  bool o = false;
 
-  bool x=false;
-  bool y=false;
-  bool z=false;
+  bool x = false;
+  bool y = false;
+  bool z = false;
+  List<int> favorite = [];
+  List<int> favorite1 = [];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -151,7 +153,6 @@ class _PharmacyPageState extends State<PharmacyPage> {
               fontWeight: FontWeight.w700,
               fontSize: width * 0.063),
         ),
-
       ),
       body: ListView(
         shrinkWrap: true,
@@ -283,60 +284,60 @@ class _PharmacyPageState extends State<PharmacyPage> {
                   )),
               Row(
                 children: [
-                  o==false?
-                  InkWell(
-                    onTap: () {
-                      setState(() {
-                        k=true;
-                        g=false;
-                        o=true;
-                      });
-                    },
-                    child: Container(
-                        height: width * 0.13,
-                        width: width * 0.25,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              "See all",
-                              style: TextStyle(
-                                  fontSize: width * 0.045,
-                                  color: Colour.primarycolour),
-                            ),
-                          ],
-                        )),
-                  )
-                  :InkWell(
-                    onTap: () {
-                      setState(() {
-                        k = false;
-                        g = true;
-                        o = false;
-                      });
-                    },
-                    child: Container(
-                        height: width * 0.13,
-                        width: width * 0.25,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              "See less",
-                              style: TextStyle(
-                                  fontSize: width * 0.045,
-                                  color: Colour.primarycolour),
-                            ),
-                          ],
-                        )),
-                  ),
+                  o == false
+                      ? InkWell(
+                          onTap: () {
+                            setState(() {
+                              k = true;
+                              g = false;
+                              o = true;
+                            });
+                          },
+                          child: Container(
+                              height: width * 0.13,
+                              width: width * 0.25,
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    "See all",
+                                    style: TextStyle(
+                                        fontSize: width * 0.045,
+                                        color: Colour.primarycolour),
+                                  ),
+                                ],
+                              )),
+                        )
+                      : InkWell(
+                          onTap: () {
+                            setState(() {
+                              k = false;
+                              g = true;
+                              o = false;
+                            });
+                          },
+                          child: Container(
+                              height: width * 0.13,
+                              width: width * 0.25,
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    "See less",
+                                    style: TextStyle(
+                                        fontSize: width * 0.045,
+                                        color: Colour.primarycolour),
+                                  ),
+                                ],
+                              )),
+                        ),
                 ],
               ),
             ],
           ),
           Container(
-            height: width*0.63,
-            width: width*1,
+            height: width * 0.63,
+            width: width * 1,
             child: ListView.separated(
                 shrinkWrap: true,
                 scrollDirection: Axis.horizontal,
@@ -346,44 +347,48 @@ class _PharmacyPageState extends State<PharmacyPage> {
                     children: [
                       InkWell(
                         onTap: () {
-                          selectindex1=index;
-                          setState(() {
-
-                          });
+                          selectindex1 = index;
+                          setState(() {});
                           f.add({
-                            "image":a[index]["image"],
-                            "text1":a[index]["text1"],
-                            "text2":a[index]["text2"],
-                            "text3":a[index]["text3"],
-                            "price":a[index]["price"],
-                            "icon":a[index]["icon"],
-                            "icon1":a[index]["icon1"],
-                            "text6":a[index]["text6"],
-                            "text5":a[index]["text5"],
+                            "image": a[index]["image"],
+                            "text1": a[index]["text1"],
+                            "text2": a[index]["text2"],
+                            "text3": a[index]["text3"],
+                            "price": a[index]["price"],
+                            "icon": a[index]["icon"],
+                            "icon1": a[index]["icon1"],
+                            "text6": a[index]["text6"],
+                            "text5": a[index]["text5"],
                           });
-                          f.length==1? Navigator.push(
-                              context, MaterialPageRoute(
-                              builder:
-                                  (context) => DrugDetailsPage(c:[], a: f,))):f.clear();
+                          f.length == 1
+                              ? Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => DrugDetailsPage(
+                                            c: [],
+                                            a: f,
+                                          )))
+                              : f.clear();
                         },
                         child: Container(
                           height: width * 0.6,
                           width: width * 0.45,
                           margin: EdgeInsets.only(left: width * 0.055),
                           decoration: BoxDecoration(
-                              border:
-                                  Border.all(color: Colour.gray.withOpacity(0.2)),
-                              borderRadius: BorderRadius.circular(width * 0.05)),
+                              border: Border.all(
+                                  color: Colour.gray.withOpacity(0.2)),
+                              borderRadius:
+                                  BorderRadius.circular(width * 0.05)),
                           child: Padding(
-                            padding:  EdgeInsets.all(width*0.017),
+                            padding: EdgeInsets.all(width * 0.017),
                             child: Column(
                               children: [
                                 SizedBox(
                                   height: width * 0.01,
                                 ),
                                 Container(
-                                  height: width*0.3,
-                                  width: width*0.3,
+                                  height: width * 0.3,
+                                  width: width * 0.3,
                                   child: Image.asset(
                                     a[index]["image"],
                                     width: width * 0.27,
@@ -392,11 +397,13 @@ class _PharmacyPageState extends State<PharmacyPage> {
                                 Row(
                                   children: [
                                     Container(
-                                      height: width*0.15,
-                                      width: width*0.32,
+                                      height: width * 0.15,
+                                      width: width * 0.32,
                                       child: Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceEvenly,
                                         children: [
                                           Row(
                                             children: [
@@ -421,17 +428,37 @@ class _PharmacyPageState extends State<PharmacyPage> {
                                   ],
                                 ),
                                 Container(
-                                  height: width*0.10,
-                                  width: width*0.45,
+                                  height: width * 0.10,
+                                  width: width * 0.45,
                                   child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
                                     children: [
-                                      Text( a[index]["text3"],
+                                      Text(
+                                        a[index]["text3"],
                                         style: TextStyle(
                                             fontWeight: FontWeight.w900,
-                                            fontSize: width*0.05
-                                        ),),
-                                      SvgPicture.asset(a[index]["icon"],width: width*0.06,)
+                                            fontSize: width * 0.05),
+                                      ),
+                                      InkWell(
+                                          onTap: () {
+                                            setState(() {
+                                              if (favorite.contains(index)) {
+                                                favorite.remove(index);
+                                              } else {
+                                                favorite.add(index);
+                                              }
+                                            });
+                                          },
+                                          child: !favorite.contains(index)
+                                              ? Image.asset(
+                                                  ImageIcons.heart1,
+                                                  width: width * 0.05,
+                                                )
+                                              : SvgPicture.asset(
+                                                  a[index]["icon1"],
+                                                  width: width * 0.06,
+                                                ))
                                     ],
                                   ),
                                 )
@@ -448,7 +475,7 @@ class _PharmacyPageState extends State<PharmacyPage> {
                     height: width * 0.03,
                   );
                 },
-                itemCount:o==true? a.length:2),
+                itemCount: o == true ? a.length : 2),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -470,60 +497,60 @@ class _PharmacyPageState extends State<PharmacyPage> {
                   )),
               Row(
                 children: [
-                  z==false?
-                  InkWell(
-                    onTap: () {
-                      setState(() {
-                        x=true;
-                        y=false;
-                        z=true;
-                      });
-                    },
-                    child: Container(
-                        height: width * 0.13,
-                        width: width * 0.25,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              "See all",
-                              style: TextStyle(
-                                  fontSize: width * 0.045,
-                                  color: Colour.primarycolour),
-                            ),
-                          ],
-                        )),
-                  )
-                      :InkWell(
-                    onTap: () {
-                      setState(() {
-                        x = false;
-                        y = true;
-                        z = false;
-                      });
-                    },
-                    child: Container(
-                        height: width * 0.13,
-                        width: width * 0.25,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              "See less",
-                              style: TextStyle(
-                                  fontSize: width * 0.045,
-                                  color: Colour.primarycolour),
-                            ),
-                          ],
-                        )),
-                  ),
+                  z == false
+                      ? InkWell(
+                          onTap: () {
+                            setState(() {
+                              x = true;
+                              y = false;
+                              z = true;
+                            });
+                          },
+                          child: Container(
+                              height: width * 0.13,
+                              width: width * 0.25,
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    "See all",
+                                    style: TextStyle(
+                                        fontSize: width * 0.045,
+                                        color: Colour.primarycolour),
+                                  ),
+                                ],
+                              )),
+                        )
+                      : InkWell(
+                          onTap: () {
+                            setState(() {
+                              x = false;
+                              y = true;
+                              z = false;
+                            });
+                          },
+                          child: Container(
+                              height: width * 0.13,
+                              width: width * 0.25,
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    "See less",
+                                    style: TextStyle(
+                                        fontSize: width * 0.045,
+                                        color: Colour.primarycolour),
+                                  ),
+                                ],
+                              )),
+                        ),
                 ],
               ),
             ],
           ),
           Container(
-            height: width*0.63,
-            width: width*1,
+            height: width * 0.63,
+            width: width * 1,
             child: ListView.separated(
                 shrinkWrap: true,
                 scrollDirection: Axis.horizontal,
@@ -533,44 +560,48 @@ class _PharmacyPageState extends State<PharmacyPage> {
                     children: [
                       InkWell(
                         onTap: () {
-                          selectindex=index;
-                          setState(() {
-
-                          });
+                          selectindex = index;
+                          setState(() {});
                           d.add({
-                            "image":c[index]["image"],
-                            "text1":c[index]["text1"],
-                            "text2":c[index]["text2"],
-                            "text3":c[index]["text3"],
-                            "price":c[index]["price"],
-                            "icon":c[index]["icon"],
-                            "icon1":c[index]["icon1"],
-                            "text6":c[index]["text6"],
-                            "text5":c[index]["text5"],
+                            "image": c[index]["image"],
+                            "text1": c[index]["text1"],
+                            "text2": c[index]["text2"],
+                            "text3": c[index]["text3"],
+                            "price": c[index]["price"],
+                            "icon": c[index]["icon"],
+                            "icon1": c[index]["icon1"],
+                            "text6": c[index]["text6"],
+                            "text5": c[index]["text5"],
                           });
-                         d.length==1? Navigator.push(
-                              context, MaterialPageRoute(
-                              builder:
-                          (context) => DrugDetailsPage(c:d, a: [],))):d.clear();
+                          d.length == 1
+                              ? Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => DrugDetailsPage(
+                                            c: d,
+                                            a: [],
+                                          )))
+                              : d.clear();
                         },
                         child: Container(
                           height: width * 0.6,
                           width: width * 0.45,
                           margin: EdgeInsets.only(left: width * 0.055),
                           decoration: BoxDecoration(
-                              border:
-                              Border.all(color: Colour.gray.withOpacity(0.2)),
-                              borderRadius: BorderRadius.circular(width * 0.05)),
+                              border: Border.all(
+                                  color: Colour.gray.withOpacity(0.2)),
+                              borderRadius:
+                                  BorderRadius.circular(width * 0.05)),
                           child: Padding(
-                            padding:  EdgeInsets.all(width*0.017),
+                            padding: EdgeInsets.all(width * 0.017),
                             child: Column(
                               children: [
                                 SizedBox(
                                   height: width * 0.01,
                                 ),
                                 Container(
-                                  height: width*0.3,
-                                  width: width*0.3,
+                                  height: width * 0.3,
+                                  width: width * 0.3,
                                   child: Image.asset(
                                     c[index]["image"].toString(),
                                     width: width * 0.27,
@@ -579,11 +610,13 @@ class _PharmacyPageState extends State<PharmacyPage> {
                                 Row(
                                   children: [
                                     Container(
-                                      height: width*0.15,
-                                      width: width*0.3,
+                                      height: width * 0.15,
+                                      width: width * 0.3,
                                       child: Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceEvenly,
                                         children: [
                                           Text(
                                             c[index]["text1"],
@@ -604,34 +637,57 @@ class _PharmacyPageState extends State<PharmacyPage> {
                                   ],
                                 ),
                                 Container(
-                                  height: width*0.10,
-                                  width: width*0.45,
+                                  height: width * 0.10,
+                                  width: width * 0.45,
                                   child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
                                     children: [
-                                      Text( c[index]["text3"],
+                                      Text(
+                                        c[index]["text3"],
                                         style: TextStyle(
                                             fontWeight: FontWeight.w900,
-                                            fontSize: width*0.05
-                                        ),),
+                                            fontSize: width * 0.05),
+                                      ),
                                       Stack(
                                         children: [
-                                          Text(c[index]["text4"],
+                                          Text(
+                                            c[index]["text4"],
                                             style: TextStyle(
                                                 fontWeight: FontWeight.w700,
-                                                color: Colour.gray
-                                            ),),
+                                                color: Colour.gray),
+                                          ),
                                           Padding(
-                                            padding:  EdgeInsets.only(top: width*0.0185,right: width*0.04),
+                                            padding: EdgeInsets.only(
+                                                top: width * 0.0185,
+                                                right: width * 0.04),
                                             child: Container(
-                                              height: width*0.005,
-                                              width: width*0.115,
+                                              height: width * 0.005,
+                                              width: width * 0.115,
                                               color: Colors.grey,
                                             ),
                                           )
                                         ],
                                       ),
-                                       SvgPicture.asset(c[index]["icon"],width: width*0.06,),
+                                      InkWell(
+                                          onTap: () {
+                                            setState(() {
+                                              if (favorite1.contains(index)) {
+                                                favorite1.remove(index);
+                                              } else {
+                                                favorite1.add(index);
+                                              }
+                                            });
+                                          },
+                                          child: !favorite1.contains(index)
+                                              ? Image.asset(
+                                            ImageIcons.heart1,
+                                            width: width * 0.05,
+                                          )
+                                              : SvgPicture.asset(
+                                            a[index]["icon1"],
+                                            width: width * 0.06,
+                                          ))
                                       // Container(
                                       //   height: width*0.06,
                                       //   width: width*0.06,
@@ -657,7 +713,7 @@ class _PharmacyPageState extends State<PharmacyPage> {
                     height: width * 0.03,
                   );
                 },
-                itemCount:z==true? c.length:2),
+                itemCount: z == true ? c.length : 2),
           ),
         ],
       ),
