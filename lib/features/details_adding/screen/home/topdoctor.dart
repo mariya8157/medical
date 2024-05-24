@@ -145,6 +145,7 @@ class _TopDoctorPageState extends State<TopDoctorPage> {
                                       ),
                                        SizedBox(width: width*0.04,),
                                       Container(
+                                        width: width*0.3,
                                         child: Column(
                                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -190,7 +191,7 @@ class _TopDoctorPageState extends State<TopDoctorPage> {
                                               ],
                                             ),
                                             Container(
-                                              width: width*0.22,
+                                              width: width*0.25,
                                               height: height*0.05,
                                               child: Row(
                                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
