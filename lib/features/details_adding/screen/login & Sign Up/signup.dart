@@ -30,7 +30,10 @@ class _SignupPageState extends ConsumerState<SignupPage> {
   final formKey = GlobalKey<FormState>();
   bool selectIcon = false;
   bool agree = false;
-
+  
+  userDetails(){
+    // ref.read(provider)
+  }
   addSignupDetails() {
     ref.read(AddingControllerProvider).addUser(nameController.text,
         emailController.text.trim(), passwordController.text);

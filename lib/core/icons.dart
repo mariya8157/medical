@@ -32,6 +32,7 @@ class ImageIcons{
   static const chat = "assets/icons/Chat.svg";
   static const calendar = "assets/icons/Calendar.svg";
   static const square = "assets/icons/Square.svg";
+  static const faqs = "assets/icons/faqs.svg";
   static const c_add = "assets/icons/c.add.svg";
   static const wallet = "assets/icons/Wallet.svg";
   static const nxtback = "assets/icons/nxtback.svg";

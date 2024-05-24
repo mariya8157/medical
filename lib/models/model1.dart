@@ -2,11 +2,13 @@ class UsersModel {
   String name;
   String email;
   String password;
+  String id;
 
   UsersModel({
     required this.name,
     required this.email,
     required this.password,
+    required this.id,
   });
 
   Map<String, dynamic> toMap() {
@@ -14,6 +16,7 @@ class UsersModel {
       'name': this.name,
       'email': this.email,
       'password': this.password,
+      'id': this.id,
     };
   }
 
@@ -22,6 +25,7 @@ class UsersModel {
       password: map['password'] ?? "",
       email: map['email'] ?? "",
       name: map['name'] ?? "",
+      id: map['id'] ?? "",
     );
   }
 
@@ -29,11 +33,13 @@ class UsersModel {
     String? name,
     String? password,
     String? email,
+    String? id,
   }) {
     return UsersModel(
       name: name ?? this.name,
       email: email ?? this.email,
       password: password ?? this.password,
+      id: id ?? this.id,
     );
   }
 }

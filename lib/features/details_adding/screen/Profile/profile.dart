@@ -280,6 +280,28 @@ class _ProfilePageState extends State<ProfilePage> {
                             ),
                             InkWell(
                               onTap: () {
+
+                              },
+                              child: ListTile(
+                                leading: CircleAvatar(
+                                  radius: width * 0.06,
+                                  backgroundColor: Colour.lightgreen,
+                                  child: SvgPicture.asset(ImageIcons.faqs),
+                                ),
+                                title: Text("Change Language",
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.w600,
+                                        fontSize: width * 0.05)),
+                                trailing: SvgPicture.asset(ImageIcons.nxtback),
+                              ),
+                            ),
+                            Divider(
+                              thickness: width * 0.002,
+                              endIndent: width * 0.08,
+                              indent: width * 0.06,
+                            ),
+                            InkWell(
+                              onTap: () {
                                 QuickAlert.show(
                                     context: context,
                                     type: QuickAlertType.confirm,

@@ -16,6 +16,7 @@ import 'package:medical/features/details_adding/screen/onlinePharmacy/mycart.dar
 import 'package:medical/features/details_adding/screen/onlinePharmacy/pharmacy.dart';
 import 'package:medical/features/details_adding/screen/splashSceen/getstarted.dart';
 import 'package:medical/features/details_adding/screen/splashSceen/splashscreen.dart';
+import 'package:medical/features/details_adding/screen/widgets/chat_doctor.dart';
 import 'features/details_adding/screen/Profile/profile.dart';
 import 'features/details_adding/screen/doctor Consultation/chatwithdoctor.dart';
 import 'features/details_adding/screen/doctor Consultation/findDoctor.dart';
@@ -49,7 +50,7 @@ class MyApp extends StatelessWidget {
             theme: ThemeData(
               textTheme: GoogleFonts.interTextTheme()
             ),
-            home:AmbulancePage()
+            home:Chatdoctor()
     ),);
   }
 }

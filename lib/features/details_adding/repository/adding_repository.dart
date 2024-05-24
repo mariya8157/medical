@@ -15,8 +15,17 @@ class AddingRepository{
 
   CollectionReference get _users => _firestore.collection("users");
 
-  addingFunction ({required UsersModel usersModel}){
-    _users.add(usersModel.toMap());
+  add(name, email, password, id){
+    UsersModel userData = UsersModel(
+        name: name,
+        email: email,
+        password: password,
+        id: ''
+    );
+
+    _users.add(userData.toMap()).then((value) {
+      value.update(userData.copyWith(id: value.id).toMap());
+    },);
   }
 
   addingUser(name, email, password){
