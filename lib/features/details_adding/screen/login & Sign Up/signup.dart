@@ -23,6 +23,7 @@ class _SignupPageState extends ConsumerState<SignupPage> {
   TextEditingController nameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
+  TextEditingController idController = TextEditingController();
   final passwordValidation =
       RegExp(r"^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$");
   final emailValidation = RegExp(
@@ -30,9 +31,13 @@ class _SignupPageState extends ConsumerState<SignupPage> {
   final formKey = GlobalKey<FormState>();
   bool selectIcon = false;
   bool agree = false;
-  
+
   userDetails(){
-    // ref.read(provider)
+    ref.read(AddingControllerProvider).addUserData(
+        nameController.text,
+        emailController.text,
+        passwordController.text,
+        idController.text);
   }
   addSignupDetails() {
     ref.read(AddingControllerProvider).addUser(nameController.text,
@@ -264,6 +269,7 @@ class _SignupPageState extends ConsumerState<SignupPage> {
                 ),
                 InkWell(
                   onTap: () {
+                    userDetails();
                     addSignupDetails();
                     if (nameController.text != "" &&
                         emailController.text != "" &&
