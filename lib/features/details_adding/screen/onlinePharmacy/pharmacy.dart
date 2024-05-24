@@ -452,7 +452,7 @@ class _PharmacyPageState extends State<PharmacyPage> {
                                           },
                                           child: !favorite.contains(index)
                                               ? Image.asset(
-                                                  ImageIcons.heart1,
+                                                  ImageIcons.heart,
                                                   width: width * 0.05,
                                                 )
                                               : SvgPicture.asset(
@@ -681,7 +681,7 @@ class _PharmacyPageState extends State<PharmacyPage> {
                                           },
                                           child: !favorite1.contains(index)
                                               ? Image.asset(
-                                            ImageIcons.heart1,
+                                            ImageIcons.heart,
                                             width: width * 0.05,
                                           )
                                               : SvgPicture.asset(

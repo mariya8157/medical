@@ -50,7 +50,7 @@ class MyApp extends StatelessWidget {
             theme: ThemeData(
               textTheme: GoogleFonts.interTextTheme()
             ),
-            home:Chatdoctor()
+            home:SplashScreen()
     ),);
   }
 }
