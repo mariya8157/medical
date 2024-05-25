@@ -181,16 +181,6 @@ class _MyCartPageState extends State<MyCartPage> {
                                                 fontWeight: FontWeight.w800,
                                                 fontSize: width * 0.06),
                                           ),
-                                          InkWell(
-                                            // onTap: () {
-                                            //   FirebaseFirestore.instance.collection("users").doc(data[index].id).delete();
-                                            //   Navigator.pop(context);
-                                            // },
-                                            child: Icon(
-                                              Icons.delete_outline_rounded,
-                                              color: Colors.grey,
-                                            ),
-                                          ),
                                         ],
                                       ),
                                       Row(

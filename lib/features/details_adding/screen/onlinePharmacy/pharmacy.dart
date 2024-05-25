@@ -236,7 +236,7 @@ class _PharmacyPageState extends State<PharmacyPage> {
                               ),
                               Container(
                                 height: width * 0.099,
-                                width: width * 0.36,
+                                width: width * 0.33,
                                 decoration: BoxDecoration(
                                     color: Colour.primarycolour,
                                     borderRadius:
@@ -330,7 +330,8 @@ class _PharmacyPageState extends State<PharmacyPage> {
                                   ),
                                 ],
                               )),
-                        ),],
+                        ),
+                ],
               ),
             ],
           ),
@@ -450,8 +451,8 @@ class _PharmacyPageState extends State<PharmacyPage> {
                                             });
                                           },
                                           child: !favorite.contains(index)
-                                              ? SvgPicture.asset(
-                                                  ImageIcons.c_add,
+                                              ? Image.asset(
+                                                  ImageIcons.heart1,
                                                   width: width * 0.05,
                                                 )
                                               : SvgPicture.asset(
@@ -652,11 +653,20 @@ class _PharmacyPageState extends State<PharmacyPage> {
                                         children: [
                                           Text(
                                             c[index]["text4"],
-                                            style: TextStyle(decoration: TextDecoration.lineThrough,
-                                                decorationColor: Colour.color5,
+                                            style: TextStyle(
                                                 fontWeight: FontWeight.w700,
                                                 color: Colour.gray),
                                           ),
+                                          Padding(
+                                            padding: EdgeInsets.only(
+                                                top: width * 0.0185,
+                                                right: width * 0.04),
+                                            child: Container(
+                                              height: width * 0.005,
+                                              width: width * 0.115,
+                                              color: Colors.grey,
+                                            ),
+                                          )
                                         ],
                                       ),
                                       InkWell(
@@ -670,8 +680,8 @@ class _PharmacyPageState extends State<PharmacyPage> {
                                             });
                                           },
                                           child: !favorite1.contains(index)
-                                              ? SvgPicture.asset(
-                                            ImageIcons.c_add,
+                                              ? Image.asset(
+                                            ImageIcons.heart1,
                                             width: width * 0.05,
                                           )
                                               : SvgPicture.asset(
