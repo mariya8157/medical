@@ -72,7 +72,7 @@ class ImageIcons{
   // static const covid3 = "assets/images/covid_19_3.png";
   // static const covid4 = "assets/images/covid_19_4.png";
   // static const covid5 = "assets/images/covid_19_5.png";
-  // static const covid6 = "assets/images/covid_19_6.png";
+  // static const covid6 = "assets/i1111mages/covid_19_6.png";
   // static const covid7 = "assets/images/covid_19_7.png";
   static const drmarcus = "assets/images/drimage.png";
   static const drmarcus1 = "assets/images/drmarcus1.png";
@@ -101,6 +101,7 @@ class ImageIcons{
   static const phonepe="assets/images/phonepe .png";
   static const googlepay="assets/images/google pay.png";
   static const paytm="assets/images/paytm.png";
+  static const heart1="assets/images/heart1.png";
  //jpg
 static const banner1="assets/images/banner1.jpg";
 static const banner2="assets/images/banner2.jpg";
