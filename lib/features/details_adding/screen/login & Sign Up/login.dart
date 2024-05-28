@@ -197,96 +197,93 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                       email: emailController.text.trim(),
                       password: passwordController.text,
                     ).then((value) async {
-                      Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => BottomNavigationPage(email: emailController.text, password: passwordController.text),), (route) => false);
+                      if(
+                          emailController.text!=""&&
+                          passwordController.text!=""&&
+                          formKey.currentState!.validate()
+
+                      )
+                        showDialog(
+                          context: context,
+                          barrierDismissible: false,
+                          builder: (context) {
+                            return AlertDialog(
+                              content: Container(
+                                height: width*0.85,
+                                width: width*0.4,
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    Container(
+                                        height: width*0.25,
+                                        width: width*0.25,
+                                        child: Image.asset(ImageIcons.done)),
+                                    Container(
+                                        child: Column(
+                                          children: [
+                                            Text("Yeay! Welcome Back",
+                                              style: TextStyle(
+                                                  fontWeight: FontWeight.w600,
+                                                  fontSize: width*0.04,
+                                                  color: Colour.thirdcolour),),
+                                            Text("Once again you login successfully",
+                                              style: TextStyle(
+                                                  fontWeight: FontWeight.w500,
+                                                  fontSize: width*0.034,
+                                                  color: Colour.color1),),
+                                            Text("into medidoc app",
+                                              style: TextStyle(
+                                                  fontWeight: FontWeight.w500,
+                                                  fontSize: width*0.034,
+                                                  color: Colour.color1),),
+                                          ],)),
+                                    InkWell(
+                                      onTap: () {
+                                        Navigator.push(context, MaterialPageRoute(builder: (context) => BottomNavigationPage(
+                                          email: emailController.text,
+                                          password: passwordController.text,
+                                        ),));
+                                      },
+                                      child: Container(
+                                        height: width*0.12,
+                                        width: width*0.34,
+                                        decoration: BoxDecoration(
+                                            color: Colour.primarycolour,
+                                            borderRadius: BorderRadius.circular(width*0.05)
+                                        ),
+                                        child: Center(
+                                          child: Text("Go to home",
+                                            style: TextStyle(
+                                                fontSize: width*0.04,
+                                                fontWeight: FontWeight.w600,
+                                                color: Colour.secondarycolour
+                                            ),),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            );
+                          },);
+                      else{
+                        emailController.text==""?
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                            backgroundColor: Colour.primarycolour,
+                            content: Text("Please enter your Email!"))):
+                        passwordController.text==""?
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                            backgroundColor: Colour.primarycolour,
+                            content: Text("Please enter your Password!"))):
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                            backgroundColor: Colour.primarycolour,
+                            content: Text("Please enter your Valid Details!")));
+                      }
                       SharedPreferences prefs=await SharedPreferences.getInstance();
                       prefs.setBool('login', true);
-
                     }).catchError((error){
                       ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(error.toString())));
                     });
-                    if(
-
-                     emailController.text!=""&&
-                     passwordController.text!=""&&
-                     formKey.currentState!.validate()
-
-                   )
-                    showDialog(
-                        context: context,
-                        barrierDismissible: false,
-                        builder: (context) {
-                          return AlertDialog(
-                            content: Container(
-                              height: width*0.85,
-                              width: width*0.4,
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  Container(
-                                      height: width*0.25,
-                                      width: width*0.25,
-                                      child: Image.asset(ImageIcons.done)),
-                                  Container(
-                                      child: Column(
-                                        children: [
-                                          Text("Yeay! Welcome Back",
-                                            style: TextStyle(
-                                                fontWeight: FontWeight.w600,
-                                                fontSize: width*0.04,
-                                                color: Colour.thirdcolour),),
-                                          Text("Once again you login successfully",
-                                            style: TextStyle(
-                                                fontWeight: FontWeight.w500,
-                                                fontSize: width*0.034,
-                                                color: Colour.color1),),
-                                          Text("into medidoc app",
-                                            style: TextStyle(
-                                                fontWeight: FontWeight.w500,
-                                                fontSize: width*0.034,
-                                                color: Colour.color1),),
-                                        ],)),
-                                  InkWell(
-                                    onTap: () {
-                                      Navigator.push(context, MaterialPageRoute(builder: (context) => BottomNavigationPage(
-                                        email: emailController.text,
-                                        password: passwordController.text,
-                                      ),));
-                                    },
-                                    child: Container(
-                                      height: width*0.12,
-                                      width: width*0.34,
-                                      decoration: BoxDecoration(
-                                          color: Colour.primarycolour,
-                                          borderRadius: BorderRadius.circular(width*0.05)
-                                      ),
-                                      child: Center(
-                                        child: Text("Go to home",
-                                          style: TextStyle(
-                                              fontSize: width*0.04,
-                                              fontWeight: FontWeight.w600,
-                                              color: Colour.secondarycolour
-                                          ),),
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          );
-                        },);
-                     else{
-                     emailController.text==""?
-                     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                         backgroundColor: Colour.primarycolour,
-                         content: Text("Please enter your Email!"))):
-                      passwordController.text==""?
-                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                          backgroundColor: Colour.primarycolour,
-                          content: Text("Please enter your Password!"))):
-                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                          backgroundColor: Colour.primarycolour,
-                          content: Text("Please enter your Valid Details!")));
-                  }
                   },
                   child: Container(
                     height: width*0.16,
