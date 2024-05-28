@@ -12,6 +12,7 @@ import 'package:medical/features/details_adding/screen/home/homepage.dart';
 import 'package:medical/features/details_adding/screen/login%20&%20Sign%20Up/forgotpassword.dart';
 import 'package:medical/features/details_adding/screen/login%20&%20Sign%20Up/signup.dart';
 import 'package:medical/models/model1.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../../core/colour.dart';
 import '../../../../core/icons.dart';
@@ -192,11 +193,23 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                 InkWell(
                   onTap: () {
                    // getDetails();
+                    FirebaseAuth.instance.signInWithEmailAndPassword(
+                      email: emailController.text.trim(),
+                      password: passwordController.text,
+                    ).then((value) async {
+                      Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => BottomNavigationPage(email: emailController.text, password: passwordController.text),), (route) => false);
+                      SharedPreferences prefs=await SharedPreferences.getInstance();
+                      prefs.setBool('login', true);
+
+                    }).catchError((error){
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(error.toString())));
+                    });
                     if(
 
                      emailController.text!=""&&
                      passwordController.text!=""&&
                      formKey.currentState!.validate()
+
                    )
                     showDialog(
                         context: context,

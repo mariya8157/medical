@@ -232,6 +232,7 @@ class _FindDoctorState extends State<FindDoctor> {
                     ),
                   ],
                 ),
+
                 Container(
                   width: width*1,
                   child: Expanded(

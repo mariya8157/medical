@@ -1,8 +1,12 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:medical/features/details_adding/screen/home/bottomnavigation.dart';
+import 'package:medical/features/details_adding/screen/home/homepage.dart';
 import 'package:medical/features/details_adding/screen/login%20&%20Sign%20Up/login.dart';
 import 'package:medical/features/details_adding/screen/login%20&%20Sign%20Up/signup.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../../core/colour.dart';
 import '../../../../core/icons.dart';
@@ -16,6 +20,7 @@ class GetStartedPage extends StatefulWidget {
 }
 
 class _GetStartedPageState extends State<GetStartedPage> {
+  TextEditingController name_controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
@@ -41,8 +46,12 @@ class _GetStartedPageState extends State<GetStartedPage> {
             ),),
           SizedBox(height: width*0.05,),
           InkWell(
-            onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage(),));
+            onTap: () async {
+              SharedPreferences prefs=await SharedPreferences.getInstance();
+
+
+             // prefs.setString('name', name_controller.text);
+             Navigator.pushAndRemoveUntil(context, CupertinoPageRoute(builder: (context) =>prefs.getBool("login")==true?BottomNavigationPage(email: "", password: ""):LoginPage(),), (route) => false);
             },
             child: Container(
               height: width*0.14,

@@ -3,10 +3,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:medical/main.dart';
 import 'package:quickalert/models/quickalert_type.dart';
 import 'package:quickalert/widgets/quickalert_dialog.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../../core/colour.dart';
 import '../../../../core/icons.dart';
@@ -310,13 +312,14 @@ class _ProfilePageState extends State<ProfilePage> {
                                     cancelBtnText: 'No',
                                     confirmBtnColor: Colour.primarycolour,
 
-                                    onConfirmBtnTap: () {
-                                      Navigator.pushAndRemoveUntil(
-                                          context,
-                                          MaterialPageRoute(
-                                            builder: (context) => LoginPage(),
-                                          ),
-                                          ModalRoute.withName("/"));
+                                    onConfirmBtnTap: () async {
+                                      SharedPreferences prefs = await SharedPreferences.getInstance();
+                                      prefs.remove("login");
+                                      // prefs.remove("name");
+                                      prefs.clear();
+                                      Navigator.pushAndRemoveUntil(context,
+                                          MaterialPageRoute(builder: (context) => LoginPage(),), (route) => false);
+
                                     });
                               },
                               // onTap: () {

@@ -1,7 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:medical/features/details_adding/screen/home/bottomnavigation.dart';
+import 'package:medical/features/details_adding/screen/home/homepage.dart';
+import 'package:medical/features/details_adding/screen/splashSceen/getstarted.dart';
 import 'package:medical/features/details_adding/screen/splashSceen/onbording.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../../core/colour.dart';
 import '../../../../core/icons.dart';
@@ -16,9 +20,25 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  TextEditingController nameController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
   @override
+  bool login=false;
+  splash() async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  login=prefs.getBool('login')??false;
+
+
+  Future.delayed(Duration(
+    seconds: 5
+  )).then((value) => Navigator.push(context, MaterialPageRoute(builder: (context) =>
+    login==true?BottomNavigationPage(email: emailController.text, password:passwordController.text):GetStartedPage()
+    ,)));
+  }
   void initState() {
     // TODO: implement initState
+    splash();
     Future.delayed(Duration(
       seconds: 5
     )).then((value) =>
