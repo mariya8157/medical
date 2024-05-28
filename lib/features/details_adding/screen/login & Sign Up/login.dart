@@ -282,7 +282,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                       SharedPreferences prefs=await SharedPreferences.getInstance();
                       prefs.setBool('login', true);
                     }).catchError((error){
-                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("wrong fgfuhjkvhdjk")));
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("invalid")));
                     });
                   },
                   child: Container(
