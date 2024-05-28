@@ -197,12 +197,12 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                       email: emailController.text.trim(),
                       password: passwordController.text,
                     ).then((value) async {
-                      if(
-                          emailController.text!=""&&
-                          passwordController.text!=""&&
-                          formKey.currentState!.validate()
-
-                      )
+                      // if(
+                      //     emailController.text!=""&&
+                      //     passwordController.text!=""&&
+                      //     formKey.currentState!.validate()
+                      //
+                      // )
                         showDialog(
                           context: context,
                           barrierDismissible: false,
@@ -266,23 +266,23 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                               ),
                             );
                           },);
-                      else{
-                        emailController.text==""?
-                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                            backgroundColor: Colour.primarycolour,
-                            content: Text("Please enter your Email!"))):
-                        passwordController.text==""?
-                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                            backgroundColor: Colour.primarycolour,
-                            content: Text("Please enter your Password!"))):
-                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                            backgroundColor: Colour.primarycolour,
-                            content: Text("Please enter your Valid Details!")));
-                      }
+                      // else{
+                      //   emailController.text==""?
+                      //   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                      //       backgroundColor: Colour.primarycolour,
+                      //       content: Text("Please enter your Email!"))):
+                      //   passwordController.text==""?
+                      //   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                      //       backgroundColor: Colour.primarycolour,
+                      //       content: Text("Please enter your Password!"))):
+                      //   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                      //       backgroundColor: Colour.primarycolour,
+                      //       content: Text("Please enter your Valid Details!")));
+                      // }
                       SharedPreferences prefs=await SharedPreferences.getInstance();
                       prefs.setBool('login', true);
                     }).catchError((error){
-                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(error.toString())));
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("wrong fgfuhjkvhdjk")));
                     });
                   },
                   child: Container(
