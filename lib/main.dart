@@ -21,6 +21,7 @@ import 'features/details_adding/screen/Profile/profile.dart';
 import 'features/details_adding/screen/doctor Consultation/chatwithdoctor.dart';
 import 'features/details_adding/screen/doctor Consultation/findDoctor.dart';
 import 'features/details_adding/screen/onlinePharmacy/article.dart';
+import 'features/details_adding/screen/onlinePharmacy/delivery_address.dart';
 import 'firebase_options.dart';
 
 
@@ -50,7 +51,7 @@ class MyApp extends StatelessWidget {
             theme: ThemeData(
               textTheme: GoogleFonts.interTextTheme()
             ),
-            home:SplashScreen()
+            home:delivery()
     ),);
   }
 }
