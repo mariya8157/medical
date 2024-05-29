@@ -9,6 +9,7 @@ import 'package:medical/main.dart';
 import 'package:quickalert/models/quickalert_type.dart';
 import 'package:quickalert/widgets/quickalert_dialog.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../../core/colour.dart';
 import '../../../../core/icons.dart';
@@ -315,7 +316,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                     onConfirmBtnTap: () async {
                                       SharedPreferences prefs = await SharedPreferences.getInstance();
                                       prefs.remove("login");
-                                      // prefs.remove("name");
+                                      prefs.remove("name");
                                       prefs.clear();
                                       Navigator.pushAndRemoveUntil(context,
                                           MaterialPageRoute(builder: (context) => LoginPage(),), (route) => false);

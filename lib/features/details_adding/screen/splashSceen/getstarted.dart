@@ -7,6 +7,7 @@ import 'package:medical/features/details_adding/screen/home/homepage.dart';
 import 'package:medical/features/details_adding/screen/login%20&%20Sign%20Up/login.dart';
 import 'package:medical/features/details_adding/screen/login%20&%20Sign%20Up/signup.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../../core/colour.dart';
 import '../../../../core/icons.dart';
@@ -50,7 +51,7 @@ class _GetStartedPageState extends State<GetStartedPage> {
               SharedPreferences prefs=await SharedPreferences.getInstance();
 
 
-             // prefs.setString('name', name_controller.text);
+             prefs.setString('name', name_controller.text);
              Navigator.pushAndRemoveUntil(context, CupertinoPageRoute(builder: (context) =>prefs.getBool("login")==true?BottomNavigationPage(email: "", password: ""):LoginPage(),), (route) => false);
             },
             child: Container(
