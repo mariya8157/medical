@@ -657,7 +657,6 @@ class _OrderDetailsState extends ConsumerState<OrderDetails> {
                                 fontSize: width*0.05,
                                 fontWeight: FontWeight.w600
                             ),),
-
                           ],
                         ),
                       )
