@@ -524,3 +524,55 @@
 //     );
 //   }
 // }
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_svg/svg.dart';
+
+import '../../../../core/icons.dart';
+import '../../../../main.dart';
+
+class OrderDetails extends ConsumerStatefulWidget {
+  const OrderDetails({super.key});
+
+  @override
+  ConsumerState createState() => _OrderDetailsState();
+}
+
+class _OrderDetailsState extends ConsumerState<OrderDetails> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        scrolledUnderElevation: 0,
+        centerTitle: true,
+        backgroundColor: Colors.white24,
+        // resizeToAvoidBottomInset: false,
+        elevation: 0,
+        leading: InkWell(
+          onTap: () {
+            Navigator.pop(context);
+          },
+          child: SizedBox(
+            height: width * 0.05,
+            width: width * 0.8,
+            child: Padding(
+              padding: EdgeInsets.only(left: width * 0.023),
+              child: Padding(
+                padding: EdgeInsets.all(width * 0.007),
+                child: SvgPicture.asset(ImageIcons.back),
+              ),
+            ),
+          ),
+        ),
+        title: Text(
+          "Order Details",
+          style: TextStyle(
+              color: Colors.black,
+              fontWeight: FontWeight.w700,
+              fontSize: width * 0.063),
+        ),
+      ),
+    );
+  }
+}

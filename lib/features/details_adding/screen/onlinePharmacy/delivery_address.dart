@@ -2,28 +2,49 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:medical/core/colour.dart';
+import 'package:medical/features/details_adding/controller/addingcontroller_page.dart';
+import 'package:medical/features/details_adding/screen/onlinePharmacy/address.dart';
+import 'package:medical/models/model2.dart';
 
 import '../../../../core/icons.dart';
 import '../../../../main.dart';
 
-class delivery extends StatefulWidget {
-  const delivery({super.key});
+class DeliveryPage extends ConsumerStatefulWidget {
+  const DeliveryPage({super.key});
 
   @override
-  State<delivery> createState() => _deliveryState();
+  ConsumerState createState() => _DeliveryPageState();
 }
 
-class _deliveryState extends State<delivery> {
+class _DeliveryPageState extends ConsumerState<DeliveryPage> {
+
   TextEditingController nameController=TextEditingController();
   TextEditingController addressController=TextEditingController();
   TextEditingController pincodeController=TextEditingController();
   TextEditingController cityController=TextEditingController();
   TextEditingController streetController=TextEditingController();
+  TextEditingController countryController=TextEditingController();
+  TextEditingController houseController=TextEditingController();
+  TextEditingController phoneController=TextEditingController();
+  TextEditingController idController=TextEditingController();
 
 
+  addressDetails(){
+    ref.read(AddressControllerProvider).addAddressData(AddressModel(
+        name: nameController.text,
+        phone: int.parse(phoneController.text),
+        pincode: int.parse(pincodeController.text),
+        street: streetController.text,
+        city: cityController.text,
+        country: countryController.text,
+        housename: houseController.text,
+        id: idController.text));
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -79,9 +100,9 @@ class _deliveryState extends State<delivery> {
               height: width*0.16,
               width: width*0.88,
               child: TextFormField(
-                controller: nameController,
-                textInputAction: TextInputAction.next,
-                keyboardType: TextInputType.name,
+                  controller: nameController,
+                  textInputAction: TextInputAction.next,
+                  keyboardType: TextInputType.name,
                   decoration: InputDecoration(
                     suffix: InkWell(
                         onTap: () {
@@ -92,11 +113,10 @@ class _deliveryState extends State<delivery> {
                         },
                         child: Icon(Icons.clear)),
                     // suffixText:"kousar",
-                    hintText: "full name",
                     labelStyle: TextStyle(
-                        fontSize: width * 0.06,
-                        fontWeight: FontWeight.w300,
-                        ),
+                      fontSize: width * 0.06,
+                      fontWeight: FontWeight.w300,
+                    ),
                     border: OutlineInputBorder(
                       borderSide: const BorderSide(
                         color: Colors.red,
@@ -115,7 +135,7 @@ class _deliveryState extends State<delivery> {
             Row(
               children: [
                 SizedBox(width: width*0.07,),
-                Text("Address",style: TextStyle(fontWeight: FontWeight.w500,fontSize: width*0.05),),
+                Text("Phone Number",style: TextStyle(fontWeight: FontWeight.w500,fontSize: width*0.05),),
               ],
             ),
             SizedBox(height: width*0.02,),
@@ -123,12 +143,15 @@ class _deliveryState extends State<delivery> {
               height: width*0.16,
               width: width*0.88,
               child: TextFormField(
-                  controller: addressController,
+                  controller: phoneController,
                   textInputAction: TextInputAction.next,
-                  keyboardType: TextInputType.text,
+                  keyboardType: TextInputType.number,
+                  inputFormatters: [
+                    FilteringTextInputFormatter.digitsOnly,
+                    LengthLimitingTextInputFormatter(10)
+                  ],
                   decoration: InputDecoration(
-                    // suffixText:"kousar",
-                    hintText: "Address",
+                    prefixText:"+91 ",
                     labelStyle: TextStyle(
                       fontSize: width * 0.06,
                       fontWeight: FontWeight.w300,
@@ -189,7 +212,7 @@ class _deliveryState extends State<delivery> {
                       )
                   ),
                 ),
-                 SizedBox(width: width*0.08),
+                SizedBox(width: width*0.08),
                 InkWell(
                   onTap: () async {
                     LocationPermission permission = await Geolocator.checkPermission();
@@ -208,6 +231,7 @@ class _deliveryState extends State<delivery> {
                         pincodeController.text = first.postalCode!;
                         streetController.text = first.subLocality!;
                         cityController.text = first.locality!;
+                        countryController.text = first.country!;
                       });
                     }
                     catch (e) {
@@ -219,26 +243,26 @@ class _deliveryState extends State<delivery> {
                     width: width*0.4,
                     decoration: BoxDecoration(
                       // color: Colors.red.withOpacity(0.2),
-                      border: Border.all(color: Colors.red),
+                      border: Border.all(color: Colour.primarycolour),
                       borderRadius: BorderRadius.circular(width*0.03),
                     ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        Icon(Icons.my_location_outlined,color: Colors.red,),
-                        Text("My Location",style: TextStyle(color: Colors.red),)
+                        Icon(Icons.my_location_outlined,color: Colour.primarycolour),
+                        Text("My Location",style: TextStyle(color: Colour.primarycolour),)
                       ],),
                   ),
                 )
-                 // Container(
-                 //   height: width*0.12,
-                 //   width: width*0.38,
-                 //   decoration: BoxDecoration(
-                 //     border: Border.all(color: Colors.red),
-                 //     borderRadius: BorderRadius.circular(width*0.02)
-                 //   ),
-                 //
-                 // )
+                // Container(
+                //   height: width*0.12,
+                //   width: width*0.38,
+                //   decoration: BoxDecoration(
+                //     border: Border.all(color: Colors.red),
+                //     borderRadius: BorderRadius.circular(width*0.02)
+                //   ),
+                //
+                // )
               ],
             ),
             SizedBox(height: width*0.05,),
@@ -310,6 +334,98 @@ class _deliveryState extends State<delivery> {
                     ),
                   )
               ),
+            ),
+            SizedBox(height: width*0.05,),
+            Row(
+              children: [
+                SizedBox(width: width*0.07,),
+                Text("Country",style: TextStyle(fontWeight: FontWeight.w700,fontSize: width*0.05),),
+              ],
+            ),
+            SizedBox(height: width*0.02,),
+            SizedBox(
+              height: width*0.16,
+              width: width*0.88,
+              child: TextFormField(
+                  controller: countryController,
+                  textInputAction: TextInputAction.next,
+                  keyboardType: TextInputType.name,
+                  decoration: InputDecoration(
+                    // suffixText:"kousar",
+                    labelStyle: TextStyle(
+                      fontSize: width * 0.05,
+                      fontWeight: FontWeight.w300,
+                    ),
+                    border: OutlineInputBorder(
+                      borderSide: const BorderSide(
+                        color: Colors.red,
+                      ),
+                      borderRadius: BorderRadius.circular(width * 0.03),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(
+                      ),
+                      borderRadius: BorderRadius.circular(width * 0.03),
+                    ),
+                  )
+              ),),
+            SizedBox(height: width*0.05,),
+            Row(
+              children: [
+                SizedBox(width: width*0.07,),
+                Text("House/Apartment name",style: TextStyle(fontWeight: FontWeight.w500,fontSize: width*0.05),),
+              ],
+            ),
+            SizedBox(height: width*0.02,),
+            SizedBox(
+              height: width*0.16,
+              width: width*0.88,
+              child: TextFormField(
+                  controller: addressController,
+                  textInputAction: TextInputAction.done,
+                  keyboardType: TextInputType.name,
+                  decoration: InputDecoration(
+                    // suffixText:"kousar",
+                    labelStyle: TextStyle(
+                      fontSize: width * 0.05,
+                      fontWeight: FontWeight.w300,
+                    ),
+                    border: OutlineInputBorder(
+                      borderSide: const BorderSide(
+                        color: Colors.red,
+                      ),
+                      borderRadius: BorderRadius.circular(width * 0.03),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: const BorderSide(
+                      ),
+                      borderRadius: BorderRadius.circular(width * 0.03),
+                    ),
+                  )
+              ),),
+            SizedBox(height: width*0.06,),
+            InkWell(
+              onTap: () {
+                addressDetails();
+                Navigator.push(context, MaterialPageRoute(builder: (context) => OrderDetails(),));
+              },
+              child: Container(
+                height: width*0.16,
+                width: width*0.88,
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: <Color>[Colour.primarycolour, Colour.lightprimarycolor],
+                  ),
+                  borderRadius: BorderRadius.circular(width*0.04),
+                ),
+                child: Center(
+                  child: Text("Add",style: TextStyle(
+                      fontWeight: FontWeight.w800,
+                      color: Colour.secondarycolour,
+                      fontSize: width*0.06
+                  ),),
+                ),
+              ),
             )
           ],
         ),
@@ -317,3 +433,5 @@ class _deliveryState extends State<delivery> {
     );
   }
 }
+
+

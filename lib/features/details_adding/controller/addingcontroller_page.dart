@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:medical/models/model1.dart';
 
+import '../../../models/model2.dart';
 import '../repository/adding_repository.dart';
 
 final AddingControllerProvider = Provider((ref) => AddingController(addingRepository: ref.watch(AddingRepositoryProvider)));
@@ -14,6 +15,30 @@ class AddingController{
   }
   addUser(name, email, password){
     _addingRepository.addingUser(name, email, password);
+  }
+
+}
+
+///address
+
+final AddressControllerProvider = Provider((ref) => AddressController(addressRepository: ref.watch(AddressRepositoryProvider)));
+final StreamAddressProvider = StreamProvider((ref) => ref.watch(AddressControllerProvider).StreamAddressData());
+
+class AddressController{
+  final AddressRepository _addressRepository;
+  AddressController({required AddressRepository addressRepository}): _addressRepository= addressRepository;
+
+  addAddressData(AddressModel addressAdd){
+    _addressRepository.add(addressAdd);
+  }
+  Stream StreamAddressData(){
+    return _addressRepository.streamAddress();
+  }
+  deleteData(AddressModel AddressDelete){
+    _addressRepository.deleteAddress(AddressDelete);
+  }
+  updateData(AddressModel addressUpdate){
+    _addressRepository.UpdateAddress(addressUpdate);
   }
 
 }
