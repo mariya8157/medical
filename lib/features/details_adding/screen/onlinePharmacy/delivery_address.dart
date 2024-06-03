@@ -24,7 +24,6 @@ class DeliveryPage extends ConsumerStatefulWidget {
 class _DeliveryPageState extends ConsumerState<DeliveryPage> {
 
   TextEditingController nameController=TextEditingController();
-  TextEditingController addressController=TextEditingController();
   TextEditingController pincodeController=TextEditingController();
   TextEditingController cityController=TextEditingController();
   TextEditingController streetController=TextEditingController();
@@ -42,7 +41,7 @@ class _DeliveryPageState extends ConsumerState<DeliveryPage> {
         street: streetController.text,
         city: cityController.text,
         country: countryController.text,
-        housename: houseController.text,
+        houseName: houseController.text,
         id: idController.text));
   }
   @override
@@ -381,7 +380,7 @@ class _DeliveryPageState extends ConsumerState<DeliveryPage> {
               height: width*0.16,
               width: width*0.88,
               child: TextFormField(
-                  controller: addressController,
+                  controller: houseController,
                   textInputAction: TextInputAction.done,
                   keyboardType: TextInputType.name,
                   decoration: InputDecoration(

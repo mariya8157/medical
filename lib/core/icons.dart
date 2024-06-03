@@ -29,6 +29,7 @@ class ImageIcons{
 
   static const star = "assets/icons/Star.svg";
   static const location = "assets/icons/Location.svg";
+  static const location1 = "assets/icons/location1.svg";
   static const chat = "assets/icons/Chat.svg";
   static const calendar = "assets/icons/Calendar.svg";
   static const square = "assets/icons/Square.svg";

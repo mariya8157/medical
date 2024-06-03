@@ -528,6 +528,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:geocoding/geocoding.dart';
+import 'package:geolocator/geolocator.dart';
+import 'package:medical/core/colour.dart';
+import 'package:medical/features/details_adding/controller/addingcontroller_page.dart';
 
 import '../../../../core/icons.dart';
 import '../../../../main.dart';
@@ -540,6 +544,40 @@ class OrderDetails extends ConsumerStatefulWidget {
 }
 
 class _OrderDetailsState extends ConsumerState<OrderDetails> {
+
+
+
+  getLocation () async {
+    LocationPermission permission = await Geolocator.checkPermission();
+    if(permission == LocationPermission.denied || permission == LocationPermission.deniedForever){
+      Future.error('Location permissions are denied');
+      LocationPermission ask = await Geolocator.requestPermission();
+    }
+  }
+  String? address;
+  getAddress () async {
+    try{
+      Position currentPosition = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.medium);
+      // print(currentPosition.latitude);
+      // print(currentPosition.longitude);
+      List <Placemark> result = await placemarkFromCoordinates(currentPosition.latitude, currentPosition.longitude);
+      Placemark first = result.first;
+      setState(() {
+        address = "${first.locality}, ${first.administrativeArea}";
+      });
+    }
+    catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Failed to load your Location")));
+    }
+  }
+
+  @override
+  void initState() {
+    getLocation();
+    getAddress();
+    // TODO: implement initState
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -568,11 +606,77 @@ class _OrderDetailsState extends ConsumerState<OrderDetails> {
         title: Text(
           "Order Details",
           style: TextStyle(
-              color: Colors.black,
+              color: Colour.thirdcolour,
               fontWeight: FontWeight.w700,
               fontSize: width * 0.063),
+        ),
+      ),
+      body: Padding(
+        padding:  EdgeInsets.all(width*0.03),
+        child: Column(
+          children: [
+            Row(
+              children: [
+                Container(
+                    width: width*0.57,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Icon(Icons.location_on_outlined),
+                        GestureDetector(
+                          onTap: () {
+                            getAddress();
+                          },
+                          child: Text(address == null?
+                          "Fetching your location...": "$address",
+                            style: TextStyle(
+                                fontSize: width * 0.048, color:Colour.thirdcolour),
+                          ),
+                        )
+                      ],
+                    )),
+              ],
+            ),
+            SizedBox(height: width*0.04,),
+            ref.watch(StreamAddressProvider).when(data: (data) => Row(
+              children: [
+                Container(
+                  height: width*0.3,
+                  width: width*0.7,
+                  decoration: BoxDecoration(
+                    color: Colors.yellow,
+                    borderRadius: BorderRadius.circular(width*0.02),
+                  ),
+                  child: Row(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.all(width*0.02),
+                        child: Column(
+                          children: [
+                            Text("Address : ",style: TextStyle(
+                                fontSize: width*0.05,
+                                fontWeight: FontWeight.w600
+                            ),),
+
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ],
+            ),
+              error: (error, stackTrace) {
+                return ScaffoldMessenger(
+                    child: Center(child: Text(error.toString())));
+              },
+              loading: () {
+                return Center(child: CircularProgressIndicator());
+              },)
+          ],
         ),
       ),
     );
   }
 }
+

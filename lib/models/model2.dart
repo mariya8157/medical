@@ -5,7 +5,7 @@ class AddressModel {
   String street;
   String city;
   String country;
-  String housename;
+  String houseName;
   String id;
 
   AddressModel({
@@ -15,7 +15,7 @@ class AddressModel {
     required this.street,
     required this.city,
     required this.country,
-    required this.housename,
+    required this.houseName,
     required this.id,
   });
 
@@ -26,8 +26,8 @@ class AddressModel {
       'pincode': this.pincode,
       'street': this.street,
       'city': this.city,
-      'email': this.country,
-      'password': this.housename,
+      'country': this.country,
+      'houseName': this.houseName,
       'id': this.id,
     };
   }
@@ -39,7 +39,7 @@ class AddressModel {
       street: map['street'] ?? "",
       city: map['city'] ?? "",
       country: map['country'] ?? "",
-      housename: map['housename'] ?? "",
+      houseName: map['houseName'] ?? "",
       name: map['name'] ?? "",
       id: map['id'] ?? "",
     );
@@ -52,7 +52,7 @@ class AddressModel {
     String? street,
     String? city,
     String? country,
-    String? email,
+    String? houseName,
     String? id,
   }) {
     return AddressModel(
@@ -62,7 +62,7 @@ class AddressModel {
       street: street ?? this.street,
       city: city ?? this.city,
       country: country ?? this.country,
-      housename: housename ?? this.housename,
+      houseName: houseName ?? this.houseName,
       id: id ?? this.id,
     );
   }
