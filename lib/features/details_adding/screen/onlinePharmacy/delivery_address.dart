@@ -6,12 +6,12 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:medical/core/colour.dart';
 import 'package:medical/features/details_adding/controller/addingcontroller_page.dart';
 import 'package:medical/features/details_adding/screen/onlinePharmacy/address.dart';
 import 'package:medical/models/model2.dart';
 
-import '../../../../core/icons.dart';
+import '../../../../colour.dart';
+import '../../../../icons.dart';
 import '../../../../main.dart';
 
 class DeliveryPage extends ConsumerStatefulWidget {
