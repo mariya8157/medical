@@ -82,19 +82,18 @@ class _ChatPageState extends State<ChatPage> {
       body: Stack(
         alignment: Alignment.bottomCenter,
         children: [
-          Padding(
-            padding: EdgeInsets.all(width * 0.03),
-            child: ListView(
-              scrollDirection: Axis.vertical,
-              children: [
-                Column(
+          ListView(
+            children: [
+              Padding(
+                padding: EdgeInsets.all(width * 0.03),
+                child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     ChatInfo(),
                     SizedBox(
                       height: height * 0.01,
                     ),
-                    Chatdoctor(),
+                    // Chatdoctor(),
                     SizedBox(
                       height: height * 0.01,
                     ),
@@ -173,7 +172,7 @@ class _ChatPageState extends State<ChatPage> {
                     SizedBox(
                       height: height * 0.01,
                     ),
-                    Chatdoctor(),
+                    // Chatdoctor(),
                     SizedBox(
                       height: height * 0.01,
                     ),
@@ -247,7 +246,11 @@ class _ChatPageState extends State<ChatPage> {
                         ),
                       ],
                     ),
-                    Chatdoctor(),
+                    // Chatdoctor(),
+                    SizedBox(
+                      height: height * 0.01,
+                    ),
+
                     Container(
                       height: height * 0.05,
                       width: width * 0.6,
@@ -274,8 +277,9 @@ class _ChatPageState extends State<ChatPage> {
                     ),
                   ],
                 ),
-              ],
-            ),
+              ),
+
+            ],
           ),
           Container(
             height: height * 0.06,
