@@ -1,3 +1,63 @@
+class Doctorsmodel{
+  String? name;
+  String ? spl;
+  String ? date;
+  int ? time;
+  String ? id;
+
+  Doctorsmodel({
+    this.name,
+    this.spl,
+    this.date,
+    this.time,
+    this.id
+
+  });
+  Map<String,dynamic> toMap(){
+    return{
+      "name":this.name,
+      "spl":this.spl,
+      "date":this.date,
+      "time":this.time,
+      "id":this.id,
+
+
+
+
+    };
+  }
+  factory Doctorsmodel.fromMap(Map<String,dynamic>map){
+    return Doctorsmodel(
+      name: map["name"]??"",
+      spl: map["spl"]??"",
+      date: map["date"]??"",
+      time: map["time"]??"",
+      id: map["id"]??"",
+    );
+  }
+  Doctorsmodel copyWith({
+    String? name,
+    String? spl,
+    String? date,
+    int? time,
+    String ?id,
+
+
+  }){
+    return Doctorsmodel(
+      name: name ?? this.name,
+      spl: spl ?? this.spl,
+      date: date ?? this.date,
+      time: time ?? this.time,
+      id: id ?? this.id
+
+
+    );
+  }
+
+
+
+}
 class AddressModel {
   String name;
   int phone;

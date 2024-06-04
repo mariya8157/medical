@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:medical/features/details_adding/screen/login%20&%20Sign%20Up/login.dart';
-import '../../../../core/colour.dart';
-import '../../../../core/icons.dart';
+import '../../../../colour.dart';
+import '../../../../icons.dart';
 import '../../../../main.dart';
 
 class CreatePasswordPage extends StatefulWidget {

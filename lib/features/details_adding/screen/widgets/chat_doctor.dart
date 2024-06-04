@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:medical/main.dart';
 
-import '../../../../core/colour.dart';
-import '../../../../core/icons.dart';
+import '../../../../colour.dart';
+import '../../../../icons.dart';
 
 class Chatdoctor extends StatefulWidget {
   const Chatdoctor({super.key});

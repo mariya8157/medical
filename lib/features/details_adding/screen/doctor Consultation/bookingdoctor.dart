@@ -3,8 +3,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:medical/features/details_adding/screen/doctor%20Consultation/chatwithdoctor.dart';
 import 'package:medical/features/details_adding/screen/doctor%20Consultation/doctordetails.dart';
-import '../../../../core/colour.dart';
-import '../../../../core/icons.dart';
+import '../../../../colour.dart';
+import '../../../../icons.dart';
 import '../../../../main.dart';
 import '../onlinePharmacy/drugsdetail.dart';
 
@@ -700,6 +700,7 @@ class _BookingPageState extends State<BookingPage> {
                                         ],)),
                                   InkWell(
                                     onTap: () {
+
                                       Navigator.push(context,MaterialPageRoute(builder: (context) => ChatPage(),));
 
                                     },

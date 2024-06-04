@@ -6,8 +6,8 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:givestarreviews/givestarreviews.dart';
 
-import '../../../../core/colour.dart';
-import '../../../../core/icons.dart';
+import '../../../../colour.dart';
+import '../../../../icons.dart';
 import '../../../../main.dart';
 import 'mycart.dart';
 

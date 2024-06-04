@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:medical/core/colour.dart';
+import 'package:medical/colour.dart';
 
 import '../../../../main.dart';
 

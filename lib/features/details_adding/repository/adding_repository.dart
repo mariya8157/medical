@@ -2,7 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:medical/models/model2.dart';
 import '../../../models/model1.dart';
 import '../providers/firebaseProviders.dart';
 import '../screen/home/homepage.dart';

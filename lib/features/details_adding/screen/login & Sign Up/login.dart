@@ -15,8 +15,8 @@ import 'package:medical/models/model1.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../../../../core/colour.dart';
-import '../../../../core/icons.dart';
+import '../../../../colour.dart';
+import '../../../../icons.dart';
 import '../../../../main.dart';
 import '../../controller/addingcontroller_page.dart';
 import 'google_signIn.dart';

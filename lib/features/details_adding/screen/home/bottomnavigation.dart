@@ -9,9 +9,9 @@ import 'package:medical/features/details_adding/screen/home/homepage.dart';
 import 'package:medical/features/details_adding/screen/onlinePharmacy/article.dart';
 import 'package:medical/features/details_adding/screen/onlinePharmacy/pharmacy.dart';
 
-import '../../../../core/colour.dart';
+import '../../../../colour.dart';
 
-import '../../../../core/colour.dart';
+import '../../../../colour.dart';
 
 class BottomNavigationPage extends StatefulWidget {
   final String email;
