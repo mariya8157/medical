@@ -32,7 +32,6 @@ class _DeliveryPageState extends ConsumerState<DeliveryPage> {
   TextEditingController phoneController=TextEditingController();
   TextEditingController idController=TextEditingController();
 
-
   addressDetails(){
     ref.read(AddressControllerProvider).addAddressData(AddressModel(
         name: nameController.text,
