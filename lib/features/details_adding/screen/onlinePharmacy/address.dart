@@ -547,7 +547,6 @@ class OrderDetails extends ConsumerStatefulWidget {
 class _OrderDetailsState extends ConsumerState<OrderDetails> {
 
 
-
   getLocation () async {
     LocationPermission permission = await Geolocator.checkPermission();
     if(permission == LocationPermission.denied || permission == LocationPermission.deniedForever){

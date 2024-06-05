@@ -254,15 +254,6 @@ class _DeliveryPageState extends ConsumerState<DeliveryPage> {
                       ],),
                   ),
                 )
-                // Container(
-                //   height: width*0.12,
-                //   width: width*0.38,
-                //   decoration: BoxDecoration(
-                //     border: Border.all(color: Colors.red),
-                //     borderRadius: BorderRadius.circular(width*0.02)
-                //   ),
-                //
-                // )
               ],
             ),
             SizedBox(height: width*0.05,),
