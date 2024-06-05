@@ -531,6 +531,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:medical/features/details_adding/controller/addingcontroller_page.dart';
+import 'package:pinput/pinput.dart';
 
 import '../../../../colour.dart';
 import '../../../../icons.dart';
@@ -618,9 +619,9 @@ class _OrderDetailsState extends ConsumerState<OrderDetails> {
             Row(
               children: [
                 Container(
-                    width: width*0.57,
+                    width: width*0.6,
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Icon(Icons.location_on_outlined),
                         GestureDetector(
@@ -638,44 +639,105 @@ class _OrderDetailsState extends ConsumerState<OrderDetails> {
               ],
             ),
             SizedBox(height: width*0.04,),
-            ref.watch(StreamAddressProvider).when(data: (data) => Row(
+            Row(
               children: [
-                Container(
-                  height: width*0.3,
-                  width: width*0.7,
-                  decoration: BoxDecoration(
-                    color: Colors.yellow,
-                    borderRadius: BorderRadius.circular(width*0.02),
-                  ),
-                  child: Row(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.all(width*0.02),
-                        child: Column(
-                          children: [
-                            Text("Address : ",style: TextStyle(
-                                fontSize: width*0.05,
-                                fontWeight: FontWeight.w600
-                            ),),
-                          ],
-                        ),
-                      )
-                    ],
-                  ),
+                ref.watch(StreamAddressProvider).when(data: (data) =>  Container(
+                  height: width*0.42,
+                  width: width*0.8,
+                  child: ListView.builder(
+                    physics: NeverScrollableScrollPhysics(),
+                      shrinkWrap: true,
+                      itemCount: data.length,
+                      itemBuilder: (context, index) {
+                        return  Container(
+                          height: width*0.4,
+                          width: width*0.78,
+                          decoration: BoxDecoration(
+                            color: Colour.lightgreen,
+                            borderRadius: BorderRadius.circular(width*0.02),
+                            boxShadow:[
+                              BoxShadow(
+                                color: Colour.thirdcolour.withOpacity(0.10),
+                                blurRadius: 3,
+                                spreadRadius: 2,
+                                offset:Offset(0, 4),
+                              )
+                            ] ,
+                          ),
+                          child: Padding(
+                            padding: EdgeInsets.all(width*0.02),
+                            child: Column(
+                              children: [
+                                Row(
+                                  children: [
+                                    Text("Address : ",style: TextStyle(
+                                        fontSize: width*0.05,
+                                        fontWeight: FontWeight.w600
+                                    ),),
+                                  ],
+                                ),
+                                Row(
+                                  children: [
+                                    Text(data[index].name.toString(), style: TextStyle(
+                                        fontSize: width * 0.045, color:Colour.thirdcolour),),
+                                    Text(" , "),
+                                    Text(data[index].houseName.toString(), style: TextStyle(
+                                        fontSize: width * 0.045, color:Colour.thirdcolour),),
+                                    Text(" , "),
+                                    Text(data[index].street.toString(), style: TextStyle(
+                                        fontSize: width * 0.045, color:Colour.thirdcolour),),
+                                    Text(" , "),
+                                  ],
+                                ),
+                                Row(
+                                  children: [
+                                    Text(data[index].city.toString(), style: TextStyle(
+                                        fontSize: width * 0.045, color:Colour.thirdcolour),),
+                                    Text(" , "),
+                                    Text(data[index].pincode.toString(), style: TextStyle(
+                                        fontSize: width * 0.045, color:Colour.thirdcolour),),
+                                    Text(" , "),
+                                    Text(data[index].country.toString(), style: TextStyle(
+                                        fontSize: width * 0.045, color:Colour.thirdcolour),),
+                                  ],
+                                ),
+                                Row(
+                                  children: [
+                                    Text("Ph : ",style: TextStyle(
+                                        fontSize: width * 0.045, color:Colour.thirdcolour),),
+                                    Text(data[index].phone.toString(), style: TextStyle(
+                                        fontSize: width * 0.045, color:Colour.thirdcolour),),
+                                  ],
+                                ),
+                                SizedBox(height: width*0.02,),
+                                Row(
+                                  children: [
+                                    Text("Order Id : ",style: TextStyle(
+                                        fontSize: width*0.05,
+                                        fontWeight: FontWeight.w600
+                                    ),),
+                                    Text(data[index].id.toString(), style: TextStyle(
+                                        fontSize: width * 0.045, color:Colour.thirdcolour),)
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                        );
+                      },),
                 ),
+                  error: (error, stackTrace) {
+                    return ScaffoldMessenger(
+                        child: Center(child: Text(error.toString())));
+                  },
+                  loading: () {
+                    return Center(child: CircularProgressIndicator());
+                  },)
               ],
-            ),
-              error: (error, stackTrace) {
-                return ScaffoldMessenger(
-                    child: Center(child: Text(error.toString())));
-              },
-              loading: () {
-                return Center(child: CircularProgressIndicator());
-              },)
+            )
           ],
         ),
       ),
     );
   }
 }
-

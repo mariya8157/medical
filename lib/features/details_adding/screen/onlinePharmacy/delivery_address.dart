@@ -100,6 +100,7 @@ class _DeliveryPageState extends ConsumerState<DeliveryPage> {
               width: width*0.88,
               child: TextFormField(
                   controller: nameController,
+                  textCapitalization: TextCapitalization.sentences,
                   textInputAction: TextInputAction.next,
                   keyboardType: TextInputType.name,
                   decoration: InputDecoration(
@@ -277,6 +278,7 @@ class _DeliveryPageState extends ConsumerState<DeliveryPage> {
               width: width*0.88,
               child: TextFormField(
                   controller: streetController,
+                  textCapitalization: TextCapitalization.sentences,
                   textInputAction: TextInputAction.next,
                   keyboardType: TextInputType.name,
                   decoration: InputDecoration(
@@ -312,6 +314,7 @@ class _DeliveryPageState extends ConsumerState<DeliveryPage> {
               width: width*0.88,
               child: TextFormField(
                   controller: cityController,
+                  textCapitalization: TextCapitalization.sentences,
                   textInputAction: TextInputAction.next,
                   keyboardType: TextInputType.name,
                   decoration: InputDecoration(
@@ -347,6 +350,7 @@ class _DeliveryPageState extends ConsumerState<DeliveryPage> {
               width: width*0.88,
               child: TextFormField(
                   controller: countryController,
+                  textCapitalization: TextCapitalization.sentences,
                   textInputAction: TextInputAction.next,
                   keyboardType: TextInputType.name,
                   decoration: InputDecoration(
@@ -381,6 +385,7 @@ class _DeliveryPageState extends ConsumerState<DeliveryPage> {
               width: width*0.88,
               child: TextFormField(
                   controller: houseController,
+                  textCapitalization: TextCapitalization.sentences,
                   textInputAction: TextInputAction.done,
                   keyboardType: TextInputType.name,
                   decoration: InputDecoration(
