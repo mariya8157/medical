@@ -2,7 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:medical/features/details_adding/controller/addingcontroller_page.dart';
 import 'package:medical/features/details_adding/screen/doctor%20Consultation/doctordetails.dart';
 import 'package:medical/features/details_adding/screen/home/bottomnavigation.dart';
 
@@ -11,14 +13,14 @@ import '../../../../icons.dart';
 import '../../../../main.dart';
 
 
-class FindDoctor extends StatefulWidget {
+class FindDoctor extends ConsumerStatefulWidget {
   const FindDoctor({super.key});
 
   @override
-  State<FindDoctor> createState() => _FindDoctorState();
+  ConsumerState createState() => _FindDoctorState();
 }
 
-class _FindDoctorState extends State<FindDoctor> {
+class _FindDoctorState extends ConsumerState<FindDoctor> {
   TextEditingController searchController=TextEditingController();
   List category=[
     {
@@ -52,8 +54,8 @@ class _FindDoctorState extends State<FindDoctor> {
       "image":ImageIcons.drmarcus,
       "name":"Dr. Marcus Horizon",
       "spl":"Chardiologist",
-       "star":"4,7",
-    "distene":"800m away",
+      "star":"4,7",
+      "distene":"800m away",
       "consultation":60.00,
       "Admin Fee":01.00,
       "Aditional Discount":00.00,
@@ -61,113 +63,111 @@ class _FindDoctorState extends State<FindDoctor> {
 
     }
   ];
-  List drlist=[
-    {
-      "image":ImageIcons.drmarcus1,
-      "name":"Dr. Marcus",
-      "spl":"Chardiologist",
-      "star":"4,7",
-      "distene":"800m away",
-      "consultation":60.00,
-      "Admin Fee":01.00,
-      "Aditional Discount":00.00,
-
-    },
-    {
-      "image":ImageIcons.drmaria1,
-      "name":"Dr. Maria",
-      "spl":"Gynecologist",
-      "star":"4,7",
-      "distene":"500m away",
-      "consultation":70.00,
-      "Admin Fee":1.00,
-      "Aditional Discount":10.00,
-
-
-    },
-    {
-      "image":ImageIcons.drstevi1,
-      "name":"Dr. Stevi",
-      "spl":"dermatologist",
-      "star":"4,8",
-      "distene":"900m away",
-      "consultation":80.00,
-      "Admin Fee":02.00,
-      "Aditional Discount":00.00,
-
-    }
-    ,
-    {
-      "image":ImageIcons.drgerty,
-      "name":"Dr. Gerty Cori",
-      "spl":"Orthopedist",
-      "star":"4,7",
-      "distene":"800m away",
-      "consultation":65.00,
-      "Admin Fee":01.50,
-      "Aditional Discount":00.00,
-
-    },
-    {
-      "image":ImageIcons.drdiandra,
-      "name":"Dr. Diandra",
-      "spl":"Orthopedist",
-      "star":"4,7",
-      "distene":"800m away",
-      "consultation":70.00,
-      "Admin Fee":01.00,
-      "Aditional Discount":01.00,
-
-    }
-
-
-  ];
+  // List drlist=[
+  //   {
+  //     "image":ImageIcons.drmarcus1,
+  //     "name":"Dr. Marcus",
+  //     "spl":"Chardiologist",
+  //     "star":"4,7",
+  //     "distene":"800m away",
+  //     "consultation":60.00,
+  //     "Admin Fee":01.00,
+  //     "Aditional Discount":00.00,
+  //
+  //   },
+  //   {
+  //     "image":ImageIcons.drmaria1,
+  //     "name":"Dr. Maria",
+  //     "spl":"Gynecologist",
+  //     "star":"4,7",
+  //     "distene":"500m away",
+  //     "consultation":70.00,
+  //     "Admin Fee":1.00,
+  //     "Aditional Discount":10.00,
+  //
+  //
+  //   },
+  //   {
+  //     "image":ImageIcons.drstevi1,
+  //     "name":"Dr. Stevi",
+  //     "spl":"dermatologist",
+  //     "star":"4,8",
+  //     "distene":"900m away",
+  //     "consultation":80.00,
+  //     "Admin Fee":02.00,
+  //     "Aditional Discount":00.00,
+  //
+  //   }
+  //   ,
+  //   {
+  //     "image":ImageIcons.drgerty,
+  //     "name":"Dr. Gerty Cori",
+  //     "spl":"Orthopedist",
+  //     "star":"4,7",
+  //     "distene":"800m away",
+  //     "consultation":65.00,
+  //     "Admin Fee":01.50,
+  //     "Aditional Discount":00.00,
+  //
+  //   },
+  //   {
+  //     "image":ImageIcons.drdiandra,
+  //     "name":"Dr. Diandra",
+  //     "spl":"Orthopedist",
+  //     "star":"4,7",
+  //     "distene":"800m away",
+  //     "consultation":70.00,
+  //     "Admin Fee":01.00,
+  //     "Aditional Discount":01.00,
+  //
+  //   }
+  //
+  //
+  // ];
   int selectIndex=0;
   List a=[];
-
-
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         scrolledUnderElevation: 0,
-          centerTitle: true,
-          backgroundColor: Colors.white24,
-          // resizeToAvoidBottomInset: false,
-          elevation: 0,
-          leading: InkWell(
-            onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => BottomNavigationPage(email: '', password: '',),));
-            },
-            child: SizedBox(
-              height: width * 0.05,
-              width: width * 0.8,
+        centerTitle: true,
+        backgroundColor: Colors.white24,
+        // resizeToAvoidBottomInset: false,
+        elevation: 0,
+        leading: InkWell(
+          onTap: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) => BottomNavigationPage(email: '', password: '',),));
+          },
+          child: SizedBox(
+            height: width * 0.05,
+            width: width * 0.8,
+            child: Padding(
+              padding: EdgeInsets.only(left: width*0.023),
               child: Padding(
-                padding: EdgeInsets.only(left: width*0.023),
-                child: Padding(
-                  padding:  EdgeInsets.all(width*0.007),
-                  child:
-                  SvgPicture.asset(
-                    ImageIcons.back,),
-                ),
+                padding:  EdgeInsets.all(width*0.007),
+                child:
+                SvgPicture.asset(
+                  ImageIcons.back,),
               ),
             ),
           ),
-          title:  Text(
-            "Find Doctors",
-            style: TextStyle(
-                color: Colors.black,
-                fontWeight: FontWeight.w700,
-                fontSize: width*0.06
-            ),
+        ),
+        title:  Text(
+          "Find Doctors",
+          style: TextStyle(
+              color: Colors.black,
+              fontWeight: FontWeight.w700,
+              fontSize: width*0.06
           ),
-          // actions: [Row(
-          //     children: [
-          //       SvgPicture.asset(ImageIcons.columnDot),
-          //       SizedBox(width: width*0.05,)
-          //     ],)],
-          ),
+        ),
+        // actions: [Row(
+        //     children: [
+        //       SvgPicture.asset(ImageIcons.columnDot),
+        //       SizedBox(width: width*0.05,)
+        //     ],)],
+      ),
 
       body:Padding(
         padding:  EdgeInsets.all(width*0.03),
@@ -206,7 +206,7 @@ class _FindDoctorState extends State<FindDoctor> {
                         focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: Colour.color2,
-          
+
                             ),
                             borderRadius: BorderRadius.circular(
                                 width*0.07)
@@ -215,7 +215,7 @@ class _FindDoctorState extends State<FindDoctor> {
                             borderRadius: BorderRadius.circular(width*0.07),
                             borderSide: BorderSide(
                               color: Colour.color2,
-          
+
                             )
                         )
                     ),
@@ -252,21 +252,21 @@ class _FindDoctorState extends State<FindDoctor> {
                         return
                           Container(
                             width: width*0.25,
-                            height: width*0.25,
+                            height: width*0.15,
                             child: Column(
                               children: [
 
                                 Container(
-                                  width: width*0.07,
-                                  height: height*0.05,
+                                    width: width*0.07,
+                                    height: height*0.05,
                                     child: SvgPicture.asset(category[index]["image"],)
                                 ),
 
                                 Text(category[index]["text"],
-                                style: TextStyle(
-                                  color: Colour.color1,
-                                  fontSize: width*0.03
-                                ),
+                                  style: TextStyle(
+                                      color: Colour.color1,
+                                      fontSize: width*0.03
+                                  ),
                                 )
                               ],
                             ),
@@ -278,208 +278,184 @@ class _FindDoctorState extends State<FindDoctor> {
                     ),
                   ),
                 ),
-                Row(
+              ref.watch(StreamDocProvider).when(data: (data) =>    Column(
                   children: [
-                    Text("Recommended Doctors",
-                      style: TextStyle(
-                          fontSize: width*0.05,
-                          fontWeight: FontWeight.w800,
-                          color:Colour.thirdcolour
-                      ),
-                    ),
-                  ],
-                ),
-                InkWell(
-                  onTap: () {
-                    a.add({
-                      "image":drlist[selectIndex]["image"],
-                      "name":drlist[selectIndex]["name"],
-                      "spl":drlist[selectIndex]["spl"],
-                      "star":drlist[selectIndex]["star"],
-                      "distene":drlist[selectIndex]["distene"],
-                      "consultation":drlist[selectIndex]["consultation"],
-                      "Admin Fee":drlist[selectIndex]["Admin Fee"],
-                      "Aditional Discount":drlist[selectIndex]["Aditional Discount"],
-
-                    });
-                    a.length==1?Navigator.push(context, MaterialPageRoute(builder: (context) => DoctordetailsPage(dr: a,),)):a.clear();
-                  },
-                  child: Container(
-                    height: height*0.2,
-                    width: width*1,
-                    decoration: BoxDecoration(
-                        border: Border.all(color: Colour.lightgreen),
-                        borderRadius: BorderRadius.circular(width*0.04)
-                    ),
-                    child: ListView.separated(
-                        shrinkWrap: true,
-                        // physics: BouncingScrollPhysics(),
-          
-                        itemBuilder: (context, index) {
-                          return
-                            Padding(
-                            padding:  EdgeInsets.all(width*0.03),
-                            child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                CircleAvatar(
-                                    radius: width*0.13,
-                                    backgroundImage:AssetImage(drlist[selectIndex]['image']) ,
-                                    ),
-                                Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(drlist[selectIndex]["name"],
-                                      style: TextStyle(
-                                          fontSize: width*0.05,
-                                          fontWeight: FontWeight.w800,
-                                          color:Colour.thirdcolour
-                                      ),
-          
-                                    ),
-                                    Text(drlist[selectIndex]["spl"],
-                                      style: TextStyle(
-                                          color: Colour.color1,
-                                          fontSize: width*0.04
-                                      ),
-          
-                                    ),
-                                    Divider(
-                                      // color:Colour.gray.withOpacity(0.2),
-                                      color: Colors.blue,
-                                      thickness: width*0.003,
-                                        indent: width*0.05,
-                                        endIndent: width*0.05,
-          
-          
-                                    ),
-                                    Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Container(
-                                          width: width*0.15,
-                                          height: height*0.05,
-                                          decoration: BoxDecoration(
-                                              color: Colour.lightgreen,
-                                              borderRadius: BorderRadius.circular(width*0.01)
-                                          ),
-          
-                                          child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                            children: [
-                                             SvgPicture.asset(ImageIcons.star) ,
-                                              Text(drlist[selectIndex]["star"],
-                                                style: TextStyle(
-                                                    color: Colour.primarycolour,
-                                                    fontWeight: FontWeight.w500
-                                                ),
-                                        ),
-                                            ],
-                                          ),
-                                        ),
-          
-                                        Container(
-                                          width: width*0.3,
-                                          height: height*0.05,
-                                          child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                            children: [
-                                             SvgPicture.asset(ImageIcons.location) ,
-                                              Text(drlist[selectIndex]["distene"])
-                                            ],
-                                          ),
-                                        )
-                                      ],
-                                    )
-                                  ],
-                                )
-          
-          
-                              ],
-                            ),
-                          )
-                          ;
-          
-                        },
-                        separatorBuilder: (context, index) {
-                          return SizedBox(
-                            height: height*0.03,
-                          );
-                        },
-                        itemCount: 1
-                    ),
-                  ),
-                ),
-                Divider(
-                  color:Colour.gray.withOpacity(0.2),
-                  thickness: width*0.003,
-                  indent: width*0.05,
-                  endIndent: width*0.05,
-          
-          
-                ),
-                Row(
-                  children: [
-                    Text("Your Recent Doctors",
-                      style: TextStyle(
-                          fontSize: width*0.05,
-                          fontWeight: FontWeight.w800,
-                          color:Colour.thirdcolour
-                      ),
-                    ),
-                  ],
-                ),
-                Container(
-                  height: height*0.17,
-                  width: width*1,
-                  child: ListView.separated(
-                      // shrinkWrap: true,
-                      scrollDirection: Axis.horizontal,
-                      // physics: BouncingScrollPhysics(),
-          
-                      itemBuilder: (context, index) {
-                        return InkWell(
-                          onTap: () {
-                            selectIndex=index;
-                            setState(() {
-          
-                            });
-          
-                          },
-                          child: Container(
-                            child: Column(mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                CircleAvatar(
-                                  radius: width*0.10,
-                                  backgroundImage:AssetImage(drlist[index]['image']) ,
-                                ),
-                                Text(drlist[index]["name"]),
-          
-          
-                              ],
-                            ),
-          
+                    Row(
+                      children: [
+                        Text("Recommended Doctors",
+                          style: TextStyle(
+                              fontSize: width*0.05,
+                              fontWeight: FontWeight.w800,
+                              color:Colour.thirdcolour
                           ),
-                        );
-          
+                        ),
+                      ],
+                    ),
+                    InkWell(
+                      onTap: () {
+                        a.add({
+                          "image":data[selectIndex].image,
+                          "name":data[selectIndex].name.toString(),
+                          "spl":data[selectIndex].spcl.toString(),
+                          "distene":data[selectIndex].exp.toString(),
+                          "consultation":data[selectIndex].cons.toString(),
+                          "Admin Fee":data[selectIndex].admin.toString(),
+                          "Aditional Discount":data[selectIndex].dis.toString(),
+
+                        });
+                        a.length==1?Navigator.push(context, MaterialPageRoute(builder: (context) => DoctordetailsPage(dr: data[selectIndex],),)):a.clear();
                       },
-                      separatorBuilder: (context, index) {
-                        return SizedBox(
-                          width: width*0.03,
-                        );
-                      },
-                      itemCount: drlist.length
-                  ),
+                      child: Container(
+                        height: height*0.2,
+                        width: width*1,
+                        decoration: BoxDecoration(
+                            border: Border.all(color: Colour.lightgreen),
+                            borderRadius: BorderRadius.circular(width*0.04)
+                        ),
+                        child: ListView.separated(
+                            shrinkWrap: true,
+                            // physics: BouncingScrollPhysics(),
+
+                            itemBuilder: (context, index) {
+                              return
+                                Padding(
+                                  padding:  EdgeInsets.all(width*0.03),
+                                  child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                    children: [
+                                      CircleAvatar(
+                                        radius: width*0.13,
+                                        backgroundImage:NetworkImage(data[selectIndex].image) ,
+                                      ),
+                                      Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          Text(data[selectIndex].name.toString(),
+                                            style: TextStyle(
+                                                fontSize: width*0.05,
+                                                fontWeight: FontWeight.w800,
+                                                color:Colour.thirdcolour
+                                            ),
+
+                                          ),
+                                          Text(data[selectIndex].spcl.toString(),
+                                            style: TextStyle(
+                                                color: Colour.color1,
+                                                fontSize: width*0.04
+                                            ),
+
+                                          ),
+                                          Divider(
+                                            // color:Colour.gray.withOpacity(0.2),
+                                            color: Colors.blue,
+                                            thickness: width*0.003,
+                                            indent: width*0.05,
+                                            endIndent: width*0.05,
+
+
+                                          ),
+                                          Text(data[selectIndex].exp.toString())
+                                        ],
+                                      )
+
+
+                                    ],
+                                  ),
+                                )
+                              ;
+
+                            },
+                            separatorBuilder: (context, index) {
+                              return SizedBox(
+                                height: height*0.03,
+                              );
+                            },
+                            itemCount: 1
+                        ),
+                      ),
+                    ),
+                    Divider(
+                      color:Colour.gray.withOpacity(0.2),
+                      thickness: width*0.003,
+                      indent: width*0.05,
+                      endIndent: width*0.05,
+
+
+                    ),
+                    Row(
+                      children: [
+                        Text("Your Recent Doctors",
+                          style: TextStyle(
+                              fontSize: width*0.05,
+                              fontWeight: FontWeight.w800,
+                              color:Colour.thirdcolour
+                          ),
+                        ),
+                      ],
+                    ),
+                                   Container(
+                     height: height*0.17,
+                     width: width*1,
+                     child: ListView.separated(
+                       // shrinkWrap: true,
+                         scrollDirection: Axis.horizontal,
+                         // physics: BouncingScrollPhysics(),
+
+                         itemBuilder: (context, index) {
+                           return InkWell(
+                             onTap: () {
+                               selectIndex=index;
+                               setState(() {
+
+                               });
+
+                             },
+                             child: Container(
+                               child: Column(mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                 children: [
+                                   CircleAvatar(
+                                     radius: width*0.10,
+                                     backgroundImage:NetworkImage(data[index].image) ,
+                                   ),
+                                   Text(data[index].name.toString()),
+
+
+                                 ],
+                               ),
+
+                             ),
+                           );
+
+                         },
+                         separatorBuilder: (context, index) {
+                           return SizedBox(
+                             width: width*0.03,
+                           );
+                         },
+                         itemCount: data.length
+                     ),
+                                   ),
+                  ],
                 ),
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
-          
+            error: (error, stackTrace) {
+                 return ScaffoldMessenger(
+                     child: Center(child: Text(error.toString())));
+               },
+                 loading: () {
+                   return Center(child: CircularProgressIndicator());
+                 },)
+
+
+
+
+
+
+
+
+
+
+
+
+
               ],
             ),
           ),
@@ -489,3 +465,4 @@ class _FindDoctorState extends State<FindDoctor> {
     );
   }
 }
+

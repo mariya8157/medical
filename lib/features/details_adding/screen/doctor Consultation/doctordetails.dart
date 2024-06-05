@@ -8,10 +8,11 @@ import 'package:readmore/readmore.dart';
 import '../../../../colour.dart';
 import '../../../../icons.dart';
 import '../../../../main.dart';
+import '../../../../models/doctormodel.dart';
 import 'chatwithdoctor.dart';
 
 class DoctordetailsPage extends StatefulWidget {
-final List dr;
+final DoctorModel dr;
   const DoctordetailsPage({super.key, required this.dr});
 
   @override
@@ -136,11 +137,11 @@ surfaceTintColor:Colour.thirdcolour ,
                         child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             Container(
-                              width: width*0.35,
+                              width: width*0.3,
                               height:height*0.15,
 
                               decoration: BoxDecoration(
-                                image: DecorationImage(image: AssetImage(widget.dr[index]['image'])),
+                                image: DecorationImage(image: NetworkImage(widget.dr.image)),
                                 // color: Colors.red,
                                 borderRadius: BorderRadius.circular(width*0.03),
 
@@ -151,7 +152,7 @@ surfaceTintColor:Colour.thirdcolour ,
                             Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text(widget.dr[index]["name"],
+                                Text(widget.dr.name,
                                   style: TextStyle(
                                       fontSize: width*0.05,
                                       fontWeight: FontWeight.w800,
@@ -159,51 +160,19 @@ surfaceTintColor:Colour.thirdcolour ,
                                   ),
 
                                 ),
-                                Text(widget.dr[index]["spl"],
+                                Text(widget.dr.spcl,
                                   style: TextStyle(
                                       color: Colour.gray,
                                       fontSize: width*0.04
                                   ),
 
                                 ),
-                                Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Container(
-                                      width: width*0.15,
-                                      height: height*0.04,
-                                      decoration: BoxDecoration(
-                                          color: Colour.lightgreen,
-                                          borderRadius: BorderRadius.circular(width*0.01)
-                                      ),
-
-                                      child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                        children: [
-                                          SvgPicture.asset(ImageIcons.star) ,
-                                          Text(widget.dr[index]["star"],
-                                            style: TextStyle(
-                                                color: Colour.primarycolour,
-                                                fontWeight: FontWeight.w500
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                Container(
-                                  width: width*0.3,
-                                  height: height*0.05,
-                                  child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                    children: [
-                                      SvgPicture.asset(ImageIcons.location,) ,
-                                      Text(widget.dr[index]["distene"],
-                                      style: TextStyle(
-                                        color: Colour.gray,
-
-                                      ),)
-                                    ],
+                                Text(widget.dr.exp,
+                                  style: TextStyle(
+                                      color: Colour.primarycolour,
+                                      fontWeight: FontWeight.w500
                                   ),
-                                )
+                                ),
 
                               ],
                             )
@@ -220,7 +189,7 @@ surfaceTintColor:Colour.thirdcolour ,
                       height: height*0.03,
                     );
                   },
-                  itemCount: widget.dr.length
+                  itemCount: 1
               ),
               SizedBox(height: width*0.03,),
               Row(
@@ -417,14 +386,13 @@ surfaceTintColor:Colour.thirdcolour ,
                       day.add({
                         "date":date,
                         "time":time[selectIndex1],
-                        "image":widget.dr[0]["image"],
-                        "name":widget.dr[0]["name"],
-                        "spl":widget.dr[0]["spl"],
-                        "star":widget.dr[0]["star"],
-                        "distene":widget.dr[0]["distene"],
-                        "consultation":widget.dr[0]["consultation"],
-                        "Admin Fee":widget.dr[0]["Admin Fee"],
-                        "Aditional Discount":widget.dr[0]["Aditional Discount"],
+                        "image":widget.dr.image,
+                        "name":widget.dr.name,
+                        "spl":widget.dr.spcl,
+                        "distene":widget.dr.exp,
+                        "consultation":widget.dr.cons,
+                        "Admin Fee":widget.dr.admin,
+                        "Aditional Discount":widget.dr.dis,
 
                       });
 

@@ -5,6 +5,7 @@ import 'package:medical/features/details_adding/screen/Profile/profile.dart';
 import 'package:medical/features/details_adding/screen/doctor%20Consultation/bookingdoctor.dart';
 import 'package:medical/features/details_adding/screen/doctor%20Consultation/chatwithdoctor.dart';
 import 'package:medical/features/details_adding/screen/doctor%20Consultation/findDoctor.dart';
+import 'package:medical/features/details_adding/screen/doctor%20Consultation/shedule.dart';
 import 'package:medical/features/details_adding/screen/home/homepage.dart';
 import 'package:medical/features/details_adding/screen/onlinePharmacy/article.dart';
 import 'package:medical/features/details_adding/screen/onlinePharmacy/pharmacy.dart';
@@ -28,8 +29,7 @@ class _HomeState extends State<BottomNavigationPage> {
   List pages=[
     HomePage(),
     articles(),
-    FindDoctor(),
-    PharmacyPage(),
+    ShedulePage(),
     ProfilePage()
   ];
   int selectedIndex=0;
@@ -55,11 +55,9 @@ class _HomeState extends State<BottomNavigationPage> {
               label: 'Home'),
           BottomNavigationBarItem(icon: Icon(Icons.article_outlined),
               label: 'Article'),
-          BottomNavigationBarItem(icon:Icon(Icons.call
+          BottomNavigationBarItem(icon:Icon(CupertinoIcons.calendar
           ),
-              label: 'Doctors'),
-          BottomNavigationBarItem(icon: Icon(Icons.local_pharmacy),
-              label: 'Pharmacy'),
+              label: 'Shedule'),
           BottomNavigationBarItem(icon: Icon(Icons.person ),
               label: 'Profile'),
         ],

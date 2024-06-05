@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:medical/features/details_adding/screen/doctor%20Consultation/findDoctor.dart';
 import 'package:medical/features/details_adding/screen/home/ambulance.dart';
 import 'package:medical/features/details_adding/screen/home/docter.dart';
 import 'package:medical/features/details_adding/screen/home/hospital.dart';
@@ -162,7 +163,7 @@ class _HomePageState extends State<HomePage> {
                         children: [
                           InkWell(
                             onTap: () {
-                              Navigator.push(context, MaterialPageRoute(builder: (context) => DocterPage(),));
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => FindDoctor(),));
                             },
                             child: Container(
                               height:height*0.06,
@@ -183,7 +184,7 @@ class _HomePageState extends State<HomePage> {
                         children: [
                           InkWell(
                             onTap: () {
-                              Navigator.push(context, MaterialPageRoute(builder: (context) => PharmacyOne(),));
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => PharmacyPage(),));
                             },
                             child: Container(
                               height:height*0.06,

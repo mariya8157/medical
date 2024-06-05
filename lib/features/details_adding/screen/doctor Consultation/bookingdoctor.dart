@@ -114,7 +114,7 @@ class _BookingPageState extends State<BookingPage> {
                                 width: width*0.35,
                                 height:height*0.15,
                                 decoration: BoxDecoration(
-                                  image: DecorationImage(image: AssetImage(widget.time[0]['image'])),
+                                  image: DecorationImage(image: NetworkImage(widget.time[0]["image"].toString())),
                                   borderRadius: BorderRadius.circular(width*0.03),
                                 ),
 
@@ -123,7 +123,7 @@ class _BookingPageState extends State<BookingPage> {
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(widget.time[0]["name"],
+                                  Text(widget.time[0]["name"].toString(),
                                     style: TextStyle(
                                         fontSize: width*0.05,
                                         fontWeight: FontWeight.w800,
@@ -131,51 +131,15 @@ class _BookingPageState extends State<BookingPage> {
                                     ),
 
                                   ),
-                                  Text(widget.time[0]["spl"],
+                                  Text(widget.time[0]["spl"].toString(),
                                     style: TextStyle(
                                         color: Colour.gray,
                                         fontSize: width*0.04
                                     ),
 
                                   ),
-                                  Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Container(
-                                        width: width*0.15,
-                                        height: height*0.04,
-                                        decoration: BoxDecoration(
-                                            color: Colour.lightgreen,
-                                            borderRadius: BorderRadius.circular(width*0.01)
-                                        ),
+                                  Text(widget.time[0]["distene"].toString(),),
 
-                                        child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                          children: [
-                                            SvgPicture.asset(ImageIcons.star) ,
-                                            Text(widget.time[0]["star"],
-                                              style: TextStyle(
-                                                  color: Colour.primarycolour,
-                                                  fontWeight: FontWeight.w500
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  Container(
-                                    width: width*0.3,
-                                    height: height*0.05,
-                                    child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                      children: [
-                                        SvgPicture.asset(ImageIcons.location,) ,
-                                        Text(widget.time[0]["distene"],
-                                          style: TextStyle(
-                                            color: Colour.gray,
-
-                                          ),)
-                                      ],
-                                    ),
-                                  )
 
                                 ],
                               )

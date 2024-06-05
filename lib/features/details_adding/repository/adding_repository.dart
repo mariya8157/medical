@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../core/common/firebaseprovider1.dart';
+import '../../../models/doctormodel.dart';
 import '../../../models/model1.dart';
 import '../../../models/model2.dart';
 import '../screen/home/homepage.dart';
@@ -60,6 +61,34 @@ class AddressRepository{
   UpdateAddress(AddressModel addressedit){
     print(_address.doc(addressedit.id));
     _address.doc(addressedit.id).update(addressedit.toMap()).then((value) {
+    },);
+  }
+
+}
+///doctor
+final DoctorRepositoryProvider = Provider((ref) => DoctorRepository(firestore: ref.watch(fireStoreProvider)));
+
+class DoctorRepository{
+  final FirebaseFirestore _firestore;
+  DoctorRepository({required FirebaseFirestore firestore}):_firestore=firestore;
+
+  CollectionReference get _doctors => _firestore.collection("doctors");
+
+  add(DoctorModel docData){
+    _doctors.add(docData.toMap()).then((value) {
+      value.update(docData.copyWith(id: value.id).toMap());
+    },);
+  }
+
+  deleteDoc(DoctorModel docDelete){
+    _doctors.doc(docDelete.id).delete();
+  }
+  streamDoc(){
+    return _doctors.snapshots().map((event) => event.docs.map((e) => DoctorModel.fromMap(e.data() as Map<String, dynamic>)).toList());
+  }
+  UpdateDoc(DoctorModel docedit){
+    print(_doctors.doc(docedit.id));
+    _doctors.doc(docedit.id).update(docedit.toMap()).then((value) {
     },);
   }
 
