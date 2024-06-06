@@ -19,6 +19,7 @@ import 'package:medical/features/details_adding/screen/widgets/chat_doctor.dart'
 import '../../../../colour.dart';
 import '../../../../icons.dart';
 import '../../../../main.dart';
+import '../home/bottomnavigation.dart';
 
 class ChatPage extends StatefulWidget {
   const ChatPage({super.key});
@@ -442,18 +443,23 @@ class _ChatPageState extends State<ChatPage> {
                     ],
                   ),
                 ),
-                Container(
-                  width: width * 0.3,
-                  decoration: BoxDecoration(
-                      color: Colour.primarycolour,
-                      borderRadius: BorderRadius.circular(width * 0.07)),
-                  child: Center(
-                    child: Text(
-                      "Send",
-                      style: TextStyle(
-                          fontSize: width * 0.04,
-                          fontWeight: FontWeight.w600,
-                          color: Colour.secondarycolour),
+                InkWell(
+                  onTap: () {
+                    Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => BottomNavigationPage(email: '', password: '',),), (route) => false);
+                  },
+                  child: Container(
+                    width: width * 0.3,
+                    decoration: BoxDecoration(
+                        color: Colour.primarycolour,
+                        borderRadius: BorderRadius.circular(width * 0.07)),
+                    child: Center(
+                      child: Text(
+                        "Send",
+                        style: TextStyle(
+                            fontSize: width * 0.04,
+                            fontWeight: FontWeight.w600,
+                            color: Colour.secondarycolour),
+                      ),
                     ),
                   ),
                 ),

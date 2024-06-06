@@ -64,4 +64,19 @@ class DoctorController{
     _doctorRepository.UpdateDoc(docUpdate);
   }
 
+
+
+}
+
+///Schedule
+final scheduleControllerProvider = Provider((ref) => ScheduleController(scheduleRepository: ref.watch(ScheduleRepositoryProvider)));
+
+class ScheduleController{
+  final ScheduleRepository _scheduleRepository;
+  ScheduleController({required ScheduleRepository scheduleRepository}): _scheduleRepository= scheduleRepository;
+
+  addBookingData(List a){
+    _scheduleRepository.addbooking(a);
+  }
+
 }

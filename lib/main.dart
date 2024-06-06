@@ -53,7 +53,7 @@ class MyApp extends StatelessWidget {
             theme: ThemeData(
               textTheme: GoogleFonts.interTextTheme()
             ),
-            home:DeliveryPage()
+            home:SplashScreen(),
     ),);
   }
 }

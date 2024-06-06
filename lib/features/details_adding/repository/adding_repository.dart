@@ -73,6 +73,7 @@ class DoctorRepository{
   DoctorRepository({required FirebaseFirestore firestore}):_firestore=firestore;
 
   CollectionReference get _doctors => _firestore.collection("doctors");
+  CollectionReference get _schedule => _firestore.collection("schedule");
 
   add(DoctorModel docData){
     _doctors.add(docData.toMap()).then((value) {
@@ -90,6 +91,40 @@ class DoctorRepository{
     print(_doctors.doc(docedit.id));
     _doctors.doc(docedit.id).update(docedit.toMap()).then((value) {
     },);
+  }
+
+  addbooking(List a){
+    _schedule.add({
+      "booking": a
+    }).then((value) {
+      value.update({
+        "id": value.id
+      });
+    });
+  }
+
+}
+
+///Schedule
+final ScheduleRepositoryProvider = Provider((ref) => ScheduleRepository(firestore: ref.watch(fireStoreProvider)));
+
+class ScheduleRepository{
+  final FirebaseFirestore _firestore;
+  ScheduleRepository({required FirebaseFirestore firestore}):_firestore=firestore;
+
+  CollectionReference get _schedule => _firestore.collection("schedule");
+
+  addbooking(List a){
+    _schedule.add({
+      "booking": a
+    }).then((value) {
+      value.update({
+        "id": value.id
+      });
+    });
+  }
+  streamDoc(){
+    return _schedule.snapshots().map((event) => event.docs.map((e) => DoctorModel.fromMap(e.data() as Map<String, dynamic>)).toList());
   }
 
 }

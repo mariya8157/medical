@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:medical/features/details_adding/controller/addingcontroller_page.dart';
 import 'package:medical/features/details_adding/screen/doctor%20Consultation/chatwithdoctor.dart';
 import 'package:medical/features/details_adding/screen/doctor%20Consultation/doctordetails.dart';
 import '../../../../colour.dart';
@@ -8,15 +10,15 @@ import '../../../../icons.dart';
 import '../../../../main.dart';
 import '../onlinePharmacy/drugsdetail.dart';
 
-class BookingPage extends StatefulWidget {
+class BookingPage extends ConsumerStatefulWidget {
   final List time;
   const BookingPage({super.key, required this.time,  });
 
   @override
-  State<BookingPage> createState() => _BookingPageState();
+  ConsumerState<BookingPage> createState() => _BookingPageState();
 }
 
-class _BookingPageState extends State<BookingPage> {
+class _BookingPageState extends ConsumerState<BookingPage> {
   int selectedOption=1;
   List doctor=[
     {
@@ -41,6 +43,10 @@ class _BookingPageState extends State<BookingPage> {
         total=widget.time[i]["consultation"]+widget.time[i]["Admin Fee"]-widget.time[i]["Aditional Discount"];
         print(total);
       }
+    }
+
+    addBooking(){
+     ref.watch(scheduleControllerProvider).addBookingData(widget.time);
     }
 
 
@@ -623,6 +629,7 @@ class _BookingPageState extends State<BookingPage> {
                   // ),
                   InkWell(
                     onTap: () {
+                      addBooking();
                       showDialog(
                         barrierDismissible: false,
                         context: context,
