@@ -192,7 +192,20 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                   ],),
                 SizedBox(height: width*0.05,),
                 InkWell(
-                  onTap: () {
+                  onTap: () async {
+
+                    QuerySnapshot<Map<String,dynamic>> c = await FirebaseFirestore.instance.collection("users").where("email",isEqualTo: emailController.text).get();
+                    if(c.docs.isNotEmpty){
+                      if(c.docs[0]["password"]==passwordController.text){
+                        Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => BottomNavigationPage(email: emailController.text, password: passwordController.text),), (route) => false);
+                      }
+                      else{
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Passwords do not match")));
+                      }
+                    }else{
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("No account found")));
+                    }
+
                     FirebaseAuth.instance.signInWithEmailAndPassword(
                       email: emailController.text.trim(),
                       password: passwordController.text,
@@ -237,6 +250,9 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                                           email: emailController.text,
                                           password: passwordController.text,
                                         ),));
+
+                                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                                            content: Text("Submitted Sucsessfully ")));
                                       },
                                       child: Container(
                                         height: width*0.12,
@@ -262,9 +278,12 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                           },);
                       SharedPreferences prefs=await SharedPreferences.getInstance();
                       prefs.setBool('login', true);
+
                     }).catchError((error){
-                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("invalid")));
+                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                          content: Text(error.toString())));
                     });
+
                   },
                   child: Container(
                     height: width*0.16,

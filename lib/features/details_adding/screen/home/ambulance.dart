@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../../../../colour.dart';
 import '../../../../icons.dart';
 import '../../../../colour.dart';
@@ -117,10 +118,25 @@ class _AmbulancePageState extends State<AmbulancePage> {
                               ),
         
                             ),
-                            Text(docter[index]["Text"],style: TextStyle(
-                                fontSize: width*0.05,
-                                fontWeight: FontWeight.w600
-                            ),),
+                            InkWell(
+                              onTap: () async {
+                                final Uri url =Uri(
+                                  scheme: "tel",
+                                  path:"9873546751",
+
+                                );
+                                if(await canLaunchUrl(url)){
+                                  await launchUrl(url);
+
+                                }else{
+                                  print("cannot launch this url");
+                                }
+                              },
+                              child: Text(docter[index]["Text"],style: TextStyle(
+                                  fontSize: width*0.05,
+                                  fontWeight: FontWeight.w600
+                              ),),
+                            ),
                           ],
                         ),
                       ),

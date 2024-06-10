@@ -93,6 +93,8 @@ class _MyCartPageState extends State<MyCartPage> {
 
   String? j;
 
+  int count=0;
+
   bool x=false;
   bool y=false;
   bool z=false;
@@ -473,7 +475,7 @@ class _MyCartPageState extends State<MyCartPage> {
                     title: Text("Paytm",style: TextStyle(fontWeight: FontWeight.w600,fontSize: width*0.05),),
                     trailing: Radio(
                       activeColor: Colour.primarycolour,
-                      value: "j",
+                      value: "0",
                       groupValue: j,
                       onChanged: (value) {
                         j = value!;

@@ -41,10 +41,10 @@ signInWithGoogle(BuildContext context) async {
   print(userlist);
 
   if(userlist.docs.isEmpty){
-    Navigator.push(context, CupertinoPageRoute(builder: (context) => SignupPage(sign: true),));
+    Navigator.push(context, CupertinoPageRoute(builder: (context) => BottomNavigationPage(email: userEmail!, password: '',),));
   }else {
     userId = userlist.docs[0].id;
-    Navigator.push(context, CupertinoPageRoute(builder: (context) => BottomNavigationPage(email: userEmail!, password: '',),));
+    Navigator.push(context, CupertinoPageRoute(builder: (context) => SignupPage(sign: true),));
     // Navigator.push(context, CupertinoPageRoute(builder: (context) => HomePage(),));
 
   }
