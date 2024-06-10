@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:medical/features/details_adding/screen/doctor%20Consultation/findDoctor.dart';
 import 'package:medical/features/details_adding/screen/home/ambulance.dart';
@@ -19,15 +20,16 @@ import '../../../../icons.dart';
 import '../../../../colour.dart';
 import '../../../../icons.dart';
 import '../../../../main.dart';
+import '../../controller/addingcontroller_page.dart';
 
-class HomePage extends StatefulWidget {
+class HomePage extends ConsumerStatefulWidget {
   const HomePage({super.key});
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  ConsumerState<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends ConsumerState<HomePage> {
   TextEditingController search_controller=TextEditingController();
   // List items=[
   //   {"images":"ImageIcons.catogory1",
@@ -51,40 +53,40 @@ class _HomePageState extends State<HomePage> {
     ImageIcons.CTA
 
   ];
-  List doctor=[
-    {
-      "image":ImageIcons.drmarcus1,
-      "name":"Dr. Marcus Horizon",
-      "spl":"Chardiologist",
-      "star":"4,7",
-      "distene":"800m away",
-
-    },
-    {
-      "image":ImageIcons.drmaria,
-      "name":"Dr. Maria",
-      "spl":"Gynecologist",
-      "star":"4,7",
-      "distene":"500m away",
-
-    },
-    {
-      "image":ImageIcons.drstevi,
-      "name":"Dr. Stevi",
-      "spl":"dermatologist",
-      "star":"4,8",
-      "distene":"900m away",
-
-    }
-    ,{
-      "image":ImageIcons.drluke,
-      "name":"Dr. Luke",
-      "spl":"General medicine",
-      "star":"4,7",
-      "distene":"800m away",
-
-    }
-  ];
+  // List doctor=[
+  //   {
+  //     "image":ImageIcons.drmarcus1,
+  //     "name":"Dr. Marcus Horizon",
+  //     "spl":"Chardiologist",
+  //     "star":"4,7",
+  //     "distene":"800m away",
+  //
+  //   },
+  //   {
+  //     "image":ImageIcons.drmaria,
+  //     "name":"Dr. Maria",
+  //     "spl":"Gynecologist",
+  //     "star":"4,7",
+  //     "distene":"500m away",
+  //
+  //   },
+  //   {
+  //     "image":ImageIcons.drstevi,
+  //     "name":"Dr. Stevi",
+  //     "spl":"dermatologist",
+  //     "star":"4,8",
+  //     "distene":"900m away",
+  //
+  //   }
+  //   ,{
+  //     "image":ImageIcons.drluke,
+  //     "name":"Dr. Luke",
+  //     "spl":"General medicine",
+  //     "star":"4,7",
+  //     "distene":"800m away",
+  //
+  //   }
+  // ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -330,7 +332,7 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
               ),
-              Container(
+              ref.watch(StreamDocProvider).when(data: (data) => Container(
                 height: width*0.55,
                 width: width*1,
                 // margin: EdgeInsets.only(left: width*0.03),
@@ -355,18 +357,18 @@ class _HomePageState extends State<HomePage> {
                             children: [
                               CircleAvatar(
                                 radius: width*0.1,
-                                backgroundImage: AssetImage(doctor[index]["image"]),
+                                backgroundImage: AssetImage(data[index].image),
                               ),
                               Row(
                                 children: [
-                                  Text(doctor[index]["name"],style: TextStyle(
+                                  Text(data[index].name.toString(),style: TextStyle(
                                     fontWeight: FontWeight.w600
                                   ),),
                                 ],
                               ),
                               Row(
                                 children: [
-                                  Text(doctor[index]["spl"],style: TextStyle(
+                                  Text(data[index].spl,style: TextStyle(
                                     color: Colour.gray
                                   ),),
                                 ],
@@ -385,16 +387,16 @@ class _HomePageState extends State<HomePage> {
                                         mainAxisAlignment: MainAxisAlignment.center,
                                         children: [
                                           SvgPicture.asset(ImageIcons.star),
-                                          Text(doctor[index]["star"],style: TextStyle(
-                                              color: Colour.primarycolour
-                                          ),),
+                                          // Text(doctor[index]["star"],style: TextStyle(
+                                          //     color: Colour.primarycolour
+                                          // ),),
                                         ],
                                       ),
                                   ),
 
                                   // SizedBox(width: width*0.02,),
                                   SvgPicture.asset(ImageIcons.location,color: Colors.grey,),
-                                  Text(doctor[index]["distene"],style: TextStyle(
+                                  Text(data[index].exp.toString(),style: TextStyle(
                                     color: Colors.grey
                                   ),)
                                 ],
@@ -407,9 +409,13 @@ class _HomePageState extends State<HomePage> {
                     separatorBuilder:(context, index) {
                       return SizedBox(width: width*0.03,);
                     },
-                    itemCount: doctor.length),
-              )
-
+                    itemCount: data.length),
+              ), error: (Object error, StackTrace stackTrace) {  return ScaffoldMessenger(
+                  child: Center(child: Text(error.toString())));
+              },
+                loading: () {
+                  return Center(child: CircularProgressIndicator());}
+              ),
             ],
           ),
         ),
