@@ -368,7 +368,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                               ),
                               Row(
                                 children: [
-                                  Text(data[index].spl,style: TextStyle(
+                                  Text(data[index].spcl.toString(),style: TextStyle(
                                     color: Colour.gray
                                   ),),
                                 ],

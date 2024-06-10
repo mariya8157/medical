@@ -1,3 +1,5 @@
+import 'package:medical/features/details_adding/screen/login%20&%20Sign%20Up/login.dart';
+
 class DoctorModel {
   String name;
   String image;
@@ -9,6 +11,7 @@ class DoctorModel {
   double admin;
   double dis;
   String id;
+  String userId;
 
   DoctorModel({
     required this.name,
@@ -21,6 +24,7 @@ class DoctorModel {
     required this.spcl,
     required this.exp,
     required this.id,
+    required this.userId,
   });
 
   Map<String, dynamic> toMap() {
@@ -35,6 +39,7 @@ class DoctorModel {
       'spcl': this.spcl,
       'exp': this.exp,
       'id': this.id,
+      'userId': this.userId,
     };
   }
 
@@ -50,6 +55,7 @@ class DoctorModel {
       date: map['date'] ?? "",
       name: map['name'] ?? "",
       id: map['id'] ?? "",
+      userId: map['userId'] ?? "",
     );
   }
 
@@ -64,6 +70,7 @@ class DoctorModel {
     String? exp,
     String? spcl,
     String? id,
+    String? userId,
   }) {
     return DoctorModel(
       name: name ?? this.name,
@@ -74,6 +81,7 @@ class DoctorModel {
       dis: dis ?? this.dis,
       image: image ?? this.image,
       id: id ?? this.id,
+      userId: userId ?? this.userId,
       spcl: spcl ?? this.spcl,
       exp: exp ?? this.exp,
     );

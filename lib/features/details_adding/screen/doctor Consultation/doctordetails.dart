@@ -82,7 +82,7 @@ List time=[
   "08:00 PM",
 ];
 int selectIndex1=0;
-List day=[];
+// List day=[];
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
@@ -383,20 +383,34 @@ surfaceTintColor:Colour.thirdcolour ,
                   ),
                   InkWell(
                     onTap: () {
-                      day.add({
-                        "date":date,
-                        "time":time[selectIndex1],
-                        "image":widget.dr.image,
-                        "name":widget.dr.name,
-                        "spl":widget.dr.spcl,
-                        "distene":widget.dr.exp,
-                        "consultation":widget.dr.cons,
-                        "Admin Fee":widget.dr.admin,
-                        "Aditional Discount":widget.dr.dis,
+                      DoctorModel doctorData= DoctorModel(
+                          name: widget.dr.name,
+                          cons: widget.dr.cons,
+                          admin: widget.dr.admin,
+                          dis: widget.dr.dis,
+                          image:widget.dr.image,
+                          spcl: widget.dr.spcl,
+                          exp: widget.dr.exp,
+                          // userId: currentModel!.id,
+                          id: widget.dr.id,
+                          time: time[selectIndex1],
+                          date: date.toString(), userId: '');
 
-                      });
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => BookingPage(time:doctorData,)));
+                      // day.add({
+                      //   "date":date,
+                      //   "time":time[selectIndex1],
+                      //   "image":widget.dr.image,
+                      //   "name":widget.dr.name,
+                      //   "spl":widget.dr.spcl,
+                      //   "distene":widget.dr.exp,
+                      //   "consultation":widget.dr.cons,
+                      //   "Admin Fee":widget.dr.admin,
+                      //   "Aditional Discount":widget.dr.dis,
+                      //
+                      // });
 
-                      day.length==1?Navigator.push(context, MaterialPageRoute(builder: (context) => BookingPage(time: day,))):day.clear();
+                      // day.length==1?Navigator.push(context, MaterialPageRoute(builder: (context) => BookingPage(time: day,))):day.clear();
                     },
                     child: Container(
                       height: height*0.07,

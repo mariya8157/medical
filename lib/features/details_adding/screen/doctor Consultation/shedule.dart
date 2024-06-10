@@ -131,7 +131,7 @@ class _ShedulePageState extends State<ShedulePage> {
                                               Row(
                                                 children: [
                                                   ElevatedButton(onPressed: () {
-                                                    Navigator.push(context, MaterialPageRoute(builder: (context) =>BookingPage(time: [],)));
+                                                    Navigator.push(context, MaterialPageRoute(builder: (context) =>BookingPage(time: data1[index],)));
                                                     //   editname: data[index]["name"],
                                                     //   editage: data[index]["age"].toString(),
                                                     //   editnumber: data[index]["number"].toString(),

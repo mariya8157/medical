@@ -75,8 +75,8 @@ class ScheduleController{
   final ScheduleRepository _scheduleRepository;
   ScheduleController({required ScheduleRepository scheduleRepository}): _scheduleRepository= scheduleRepository;
 
-  addBookingData(List a){
-    _scheduleRepository.addbooking(a);
+  addBookingData({drmodel}){
+    _scheduleRepository.addbooking(drmodel);
   }
 
 }

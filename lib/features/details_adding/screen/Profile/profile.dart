@@ -228,10 +228,10 @@ class _ProfilePageState extends State<ProfilePage> {
                             ),
                             InkWell(
                               onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                    builder: (context) =>BookingPage(time: [],) ));
+                                // Navigator.push(
+                                //     context,
+                                //     MaterialPageRoute(
+                                //     builder: (context) =>BookingPage(time: ,) ));
                               },
                               child: ListTile(
                                 leading: CircleAvatar(

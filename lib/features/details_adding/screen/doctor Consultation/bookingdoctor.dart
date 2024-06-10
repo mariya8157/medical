@@ -5,13 +5,14 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:medical/features/details_adding/controller/addingcontroller_page.dart';
 import 'package:medical/features/details_adding/screen/doctor%20Consultation/chatwithdoctor.dart';
 import 'package:medical/features/details_adding/screen/doctor%20Consultation/doctordetails.dart';
+import 'package:medical/models/doctormodel.dart';
 import '../../../../colour.dart';
 import '../../../../icons.dart';
 import '../../../../main.dart';
 import '../onlinePharmacy/drugsdetail.dart';
 
 class BookingPage extends ConsumerStatefulWidget {
-  final List time;
+  final DoctorModel time;
   const BookingPage({super.key, required this.time,  });
 
   @override
@@ -36,17 +37,41 @@ class _BookingPageState extends ConsumerState<BookingPage> {
 //  total= widget.time[0]["Consultation"]*2;
 // }
   double total =0;
-  addCost(){
-      total=0;
-      for(int i=0;i<widget.time.length;i++)
-      {
-        total=widget.time[i]["consultation"]+widget.time[i]["Admin Fee"]-widget.time[i]["Aditional Discount"];
-        print(total);
-      }
-    }
+  // addCost(){
+  //     total=0;
+  //     for(int i=0;i<widget.time.length;i++)
+  //     {
+  //       total=widget.time[i]["consultation"]+widget.time[i]["Admin Fee"]-widget.time[i]["Aditional Discount"];
+  //       print(total);
+  //     }
+  //   }
 
     addBooking(){
-     ref.watch(scheduleControllerProvider).addBookingData(widget.time);
+     ref.watch(scheduleControllerProvider).addBookingData(
+         // DoctorModel(name: widget.time.name,
+         //     time: widget.time.time,
+         //     date: widget.time.date,
+         //     cons: widget.time.cons,
+         //     admin: widget.time.admin,
+         //     dis: widget.time.dis,
+         //     image: widget.time.image,
+         //     spcl: widget.time.spcl,
+         //     exp: widget.time.exp,
+         //     id: widget.time.id,
+         //     userId: widget.time.userId));
+         widget.time.copyWith(
+           name: widget.time.name,
+           time: widget.time.time,
+               date: widget.time.date,
+               cons: widget.time.cons,
+               admin: widget.time.admin,
+               dis: widget.time.dis,
+               image: widget.time.image,
+               spcl: widget.time.spcl,
+               exp: widget.time.exp,
+               id: widget.time.id,
+           userId: widget.time.userId
+         ));
     }
 
 
@@ -54,7 +79,7 @@ class _BookingPageState extends ConsumerState<BookingPage> {
   @override
   void initState() {
     // TODO: implement initState
-    addCost();
+    // addCost();
     super.initState();
   }
   Widget build(BuildContext context) {
@@ -120,7 +145,7 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                                 width: width*0.35,
                                 height:height*0.15,
                                 decoration: BoxDecoration(
-                                  image: DecorationImage(image: NetworkImage(widget.time[0]["image"].toString())),
+                                  image: DecorationImage(image: NetworkImage(widget.time.image.toString())),
                                   borderRadius: BorderRadius.circular(width*0.03),
                                 ),
 
@@ -129,7 +154,7 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(widget.time[0]["name"].toString(),
+                                  Text(widget.time.name.toString(),
                                     style: TextStyle(
                                         fontSize: width*0.05,
                                         fontWeight: FontWeight.w800,
@@ -137,14 +162,14 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                                     ),
 
                                   ),
-                                  Text(widget.time[0]["spl"].toString(),
+                                  Text(widget.time.spcl.toString(),
                                     style: TextStyle(
                                         color: Colour.gray,
                                         fontSize: width*0.04
                                     ),
 
                                   ),
-                                  Text(widget.time[0]["distene"].toString(),),
+                                  Text(widget.time.exp.toString(),),
 
 
                                 ],
@@ -190,14 +215,14 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                     child: Center(child: SvgPicture.asset(ImageIcons.calendar)),
                   ),
                   // Text("Wednesday, Jun 23, 2021 | 10:00AM",
-                  Text(widget.time[0]['date'].toString().substring(0,10),
+                  Text(widget.time.date.toString().substring(0,10),
                     style: TextStyle(
                         fontSize: width*0.04,
                         fontWeight: FontWeight.w500,
                         color:Colour.thirdcolour
                     ),
                   ),
-                  Text(widget.time[0]['time'].toString(),
+                  Text(widget.time.time.toString(),
                     style: TextStyle(
                         fontSize: width*0.04,
                         fontWeight: FontWeight.w500,
@@ -327,7 +352,7 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                   //
                   // )
 
-                  Text(widget.time[0]["consultation"].toString(),
+                  Text(widget.time.cons.toString(),
                     style: TextStyle(
                         fontSize: width*0.05,
                         fontWeight: FontWeight.w500,
@@ -372,7 +397,7 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                   //
                   // )
 
-                  Text(widget.time[0]["Admin Fee"].toString(),
+                  Text(widget.time.admin.toString(),
                     style: TextStyle(
                         fontSize: width*0.05,
                         fontWeight: FontWeight.w500,
@@ -393,7 +418,7 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                     ),
                   ),
 
-                  Text(widget.time[0]["Aditional Discount"].toString(),
+                  Text(widget.time.dis.toString(),
                     style: TextStyle(
                         fontSize: width*0.05,
                         fontWeight: FontWeight.w500,
@@ -414,7 +439,7 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                         color:Colour.thirdcolour
                     ),
                   ),
-                  Text("$total",
+                  Text("${widget.time.cons+widget.time.admin-widget.time.dis}",
                     style: TextStyle(
                         fontSize: width*0.05,
                         fontWeight: FontWeight.w600,
@@ -593,7 +618,8 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                                   color:Colour.gray
                               ),
                             ),
-                            Text("$total",
+                            // widget.time[i]["consultation"]+widget.time[i]["Admin Fee"]-widget.time[i]["Aditional Discount"]
+                            Text("${widget.time.cons+widget.time.admin-widget.time.dis}",
                               style: TextStyle(
                                   fontSize: width*0.05,
                                   fontWeight: FontWeight.w800,

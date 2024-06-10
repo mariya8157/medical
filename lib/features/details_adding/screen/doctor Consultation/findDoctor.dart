@@ -302,9 +302,15 @@ class _FindDoctorState extends ConsumerState<FindDoctor> {
                             image: data[selectIndex].image,
                             spcl: data[selectIndex].spcl.toString(),
                             exp: data[selectIndex].exp.toString(),
-                            id: currentModel!.id,
+                            // userId: currentModel!.id,
+                            id:"",
                             time: '',
-                            date: '');
+                            date: '',
+                          userId: '',
+                            );
+                        // print(currentModel!.id);
+                        print("----------------===================000000000000");
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => DoctordetailsPage(dr:doctorData,),));
                         // a.add({
                         //   "image":data[selectIndex].image,
                         //   "name":data[selectIndex].name.toString(),
@@ -315,7 +321,8 @@ class _FindDoctorState extends ConsumerState<FindDoctor> {
                         //   "Aditional Discount":data[selectIndex].dis.toString(),
                         //
                         // });
-                        a.length==1?Navigator.push(context, MaterialPageRoute(builder: (context) => DoctordetailsPage(dr: data[selectIndex],),)):a.clear();
+                       // data.length==1? Navigator.push(context, MaterialPageRoute(builder: (context) => DoctordetailsPage(dr:doctorData,),)):
+                       //     data.clear;
                       },
                       child: Container(
                         height: height*0.2,
@@ -330,6 +337,7 @@ class _FindDoctorState extends ConsumerState<FindDoctor> {
 
                             itemBuilder: (context, index) {
                               return
+
                                 Padding(
                                   padding:  EdgeInsets.all(width*0.03),
                                   child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
