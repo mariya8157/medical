@@ -68,7 +68,7 @@ class _ShedulePageState extends State<ShedulePage> {
 
 
                       child: StreamBuilder<QuerySnapshot>(
-                          stream: FirebaseFirestore.instance.collection("schedule").snapshots(),
+                          stream: FirebaseFirestore.instance.collection("schedule").where("id",isEqualTo: currentModel?.id).snapshots(),
                           builder: (context, snapshot) {
                             if(!snapshot.hasData){
                               return Center(child: Text("No document found"));

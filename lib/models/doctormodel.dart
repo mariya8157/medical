@@ -3,6 +3,8 @@ class DoctorModel {
   String image;
   String spcl;
   String exp;
+  String time;
+  String date;
   double cons;
   double admin;
   double dis;
@@ -10,6 +12,8 @@ class DoctorModel {
 
   DoctorModel({
     required this.name,
+    required this.time,
+    required this.date,
     required this.cons,
     required this.admin,
     required this.dis,
@@ -22,6 +26,8 @@ class DoctorModel {
   Map<String, dynamic> toMap() {
     return {
       'name': this.name,
+      'time': this.time,
+      'date': this.date,
       'cons': this.cons,
       'admin': this.admin,
       'dis': this.dis,
@@ -40,6 +46,8 @@ class DoctorModel {
       exp: map['exp'] ?? "",
       image: map['image'] ?? "",
       spcl: map['spcl'] ?? "",
+      time: map['time'] ?? "",
+      date: map['date'] ?? "",
       name: map['name'] ?? "",
       id: map['id'] ?? "",
     );
@@ -47,6 +55,8 @@ class DoctorModel {
 
   DoctorModel copyWith({
     String? name,
+    String? date,
+    String? time,
     double? cons,
     double? admin,
     double? dis,
@@ -57,6 +67,8 @@ class DoctorModel {
   }) {
     return DoctorModel(
       name: name ?? this.name,
+      date: date ?? this.date,
+      time: time ?? this.time,
       cons: cons ?? this.cons,
       admin: admin ?? this.admin,
       dis: dis ?? this.dis,

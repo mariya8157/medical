@@ -7,6 +7,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:medical/features/details_adding/controller/addingcontroller_page.dart';
 import 'package:medical/features/details_adding/screen/doctor%20Consultation/doctordetails.dart';
 import 'package:medical/features/details_adding/screen/home/bottomnavigation.dart';
+import 'package:medical/models/doctormodel.dart';
 
 import '../../../../colour.dart';
 import '../../../../icons.dart';
@@ -293,16 +294,27 @@ class _FindDoctorState extends ConsumerState<FindDoctor> {
                     ),
                     InkWell(
                       onTap: () {
-                        a.add({
-                          "image":data[selectIndex].image,
-                          "name":data[selectIndex].name.toString(),
-                          "spl":data[selectIndex].spcl.toString(),
-                          "distene":data[selectIndex].exp.toString(),
-                          "consultation":data[selectIndex].cons.toString(),
-                          "Admin Fee":data[selectIndex].admin.toString(),
-                          "Aditional Discount":data[selectIndex].dis.toString(),
-
-                        });
+                        DoctorModel doctorData= DoctorModel(
+                            name: data[selectIndex].name.toString(),
+                            cons: data[selectIndex].cons,
+                            admin: data[selectIndex].admin,
+                            dis: data[selectIndex].dis,
+                            image: data[selectIndex].image,
+                            spcl: data[selectIndex].spcl.toString(),
+                            exp: data[selectIndex].exp.toString(),
+                            id: currentModel!.id,
+                            time: '',
+                            date: '');
+                        // a.add({
+                        //   "image":data[selectIndex].image,
+                        //   "name":data[selectIndex].name.toString(),
+                        //   "spl":data[selectIndex].spcl.toString(),
+                        //   "distene":data[selectIndex].exp.toString(),
+                        //   "consultation":data[selectIndex].cons.toString(),
+                        //   "Admin Fee":data[selectIndex].admin.toString(),
+                        //   "Aditional Discount":data[selectIndex].dis.toString(),
+                        //
+                        // });
                         a.length==1?Navigator.push(context, MaterialPageRoute(builder: (context) => DoctordetailsPage(dr: data[selectIndex],),)):a.clear();
                       },
                       child: Container(

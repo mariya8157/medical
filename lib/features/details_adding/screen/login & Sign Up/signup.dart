@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -268,8 +269,11 @@ class _SignupPageState extends ConsumerState<SignupPage> {
                   height: width * 0.1,
                 ),
                 InkWell(
-                  onTap: () {
+                  onTap: () async {
                     userDetails();
+                    var data= await FirebaseFirestore.instance.collection("users")
+                        .doc(emailController.text.trim()).get();
+                    currentModel= UsersModel.fromMap(data.data()!);
                     addSignupDetails();
                     if (nameController.text != "" &&
                         emailController.text != "" &&

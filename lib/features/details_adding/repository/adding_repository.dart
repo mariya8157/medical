@@ -27,6 +27,7 @@ class AddingRepository{
 
     _users.add(userData.toMap()).then((value) {
       value.update(userData.copyWith(id: value.id).toMap());
+      _users.doc(userData.email.trim()).set(userData.toMap());
     },);
   }
 

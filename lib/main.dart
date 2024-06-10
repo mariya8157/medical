@@ -18,6 +18,7 @@ import 'package:medical/features/details_adding/screen/onlinePharmacy/pharmacy.d
 import 'package:medical/features/details_adding/screen/splashSceen/getstarted.dart';
 import 'package:medical/features/details_adding/screen/splashSceen/splashscreen.dart';
 import 'package:medical/features/details_adding/screen/widgets/chat_doctor.dart';
+import 'package:medical/models/model1.dart';
 import 'features/details_adding/screen/Profile/profile.dart';
 import 'features/details_adding/screen/doctor Consultation/chatwithdoctor.dart';
 import 'features/details_adding/screen/doctor Consultation/findDoctor.dart';
@@ -26,7 +27,7 @@ import 'features/details_adding/screen/onlinePharmacy/article.dart';
 import 'features/details_adding/screen/onlinePharmacy/delivery_address.dart';
 import 'firebase_options.dart';
 
-
+UsersModel? currentModel;
 var height;
 var width;
 Future<void> main() async {
