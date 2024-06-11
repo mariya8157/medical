@@ -48,8 +48,7 @@ class _BookingPageState extends ConsumerState<BookingPage> {
 
     addBooking(){
      ref.watch(scheduleControllerProvider).addBookingData(
-         // DoctorModel(
-       // name: widget.time.name,
+         // DoctorModel(name: widget.time.name,
          //     time: widget.time.time,
          //     date: widget.time.date,
          //     cons: widget.time.cons,
@@ -60,19 +59,20 @@ class _BookingPageState extends ConsumerState<BookingPage> {
          //     exp: widget.time.exp,
          //     id: widget.time.id,
          //     userId: widget.time.userId));
-         widget.time.copyWith(
-           name: widget.time.name,
-           time: widget.time.time,
-               date: widget.time.date,
-               cons: widget.time.cons,
-               admin: widget.time.admin,
-               dis: widget.time.dis,
-               image: widget.time.image,
-               spcl: widget.time.spcl,
-               exp: widget.time.exp,
-               id: widget.time.id,
-           userId: widget.time.userId
-         ));
+         // widget.time.copyWith(
+         //   name: widget.time.name,
+         //   time: widget.time.time,
+         //       date: widget.time.date,
+         //       cons: widget.time.cons,
+         //       admin: widget.time.admin,
+         //       dis: widget.time.dis,
+         //       image: widget.time.image,
+         //       spcl: widget.time.spcl,
+         //       exp: widget.time.exp,
+         //       id: widget.time.id,
+         //   userId: widget.time.userId
+         // )
+         );
     }
 
 
@@ -353,11 +353,25 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                   //
                   // )
 
-                  Text(widget.time.cons.toString(),
-                    style: TextStyle(
-                        fontSize: width*0.05,
-                        fontWeight: FontWeight.w500,
-                        color:Colour.thirdcolour
+                  Container(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text("\$ ",
+                          style: TextStyle(
+                              fontSize: width*0.05,
+                              fontWeight: FontWeight.w500,
+                              color:Colour.thirdcolour
+                          ),
+                        ),
+                        Text(widget.time.cons.toString(),
+                          style: TextStyle(
+                              fontSize: width*0.05,
+                              fontWeight: FontWeight.w500,
+                              color:Colour.thirdcolour
+                          ),
+                        ),
+                      ],
                     ),
                   ),
 
@@ -398,14 +412,27 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                   //
                   // )
 
-                  Text(widget.time.admin.toString(),
-                    style: TextStyle(
-                        fontSize: width*0.05,
-                        fontWeight: FontWeight.w500,
-                        color:Colour.thirdcolour
+                  Container(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                      Text("\$ ",
+                      style: TextStyle(
+                          fontSize: width*0.05,
+                          fontWeight: FontWeight.w500,
+                          color:Colour.thirdcolour
+                      ),
                     ),
+                    Text(widget.time.admin.toString(),
+                      style: TextStyle(
+                          fontSize: width*0.05,
+                          fontWeight: FontWeight.w500,
+                          color:Colour.thirdcolour
+                      ),
+                    ),
+                    ]
                   ),
-
+                  )
                 ],
               ),
               SizedBox(height: height*0.01,),
@@ -418,15 +445,27 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                         color:Colour.gray
                     ),
                   ),
-
-                  Text(widget.time.dis.toString(),
-                    style: TextStyle(
-                        fontSize: width*0.05,
-                        fontWeight: FontWeight.w500,
-                        color:Colour.thirdcolour
+                  Container(
+                    child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text("\$ ",
+                            style: TextStyle(
+                                fontSize: width*0.05,
+                                fontWeight: FontWeight.w500,
+                                color:Colour.thirdcolour
+                            ),
+                          ),
+                          Text(widget.time.dis.toString(),
+                            style: TextStyle(
+                                fontSize: width*0.05,
+                                fontWeight: FontWeight.w500,
+                                color:Colour.thirdcolour
+                            ),
+                          ),
+                        ]
                     ),
-                  ),
-
+                  )
                 ],
               ),
               SizedBox(height: height*0.02,),
@@ -440,13 +479,29 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                         color:Colour.thirdcolour
                     ),
                   ),
-                  Text("${widget.time.cons+widget.time.admin-widget.time.dis}",
-                    style: TextStyle(
-                        fontSize: width*0.05,
-                        fontWeight: FontWeight.w600,
-                        color:Colour.primarycolour
+                  Container(
+                    child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text("\$ ",
+                            style:TextStyle(
+                                fontSize: width*0.05,
+                                fontWeight: FontWeight.w600,
+                                color:Colour.primarycolour
+                            ),
+                          ),
+                          Text("${widget.time.cons+widget.time.admin-widget.time.dis}",
+                            style: TextStyle(
+                                fontSize: width*0.05,
+                                fontWeight: FontWeight.w600,
+                                color:Colour.primarycolour
+                            ),
+                          ),
+                        ]
                     ),
-                  ),
+                  )
+
+
 
                 ],
               ),
@@ -608,7 +663,7 @@ class _BookingPageState extends ConsumerState<BookingPage> {
 
                   Container(
                     height: height*0.08,
-                    width: width*0.3,
+                    // width: width*0.3,
                     child: Center(
                         child: Column(
                           children: [
@@ -619,14 +674,29 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                                   color:Colour.gray
                               ),
                             ),
-                            // widget.time[i]["consultation"]+widget.time[i]["Admin Fee"]-widget.time[i]["Aditional Discount"]
-                            Text("${widget.time.cons+widget.time.admin-widget.time.dis}",
-                              style: TextStyle(
-                                  fontSize: width*0.05,
-                                  fontWeight: FontWeight.w800,
-                                  color:Colour.thirdcolour
+                            Container(
+                              child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text("\$ ",
+                                      style:TextStyle(
+                                          fontSize: width*0.05,
+                                          fontWeight: FontWeight.w800,
+                                          color:Colour.thirdcolour
+                                      ),
+                                    ),
+                                    Text("${widget.time.cons+widget.time.admin-widget.time.dis}",
+                                      style: TextStyle(
+                                          fontSize: width*0.05,
+                                          fontWeight: FontWeight.w800,
+                                          color:Colour.thirdcolour
+                                      ),
+                                    ),
+                                  ]
                               ),
-                            ),
+                            )
+                            // widget.time[i]["consultation"]+widget.time[i]["Admin Fee"]-widget.time[i]["Aditional Discount"]
+
 
                           ],
                         )
