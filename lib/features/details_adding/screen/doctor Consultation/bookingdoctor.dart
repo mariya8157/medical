@@ -59,19 +59,19 @@ class _BookingPageState extends ConsumerState<BookingPage> {
          //     exp: widget.time.exp,
          //     id: widget.time.id,
          //     userId: widget.time.userId));
-         // widget.time.copyWith(
-         //   name: widget.time.name,
-         //   time: widget.time.time,
-         //       date: widget.time.date,
-         //       cons: widget.time.cons,
-         //       admin: widget.time.admin,
-         //       dis: widget.time.dis,
-         //       image: widget.time.image,
-         //       spcl: widget.time.spcl,
-         //       exp: widget.time.exp,
-         //       id: widget.time.id,
-         //   userId: widget.time.userId
-         // )
+         widget.time.copyWith(
+           name: widget.time.name,
+           time: widget.time.time,
+               date: widget.time.date,
+               cons: widget.time.cons,
+               admin: widget.time.admin,
+               dis: widget.time.dis,
+               image: widget.time.image,
+               spcl: widget.time.spcl,
+               exp: widget.time.exp,
+               id: widget.time.id,
+           userId: widget.time.userId
+         )
          );
     }
 

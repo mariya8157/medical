@@ -291,7 +291,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                   backgroundColor: Colour.lightgreen,
                                   child: SvgPicture.asset(ImageIcons.faqs),
                                 ),
-                                title: Text("Change Language",
+                                title: Text("About Us",
                                     style: TextStyle(
                                         fontWeight: FontWeight.w600,
                                         fontSize: width * 0.05)),

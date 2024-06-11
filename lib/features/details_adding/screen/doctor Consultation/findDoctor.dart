@@ -129,6 +129,13 @@ class _FindDoctorState extends ConsumerState<FindDoctor> {
   List a=[];
 
   @override
+  void initState() {
+    // TODO: implement initState
+    print(currentModel);
+    print("qawserdftghjnkmjhgfdsadrftyuiop567890");
+    super.initState();
+  }
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -306,7 +313,7 @@ class _FindDoctorState extends ConsumerState<FindDoctor> {
                             id:"",
                             time: '',
                             date: '',
-                          userId: '',
+                          userId: currentModel!.id,
                             );
                         // print(currentModel!.id);
                         print("----------------===================000000000000");

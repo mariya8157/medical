@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -11,6 +12,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../../../../colour.dart';
 import '../../../../icons.dart';
 import '../../../../main.dart';
+import '../../../../models/model1.dart';
 
 
 class SplashScreen extends StatefulWidget {
@@ -29,7 +31,9 @@ class _SplashScreenState extends State<SplashScreen> {
   splash() async {
   SharedPreferences prefs = await SharedPreferences.getInstance();
   login=prefs.getBool('login')??false;
-
+  var data= await FirebaseFirestore.instance.collection("users")
+      .doc(emailController.text.trim()).get();
+  currentModel= UsersModel.fromMap(data.data()!);
 
   Future.delayed(Duration(
     seconds: 5

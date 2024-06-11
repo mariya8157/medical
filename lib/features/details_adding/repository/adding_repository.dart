@@ -115,10 +115,10 @@ class ScheduleRepository{
 
   CollectionReference get _schedule => _firestore.collection("schedule");
 
-  addbooking(DoctorModel drmodel){
-    _schedule.add({
+  addbooking({required DoctorModel drmodel}){
+    _schedule.add(
       drmodel.toMap()
-    }).then((value) {
+    ).then((value) {
       value.update(
         drmodel.copyWith(id: value.id).toMap()
       );

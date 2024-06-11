@@ -44,6 +44,11 @@ class _SignupPageState extends ConsumerState<SignupPage> {
     ref.read(AddingControllerProvider).addUser(nameController.text,
         emailController.text.trim(), passwordController.text);
   }
+  currentUser() async{
+    var data= await FirebaseFirestore.instance.collection("users")
+        .doc(emailController.text.trim()).get();
+    currentModel= UsersModel.fromMap(data.data()!);
+  }
 
   void initState() {
     if (widget.sign == true) {
@@ -271,9 +276,7 @@ class _SignupPageState extends ConsumerState<SignupPage> {
                 InkWell(
                   onTap: () async {
                     userDetails();
-                    var data= await FirebaseFirestore.instance.collection("users")
-                        .doc(emailController.text.trim()).get();
-                    currentModel= UsersModel.fromMap(data.data()!);
+                    currentUser();
                     addSignupDetails();
                     if (nameController.text != "" &&
                         emailController.text != "" &&

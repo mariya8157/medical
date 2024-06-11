@@ -1,7 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:medical/colour.dart';
+import 'package:medical/features/details_adding/controller/addingcontroller_page.dart';
 import 'package:medical/features/details_adding/screen/doctor%20Consultation/bookingdoctor.dart';
 
 import '../../../../main.dart';
@@ -76,13 +78,12 @@ class _SchedulePageState extends State<SchedulePage> {
                               return Center(child: Text("No document found"));
                             }
                             var data=snapshot.data!.docs;
-                            var data1=data[0]["booking"];
                             return data.length==0?
                             Center(child: Text("No users found")) :
 
 
                             ListView.separated(
-                              itemCount:data1.length,
+                              itemCount:data.length,
                               shrinkWrap: true,
                               physics: BouncingScrollPhysics(),
                               itemBuilder:(context,  index) {
@@ -105,21 +106,21 @@ class _SchedulePageState extends State<SchedulePage> {
                                           Column(
                                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                             children: [
-                                              Text("${data1[index]["name"].toString()}",
+                                              Text("${data[index]["name"].toString()}",
                                                   style: TextStyle(
                                                       fontSize: width*0.05,
                                                       fontWeight: FontWeight.w700)),
-                                              Text("${data1[index]["spl"].toString()}",
+                                              Text("${data[index]["spcl"].toString()}",
                                                   style: TextStyle(
                                                       fontSize: width*0.04,
                                                       fontWeight: FontWeight.w700)),
                                            Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                              children: [
-                                               Text("${data1[index]["time"].toString()}",
+                                               Text("${data[index]["date"].substring(0,10)}",
                                                    style: TextStyle(
                                                        fontSize: width*0.03
                                                    )),
-                                               Text("${data1[index]["date"].toDate().toString().substring(0,10)}",
+                                               Text("${data[index]["time"].toString()}",
                                                    style: TextStyle(
                                                        fontSize: width*0.03
                                                    )),
@@ -131,17 +132,19 @@ class _SchedulePageState extends State<SchedulePage> {
                                            ),
                                               Row(
                                                 children: [
-                                                  ElevatedButton(onPressed: () {
-                                                    Navigator.push(context, MaterialPageRoute(builder: (context) =>BookingPage(time: data1[index],)));
-                                                    //   editname: data[index]["name"],
-                                                    //   editage: data[index]["age"].toString(),
-                                                    //   editnumber: data[index]["number"].toString(),
-                                                    //   edId: data[index]["id"],),));
-
-
-
-
-                                                  }, child: Icon(CupertinoIcons.pen)),
+                                                  // ElevatedButton(onPressed: () {
+                                                  //   Navigator.push(context, MaterialPageRoute(builder: (context) =>BookingPage(time: data[],)));
+                                                  //   //   editname: data[index]["name"],
+                                                  //   //   editage: data[index]["age"].toString(),
+                                                  //   //   editnumber: data[index]["number"].toString(),
+                                                  //   //   edId: data[index]["id"],),));
+                                                  //
+                                                  //
+                                                  //
+                                                  //
+                                                  // }, child:
+                                                  Icon(CupertinoIcons.pen),
+                                // ),
 
 
                                                   ElevatedButton(onPressed: () {
@@ -158,7 +161,7 @@ class _SchedulePageState extends State<SchedulePage> {
                                           ),
                                           CircleAvatar(
                                             radius: width*0.1,
-                                            backgroundImage: NetworkImage(data1[0]["image"]),
+                                            backgroundImage: NetworkImage(data[0]["image"]),
                                           )
 
 
