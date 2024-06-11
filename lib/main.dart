@@ -54,7 +54,6 @@ class MyApp extends StatelessWidget {
               textTheme: GoogleFonts.interTextTheme()
             ),
             home:SplashScreen(),
-            home:SplashScreen()
     ),);
   }
 }
