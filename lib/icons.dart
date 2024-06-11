@@ -51,6 +51,8 @@ class ImageIcons{
   static const Vector = "assets/icons/Vector.svg";
   static const circle = "assets/icons/circle.svg";
   static const paypal = "assets/icons/paypal.svg";
+  static const time = "assets/icons/TimeCircle.svg";
+  static const date = "assets/icons/calendar.svg";
 
 
   ///png

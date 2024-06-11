@@ -2,9 +2,11 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:medical/colour.dart';
 import 'package:medical/features/details_adding/controller/addingcontroller_page.dart';
 import 'package:medical/features/details_adding/screen/doctor%20Consultation/bookingdoctor.dart';
+import 'package:medical/icons.dart';
 import 'package:medical/models/doctormodel.dart';
 
 import '../../../../main.dart';
@@ -92,77 +94,123 @@ class _SchedulePageState extends State<SchedulePage> {
                                   onTap: () {
                                   },
                                   child: Container(
-                                      height: height*0.2,
+                                      height: height*0.25,
                                       width: width*1,
                                       decoration: BoxDecoration(color:Colour.secondarycolour,
                                           border: Border.all(color: Colour.lightgreen),
                                           borderRadius: BorderRadius.circular(width*0.04)
                                       ),
                                       child:
-                                      Row(
-                                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                      Column(
+                                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                         children: [
-
-                                          Column(
-                                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                          Row(
+                                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                            crossAxisAlignment: CrossAxisAlignment.start,
                                             children: [
-                                              Text("${data[index]["name"].toString()}",
-                                                  style: TextStyle(
-                                                      fontSize: width*0.05,
-                                                      fontWeight: FontWeight.w700)),
-                                              Text("${data[index]["spcl"].toString()}",
-                                                  style: TextStyle(
-                                                      fontSize: width*0.04,
-                                                      fontWeight: FontWeight.w700)),
-                                           Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                             children: [
-                                               Text("${data[index]["date"].substring(0,10)}",
-                                                   style: TextStyle(
-                                                       fontSize: width*0.03
-                                                   )),
-                                               Text("${data[index]["time"].toString()}",
-                                                   style: TextStyle(
-                                                       fontSize: width*0.03
-                                                   )),
-                                               Text("Confirmed",
-                                                   style: TextStyle(
-                                                       fontSize: width*0.03
-                                                   )),
-                                             ],
-                                           ),
-                                              Row(
-                                                children: [
-                                                  ElevatedButton(onPressed: () {
-                                                    Navigator.push(context, MaterialPageRoute(builder: (context) =>BookingPage(time:DoctorModel.fromMap(data[index].data()) ,)));
 
-
-
-
-                                                  }, child:
-                                                  Icon(CupertinoIcons.pen),
-                                ),
-
-
-                                                  ElevatedButton(onPressed: () {
-                                                    String id=data[index].id.toString();
-                                                    FirebaseFirestore.instance.collection("schedule").doc(id).delete();
-                                                    // Navigator.pop(context);
-
-
-                                                  }, child: Icon(CupertinoIcons.delete))
-                                                ],
+                                              Container(
+                                                height: width*0.15,
+                                                width: width*0.55,
+                                                child: Column(
+                                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                                  children: [
+                                                    Row(
+                                                      children: [
+                                                        Text("${data[index]["name"].toString()}",
+                                                            style: TextStyle(
+                                                                fontSize: width*0.05,
+                                                                fontWeight: FontWeight.w700)),
+                                                      ],
+                                                    ),
+                                                    Row(
+                                                      children: [
+                                                        Text("${data[index]["spcl"].toString()}",
+                                                            style: TextStyle(
+                                                                fontSize: width*0.04,
+                                                                fontWeight: FontWeight.w700)),
+                                                      ],
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                              CircleAvatar(
+                                                radius: width*0.08,
+                                                backgroundImage: NetworkImage(data[index]["image"]),
                                               )
-
                                             ],
                                           ),
-                                          CircleAvatar(
-                                            radius: width*0.1,
-                                            backgroundImage: NetworkImage(data[index]["image"]),
+                                          Container(
+                                            width: width*0.8,
+                                            child: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                              children: [
+                                                SvgPicture.asset(ImageIcons.calendar),
+                                                Text("${data[index]["date"].substring(0,10)}",
+                                                    style: TextStyle(
+                                                        fontSize: width*0.04
+                                                    )),
+                                                SvgPicture.asset(ImageIcons.time),
+                                                Text("${data[index]["time"].toString()}",
+                                                    style: TextStyle(
+                                                        fontSize: width*0.04
+                                                    )),
+                                                Text("*",
+                                                    style: TextStyle(
+                                                        fontSize: width*0.04,
+                                                      color: Colour.primarycolour
+                                                    )),
+                                                Text("Confirmed",
+                                                    style: TextStyle(
+                                                        fontSize: width*0.04
+                                                    )),
+                                              ],
+                                            ),
+                                          ),
+                                          Container(
+                                            width: width*0.8,
+                                            child: Row(
+                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                              children: [
+                                                InkWell(
+                                                  onTap: () {
+                                                    String id=data[index].id.toString();
+                                                    FirebaseFirestore.instance.collection("schedule").doc(id).delete();
+                                                  },
+                                                  child: Container(
+                                                    width: width*0.37,
+                                                    height: height*0.06,
+                                                    decoration: BoxDecoration(color:Colour.lightgreen,
+                                                        borderRadius: BorderRadius.circular(width*0.03)
+                                                    ),
+                                                    child: Center(child: Text("Cancel",style: TextStyle(
+                                                      fontWeight: FontWeight.w600,
+                                                      fontSize: width*0.04,
+                                                      color: Colour.thirdcolour
+                                                    ),
+                                                    )),
+                                                  ),
+                                                ),
+                                                InkWell(
+                                                  onTap: () {
+                                                    Navigator.push(context, MaterialPageRoute(builder: (context) =>BookingPage(time:DoctorModel.fromMap(data[index].data()) ,)));
+                                                  },
+                                                  child: Container(
+                                                    width: width*0.37,
+                                                    height: height*0.06,
+                                                    decoration: BoxDecoration(color:Colour.primarycolour,
+                                                        borderRadius: BorderRadius.circular(width*0.03)
+                                                    ),
+                                                    child: Center(child: Text("Reschedule",style: TextStyle(
+                                                        fontWeight: FontWeight.w600,
+                                                        fontSize: width*0.04,
+                                                        color: Colour.secondarycolour
+                                                    ),
+                                                    )),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
                                           )
-
-
-
                                         ],
                                       )
 
