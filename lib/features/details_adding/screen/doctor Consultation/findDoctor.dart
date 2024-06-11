@@ -321,6 +321,9 @@ class _FindDoctorState extends ConsumerState<FindDoctor> {
                         //   "Aditional Discount":data[selectIndex].dis.toString(),
                         //
                         // });
+                        // a.length==1?
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => DoctordetailsPage(dr: data[selectIndex],),));
+                            // :a.clear();
                        // data.length==1? Navigator.push(context, MaterialPageRoute(builder: (context) => DoctordetailsPage(dr:doctorData,),)):
                        //     data.clear;
                       },

@@ -6,21 +6,21 @@ import 'package:medical/features/details_adding/screen/doctor%20Consultation/boo
 
 import '../../../../main.dart';
 
-class ShedulePage extends StatefulWidget {
-  const ShedulePage({super.key});
+class SchedulePage extends StatefulWidget {
+  const SchedulePage({super.key});
 
   @override
-  State<ShedulePage> createState() => _ShedulePageState();
+  State<SchedulePage> createState() => _SchedulePageState();
 }
 
-class _ShedulePageState extends State<ShedulePage> {
+class _SchedulePageState extends State<SchedulePage> {
   @override
   Widget build(BuildContext context) {
     return       DefaultTabController(
       length: 2,
       child: Scaffold(
         appBar: AppBar(
-          title: Text("Shedule",
+          title: Text("Schedule",
             style: TextStyle(
                 color: Colors.black,
                 fontWeight: FontWeight.w700,
@@ -47,7 +47,7 @@ class _ShedulePageState extends State<ShedulePage> {
                   unselectedLabelColor: Colors.black,
                   tabs: [
                     Tab(
-                      text: "Shedule",
+                      text: "Schedule",
                     ),
                     Tab(
                       text: "Orders",

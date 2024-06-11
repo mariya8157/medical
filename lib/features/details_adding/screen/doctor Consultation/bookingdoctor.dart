@@ -48,7 +48,8 @@ class _BookingPageState extends ConsumerState<BookingPage> {
 
     addBooking(){
      ref.watch(scheduleControllerProvider).addBookingData(
-         // DoctorModel(name: widget.time.name,
+         // DoctorModel(
+       // name: widget.time.name,
          //     time: widget.time.time,
          //     date: widget.time.date,
          //     cons: widget.time.cons,

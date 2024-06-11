@@ -5,7 +5,7 @@ import 'package:medical/features/details_adding/screen/Profile/profile.dart';
 import 'package:medical/features/details_adding/screen/doctor%20Consultation/bookingdoctor.dart';
 import 'package:medical/features/details_adding/screen/doctor%20Consultation/chatwithdoctor.dart';
 import 'package:medical/features/details_adding/screen/doctor%20Consultation/findDoctor.dart';
-import 'package:medical/features/details_adding/screen/doctor%20Consultation/shedule.dart';
+import 'package:medical/features/details_adding/screen/doctor%20Consultation/schedule.dart';
 import 'package:medical/features/details_adding/screen/home/homepage.dart';
 import 'package:medical/features/details_adding/screen/onlinePharmacy/article.dart';
 import 'package:medical/features/details_adding/screen/onlinePharmacy/pharmacy.dart';
@@ -29,7 +29,7 @@ class _HomeState extends State<BottomNavigationPage> {
   List pages=[
     HomePage(),
     articles(),
-    ShedulePage(),
+    SchedulePage(),
     ProfilePage()
   ];
   int selectedIndex=0;
