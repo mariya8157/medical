@@ -161,7 +161,7 @@ class _SchedulePageState extends State<SchedulePage> {
                                           ),
                                           CircleAvatar(
                                             radius: width*0.1,
-                                            backgroundImage: NetworkImage(data[0]["image"]),
+                                            backgroundImage: NetworkImage(data[index]["image"]),
                                           )
 
 
