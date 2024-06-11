@@ -313,7 +313,7 @@ class _FindDoctorState extends ConsumerState<FindDoctor> {
                             id:"",
                             time: '',
                             date: '',
-                          userId: currentModel!.id,
+                          userId: '',
                             );
                         // print(currentModel!.id);
                         print("----------------===================000000000000");

@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:medical/colour.dart';
 import 'package:medical/features/details_adding/controller/addingcontroller_page.dart';
 import 'package:medical/features/details_adding/screen/doctor%20Consultation/bookingdoctor.dart';
+import 'package:medical/models/doctormodel.dart';
 
 import '../../../../main.dart';
 
@@ -71,7 +72,7 @@ class _SchedulePageState extends State<SchedulePage> {
                       // ****stream builder //*********
 
 
-                      child: StreamBuilder<QuerySnapshot>(
+                      child: StreamBuilder(
                           stream: FirebaseFirestore.instance.collection("schedule").where("id",isEqualTo: currentModel?.id).snapshots(),
                           builder: (context, snapshot) {
                             if(!snapshot.hasData){
@@ -79,7 +80,7 @@ class _SchedulePageState extends State<SchedulePage> {
                             }
                             var data=snapshot.data!.docs;
                             return data.length==0?
-                            Center(child: Text("No users found")) :
+                            Center(child: Text("No document found")) :
 
 
                             ListView.separated(
@@ -132,19 +133,15 @@ class _SchedulePageState extends State<SchedulePage> {
                                            ),
                                               Row(
                                                 children: [
-                                                  // ElevatedButton(onPressed: () {
-                                                  //   Navigator.push(context, MaterialPageRoute(builder: (context) =>BookingPage(time: data[],)));
-                                                  //   //   editname: data[index]["name"],
-                                                  //   //   editage: data[index]["age"].toString(),
-                                                  //   //   editnumber: data[index]["number"].toString(),
-                                                  //   //   edId: data[index]["id"],),));
-                                                  //
-                                                  //
-                                                  //
-                                                  //
-                                                  // }, child:
+                                                  ElevatedButton(onPressed: () {
+                                                    Navigator.push(context, MaterialPageRoute(builder: (context) =>BookingPage(time:DoctorModel.fromMap(data[index].data()) ,)));
+
+
+
+
+                                                  }, child:
                                                   Icon(CupertinoIcons.pen),
-                                // ),
+                                ),
 
 
                                                   ElevatedButton(onPressed: () {
