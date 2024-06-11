@@ -1,61 +1,63 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
 import '../../../../colour.dart';
 import '../../../../icons.dart';
 import '../../../../main.dart';
+import '../../controller/addingcontroller_page.dart';
 
-class TopDoctorPage extends StatefulWidget {
+class TopDoctorPage extends ConsumerStatefulWidget {
   const TopDoctorPage({super.key});
 
   @override
-  State<TopDoctorPage> createState() => _TopDoctorPageState();
+ ConsumerState<TopDoctorPage> createState() => _TopDoctorPageState();
 }
 
-class _TopDoctorPageState extends State<TopDoctorPage> {
-  List drlist=[
-    {
-      "image":ImageIcons.drmarcus1,
-      "name":"Dr. Marcus",
-      "spl":"Chardiologist",
-      "star":"4,7",
-      "distene":"800m away",
-
-    },
-    {
-      "image":ImageIcons.drmaria1,
-      "name":"Dr. Maria",
-      "spl":"Gynecologist",
-      "star":"4,7",
-      "distene":"500m away",
-
-    },
-    {
-      "image":ImageIcons.drstevi1,
-      "name":"Dr. Stevi",
-      "spl":"dermatologist",
-      "star":"4,8",
-      "distene":"900m away",
-
-    },
-    {
-      "image":ImageIcons.drgerty,
-      "name":"Dr. Gerty Cori",
-      "spl":"Orthopedist",
-      "star":"4,7",
-      "distene":"800m away",
-
-    },
-    {
-      "image":ImageIcons.drdiandra,
-      "name":"Dr. Diandra",
-      "spl":"Orthopedist",
-      "star":"4,7",
-      "distene":"800m away",
-
-    },
-
-
-  ];
+class _TopDoctorPageState extends ConsumerState<TopDoctorPage> {
+  // List drlist=[
+  //   {
+  //     "image":ImageIcons.drmarcus1,
+  //     "name":"Dr. Marcus",
+  //     "spl":"Chardiologist",
+  //     "star":"4,7",
+  //     "distene":"800m away",
+  //
+  //   },
+  //   {
+  //     "image":ImageIcons.drmaria1,
+  //     "name":"Dr. Maria",
+  //     "spl":"Gynecologist",
+  //     "star":"4,7",
+  //     "distene":"500m away",
+  //
+  //   },
+  //   {
+  //     "image":ImageIcons.drstevi1,
+  //     "name":"Dr. Stevi",
+  //     "spl":"dermatologist",
+  //     "star":"4,8",
+  //     "distene":"900m away",
+  //
+  //   },
+  //   {
+  //     "image":ImageIcons.drgerty,
+  //     "name":"Dr. Gerty Cori",
+  //     "spl":"Orthopedist",
+  //     "star":"4,7",
+  //     "distene":"800m away",
+  //
+  //   },
+  //   {
+  //     "image":ImageIcons.drdiandra,
+  //     "name":"Dr. Diandra",
+  //     "spl":"Orthopedist",
+  //     "star":"4,7",
+  //     "distene":"800m away",
+  //
+  //   },
+  //
+  //
+  // ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -101,7 +103,7 @@ class _TopDoctorPageState extends State<TopDoctorPage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Container(
+            ref.watch(StreamDocProvider).when(data: (data) => Container(
               child: ListView.separated(
                   shrinkWrap: true,
                    physics: BouncingScrollPhysics(),
@@ -135,7 +137,7 @@ class _TopDoctorPageState extends State<TopDoctorPage> {
                                         height:height*0.17,
 
                                         decoration: BoxDecoration(
-                                          image: DecorationImage(image: AssetImage(drlist[index]['image']),fit: BoxFit.fill),
+                                          image: DecorationImage(image: NetworkImage(data[index].image),fit: BoxFit.fill),
                                           // color: Colors.red,
                                           borderRadius: BorderRadius.circular(width*0.03),
 
@@ -151,7 +153,7 @@ class _TopDoctorPageState extends State<TopDoctorPage> {
                                           crossAxisAlignment: CrossAxisAlignment.start,
                                           children: [
 
-                                            Text(drlist[index]["name"],
+                                            Text(data[index].name.toString(),
                                               style: TextStyle(
                                                   fontSize: width*0.05,
                                                   fontWeight: FontWeight.w800,
@@ -159,45 +161,22 @@ class _TopDoctorPageState extends State<TopDoctorPage> {
                                               ),
 
                                             ),
-                                            Text(drlist[index]["spl"],
+                                            Text(data[index].spcl.toString(),
                                               style: TextStyle(
                                                   color: Colour.gray,
                                                   fontSize: width*0.04
                                               ),
 
                                             ),
-                                            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                              children: [
-                                                Container(
-                                                  width: width*0.15,
-                                                  height: height*0.04,
-                                                  decoration: BoxDecoration(
-                                                      color: Colour.lightgreen,
-                                                      borderRadius: BorderRadius.circular(width*0.01)
-                                                  ),
 
-                                                  child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                                    children: [
-                                                      SvgPicture.asset(ImageIcons.star) ,
-                                                      Text(drlist[index]["star"],
-                                                        style: TextStyle(
-                                                            color: Colour.primarycolour,
-                                                            fontWeight: FontWeight.w500
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
                                             Container(
                                               width: width*0.25,
                                               height: height*0.05,
                                               child: Row(
-                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                 children: [
-                                                  SvgPicture.asset(ImageIcons.location,) ,
-                                                  Text(drlist[index]["distene"],
+                                                  // SvgPicture.asset(ImageIcons.location,) ,
+                                                  Text(data[index].exp.toString(),
                                                     style: TextStyle(
                                                       color: Colour.color1,
 
@@ -227,10 +206,13 @@ class _TopDoctorPageState extends State<TopDoctorPage> {
                       height: width*0.01,
                     );
                   },
-                  itemCount:drlist.length
+                  itemCount:data.length
               ),
-            ),
-          ],
+            ), error: (Object error, StackTrace stackTrace) {  return ScaffoldMessenger(
+            child: Center(child: Text(error.toString()))); },
+          loading:  () {
+            return Center(child: CircularProgressIndicator());}
+            ) ],
         ),
       ),
 

@@ -357,7 +357,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                             children: [
                               CircleAvatar(
                                 radius: width*0.1,
-                                backgroundImage: AssetImage(data[index].image),
+                                backgroundImage: NetworkImage(data[index].image),
                               ),
                               Row(
                                 children: [
@@ -375,27 +375,10 @@ class _HomePageState extends ConsumerState<HomePage> {
                               ),
                               Row(
                                 children: [
-                                  Container(
-                                    height: width*0.065,
-                                      width: width*0.12,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(width*0.03),
-                                        color: Colour.lightgreen
 
-                                      ),
-                                      child: Row(
-                                        mainAxisAlignment: MainAxisAlignment.center,
-                                        children: [
-                                          SvgPicture.asset(ImageIcons.star),
-                                          // Text(doctor[index]["star"],style: TextStyle(
-                                          //     color: Colour.primarycolour
-                                          // ),),
-                                        ],
-                                      ),
-                                  ),
 
                                   // SizedBox(width: width*0.02,),
-                                  SvgPicture.asset(ImageIcons.location,color: Colors.grey,),
+                                  // SvgPicture.asset(ImageIcons.location,color: Colors.grey,),
                                   Text(data[index].exp.toString(),style: TextStyle(
                                     color: Colors.grey
                                   ),)
