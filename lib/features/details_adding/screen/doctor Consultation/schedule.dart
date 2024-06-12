@@ -50,8 +50,8 @@ class _SchedulePageState extends State<SchedulePage> {
                       borderRadius: BorderRadius.circular(width*0.03),
                       border: Border.all(color: Colour.primarycolour)
                   ),
-                  labelColor: Colors.white,
-                  unselectedLabelColor: Colors.black,
+                  labelColor: Colour.secondarycolour,
+                  unselectedLabelColor: Colour.thirdcolour,
                   tabs: [
                     Tab(
                       text: "Schedule",

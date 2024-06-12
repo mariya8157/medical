@@ -57,7 +57,7 @@ class _HomeState extends State<BottomNavigationPage> {
               label: 'Article'),
           BottomNavigationBarItem(icon:Icon(CupertinoIcons.calendar
           ),
-              label: 'Shedule'),
+              label: 'Schedule'),
           BottomNavigationBarItem(icon: Icon(Icons.person ),
               label: 'Profile'),
         ],
