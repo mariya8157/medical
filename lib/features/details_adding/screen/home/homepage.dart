@@ -97,158 +97,152 @@ class _HomePageState extends ConsumerState<HomePage> {
           child: Column(
             children: [
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
+                  SizedBox(height: height*0.15,),
                   Text("Find your desire\nhealth solution",style: TextStyle(
                     fontSize: width*0.06,
                       fontWeight: FontWeight.w700
                   ),),
-                  SvgPicture.asset(ImageIcons.bell,),
                 ],
               ),
 
               // SizedBox(height: width*0.05,),
-              Container(
-                height: width*0.4,
-                width: width*1,
+              Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Container(
+                    height: height*0.06,
+                    width: width*0.88,
+                    decoration: BoxDecoration(
+                        color: Colour.color3,
+                        borderRadius: BorderRadius.circular(width*0.07)
+                    ),
+                    child: TextFormField(
+                      controller:search_controller ,
+                      keyboardType: TextInputType.name,
+                      textInputAction: TextInputAction.search,
+                      style: TextStyle(fontSize: width*0.045,fontWeight: FontWeight.w500,color: Colour.thirdcolour),
+                      decoration: InputDecoration(
+                          prefixIcon:Padding(
+                            padding:  EdgeInsets.all(width*0.03),
+                            child: SvgPicture.asset(ImageIcons.search),
+                          ),
+                          labelText: "Search doctors,drugs,articles...",
+                          labelStyle: TextStyle(fontWeight: FontWeight.w500,fontSize: width*0.04, color: Colour.color1),
+                          hintText: "please enter search ",
+                          hintStyle: TextStyle(
+                            fontSize: width*0.05,
+                            fontWeight: FontWeight.w400,
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                color: Colour.color2,
 
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Container(
-                      height: height*0.06,
-                      width: width*0.88,
-                      decoration: BoxDecoration(
-                          color: Colour.color3,
-                          borderRadius: BorderRadius.circular(width*0.07)
-                      ),
-                      child: TextFormField(
-                        controller:search_controller ,
-                        keyboardType: TextInputType.name,
-                        textInputAction: TextInputAction.search,
-                        style: TextStyle(fontSize: width*0.045,fontWeight: FontWeight.w500,color: Colour.thirdcolour),
-                        decoration: InputDecoration(
-                            prefixIcon:Padding(
-                              padding:  EdgeInsets.all(width*0.03),
-                              child: SvgPicture.asset(ImageIcons.search),
-                            ),
-                            labelText: "Search doctors,drugs,articles...",
-                            labelStyle: TextStyle(fontWeight: FontWeight.w500,fontSize: width*0.04, color: Colour.color1),
-                            hintText: "please enter search ",
-                            hintStyle: TextStyle(
-                              fontSize: width*0.05,
-                              fontWeight: FontWeight.w400,
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: Colour.color2,
+                              ),
+                              borderRadius: BorderRadius.circular(
+                                  width*0.07)
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(width*0.07),
+                              borderSide: BorderSide(
+                                color: Colour.color2,
 
-                                ),
-                                borderRadius: BorderRadius.circular(
-                                    width*0.07)
-                            ),
-                            enabledBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(width*0.07),
-                                borderSide: BorderSide(
-                                  color: Colour.color2,
-
-                                )
-                            )
-                        ),
+                              )
+                          )
                       ),
                     ),
-                    // SizedBox(height: width*0.05,),
-                    Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Column(
-                        children: [
-                          InkWell(
-                            onTap: () {
-                              Navigator.push(context, MaterialPageRoute(builder: (context) => FindDoctor(),));
-                            },
-                            child: Container(
-                              height:height*0.06,
-                              width: width*0.08,
-                              child: SvgPicture.asset(ImageIcons.catogory1),
-                            
-                            ),
+                  ),
+                  // SizedBox(height: width*0.05,),
+                  Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      children: [
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => FindDoctor(),));
+                          },
+                          child: Container(
+                            height:height*0.06,
+                            width: width*0.08,
+                            child: SvgPicture.asset(ImageIcons.catogory1),
+
                           ),
-                          // SizedBox(height: width*0.04,),
-                          Text("Doctor",
-                            style: TextStyle(
-                                fontSize: width*0.03,
+                        ),
+                        // SizedBox(height: width*0.04,),
+                        Text("Doctor",
+                          style: TextStyle(
+                              fontSize: width*0.03,
+                            color: Colour.gray
+                          ),)
+                      ],
+                    ),
+                    Column(
+                      children: [
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => PharmacyPage(),));
+                          },
+                          child: Container(
+                            height:height*0.06,
+                            width: width*0.08,
+                            child: SvgPicture.asset(ImageIcons.Pharmacy),
+
+                          ),
+                        ),
+                        // SizedBox(height: width*0.04,),
+                        Text("Pharmacy",
+                          style: TextStyle(
+                              fontSize: width*0.03,
                               color: Colour.gray
-                            ),)
-                        ],
-                      ),
-                      Column(
-                        children: [
-                          InkWell(
-                            onTap: () {
-                              Navigator.push(context, MaterialPageRoute(builder: (context) => PharmacyPage(),));
-                            },
-                            child: Container(
-                              height:height*0.06,
-                              width: width*0.08,
-                              child: SvgPicture.asset(ImageIcons.Pharmacy),
-                            
-                            ),
-                          ),
-                          // SizedBox(height: width*0.04,),
-                          Text("Pharmacy",
-                            style: TextStyle(
-                                fontSize: width*0.03,
-                                color: Colour.gray
-                            ),)
-                        ],
-                      ),
-                      Column(
-                        children: [
-                          InkWell(
-                            onTap: () {
-                              Navigator.push(context, MaterialPageRoute(builder: (context) => HospitalPage(),));
-                            },
-                            child: Container(
-                              height:height*0.06,
-                              width: width*0.08,
-                              child: SvgPicture.asset(ImageIcons.Hospital),
+                          ),)
+                      ],
+                    ),
+                    Column(
+                      children: [
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => HospitalPage(),));
+                          },
+                          child: Container(
+                            height:height*0.06,
+                            width: width*0.08,
+                            child: SvgPicture.asset(ImageIcons.Hospital),
 
-                            ),
                           ),
-                          // SizedBox(height: width*0.04,),
-                          Text("Hospital",
-                            style: TextStyle(
-                                fontSize: width*0.03,
-                                color: Colour.gray
-                            ),)
-                        ],
-                      ),
-                      Column(
-                        children: [
-                          InkWell(
-                            onTap: () {
-                              Navigator.push(context, MaterialPageRoute(builder: (context) => AmbulancePage(),));
-                            },
-                            child: Container(
-                              height:height*0.06,
-                              width: width*0.08,
-                              child: SvgPicture.asset(ImageIcons.Ambulance),
+                        ),
+                        // SizedBox(height: width*0.04,),
+                        Text("Hospital",
+                          style: TextStyle(
+                              fontSize: width*0.03,
+                              color: Colour.gray
+                          ),)
+                      ],
+                    ),
+                    Column(
+                      children: [
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => AmbulancePage(),));
+                          },
+                          child: Container(
+                            height:height*0.06,
+                            width: width*0.08,
+                            child: SvgPicture.asset(ImageIcons.Ambulance),
 
-                            ),
                           ),
-                          // SizedBox(height: width*0.04,),
-                          Text("Ambulance",
-                            style: TextStyle(
-                                fontSize: width*0.03,
-                                color: Colour.gray
-                            ),)
-                        ],
-                      )
-                    ],
-                                ),
+                        ),
+                        // SizedBox(height: width*0.04,),
+                        Text("Ambulance",
+                          style: TextStyle(
+                              fontSize: width*0.03,
+                              color: Colour.gray
+                          ),)
+                      ],
+                    )
                   ],
-                ),
+                              ),
+                ],
               ),
               // SizedBox(height: width*0.04,),
               Container(
