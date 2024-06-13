@@ -6,6 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:medical/features/details_adding/controller/addingcontroller_page.dart';
 import 'package:medical/features/details_adding/screen/doctor%20Consultation/doctordetails.dart';
+import 'package:medical/features/details_adding/screen/doctor%20Consultation/drlist.dart';
 import 'package:medical/features/details_adding/screen/home/bottomnavigation.dart';
 import 'package:medical/models/doctormodel.dart';
 
@@ -258,25 +259,30 @@ class _FindDoctorState extends ConsumerState<FindDoctor> {
                       // scrollDirection: Axis.horizontal,
                       itemBuilder: (context, index) {
                         return
-                          Container(
-                            width: width*0.25,
-                            height: width*0.15,
-                            child: Column(
-                              children: [
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(context, MaterialPageRoute(builder: (context) =>DoctorList(name: category[index]["text"],) ,));
+                            },
+                            child: Container(
+                              width: width*0.25,
+                              height: width*0.15,
+                              child: Column(
+                                children: [
 
-                                Container(
-                                    width: width*0.07,
-                                    height: height*0.05,
-                                    child: SvgPicture.asset(category[index]["image"],)
-                                ),
-
-                                Text(category[index]["text"],
-                                  style: TextStyle(
-                                      color: Colour.color1,
-                                      fontSize: width*0.03
+                                  Container(
+                                      width: width*0.07,
+                                      height: height*0.05,
+                                      child: SvgPicture.asset(category[index]["image"],)
                                   ),
-                                )
-                              ],
+
+                                  Text(category[index]["text"],
+                                    style: TextStyle(
+                                        color: Colour.color1,
+                                        fontSize: width*0.03
+                                    ),
+                                  )
+                                ],
+                              ),
                             ),
                           );
 

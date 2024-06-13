@@ -88,6 +88,9 @@ class DoctorRepository{
   streamDoc(){
     return _doctors.snapshots().map((event) => event.docs.map((e) => DoctorModel.fromMap(e.data() as Map<String, dynamic>)).toList());
   }
+  // streamDoc1(String name){
+  //   return _doctors.where("spcl",isEqualTo:name ).snapshots().map((event) => event.docs.map((e) => DoctorModel.fromMap(e.data() as Map<String, dynamic>)).toList());
+  // }
   UpdateDoc(DoctorModel docedit){
     print(_doctors.doc(docedit.id));
     _doctors.doc(docedit.id).update(docedit.toMap()).then((value) {
