@@ -31,6 +31,8 @@ class HomePage extends ConsumerStatefulWidget {
 
 class _HomePageState extends ConsumerState<HomePage> {
   TextEditingController search_controller=TextEditingController();
+
+
   // List items=[
   //   {"images":"ImageIcons.catogory1",
   //     "text":"Doctor"

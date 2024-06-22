@@ -44,6 +44,7 @@ class MyApp extends StatelessWidget {
     width=MediaQuery.of(context).size.width;
     height=MediaQuery.of(context).size.height;
 
+
     return GestureDetector(
         onTap: () {
           FocusManager.instance.primaryFocus!.unfocus();
