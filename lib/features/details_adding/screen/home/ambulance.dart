@@ -47,7 +47,7 @@ class _AmbulancePageState extends ConsumerState<AmbulancePage> {
         title:  Text(
           "Ambulance",
           style: TextStyle(
-              color: Colors.black,
+              color: Colour.thirdcolour,
               fontWeight: FontWeight.w700,
               fontSize: width*0.06
           ),

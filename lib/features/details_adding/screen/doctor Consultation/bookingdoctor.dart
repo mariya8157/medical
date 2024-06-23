@@ -88,7 +88,6 @@ class _BookingPageState extends ConsumerState<BookingPage> {
       appBar: AppBar(
         scrolledUnderElevation: 0,
         centerTitle: true,
-        backgroundColor: Colors.white24,
         // resizeToAvoidBottomInset: false,
         elevation: 0,
         leading: InkWell(
@@ -112,7 +111,7 @@ class _BookingPageState extends ConsumerState<BookingPage> {
         title:  Text(
           "Appointment",
           style: TextStyle(
-              color: Colors.black,
+              color: Colour.thirdcolour,
               fontWeight: FontWeight.w700,
               fontSize: width*0.063
           ),
@@ -814,26 +813,7 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                   ),
                 ],
               ),
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            ],
+ ],
           ),
         ),
       ),

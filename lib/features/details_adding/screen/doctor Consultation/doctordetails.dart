@@ -113,7 +113,7 @@ int selectIndex1=0;
         title:  Text(
           "Doctor Detail",
           style: TextStyle(
-              color: Colors.black,
+              color: Colour.thirdcolour,
               fontWeight: FontWeight.w700,
               fontSize: width*0.063
           ),
@@ -211,7 +211,7 @@ surfaceTintColor:Colour.thirdcolour ,
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit,\n"
                   " sed do eiusmod tempor incididunt ut labore et\n",
                 trimLines: 3,
-                colorClickableText: Colors.pink,
+                colorClickableText: Colour.color4,
                 trimMode: TrimMode.Line,
                 trimCollapsedText: 'read more',
                 style: TextStyle(

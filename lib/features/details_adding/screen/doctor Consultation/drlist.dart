@@ -66,7 +66,6 @@ class _TopDoctorPageState extends ConsumerState<DoctorList> {
     return Scaffold(
       appBar: AppBar(
           centerTitle: true,
-          backgroundColor: Colors.white24,
           // resizeToAvoidBottomInset: false,
           elevation: 0,
           surfaceTintColor: Colour.secondarycolour,
@@ -91,7 +90,7 @@ class _TopDoctorPageState extends ConsumerState<DoctorList> {
           title:  Text(
             "Top Doctor",
             style: TextStyle(
-                color: Colors.black,
+                color: Colour.thirdcolour,
                 fontWeight: FontWeight.w700,
                 fontSize: width*0.063
             ),

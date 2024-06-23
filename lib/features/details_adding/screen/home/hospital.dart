@@ -55,7 +55,7 @@ class _HospitalPageState extends State<HospitalPage> {
         title:  Text(
           "Hospital",
           style: TextStyle(
-              color: Colors.black,
+              color: Colour.thirdcolour,
               fontWeight: FontWeight.w700,
               fontSize: width*0.06
           ),

@@ -47,8 +47,6 @@ class _ChatPageState extends State<ChatPage> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        backgroundColor: Colors.white24,
-        // resizeToAvoidBottomInset: false,
         elevation: 0,
         leading: InkWell(
           onTap: () {
@@ -75,7 +73,7 @@ class _ChatPageState extends State<ChatPage> {
         title: Text(
           "Dr. Marcus Horizon",
           style: TextStyle(
-              color: Colors.black,
+              color: Colour.thirdcolour,
               fontWeight: FontWeight.w700,
               fontSize: width * 0.063),
         ),
@@ -309,7 +307,7 @@ class _ChatPageState extends State<ChatPage> {
                             label: Text(
                               "Type message ...",
                               style: TextStyle(
-                                  fontSize: width * 0.04, color: Colors.grey),
+                                  fontSize: width * 0.04, color: Colour.gray),
                             ),
                           ),
                         ),
@@ -419,7 +417,7 @@ class _ChatPageState extends State<ChatPage> {
                                               style: TextStyle(
                                                   fontSize: width * 0.05,
                                                   fontWeight: FontWeight.w500,
-                                                  color: Colors.red)),
+                                                  color: Colour.color4)),
                                         ),
                                       ),
                                     )

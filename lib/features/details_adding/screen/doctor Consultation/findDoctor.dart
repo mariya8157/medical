@@ -133,7 +133,6 @@ class _FindDoctorState extends ConsumerState<FindDoctor> {
   void initState() {
     // TODO: implement initState
     print(currentModel);
-    print("qawserdftghjnkmjhgfdsadrftyuiop567890");
     super.initState();
   }
   @override
@@ -142,8 +141,6 @@ class _FindDoctorState extends ConsumerState<FindDoctor> {
       appBar: AppBar(
         scrolledUnderElevation: 0,
         centerTitle: true,
-        backgroundColor: Colors.white24,
-        // resizeToAvoidBottomInset: false,
         elevation: 0,
         leading: InkWell(
           onTap: () {
@@ -166,7 +163,7 @@ class _FindDoctorState extends ConsumerState<FindDoctor> {
         title:  Text(
           "Find Doctors",
           style: TextStyle(
-              color: Colors.black,
+              color: Colour.thirdcolour,
               fontWeight: FontWeight.w700,
               fontSize: width*0.06
           ),
@@ -382,7 +379,7 @@ class _FindDoctorState extends ConsumerState<FindDoctor> {
                                           ),
                                           Divider(
                                             // color:Colour.gray.withOpacity(0.2),
-                                            color: Colors.blue,
+                                            color: Colour.primarycolour,
                                             thickness: width*0.003,
                                             indent: width*0.05,
                                             endIndent: width*0.05,
@@ -479,20 +476,7 @@ class _FindDoctorState extends ConsumerState<FindDoctor> {
                  loading: () {
                    return Center(child: CircularProgressIndicator());
                  },)
-
-
-
-
-
-
-
-
-
-
-
-
-
-              ],
+ ],
             ),
           ),
         ),

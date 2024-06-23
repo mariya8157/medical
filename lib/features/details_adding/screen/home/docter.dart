@@ -157,9 +157,9 @@ class _DocterPageState extends State<DocterPage> {
                                 ),
           
                                 // SizedBox(width: width*0.02,),
-                                SvgPicture.asset(ImageIcons.location,color: Colors.grey,),
+                                SvgPicture.asset(ImageIcons.location,color: Colour.gray,),
                                 Text(drlist[index]["distene"],style: TextStyle(
-                                    color: Colors.grey
+                                    color: Colour.gray
                                 ),)
                               ],
                             )

@@ -29,7 +29,7 @@ class _SchedulePageState extends State<SchedulePage> {
         appBar: AppBar(
           title: Text("Schedule",
             style: TextStyle(
-                color: Colors.black,
+                color: Colour.thirdcolour,
                 fontWeight: FontWeight.w700,
                 fontSize: width*0.06
             ),),

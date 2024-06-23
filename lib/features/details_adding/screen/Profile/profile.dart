@@ -103,7 +103,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                 style: TextStyle(
                                     fontSize: width * 0.05,
                                     fontWeight: FontWeight.w700,
-                                    color: Colors.white),
+                                    color: Colour.secondarycolour),
                               ),
                             )
                           ],
@@ -130,7 +130,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                     style: TextStyle(
                                         fontWeight: FontWeight.w500,
                                         fontSize: width * 0.043,
-                                        color: Colors.white,
+                                        color: Colour.secondarycolour,
                                         shadows: [
                                           BoxShadow(
                                               color: Colors.black
@@ -145,7 +145,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                     style: TextStyle(
                                         fontSize: width * 0.059,
                                         fontWeight: FontWeight.w700,
-                                        color: Colors.white,
+                                        color: Colour.secondarycolour,
                                         shadows: [
                                           BoxShadow(
                                               color: Colors.black
@@ -160,7 +160,7 @@ class _ProfilePageState extends State<ProfilePage> {
                               Container(
                                 height: width * 0.15,
                                 width: width * 0.002,
-                                color: Colors.white,
+                                color: Colour.secondarycolour,
                               ),
                               Column(
                                 mainAxisAlignment:
@@ -175,7 +175,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                     style: TextStyle(
                                         fontWeight: FontWeight.w500,
                                         fontSize: width * 0.043,
-                                        color: Colors.white,
+                                        color: Colour.secondarycolour,
                                         shadows: [
                                           BoxShadow(
                                               color: Colors.black
@@ -190,7 +190,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                     style: TextStyle(
                                         fontSize: width * 0.059,
                                         fontWeight: FontWeight.w700,
-                                        color: Colors.white,
+                                        color: Colour.secondarycolour,
                                         shadows: [
                                           BoxShadow(
                                               color: Colors.black
@@ -214,7 +214,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       height: width * 0.876,
                       width: width * 1,
                       decoration: BoxDecoration(
-                          color: Colors.white,
+                          color: Colour.secondarycolour,
                           borderRadius: BorderRadius.only(
                               topLeft: Radius.circular(width * 0.09),
                               topRight: Radius.circular(width * 0.09))),
@@ -431,7 +431,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                     style: TextStyle(
                                         fontWeight: FontWeight.w600,
                                         fontSize: width * 0.05,
-                                        color: Colors.red)),
+                                        color: Colour.color4)),
                                 trailing: SvgPicture.asset(ImageIcons.nxtback),
                               ),
                             ),

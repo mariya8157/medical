@@ -262,8 +262,6 @@ class _HomePageState extends ConsumerState<HomePage> {
                                 height: width*0.2,
                                 width: width*1,
                                 decoration: BoxDecoration(
-
-                                  color:Colors.green,
                                   borderRadius: BorderRadius.circular(10),
                                   image: DecorationImage(
                                       image: AssetImage(pages[index]),fit: BoxFit.fill
@@ -376,7 +374,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                                   // SizedBox(width: width*0.02,),
                                   // SvgPicture.asset(ImageIcons.location,color: Colors.grey,),
                                   Text(data[index].exp.toString(),style: TextStyle(
-                                    color: Colors.grey
+                                    color: Colour.gray
                                   ),)
                                 ],
                               )

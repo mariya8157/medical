@@ -600,8 +600,6 @@ class _OrderDetailsState extends ConsumerState<OrderDetails> {
       appBar: AppBar(
         scrolledUnderElevation: 0,
         centerTitle: true,
-        backgroundColor: Colors.white24,
-        // resizeToAvoidBottomInset: false,
         elevation: 0,
         leading: InkWell(
           onTap: () {
@@ -752,15 +750,15 @@ class _OrderDetailsState extends ConsumerState<OrderDetails> {
                 ],
               ),
               SizedBox(height: width*0.05,),
-              OrderTracker(
-                status: Status.delivered,
-                activeColor: Colors.green,
-                inActiveColor: Colors.grey[300],
-                orderTitleAndDateList: orderList,
-                shippedTitleAndDateList: shippedList,
-                outOfDeliveryTitleAndDateList: outOfDeliveryList,
-                deliveredTitleAndDateList: deliveredList,
-              ),
+              // OrderTracker(
+              //   status: Status.delivered,
+              //   activeColor: Colors.green,
+              //   inActiveColor: Colors.grey[300],
+              //   orderTitleAndDateList: orderList,
+              //   shippedTitleAndDateList: shippedList,
+              //   outOfDeliveryTitleAndDateList: outOfDeliveryList,
+              //   deliveredTitleAndDateList: deliveredList,
+              // ),
             ],
           ),
         ),
