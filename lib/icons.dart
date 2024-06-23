@@ -69,6 +69,7 @@ class ImageIcons{
   static const covid6 = "assets/images/covid_19_6.png";
   static const covid7 = "assets/images/covid_19_7.png";
   static const Google = "assets/images/Google.png";
+  static const ambulance7 = "assets/images/ambulance7.gif";
   // static const covid1 = "assets/images/covid_19_1.png";
   // static const medics="assets/images/medics.png";
   // static const covid2 = "assets/images/covid_19_2.png";

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../../../colour.dart';
@@ -6,37 +7,24 @@ import '../../../../icons.dart';
 import '../../../../colour.dart';
 import '../../../../icons.dart';
 import '../../../../main.dart';
+import '../../controller/addingcontroller_page.dart';
 import 'bottomnavigation.dart';
 
-class AmbulancePage extends StatefulWidget {
+class AmbulancePage extends ConsumerStatefulWidget {
   const AmbulancePage({super.key});
 
   @override
-  State<AmbulancePage> createState() => _AmbulancePageState();
+  ConsumerState<AmbulancePage> createState() => _AmbulancePageState();
 }
 
-class _AmbulancePageState extends State<AmbulancePage> {
+class _AmbulancePageState extends ConsumerState<AmbulancePage> {
 
-
-  List docter=[
-    { "image":ImageIcons.ambulance1,
-      "Text":"mob:9873546751"
-    },
-    { "image":ImageIcons.ambulance2,
-      "Text":"mob:9086543211"
-    },
-    { "image":ImageIcons.ambulance3,
-      "Text":"mob:9878860441"
-    }
-  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         scrolledUnderElevation: 0,
         centerTitle: true,
-        backgroundColor: Colors.white24,
-        // resizeToAvoidBottomInset: false,
         elevation: 0,
         leading: InkWell(
           onTap: () {
@@ -64,91 +52,166 @@ class _AmbulancePageState extends State<AmbulancePage> {
               fontSize: width*0.06
           ),
         ),
-        // actions: [Row(
-        //     children: [
-        //       SvgPicture.asset(ImageIcons.columnDot),
-        //       SizedBox(width: width*0.05,)
-        //     ],)],
       ),
-
       body: SingleChildScrollView(
-        physics: BouncingScrollPhysics(),
-
         child: Padding(
-          padding:  EdgeInsets.all(width*0.03),
+          padding: EdgeInsets.all(width*0.03),
           child: Column(
             children: [
               Container(
-                width: width*1,
-                height: height*1,
-                child: GridView.builder(
-                  itemCount:docter.length,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    // childAspectRatio: 1.9,
-                    crossAxisSpacing:height*0.01,
-                    mainAxisSpacing: width*0.02,
-                    crossAxisCount: 2,
-                  ),
-        
-                  physics: BouncingScrollPhysics(),
-                  shrinkWrap: true,
-                  // scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) {
-                    return Container(
-                      height: width*0.35,
-                      width: width*0.47,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(width*0.04),
-                          border: Border.all(
-                              color: Colour.color2
-                          )
-                      ),
-                      child: Padding(
-                        padding: EdgeInsets.all(width*0.03),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Container(
-                              height: width*0.28,
-                              width: width*0.45,
-        
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(width*0.03),
-                                  image: DecorationImage(
-                                      image: AssetImage(docter[index]["image"]),fit: BoxFit.fill)
-                              ),
-        
-                            ),
-                            InkWell(
-                              onTap: () async {
-                                final Uri url =Uri(
-                                  scheme: "tel",
-                                  path:"9873546751",
-
-                                );
-                                if(await canLaunchUrl(url)){
-                                  await launchUrl(url);
-
-                                }else{
-                                  print("cannot launch this url");
-                                }
-                              },
-                              child: Text(docter[index]["Text"],style: TextStyle(
-                                  fontSize: width*0.05,
-                                  fontWeight: FontWeight.w600
-                              ),),
-                            ),
-                          ],
-                        ),
-                      ),
-                    );
-        
-                  },
-        
-        
+                height: height*0.33,
+                width: width*0.96,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(width*0.03),
+                  border: Border.all(color: Colour.lightgreen,width: width*0.005),
+                  image: DecorationImage(image: AssetImage(ImageIcons.ambulance7),fit: BoxFit.fill),
                 ),
               ),
+              SizedBox(height: height*0.02,),
+              ref.watch(StreamAmbulanceProvider).when(data: (data) =>  Container(
+                width: width*1,
+                child: ListView.separated(
+                  shrinkWrap: true,
+                    physics: BouncingScrollPhysics(),
+                    itemBuilder: (context, index) {
+                      return Container(
+                        height: height*0.12,
+                        width: width*0.93,
+                        decoration: BoxDecoration(
+                          color: Colour.secondarycolour,
+                          borderRadius: BorderRadius.circular(width*0.025),
+                          border: Border.all(
+                            color: Colour.lightgreen
+                          )
+                        ),
+                        child: Padding(
+                          padding: EdgeInsets.all(width*0.02),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Row(
+                                children: [
+                                  Text(data[index].name.toString(),style: TextStyle(
+                                      fontSize: width*0.04,
+                                      fontWeight: FontWeight.w600),),
+                                ],
+                              ),
+                              // SizedBox(height: height*0.009,),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(data[index].number.toString(),style: TextStyle(
+                                      fontSize: width*0.04,
+                                      fontWeight: FontWeight.w600),),
+                                  InkWell(
+                                      onTap: (){
+                                        showDialog(
+                                          context: context,
+                                          barrierDismissible: false,
+                                          builder: (context) {
+                                            return AlertDialog(
+                                              content: Container(
+                                                height: height*0.18,
+                                                width: width*0.5,
+                                                child: Column(
+                                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                                  children: [
+                                                    Container(
+                                                        child: Column(
+                                                          children: [
+                                                            Text("Are you sure You want to",
+                                                              style: TextStyle(
+                                                                  fontWeight: FontWeight.w600,
+                                                                  fontSize: width*0.04,
+                                                                  color: Colour.thirdcolour),),
+                                                            Text("Contact this Number?",
+                                                              style: TextStyle(
+                                                                  fontWeight: FontWeight.w600,
+                                                                  fontSize: width*0.04,
+                                                                  color: Colour.thirdcolour),),
+                                                          ],)),
+                                                    Row(
+                                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                      children: [
+                                                        InkWell(
+                                                          onTap: () async {
+                                                           final Uri url =Uri(
+                                                           scheme: "tel",
+                                                             path: data[index].number.toString(),
+                                                             );
+                                                           if(await canLaunchUrl(url)){
+                                                               await launchUrl(url);
+                                                           }else{
+                                                          print("cannot launch this url");
+                                                         }
+                                                           },
+                                                          child: Container(
+                                                            height: height*0.05,
+                                                            width: width*0.26,
+                                                            decoration: BoxDecoration(
+                                                                color: Colour.primarycolour,
+                                                                borderRadius: BorderRadius.circular(width*0.03)
+                                                            ),
+                                                            child: Center(
+                                                              child: Text("Call",
+                                                                style: TextStyle(
+                                                                    fontSize: width*0.04,
+                                                                    fontWeight: FontWeight.w600,
+                                                                    color: Colour.secondarycolour
+                                                                ),),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                        InkWell(
+                                                          onTap: () {
+                                                            Navigator.pop(context);
+                                                          },
+                                                          child: Container(
+                                                            height: height*0.05,
+                                                            width: width*0.26,
+                                                            decoration: BoxDecoration(
+                                                                color: Colour.primarycolour,
+                                                                borderRadius: BorderRadius.circular(width*0.03)
+                                                            ),
+                                                            child: Center(
+                                                              child: Text("Cancel",
+                                                                style: TextStyle(
+                                                                    fontSize: width*0.04,
+                                                                    fontWeight: FontWeight.w600,
+                                                                    color: Colour.secondarycolour
+                                                                ),),
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            );
+                                          },);
+                      },
+                                      child: SvgPicture.asset(ImageIcons.nxtback))
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                      );
+                    },
+                    separatorBuilder: (context, index) {
+                      return SizedBox(height: height*0.015);
+                    },
+                    itemCount: data.length),
+              ),
+                error: (error, stackTrace) {
+                  return ScaffoldMessenger(
+                      child: Center(child: Text(error.toString())));
+                },
+                loading: () {
+                  return Center(child: CircularProgressIndicator());
+                },)
+
             ],
           ),
         ),
