@@ -200,7 +200,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                       var data = await FirebaseFirestore.instance.collection("users").where("email",isEqualTo: emailController.text).get();
                       var password = data.docs[0]["password"];
                       if(password==true){
-                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("No account found")));
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(backgroundColor:Colour.primarycolour,content: Text("No account found")));
                               }
                       else{
                                showDialog(
