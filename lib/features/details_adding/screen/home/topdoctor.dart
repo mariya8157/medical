@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
-import '../../../../colour.dart';
-import '../../../../icons.dart';
+import '../../../../core/constants/colour.dart';
+import '../../../../core/constants/icons.dart';
 import '../../../../main.dart';
 import '../../controller/addingcontroller_page.dart';
 

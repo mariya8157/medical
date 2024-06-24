@@ -10,8 +10,8 @@ import 'package:medical/features/details_adding/screen/doctor%20Consultation/drl
 import 'package:medical/features/details_adding/screen/home/bottomnavigation.dart';
 import 'package:medical/models/doctormodel.dart';
 
-import '../../../../colour.dart';
-import '../../../../icons.dart';
+import '../../../../core/constants/colour.dart';
+import '../../../../core/constants/icons.dart';
 import '../../../../main.dart';
 
 

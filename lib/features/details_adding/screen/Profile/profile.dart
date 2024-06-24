@@ -12,8 +12,8 @@ import 'package:quickalert/widgets/quickalert_dialog.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../../../../colour.dart';
-import '../../../../icons.dart';
+import '../../../../core/constants/colour.dart';
+import '../../../../core/constants/icons.dart';
 import '../doctor Consultation/bookingdoctor.dart';
 import '../login & Sign Up/login.dart';
 import '../login & Sign Up/signup.dart';

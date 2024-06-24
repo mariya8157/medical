@@ -2,11 +2,11 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../../core/common/firebaseprovider1.dart';
 import '../../../models/ambulanceModel.dart';
 import '../../../models/doctormodel.dart';
 import '../../../models/model1.dart';
 import '../../../models/model2.dart';
+import '../providers/firebaseprovider1.dart';
 import '../screen/home/homepage.dart';
 
 final AddingRepositoryProvider= Provider((ref) => AddingRepository(firestore: ref.watch(fireStoreProvider), firebaseAuth: ref.watch(firebaseAuthProvider)));

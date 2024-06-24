@@ -9,8 +9,8 @@ import 'package:medical/features/details_adding/screen/login%20&%20Sign%20Up/sig
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../../../../colour.dart';
-import '../../../../icons.dart';
+import '../../../../core/constants/colour.dart';
+import '../../../../core/constants/icons.dart';
 import '../../../../main.dart';
 
 class GetStartedPage extends StatefulWidget {

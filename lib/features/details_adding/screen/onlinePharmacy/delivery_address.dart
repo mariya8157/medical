@@ -11,8 +11,8 @@ import 'package:medical/features/details_adding/controller/addingcontroller_page
 import 'package:medical/features/details_adding/screen/onlinePharmacy/address.dart';
 import 'package:medical/models/model2.dart';
 
-import '../../../../colour.dart';
-import '../../../../icons.dart';
+import '../../../../core/constants/colour.dart';
+import '../../../../core/constants/icons.dart';
 import '../../../../main.dart';
 
 class DeliveryPage extends ConsumerStatefulWidget {

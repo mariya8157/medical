@@ -16,8 +16,8 @@ import 'package:image_picker/image_picker.dart';
 import 'package:medical/features/details_adding/screen/doctor%20Consultation/findDoctor.dart';
 import 'package:medical/features/details_adding/screen/widgets/chat_info.dart';
 import 'package:medical/features/details_adding/screen/widgets/chat_doctor.dart';
-import '../../../../colour.dart';
-import '../../../../icons.dart';
+import '../../../../core/constants/colour.dart';
+import '../../../../core/constants/icons.dart';
 import '../../../../main.dart';
 import '../home/bottomnavigation.dart';
 

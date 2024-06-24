@@ -534,8 +534,8 @@ import 'package:medical/features/details_adding/controller/addingcontroller_page
 import 'package:order_tracker/order_tracker.dart';
 import 'package:pinput/pinput.dart';
 
-import '../../../../colour.dart';
-import '../../../../icons.dart';
+import '../../../../core/constants/colour.dart';
+import '../../../../core/constants/icons.dart';
 import '../../../../main.dart';
 
 class OrderDetails extends ConsumerStatefulWidget {

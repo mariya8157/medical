@@ -6,8 +6,8 @@ import 'package:medical/features/details_adding/controller/addingcontroller_page
 import 'package:medical/features/details_adding/screen/doctor%20Consultation/chatwithdoctor.dart';
 import 'package:medical/features/details_adding/screen/doctor%20Consultation/doctordetails.dart';
 import 'package:medical/models/doctormodel.dart';
-import '../../../../colour.dart';
-import '../../../../icons.dart';
+import '../../../../core/constants/colour.dart';
+import '../../../../core/constants/icons.dart';
 import '../../../../main.dart';
 import '../onlinePharmacy/drugsdetail.dart';
 

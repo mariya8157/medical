@@ -9,8 +9,8 @@ import 'package:medical/features/details_adding/screen/splashSceen/onbording.dar
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../../../../colour.dart';
-import '../../../../icons.dart';
+import '../../../../core/constants/colour.dart';
+import '../../../../core/constants/icons.dart';
 import '../../../../main.dart';
 import '../../../../models/model1.dart';
 
