@@ -54,7 +54,7 @@ class MyApp extends StatelessWidget {
             theme: ThemeData(
               textTheme: GoogleFonts.interTextTheme()
             ),
-            home:BottomNavigationPage(email: 'email', password: 'password'),
+            home:SplashScreen(),
     ),);
   }
 }

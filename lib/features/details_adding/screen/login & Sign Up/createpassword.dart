@@ -79,7 +79,10 @@ class _CreatePasswordPageState extends State<CreatePasswordPage> {
                     autovalidateMode: AutovalidateMode.onUserInteraction,
                     validator: (value) {
                       if(!passwordValidation.hasMatch(value!)){
-                        return "*The password you entered is wrong";
+                        return "* Password must contains eight characters, inclu\n"
+                      "ding at least one number and includes both lo\n"
+                      "wer and uppercase letters and special charac\n"
+                      "ters, for example @, #, ?, !.\n";
                       }
                       else{
                         return null;

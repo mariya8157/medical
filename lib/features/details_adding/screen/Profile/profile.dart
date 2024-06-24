@@ -6,6 +6,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:medical/main.dart';
+import 'package:medical/models/doctormodel.dart';
 import 'package:quickalert/models/quickalert_type.dart';
 import 'package:quickalert/widgets/quickalert_dialog.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -231,7 +232,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                 // Navigator.push(
                                 //     context,
                                 //     MaterialPageRoute(
-                                //     builder: (context) =>BookingPage(time: ,) ));
+                                //     builder: (context) => BookingPage(time:  DoctorModel(name: '', time: '', date: '', cons: 0, admin: 0, dis: 0, image: '', spcl: '', exp: '', id: '', userId: ''))));
                               },
                               child: ListTile(
                                 leading: CircleAvatar(
@@ -241,7 +242,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                       SvgPicture.asset(ImageIcons.appoitmnet),
                                 ),
                                 title: Text(
-                                  "Appointment",
+                                  "My Saved",
                                   style: TextStyle(
                                       fontWeight: FontWeight.w600,
                                       fontSize: width * 0.05),

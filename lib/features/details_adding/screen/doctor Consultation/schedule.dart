@@ -34,208 +34,287 @@ class _SchedulePageState extends State<SchedulePage> {
                 fontSize: width*0.06
             ),),
         ),
-        body: Column(
-          children: [
-            Container(
-              height: width*0.15,
-              width: width*1,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(width*0.03),
-                color:Colour.lightgreen,
-              ),
-              child: TabBar(
-                indicatorSize: TabBarIndicatorSize.tab,
-                  indicator:  BoxDecoration(
-                      color: Colour.primarycolour,
-                      borderRadius: BorderRadius.circular(width*0.03),
-                      border: Border.all(color: Colour.primarycolour)
-                  ),
-                  labelColor: Colour.secondarycolour,
-                  unselectedLabelColor: Colour.thirdcolour,
-                  tabs: [
-                    Tab(
-                      text: "Schedule",
+        body: Padding(
+          padding:  EdgeInsets.all(width*0.03),
+          child: Column(
+            children: [
+              Container(
+                height: width*0.15,
+                width: width*1,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(width*0.03),
+                  color:Colour.lightgreen,
+                ),
+                child: TabBar(
+                  indicatorSize: TabBarIndicatorSize.tab,
+                    indicator:  BoxDecoration(
+                        color: Colour.primarycolour,
+                        borderRadius: BorderRadius.circular(width*0.03),
+                        border: Border.all(color: Colour.primarycolour)
                     ),
-                    Tab(
-                      text: "Orders",
-                    ),
+                    labelColor: Colour.secondarycolour,
+                    unselectedLabelColor: Colour.thirdcolour,
+                    tabs: [
+                      Tab(
+                        child: Text("Schedule",style: TextStyle(
+                          fontSize: width*0.045,fontWeight: FontWeight.w600
+                        ),),
+                      ),
+                      Tab(
+                        child: Text("Orders",style: TextStyle(
+                            fontSize: width*0.045,fontWeight: FontWeight.w600
+                        ),),
+                      ),
 
-                  ]
+                    ]
+                ),
               ),
-            ),
-            Expanded(
-              child: TabBarView(
-                children: [
-                  Padding(
-                    padding:  EdgeInsets.all(width*0.03),
-                    child: Container(
-                      width: width*1,
-
-                      // ****stream builder //*********
-
-
-                      child: StreamBuilder(
-                          stream: FirebaseFirestore.instance.collection("schedule").where("id",isEqualTo: currentModel?.id).snapshots(),
-                          builder: (context, snapshot) {
-                            if(!snapshot.hasData){
-                              return Center(child: Text("No document found"));
-                            }
-                            var data=snapshot.data!.docs;
-                            return data.length==0?
-                            Center(child: Text("No document found")) :
+              Expanded(
+                child: TabBarView(
+                  children: [
+                    Padding(
+                      padding:  EdgeInsets.all(width*0.03),
+                      child: Container(
+                        width: width*1,
+                        child: StreamBuilder(
+                            stream: FirebaseFirestore.instance.collection("schedule").where("id",isEqualTo: currentModel?.id).snapshots(),
+                            builder: (context, snapshot) {
+                              if(!snapshot.hasData){
+                                return Center(child: Text("No document found"));
+                              }
+                              var data=snapshot.data!.docs;
+                              return data.length==0?
+                              Center(child: Text("No document found")) :
 
 
-                            ListView.separated(
-                              itemCount:data.length,
-                              shrinkWrap: true,
-                              physics: BouncingScrollPhysics(),
-                              itemBuilder:(context,  index) {
+                              ListView.separated(
+                                itemCount:data.length,
+                                shrinkWrap: true,
+                                physics: BouncingScrollPhysics(),
+                                itemBuilder:(context,  index) {
 
-                                return InkWell(
-                                  onTap: () {
-                                  },
-                                  child: Container(
-                                      height: height*0.25,
-                                      width: width*1,
-                                      decoration: BoxDecoration(color:Colour.secondarycolour,
-                                          border: Border.all(color: Colour.lightgreen),
-                                          borderRadius: BorderRadius.circular(width*0.04)
-                                      ),
-                                      child:
-                                      Column(
-                                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                        children: [
-                                          Row(
-                                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                            crossAxisAlignment: CrossAxisAlignment.start,
-                                            children: [
-
-                                              Container(
-                                                height: width*0.15,
-                                                width: width*0.55,
-                                                child: Column(
-                                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                                  children: [
-                                                    Row(
-                                                      children: [
-                                                        Text("${data[index]["name"].toString()}",
-                                                            style: TextStyle(
-                                                                fontSize: width*0.05,
-                                                                fontWeight: FontWeight.w700)),
-                                                      ],
-                                                    ),
-                                                    Row(
-                                                      children: [
-                                                        Text("${data[index]["spcl"].toString()}",
-                                                            style: TextStyle(
-                                                                fontSize: width*0.04,
-                                                                fontWeight: FontWeight.w700)),
-                                                      ],
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                              CircleAvatar(
-                                                radius: width*0.08,
-                                                backgroundImage: NetworkImage(data[index]["image"]),
-                                              )
-                                            ],
-                                          ),
-                                          Container(
-                                            width: width*0.8,
-                                            child: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  return InkWell(
+                                    onTap: () {
+                                    },
+                                    child: Container(
+                                        height: height*0.25,
+                                        width: width*1,
+                                        decoration: BoxDecoration(color:Colour.secondarycolour,
+                                            border: Border.all(color: Colour.lightgreen),
+                                            borderRadius: BorderRadius.circular(width*0.04)
+                                        ),
+                                        child:
+                                        Column(
+                                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                          children: [
+                                            Row(
+                                              mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                              crossAxisAlignment: CrossAxisAlignment.start,
                                               children: [
-                                                SvgPicture.asset(ImageIcons.calendar),
-                                                Text("${data[index]["date"].substring(0,10)}",
-                                                    style: TextStyle(
-                                                        fontSize: width*0.04
-                                                    )),
-                                                SvgPicture.asset(ImageIcons.time),
-                                                Text("${data[index]["time"].toString()}",
-                                                    style: TextStyle(
-                                                        fontSize: width*0.04
-                                                    )),
-                                                Text("*",
-                                                    style: TextStyle(
-                                                        fontSize: width*0.04,
-                                                      color: Colour.primarycolour
-                                                    )),
-                                                Text("Confirmed",
-                                                    style: TextStyle(
-                                                        fontSize: width*0.04
-                                                    )),
-                                              ],
-                                            ),
-                                          ),
-                                          Container(
-                                            width: width*0.8,
-                                            child: Row(
-                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                              children: [
-                                                InkWell(
-                                                  onTap: () {
-                                                    String id=data[index].id.toString();
-                                                    FirebaseFirestore.instance.collection("schedule").doc(id).delete();
-                                                  },
-                                                  child: Container(
-                                                    width: width*0.37,
-                                                    height: height*0.06,
-                                                    decoration: BoxDecoration(color:Colour.lightgreen,
-                                                        borderRadius: BorderRadius.circular(width*0.03)
-                                                    ),
-                                                    child: Center(child: Text("Cancel",style: TextStyle(
-                                                      fontWeight: FontWeight.w600,
-                                                      fontSize: width*0.04,
-                                                      color: Colour.thirdcolour
-                                                    ),
-                                                    )),
+
+                                                Container(
+                                                  height: width*0.15,
+                                                  width: width*0.55,
+                                                  child: Column(
+                                                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                                    children: [
+                                                      Row(
+                                                        children: [
+                                                          Text("${data[index]["name"].toString()}",
+                                                              style: TextStyle(
+                                                                  fontSize: width*0.05,
+                                                                  fontWeight: FontWeight.w700)),
+                                                        ],
+                                                      ),
+                                                      Row(
+                                                        children: [
+                                                          Text("${data[index]["spcl"].toString()}",
+                                                              style: TextStyle(
+                                                                  fontSize: width*0.04,
+                                                                  fontWeight: FontWeight.w700)),
+                                                        ],
+                                                      ),
+                                                    ],
                                                   ),
                                                 ),
-                                                InkWell(
-                                                  onTap: () {
-                                                    Navigator.push(context, MaterialPageRoute(builder: (context) =>BookingPage(time:DoctorModel.fromMap(data[index].data()) ,)));
-                                                  },
-                                                  child: Container(
-                                                    width: width*0.37,
-                                                    height: height*0.06,
-                                                    decoration: BoxDecoration(color:Colour.primarycolour,
-                                                        borderRadius: BorderRadius.circular(width*0.03)
-                                                    ),
-                                                    child: Center(child: Text("Reschedule",style: TextStyle(
+                                                CircleAvatar(
+                                                  radius: width*0.08,
+                                                  backgroundImage: NetworkImage(data[index]["image"]),
+                                                )
+                                              ],
+                                            ),
+                                            Container(
+                                              width: width*0.8,
+                                              child: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                                children: [
+                                                  SvgPicture.asset(ImageIcons.calendar),
+                                                  Text("${data[index]["date"].substring(0,10)}",
+                                                      style: TextStyle(
+                                                          fontSize: width*0.04
+                                                      )),
+                                                  SvgPicture.asset(ImageIcons.time),
+                                                  Text("${data[index]["time"].toString()}",
+                                                      style: TextStyle(
+                                                          fontSize: width*0.04
+                                                      )),
+                                                  Text("*",
+                                                      style: TextStyle(
+                                                          fontSize: width*0.04,
+                                                        color: Colour.primarycolour
+                                                      )),
+                                                  Text("Confirmed",
+                                                      style: TextStyle(
+                                                          fontSize: width*0.04
+                                                      )),
+                                                ],
+                                              ),
+                                            ),
+                                            Container(
+                                              width: width*0.8,
+                                              child: Row(
+                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                children: [
+                                                  InkWell(
+                                                    onTap: () {
+                                                      showDialog(
+                                                        context: context,
+                                                        barrierDismissible: false,
+                                                        builder: (context) {
+                                                          return AlertDialog(
+                                                            content: Container(
+                                                              height: height*0.18,
+                                                              width: width*0.5,
+                                                              child: Column(
+                                                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                                                children: [
+                                                                  Container(
+                                                                      child: Column(
+                                                                        children: [
+                                                                          Text("Are you sure You want to",
+                                                                            style: TextStyle(
+                                                                                fontWeight: FontWeight.w600,
+                                                                                fontSize: width*0.04,
+                                                                                color: Colour.thirdcolour),),
+                                                                          Text("Cancel this Appointment?",
+                                                                            style: TextStyle(
+                                                                                fontWeight: FontWeight.w600,
+                                                                                fontSize: width*0.04,
+                                                                                color: Colour.thirdcolour),),
+                                                                        ],)),
+                                                                  Row(
+                                                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                    children: [
+                                                                      InkWell(
+                                                                        onTap: ()  {
+                                                                          String id=data[index].id.toString();
+                                                                          FirebaseFirestore.instance.collection("schedule").doc(id).delete();
+                                                                        },
+                                                                        child: Container(
+                                                                          height: height*0.05,
+                                                                          width: width*0.26,
+                                                                          decoration: BoxDecoration(
+                                                                              color: Colour.primarycolour,
+                                                                              borderRadius: BorderRadius.circular(width*0.03)
+                                                                          ),
+                                                                          child: Center(
+                                                                            child: Text("Cancel",
+                                                                              style: TextStyle(
+                                                                                  fontSize: width*0.04,
+                                                                                  fontWeight: FontWeight.w600,
+                                                                                  color: Colour.secondarycolour
+                                                                              ),),
+                                                                          ),
+                                                                        ),
+                                                                      ),
+                                                                      InkWell(
+                                                                        onTap: () {
+                                                                          Navigator.pop(context);
+                                                                        },
+                                                                        child: Container(
+                                                                          height: height*0.05,
+                                                                          width: width*0.26,
+                                                                          decoration: BoxDecoration(
+                                                                              color: Colour.primarycolour,
+                                                                              borderRadius: BorderRadius.circular(width*0.03)
+                                                                          ),
+                                                                          child: Center(
+                                                                            child: Text("No",
+                                                                              style: TextStyle(
+                                                                                  fontSize: width*0.04,
+                                                                                  fontWeight: FontWeight.w600,
+                                                                                  color: Colour.secondarycolour
+                                                                              ),),
+                                                                          ),
+                                                                        ),
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                ],
+                                                              ),
+                                                            ),
+                                                          );
+                                                        },);
+                                                      },
+                                                    child: Container(
+                                                      width: width*0.37,
+                                                      height: height*0.06,
+                                                      decoration: BoxDecoration(color:Colour.lightgreen,
+                                                          borderRadius: BorderRadius.circular(width*0.03)
+                                                      ),
+                                                      child: Center(child: Text("Cancel",style: TextStyle(
                                                         fontWeight: FontWeight.w600,
                                                         fontSize: width*0.04,
-                                                        color: Colour.secondarycolour
+                                                        color: Colour.thirdcolour
+                                                      ),
+                                                      )),
                                                     ),
-                                                    )),
                                                   ),
-                                                ),
-                                              ],
-                                            ),
-                                          )
-                                        ],
-                                      )
+                                                  InkWell(
+                                                    onTap: () {
+                                                      Navigator.push(context, MaterialPageRoute(builder: (context) =>BookingPage(time:DoctorModel.fromMap(data[index].data()) ,)));
+                                                    },
+                                                    child: Container(
+                                                      width: width*0.37,
+                                                      height: height*0.06,
+                                                      decoration: BoxDecoration(color:Colour.primarycolour,
+                                                          borderRadius: BorderRadius.circular(width*0.03)
+                                                      ),
+                                                      child: Center(child: Text("Reschedule",style: TextStyle(
+                                                          fontWeight: FontWeight.w600,
+                                                          fontSize: width*0.04,
+                                                          color: Colour.secondarycolour
+                                                      ),
+                                                      )),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            )
+                                          ],
+                                        )
 
-                                  ),
-                                );
+                                    ),
+                                  );
 
-                              },
-                              separatorBuilder: (context, index) {
-                                return SizedBox(height: height*0.01,);
+                                },
+                                separatorBuilder: (context, index) {
+                                  return SizedBox(height: height*0.01,);
 
-                              },
-                            );
-                          }
+                                },
+                              );
+                            }
+                        ),
                       ),
                     ),
-                  ),
 
-                  Container(
-                  ),
+                    Container(
+                    ),
 
-                ],
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
