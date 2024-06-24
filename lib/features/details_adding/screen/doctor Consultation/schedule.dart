@@ -6,6 +6,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:medical/colour.dart';
 import 'package:medical/features/details_adding/controller/addingcontroller_page.dart';
 import 'package:medical/features/details_adding/screen/doctor%20Consultation/bookingdoctor.dart';
+import 'package:medical/features/details_adding/screen/doctor%20Consultation/doctordetails.dart';
 import 'package:medical/icons.dart';
 import 'package:medical/models/doctormodel.dart';
 
@@ -271,7 +272,7 @@ class _SchedulePageState extends State<SchedulePage> {
                                                   ),
                                                   InkWell(
                                                     onTap: () {
-                                                      Navigator.push(context, MaterialPageRoute(builder: (context) =>BookingPage(time:DoctorModel.fromMap(data[index].data()) ,)));
+                                                      Navigator.push(context, MaterialPageRoute(builder: (context) => DoctordetailsPage(dr: DoctorModel.fromMap(data[index].data()))));
                                                     },
                                                     child: Container(
                                                       width: width*0.37,
