@@ -194,88 +194,89 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                 InkWell(
                   onTap: () async {
 
-                    QuerySnapshot<Map<String,dynamic>> c = await FirebaseFirestore.instance.collection("users").where("email",isEqualTo: emailController.text).get();
-                    if(c.docs.isNotEmpty){
-                      if(c.docs[0]["password"]==passwordController.text){
-                        Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => BottomNavigationPage(email: emailController.text, password: passwordController.text),), (route) => false);
-                      }
-                      else{
-                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Passwords do not match")));
-                      }
-                    }else{
-                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("No account found")));
-                    }
+                    // QuerySnapshot<Map<String,dynamic>> c = await FirebaseFirestore.instance.collection("users").where("email",isEqualTo: emailController.text).get();
+                    // if(c.docs.isNotEmpty){
+                    //   if(c.docs[0]["password"]==passwordController.text){
+                    //     Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => BottomNavigationPage(email: emailController.text, password: passwordController.text),), (route) => false);
+                    //   }
+                    //   else{
+                    //     ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Passwords do not match")));
+                    //   }
+                    // }else{
+                    //   ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("No account found")));
+                    // }
 
                     FirebaseAuth.instance.signInWithEmailAndPassword(
                       email: emailController.text.trim(),
                       password: passwordController.text,
                     ).then((value) async {
-                        showDialog(
-                          context: context,
-                          barrierDismissible: false,
-                          builder: (context) {
-                            return AlertDialog(
-                              content: Container(
-                                height: width*0.85,
-                                width: width*0.4,
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                  children: [
-                                    Container(
-                                        height: width*0.25,
+                      var data = await FirebaseFirestore.instance.collection("users").where("email",isEqualTo: emailController.text).get();
+                      var password = data.docs[0]["password"];
+                      if(password==true){
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("No account found")));
+    }
+                      else{
+                               showDialog(
+                                  context: context,
+                                  barrierDismissible: false,
+                                  builder: (context) {
+                                    return AlertDialog(
+                                 content: Container(
+                                   height: width*0.85,
+                                  width: width*0.4,
+                                  child: Column(
+                                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                       children: [
+                                      Container(
+                                      height: width*0.25,
                                         width: width*0.25,
-                                        child: Image.asset(ImageIcons.done)),
-                                    Container(
+                                       child: Image.asset(ImageIcons.done)),
+                                      Container(
                                         child: Column(
-                                          children: [
-                                            Text("Yeay! Welcome Back",
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.w600,
-                                                  fontSize: width*0.04,
-                                                  color: Colour.thirdcolour),),
-                                            Text("Once again you login successfully",
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.w500,
-                                                  fontSize: width*0.034,
-                                                  color: Colour.color1),),
-                                            Text("into medidoc app",
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.w500,
-                                                  fontSize: width*0.034,
-                                                  color: Colour.color1),),
-                                          ],)),
-                                    InkWell(
-                                      onTap: () {
-                                        Navigator.push(context, MaterialPageRoute(builder: (context) => BottomNavigationPage(
-                                          email: emailController.text,
-                                          password: passwordController.text,
-                                        ),));
+                                       children: [
+                                       Text("Yeay! Welcome Back",
+                                       style: TextStyle(
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: width*0.04,
+                                           color: Colour.thirdcolour),),
+                                         Text("Once again you login successfully",
+                                         style: TextStyle(
+                                             fontWeight: FontWeight.w500,
+                                      fontSize: width*0.034,
+                                      color: Colour.color1),),
+                                      Text("into medidoc app",
+                                      style: TextStyle(
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: width*0.034,
+                                       color: Colour.color1),),
+                                       ],)),
+                                       InkWell(
+                                       onTap: () {
+                                         Navigator.push(context, MaterialPageRoute(builder: (context) => BottomNavigationPage(
+                                         email: emailController.text,
+                                         password: passwordController.text,
+                                    ),));
 
-                                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                                            content: Text("Submitted Sucsessfully ")));
+                                     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                                     content: Text("Submitted Sucsessfully ")));
                                       },
-                                      child: Container(
-                                        height: width*0.12,
-                                        width: width*0.34,
-                                        decoration: BoxDecoration(
-                                            color: Colour.primarycolour,
-                                            borderRadius: BorderRadius.circular(width*0.05)
-                                        ),
-                                        child: Center(
-                                          child: Text("Go to home",
-                                            style: TextStyle(
-                                                fontSize: width*0.04,
-                                                fontWeight: FontWeight.w600,
-                                                color: Colour.secondarycolour
-                                            ),),
-                                        ),
+                                        child: Container(
+                                           height: width*0.12,
+                                           width: width*0.34,
+                                           decoration: BoxDecoration(
+                                                color: Colour.primarycolour,
+                                              borderRadius: BorderRadius.circular(width*0.05)
+                                          ),
+                                         child: Center(
+                                         child: Text("Go to home",
+                                           style: TextStyle(
+                                        fontSize: width*0.04,
+                                        fontWeight: FontWeight.w600,
+                                       color: Colour.secondarycolour
+                                       ),),
                                       ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            );
-                          },);
+                                  ),),],),),);  },);
+                      }
                       SharedPreferences prefs=await SharedPreferences.getInstance();
                       prefs.setBool('login', true);
 
