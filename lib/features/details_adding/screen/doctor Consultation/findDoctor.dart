@@ -51,20 +51,20 @@ class _FindDoctorState extends ConsumerState<FindDoctor> {
       "text":"Cardiologist",
     },
   ];
-  List doctor=[
-    {
-      "image":ImageIcons.drmarcus,
-      "name":"Dr. Marcus Horizon",
-      "spl":"Chardiologist",
-      "star":"4,7",
-      "distene":"800m away",
-      "consultation":60.00,
-      "Admin Fee":01.00,
-      "Aditional Discount":00.00,
-
-
-    }
-  ];
+  // List doctor=[
+  //   {
+  //     "image":ImageIcons.drmarcus,
+  //     "name":"Dr. Marcus Horizon",
+  //     "spl":"Chardiologist",
+  //     "star":"4,7",
+  //     "distene":"800m away",
+  //     "consultation":60.00,
+  //     "Admin Fee":01.00,
+  //     "Aditional Discount":00.00,
+  //
+  //
+  //   }
+  // ];
   // List drlist=[
   //   {
   //     "image":ImageIcons.drmarcus1,
@@ -332,7 +332,7 @@ class _FindDoctorState extends ConsumerState<FindDoctor> {
                         //
                         // });
                         // a.length==1?
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => DoctordetailsPage(dr: data[selectIndex],),));
+                        // Navigator.push(context, MaterialPageRoute(builder: (context) => DoctordetailsPage(dr: data[selectIndex],),));
                             // :a.clear();
                        // data.length==1? Navigator.push(context, MaterialPageRoute(builder: (context) => DoctordetailsPage(dr:doctorData,),)):
                        //     data.clear;
