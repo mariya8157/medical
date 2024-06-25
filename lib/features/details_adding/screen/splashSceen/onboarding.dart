@@ -7,6 +7,7 @@ import 'package:medical/features/details_adding/screen/splashSceen/getstarted.da
 import '../../../../core/constants/colour.dart';
 import '../../../../core/constants/icons.dart';
 import '../../../../main.dart';
+import 'onboarding_constant.dart';
 
 class OnBordingPage extends StatefulWidget {
   const OnBordingPage({super.key});

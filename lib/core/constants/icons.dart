@@ -1,3 +1,5 @@
+import 'package:medical/core/constants/images.dart';
+
 class ImageIcons{
   static const catogory1="assets/icons/Doctor.svg";
   static const catogory2="assets/icons/Lungs.svg";
@@ -55,33 +57,3 @@ class ImageIcons{
   static const date = "assets/icons/calendar.svg";
 
 }
-class UnboardingConstant{
-  String image;
-  String discription;
-  String discription2;
-  UnboardingConstant({required this.image,required this.discription,required this.discription2});
-}
-List<UnboardingConstant> constants=[
-  UnboardingConstant(
-
-    image:"assets/images/doc1.png",
-    discription:"Consult only with a doctor",
-    discription2:"you trust",
-  ),
-  UnboardingConstant(
-
-    image:"assets/images/doc2.png",
-    discription:"Find a lot of specialist",
-    discription2:"doctors in one place",
-  ),
-  UnboardingConstant(
-
-    image:"assets/images/doc3.png",
-    discription:"Get connect our Online",
-    discription2:"Consultation",
-  ),
-
-
-
-
-];

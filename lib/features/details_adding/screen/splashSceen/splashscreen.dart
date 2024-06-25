@@ -5,7 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:medical/features/details_adding/screen/home/bottomnavigation.dart';
 import 'package:medical/features/details_adding/screen/home/homepage.dart';
 import 'package:medical/features/details_adding/screen/splashSceen/getstarted.dart';
-import 'package:medical/features/details_adding/screen/splashSceen/onbording.dart';
+import 'package:medical/features/details_adding/screen/splashSceen/onboarding.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
