@@ -21,7 +21,7 @@ class GetStartedPage extends StatefulWidget {
 }
 
 class _GetStartedPageState extends State<GetStartedPage> {
-  TextEditingController name_controller = TextEditingController();
+  TextEditingController nameController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
@@ -49,9 +49,7 @@ class _GetStartedPageState extends State<GetStartedPage> {
           InkWell(
             onTap: () async {
               SharedPreferences prefs=await SharedPreferences.getInstance();
-
-
-             prefs.setString('name', name_controller.text);
+             prefs.setString('name', nameController.text);
              Navigator.pushAndRemoveUntil(context, CupertinoPageRoute(builder: (context) =>prefs.getBool("login")==true?BottomNavigationPage(email: "", password: ""):LoginPage(),), (route) => false);
             },
             child: Container(
