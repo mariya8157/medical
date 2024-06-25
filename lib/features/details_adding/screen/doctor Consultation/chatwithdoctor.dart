@@ -396,7 +396,6 @@ class _ChatPageState extends State<ChatPage> {
 
                                       ],
                                     ),
-
                                     InkWell(
                                       onTap: () {
                                         Navigator.pop(context);
@@ -409,8 +408,6 @@ class _ChatPageState extends State<ChatPage> {
                                           borderRadius: BorderRadius.circular(
                                               width * 0.03),
                                             color: Colour.secondarycolour.withOpacity(0.8),
-
-
                                         ),
                                         child: Center(
                                           child: Text("Cancel",

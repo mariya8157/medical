@@ -7,13 +7,14 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:medical/features/details_adding/controller/addingcontroller_page.dart';
+import 'package:medical/features/details_adding/controller/user_controller.dart';
 import 'package:medical/features/details_adding/screen/onlinePharmacy/address.dart';
 import 'package:medical/models/model2.dart';
 
 import '../../../../core/constants/colour.dart';
 import '../../../../core/constants/icons.dart';
 import '../../../../main.dart';
+import '../../controller/address_controller.dart';
 
 class DeliveryPage extends ConsumerStatefulWidget {
   const DeliveryPage({super.key});
@@ -73,7 +74,7 @@ class _DeliveryPageState extends ConsumerState<DeliveryPage> {
         title: Text(
           " Delivery Address",
           style: TextStyle(
-              color: Colors.black,
+              color: Colour.thirdcolour,
               fontWeight: FontWeight.w700,
               fontSize: width * 0.063),
         ),
@@ -127,7 +128,7 @@ class _DeliveryPageState extends ConsumerState<DeliveryPage> {
                       ),
                       border: OutlineInputBorder(
                         borderSide: const BorderSide(
-                          color: Colors.red,
+                          color: Colour.color4,
                         ),
                         borderRadius: BorderRadius.circular(width * 0.03),
                       ),
@@ -235,7 +236,7 @@ class _DeliveryPageState extends ConsumerState<DeliveryPage> {
                           ),
                           border: OutlineInputBorder(
                             borderSide: const BorderSide(
-                              color: Colors.red,
+                              color: Colour.color4,
                             ),
                             borderRadius: BorderRadius.circular(width * 0.03),
                           ),
@@ -320,7 +321,7 @@ class _DeliveryPageState extends ConsumerState<DeliveryPage> {
                       ),
                       border: OutlineInputBorder(
                         borderSide: const BorderSide(
-                          color: Colors.red,
+                          color: Colour.color4,
                         ),
                         borderRadius: BorderRadius.circular(width * 0.03),
                       ),
@@ -360,7 +361,7 @@ class _DeliveryPageState extends ConsumerState<DeliveryPage> {
                       ),
                       border: OutlineInputBorder(
                         borderSide: const BorderSide(
-                          color: Colors.red,
+                          color: Colour.color4,
                         ),
                         borderRadius: BorderRadius.circular(width * 0.03),
                       ),
@@ -401,7 +402,7 @@ class _DeliveryPageState extends ConsumerState<DeliveryPage> {
                       ),
                       border: OutlineInputBorder(
                         borderSide: const BorderSide(
-                          color: Colors.red,
+                          color: Colour.color4,
                         ),
                         borderRadius: BorderRadius.circular(width * 0.03),
                       ),
@@ -441,7 +442,7 @@ class _DeliveryPageState extends ConsumerState<DeliveryPage> {
                       ),
                       border: OutlineInputBorder(
                         borderSide: const BorderSide(
-                          color: Colors.red,
+                          color: Colour.color4,
                         ),
                         borderRadius: BorderRadius.circular(width * 0.03),
                       ),

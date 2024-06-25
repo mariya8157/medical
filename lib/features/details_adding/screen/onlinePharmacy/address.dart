@@ -530,13 +530,14 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:medical/features/details_adding/controller/addingcontroller_page.dart';
+import 'package:medical/features/details_adding/controller/user_controller.dart';
 import 'package:order_tracker/order_tracker.dart';
 import 'package:pinput/pinput.dart';
 
 import '../../../../core/constants/colour.dart';
 import '../../../../core/constants/icons.dart';
 import '../../../../main.dart';
+import '../../controller/address_controller.dart';
 
 class OrderDetails extends ConsumerStatefulWidget {
   const OrderDetails({super.key});

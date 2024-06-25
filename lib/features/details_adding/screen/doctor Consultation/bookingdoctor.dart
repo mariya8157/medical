@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:medical/features/details_adding/controller/addingcontroller_page.dart';
+import 'package:medical/features/details_adding/controller/user_controller.dart';
 import 'package:medical/features/details_adding/screen/doctor%20Consultation/chatwithdoctor.dart';
 import 'package:medical/features/details_adding/screen/doctor%20Consultation/doctordetails.dart';
 import 'package:medical/models/doctormodel.dart';
 import '../../../../core/constants/colour.dart';
 import '../../../../core/constants/icons.dart';
 import '../../../../main.dart';
+import '../../controller/schedule_controller.dart';
 import '../onlinePharmacy/drugsdetail.dart';
 
 class BookingPage extends ConsumerStatefulWidget {
@@ -32,33 +33,10 @@ class _BookingPageState extends ConsumerState<BookingPage> {
     }
   ];
   TextEditingController reason=TextEditingController();
-// dynamic total=0;
-// addCost(){
-//  total= widget.time[0]["Consultation"]*2;
-// }
   double total =0;
-  // addCost(){
-  //     total=0;
-  //     for(int i=0;i<widget.time.length;i++)
-  //     {
-  //       total=widget.time[i]["consultation"]+widget.time[i]["Admin Fee"]-widget.time[i]["Aditional Discount"];
-  //       print(total);
-  //     }
-  //   }
 
     addBooking(){
      ref.watch(scheduleControllerProvider).addBookingData(
-         // DoctorModel(name: widget.time.name,
-         //     time: widget.time.time,
-         //     date: widget.time.date,
-         //     cons: widget.time.cons,
-         //     admin: widget.time.admin,
-         //     dis: widget.time.dis,
-         //     image: widget.time.image,
-         //     spcl: widget.time.spcl,
-         //     exp: widget.time.exp,
-         //     id: widget.time.id,
-         //     userId: widget.time.userId));
          widget.time.copyWith(
            name: widget.time.name,
            time: widget.time.time,
@@ -74,9 +52,6 @@ class _BookingPageState extends ConsumerState<BookingPage> {
          )
          );
     }
-
-
-
   @override
   void initState() {
     // TODO: implement initState
@@ -133,8 +108,7 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                 ),
                 child: ListView.separated(
                     shrinkWrap: true,
-                    // physics: BouncingScrollPhysics(),
-
+                     // physics: BouncingScrollPhysics(),
                     itemBuilder: (context, index) {
                       return
                         Padding(
@@ -148,8 +122,6 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                                   image: DecorationImage(image: NetworkImage(widget.time.image.toString())),
                                   borderRadius: BorderRadius.circular(width*0.03),
                                 ),
-
-
                               ),
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -160,28 +132,20 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                                         fontWeight: FontWeight.w800,
                                         color:Colour.thirdcolour
                                     ),
-
                                   ),
                                   Text(widget.time.spcl.toString(),
                                     style: TextStyle(
                                         color: Colour.gray,
                                         fontSize: width*0.04
                                     ),
-
                                   ),
                                   Text(widget.time.exp.toString(),),
-
-
                                 ],
                               )
-
-
                             ],
                           ),
-                        )
-                      ;
-
-                    },
+                        );
+                      },
                     separatorBuilder: (context, index) {
                       return SizedBox(
                         height: height*0.03,
@@ -191,7 +155,6 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                 ),
               ),
               SizedBox(height: height*0.02,),
-
               Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text("Date",
@@ -201,8 +164,6 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                         color:Colour.thirdcolour
                     ),
                   ),
-
-
                 ],
               ),
               SizedBox(height: height*0.02,),
@@ -214,7 +175,6 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                     backgroundColor: Colour.lightgreen,
                     child: Center(child: SvgPicture.asset(ImageIcons.calendar)),
                   ),
-                  // Text("Wednesday, Jun 23, 2021 | 10:00AM",
                   Text(widget.time.date.toString().substring(0,10),
                     style: TextStyle(
                         fontSize: width*0.04,
@@ -233,9 +193,7 @@ class _BookingPageState extends ConsumerState<BookingPage> {
               ),
               Divider(thickness: width*0.004,
                 color: Colour.lightgreen,
-                // indent: width*0.03,
-                // endIndent: width*0.03,
-              ),
+                  ),
               Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text("Reason",
@@ -259,7 +217,6 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                       ),
                     ),
                   ),
-
                 ],
               ),
               Row(
@@ -284,25 +241,18 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                           borderSide: BorderSide.none
                         )
                       ),
-
                       style: TextStyle(
                         fontSize: width*0.05,
                         fontWeight: FontWeight.w500,
                         color: Colour.thirdcolour
                       ),
-
-
                     ),
-
                   ),
-
                 ],
               ),
               Divider(thickness: width*0.004,
                 color: Colour.lightgreen,
-                // indent: width*0.03,
-                // endIndent: width*0.03,
-              ),
+                  ),
               Row(
                 children: [
                   Text("Payment Detail",
@@ -312,11 +262,9 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                         color:Colour.thirdcolour
                     ),
                   ),
-
                 ],
               ),
               SizedBox(height: height*0.02,),
-
               Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text("Consultation",
@@ -326,33 +274,7 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                         color:Colour.gray
                     ),
                   ),
-                  // Container(
-                  //   width: width*0.15,
-                  //   height: height*0.05,
-                  //
-                  //   child:TextFormField(
-                  //     controller: cunsult,
-                  //     keyboardType: TextInputType.text,
-                  //     textInputAction: TextInputAction.done,
-                  //     textCapitalization: TextCapitalization.words,
-                  //     decoration: InputDecoration(
-                  //         border: OutlineInputBorder(
-                  //             borderSide: BorderSide.none
-                  //         )
-                  //     ),
-                  //
-                  //     style: TextStyle(
-                  //         fontSize: width*0.05,
-                  //         fontWeight: FontWeight.w500,
-                  //         color: Colour.thirdcolour
-                  //     ),
-                  //
-                  //
-                  //   ),
-                  //
-                  // )
-
-                  Container(
+                    Container(
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -373,7 +295,6 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                       ],
                     ),
                   ),
-
                 ],
               ),
               SizedBox(height: height*0.01,),
@@ -386,31 +307,6 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                         color:Colour.gray
                     ),
                   ),
-                  // Container(
-                  //   width: width*0.15,
-                  //   height: height*0.05,
-                  //   child:TextFormField(
-                  //     controller: admission,
-                  //     keyboardType: TextInputType.text,
-                  //     textInputAction: TextInputAction.done,
-                  //     textCapitalization: TextCapitalization.words,
-                  //     decoration: InputDecoration(
-                  //         border: OutlineInputBorder(
-                  //             borderSide: BorderSide.none
-                  //         )
-                  //     ),
-                  //
-                  //     style: TextStyle(
-                  //         fontSize: width*0.05,
-                  //         fontWeight: FontWeight.w500,
-                  //         color: Colour.thirdcolour
-                  //     ),
-                  //
-                  //
-                  //   ),
-                  //
-                  // )
-
                   Container(
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -468,7 +364,6 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                 ],
               ),
               SizedBox(height: height*0.02,),
-
               Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text("Total",
@@ -499,18 +394,12 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                         ]
                     ),
                   )
-
-
-
                 ],
               ),
               SizedBox(height: height*0.01,),
-
               Divider(thickness: width*0.004,
                 color: Colour.lightgreen,
-                // indent: width*0.03,
-                // endIndent: width*0.03,
-              ),
+                   ),
               Row(
                 children: [
                   Text("Payment Method",
@@ -520,50 +409,10 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                         color:Colour.thirdcolour
                     ),
                   ),
-
                 ],
               ),
               SizedBox(height: height*0.02,),
-
-              // InkWell(
-              //   onTap: () {
-              //     // select1=true;
-              //     // select2=false;
-              //     // select3=false;
-              //     // select4=false;
-              //     // setState(() {
-              //     //
-              //     // });
-              //   },
-              //   child: Container(
-              //     height: width*0.15,
-              //     width: width*1,
-              //     decoration:BoxDecoration(
-              //       borderRadius: BorderRadius.circular(width*0.03),
-              //       // color: ColourTheme.thirtyth5Color,
-              //       border: Border.all(
-              //         // color:select1==true? ColourTheme.primaryColor:ColourTheme.thirtyth5Color
-              //       ),
-              //
-              //     ) ,
-              //     child: Row(
-              //       mainAxisAlignment: MainAxisAlignment.spaceAround,
-              //       children: [
-              //         Image.asset(ImageIcons.visa),
-              //         SizedBox(width: width*0.1),
-              //
-              //         Text("Change",
-              //             style: TextStyle(
-              //               fontWeight: FontWeight.w500,
-              //               fontSize: width*0.04,
-              //               // color:ColourTheme.thirtyth6Color
-              //             ))
-              //
-              //       ],
-              //     ),
-              //   ),
-              // ),
-              Column(
+               Column(
                   children: [
                     Container(
                         height: width*0.18,
@@ -577,10 +426,7 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                             height: width*0.07,
                             width: width*0.07,
                             child: Image(image: NetworkImage("https://pbs.twimg.com/profile_images/1615271089705463811/v-emhrqu_400x400.png"),
-                            // SvgPicture.asset(ImageIcons.paypal,
-                              // color: Colors.red,
-                              // fit: BoxFit.fill,
-                            ),),
+                             ),),
                           title: Text("PhonePe"),
                           trailing: Radio(value: 1,
                             groupValue: selectedOption,
@@ -592,7 +438,6 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                           ),
                         )),
                     SizedBox(height: height*0.01,),
-
                     Container(
                       height: width*0.18,
                       width: width*80,
@@ -615,7 +460,6 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                           },),
                       ),),
                     SizedBox(height: height*0.01,),
-
                     Container(
                       height: width*0.18,
                       width: width*80,
@@ -635,27 +479,10 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                           },),),
                     ),
                     SizedBox(height: height*0.01,),
-                    // Container(
-                    //   height: width*0.18,
-                    //   width: width*80,
-                    //   color: Colors.blue,
-                    //   child: ListTile(
-                    //     leading: SvgPicture.asset(ImageIcons.circle),
-                    //     title: Text("**** **** **** ****4679"),
-                    //     trailing: Radio(value: 4,
-                    //       groupValue: selectedOption,
-                    //       onChanged: ( value) {
-                    //         setState(() {
-                    //           selectedOption=value!;
-                    //         });
-                    //       },),
-                    //   ),)
                   ]
                   ),
-
               Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-
                   Container(
                     height: height*0.08,
                     // width: width*0.3,
@@ -695,28 +522,6 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                         )
                     ),
                   ),
-                  // InkWell(
-                  //   onTap: () {
-                  //
-                  //
-                  //   },
-                  //   child: Container(
-                  //     height: height*0.07,
-                  //     width: width*0.6,
-                  //     decoration: BoxDecoration(
-                  //         color: Colour.primarycolour,
-                  //         borderRadius: BorderRadius.circular(width*0.07)
-                  //     ),
-                  //     child: Center(
-                  //       child: Text("Booking",
-                  //         style: TextStyle(
-                  //             fontSize: width*0.045,
-                  //             fontWeight: FontWeight.w600,
-                  //             color: Colour.secondarycolour
-                  //         ),),
-                  //     ),
-                  //   ),
-                  // ),
                   InkWell(
                     onTap: () {
                       addBooking();

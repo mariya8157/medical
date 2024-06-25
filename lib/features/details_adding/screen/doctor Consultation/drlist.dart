@@ -6,7 +6,7 @@ import '../../../../core/constants/colour.dart';
 import '../../../../core/constants/icons.dart';
 import '../../../../main.dart';
 import '../../../../models/doctormodel.dart';
-import '../../controller/addingcontroller_page.dart';
+import '../../controller/user_controller.dart';
 
 class DoctorList extends ConsumerStatefulWidget {
   final String name;
@@ -17,56 +17,11 @@ class DoctorList extends ConsumerStatefulWidget {
 }
 
 class _TopDoctorPageState extends ConsumerState<DoctorList> {
-  // List drlist=[
-  //   {
-  //     "image":ImageIcons.drmarcus1,
-  //     "name":"Dr. Marcus",
-  //     "spl":"Chardiologist",
-  //     "star":"4,7",
-  //     "distene":"800m away",
-  //
-  //   },
-  //   {
-  //     "image":ImageIcons.drmaria1,
-  //     "name":"Dr. Maria",
-  //     "spl":"Gynecologist",
-  //     "star":"4,7",
-  //     "distene":"500m away",
-  //
-  //   },
-  //   {
-  //     "image":ImageIcons.drstevi1,
-  //     "name":"Dr. Stevi",
-  //     "spl":"dermatologist",
-  //     "star":"4,8",
-  //     "distene":"900m away",
-  //
-  //   },
-  //   {
-  //     "image":ImageIcons.drgerty,
-  //     "name":"Dr. Gerty Cori",
-  //     "spl":"Orthopedist",
-  //     "star":"4,7",
-  //     "distene":"800m away",
-  //
-  //   },
-  //   {
-  //     "image":ImageIcons.drdiandra,
-  //     "name":"Dr. Diandra",
-  //     "spl":"Orthopedist",
-  //     "star":"4,7",
-  //     "distene":"800m away",
-  //
-  //   },
-  //
-  //
-  // ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
           centerTitle: true,
-          // resizeToAvoidBottomInset: false,
           elevation: 0,
           surfaceTintColor: Colour.secondarycolour,
           leading: InkWell(
@@ -135,28 +90,21 @@ class _TopDoctorPageState extends ConsumerState<DoctorList> {
                             )
                         ),
                         child: Row(
-                          // mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             SizedBox(width: width*0.03,),
                             Container(
                               height: width*0.5,
                               width: width*0.78,
-            
                               child: Row(
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
                                   Container(
                                     width: width*0.35,
                                     height:height*0.17,
-            
                                     decoration: BoxDecoration(
                                       image: DecorationImage(image: NetworkImage(data[index].image),fit: BoxFit.fill),
-                                      // color: Colors.red,
                                       borderRadius: BorderRadius.circular(width*0.03),
-            
                                     ),
-            
-            
                                   ),
                                   SizedBox(width: width*0.04,),
                                   Container(
@@ -172,47 +120,35 @@ class _TopDoctorPageState extends ConsumerState<DoctorList> {
                                               fontWeight: FontWeight.w800,
                                               color:Colour.thirdcolour
                                           ),
-            
                                         ),
                                         Text(data[index].spcl.toString(),
                                           style: TextStyle(
                                               color: Colour.gray,
                                               fontSize: width*0.04
                                           ),
-            
                                         ),
-            
                                         Container(
                                           width: width*0.25,
                                           height: height*0.05,
                                           child: Row(
-                                            // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                            children: [
-                                              // SvgPicture.asset(ImageIcons.location,) ,
+                                           children: [
                                               Text(data[index].exp.toString(),
                                                 style: TextStyle(
                                                   color: Colour.color1,
-            
                                                 ),)
                                             ],
                                           ),
                                         )
-            
                                       ],
                                     ),
                                   ),
                                 ],
                               ),
                             )
-            
-            
                           ],
                         ),
-            
                       ),
-                    )
-                  ;
-            
+                    );
                 },
                 separatorBuilder: (context, index) {
                   return SizedBox(

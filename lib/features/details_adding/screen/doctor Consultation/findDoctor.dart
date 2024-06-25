@@ -4,7 +4,7 @@ import 'package:flutter/painting.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:medical/features/details_adding/controller/addingcontroller_page.dart';
+import 'package:medical/features/details_adding/controller/user_controller.dart';
 import 'package:medical/features/details_adding/screen/doctor%20Consultation/doctordetails.dart';
 import 'package:medical/features/details_adding/screen/doctor%20Consultation/drlist.dart';
 import 'package:medical/features/details_adding/screen/home/bottomnavigation.dart';
@@ -13,6 +13,7 @@ import 'package:medical/models/doctormodel.dart';
 import '../../../../core/constants/colour.dart';
 import '../../../../core/constants/icons.dart';
 import '../../../../main.dart';
+import '../../controller/doctor_controller.dart';
 
 
 class FindDoctor extends ConsumerStatefulWidget {
@@ -51,81 +52,6 @@ class _FindDoctorState extends ConsumerState<FindDoctor> {
       "text":"Cardiologist",
     },
   ];
-  // List doctor=[
-  //   {
-  //     "image":ImageIcons.drmarcus,
-  //     "name":"Dr. Marcus Horizon",
-  //     "spl":"Chardiologist",
-  //     "star":"4,7",
-  //     "distene":"800m away",
-  //     "consultation":60.00,
-  //     "Admin Fee":01.00,
-  //     "Aditional Discount":00.00,
-  //
-  //
-  //   }
-  // ];
-  // List drlist=[
-  //   {
-  //     "image":ImageIcons.drmarcus1,
-  //     "name":"Dr. Marcus",
-  //     "spl":"Chardiologist",
-  //     "star":"4,7",
-  //     "distene":"800m away",
-  //     "consultation":60.00,
-  //     "Admin Fee":01.00,
-  //     "Aditional Discount":00.00,
-  //
-  //   },
-  //   {
-  //     "image":ImageIcons.drmaria1,
-  //     "name":"Dr. Maria",
-  //     "spl":"Gynecologist",
-  //     "star":"4,7",
-  //     "distene":"500m away",
-  //     "consultation":70.00,
-  //     "Admin Fee":1.00,
-  //     "Aditional Discount":10.00,
-  //
-  //
-  //   },
-  //   {
-  //     "image":ImageIcons.drstevi1,
-  //     "name":"Dr. Stevi",
-  //     "spl":"dermatologist",
-  //     "star":"4,8",
-  //     "distene":"900m away",
-  //     "consultation":80.00,
-  //     "Admin Fee":02.00,
-  //     "Aditional Discount":00.00,
-  //
-  //   }
-  //   ,
-  //   {
-  //     "image":ImageIcons.drgerty,
-  //     "name":"Dr. Gerty Cori",
-  //     "spl":"Orthopedist",
-  //     "star":"4,7",
-  //     "distene":"800m away",
-  //     "consultation":65.00,
-  //     "Admin Fee":01.50,
-  //     "Aditional Discount":00.00,
-  //
-  //   },
-  //   {
-  //     "image":ImageIcons.drdiandra,
-  //     "name":"Dr. Diandra",
-  //     "spl":"Orthopedist",
-  //     "star":"4,7",
-  //     "distene":"800m away",
-  //     "consultation":70.00,
-  //     "Admin Fee":01.00,
-  //     "Aditional Discount":01.00,
-  //
-  //   }
-  //
-  //
-  // ];
   int selectIndex=0;
   List a=[];
 
@@ -168,11 +94,6 @@ class _FindDoctorState extends ConsumerState<FindDoctor> {
               fontSize: width*0.06
           ),
         ),
-        // actions: [Row(
-        //     children: [
-        //       SvgPicture.asset(ImageIcons.columnDot),
-        //       SizedBox(width: width*0.05,)
-        //     ],)],
       ),
 
       body:Padding(
@@ -191,7 +112,6 @@ class _FindDoctorState extends ConsumerState<FindDoctor> {
                       color: Colour.color3,
                       borderRadius: BorderRadius.circular(width*0.07)
                   ),
-
                   child: TextFormField(
                     controller:searchController ,
                     keyboardType: TextInputType.name,
@@ -212,7 +132,6 @@ class _FindDoctorState extends ConsumerState<FindDoctor> {
                         focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                               color: Colour.color2,
-
                             ),
                             borderRadius: BorderRadius.circular(
                                 width*0.07)
@@ -221,7 +140,6 @@ class _FindDoctorState extends ConsumerState<FindDoctor> {
                             borderRadius: BorderRadius.circular(width*0.07),
                             borderSide: BorderSide(
                               color: Colour.color2,
-
                             )
                         )
                     ),
@@ -238,7 +156,6 @@ class _FindDoctorState extends ConsumerState<FindDoctor> {
                     ),
                   ],
                 ),
-
                 Container(
                   width: width*1,
                   child: Expanded(
@@ -250,7 +167,6 @@ class _FindDoctorState extends ConsumerState<FindDoctor> {
                         mainAxisSpacing: width*0.03,
                         crossAxisCount: 4,
                       ),
-
                       physics: BouncingScrollPhysics(),
                       shrinkWrap: true,
                       // scrollDirection: Axis.horizontal,
@@ -271,7 +187,6 @@ class _FindDoctorState extends ConsumerState<FindDoctor> {
                                       height: height*0.05,
                                       child: SvgPicture.asset(category[index]["image"],)
                                   ),
-
                                   Text(category[index]["text"],
                                     style: TextStyle(
                                         color: Colour.color1,
@@ -282,10 +197,7 @@ class _FindDoctorState extends ConsumerState<FindDoctor> {
                               ),
                             ),
                           );
-
                       },
-
-
                     ),
                   ),
                 ),
@@ -321,21 +233,6 @@ class _FindDoctorState extends ConsumerState<FindDoctor> {
                         // print(currentModel!.id);
                         print("----------------===================000000000000");
                         Navigator.push(context, MaterialPageRoute(builder: (context) => DoctordetailsPage(dr:doctorData,),));
-                        // a.add({
-                        //   "image":data[selectIndex].image,
-                        //   "name":data[selectIndex].name.toString(),
-                        //   "spl":data[selectIndex].spcl.toString(),
-                        //   "distene":data[selectIndex].exp.toString(),
-                        //   "consultation":data[selectIndex].cons.toString(),
-                        //   "Admin Fee":data[selectIndex].admin.toString(),
-                        //   "Aditional Discount":data[selectIndex].dis.toString(),
-                        //
-                        // });
-                        // a.length==1?
-                        // Navigator.push(context, MaterialPageRoute(builder: (context) => DoctordetailsPage(dr: data[selectIndex],),));
-                            // :a.clear();
-                       // data.length==1? Navigator.push(context, MaterialPageRoute(builder: (context) => DoctordetailsPage(dr:doctorData,),)):
-                       //     data.clear;
                       },
                       child: Container(
                         height: height*0.2,
@@ -465,8 +362,7 @@ class _FindDoctorState extends ConsumerState<FindDoctor> {
                            );
                          },
                          itemCount: data.length
-                     ),
-                                   ),
+                     ),),
                   ],
                 ),
             error: (error, stackTrace) {
@@ -475,8 +371,7 @@ class _FindDoctorState extends ConsumerState<FindDoctor> {
                },
                  loading: () {
                    return Center(child: CircularProgressIndicator());
-                 },)
- ],
+                 },)],
             ),
           ),
         ),

@@ -397,21 +397,7 @@ surfaceTintColor:Colour.thirdcolour ,
                           date: date.toString(), userId: '');
 
                       Navigator.push(context, MaterialPageRoute(builder: (context) => BookingPage(time:doctorData,)));
-                      // day.add({
-                      //   "date":date,
-                      //   "time":time[selectIndex1],
-                      //   "image":widget.dr.image,
-                      //   "name":widget.dr.name,
-                      //   "spl":widget.dr.spcl,
-                      //   "distene":widget.dr.exp,
-                      //   "consultation":widget.dr.cons,
-                      //   "Admin Fee":widget.dr.admin,
-                      //   "Aditional Discount":widget.dr.dis,
-                      //
-                      // });
-
-                      // day.length==1?Navigator.push(context, MaterialPageRoute(builder: (context) => BookingPage(time: day,))):day.clear();
-                    },
+                       },
                     child: Container(
                       height: height*0.07,
                       width: width*0.6,

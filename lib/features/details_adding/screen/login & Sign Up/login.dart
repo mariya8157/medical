@@ -18,7 +18,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../../../../core/constants/colour.dart';
 import '../../../../core/constants/icons.dart';
 import '../../../../main.dart';
-import '../../controller/addingcontroller_page.dart';
+import '../../controller/user_controller.dart';
 import 'google_signIn.dart';
 
 String? userEmail;

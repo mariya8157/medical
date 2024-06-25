@@ -9,7 +9,7 @@ import '../../../../core/constants/colour.dart';
 import '../../../../core/constants/icons.dart';
 import '../../../../main.dart';
 import '../../../../models/model1.dart';
-import '../../controller/addingcontroller_page.dart';
+import '../../controller/user_controller.dart';
 import 'login.dart';
 
 class SignupPage extends ConsumerStatefulWidget {

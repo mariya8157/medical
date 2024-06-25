@@ -4,7 +4,8 @@ import 'package:flutter_svg/svg.dart';
 import '../../../../core/constants/colour.dart';
 import '../../../../core/constants/icons.dart';
 import '../../../../main.dart';
-import '../../controller/addingcontroller_page.dart';
+import '../../controller/doctor_controller.dart';
+import '../../controller/user_controller.dart';
 
 class TopDoctorPage extends ConsumerStatefulWidget {
   const TopDoctorPage({super.key});
@@ -14,50 +15,7 @@ class TopDoctorPage extends ConsumerStatefulWidget {
 }
 
 class _TopDoctorPageState extends ConsumerState<TopDoctorPage> {
-  // List drlist=[
-  //   {
-  //     "image":ImageIcons.drmarcus1,
-  //     "name":"Dr. Marcus",
-  //     "spl":"Chardiologist",
-  //     "star":"4,7",
-  //     "distene":"800m away",
-  //
-  //   },
-  //   {
-  //     "image":ImageIcons.drmaria1,
-  //     "name":"Dr. Maria",
-  //     "spl":"Gynecologist",
-  //     "star":"4,7",
-  //     "distene":"500m away",
-  //
-  //   },
-  //   {
-  //     "image":ImageIcons.drstevi1,
-  //     "name":"Dr. Stevi",
-  //     "spl":"dermatologist",
-  //     "star":"4,8",
-  //     "distene":"900m away",
-  //
-  //   },
-  //   {
-  //     "image":ImageIcons.drgerty,
-  //     "name":"Dr. Gerty Cori",
-  //     "spl":"Orthopedist",
-  //     "star":"4,7",
-  //     "distene":"800m away",
-  //
-  //   },
-  //   {
-  //     "image":ImageIcons.drdiandra,
-  //     "name":"Dr. Diandra",
-  //     "spl":"Orthopedist",
-  //     "star":"4,7",
-  //     "distene":"800m away",
-  //
-  //   },
-  //
-  //
-  // ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

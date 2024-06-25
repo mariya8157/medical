@@ -84,8 +84,7 @@ class _DocterPageState extends State<DocterPage> {
         padding:  EdgeInsets.all(10.0),
         child: SingleChildScrollView(
           child: Column(
-            // mainAxisAlignment: MainAxisAlignment.center,
-            children: [
+           children: [
 
               Container(
                 width: width*1,
@@ -155,8 +154,6 @@ class _DocterPageState extends State<DocterPage> {
                                     ],
                                   ),
                                 ),
-          
-                                // SizedBox(width: width*0.02,),
                                 SvgPicture.asset(ImageIcons.location,color: Colour.gray,),
                                 Text(drlist[index]["distene"],style: TextStyle(
                                     color: Colour.gray
@@ -165,18 +162,7 @@ class _DocterPageState extends State<DocterPage> {
                             )
                           ],
                         ),
-                      ),
-                    );
-          
-                  },
-          
-          
-                ),
-              ),
-            ],
-          ),
-        ),
-      )
+                      ),);},),),],),),)
     );
   }
 }

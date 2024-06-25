@@ -20,7 +20,8 @@ import '../../../../core/constants/icons.dart';
 import '../../../../core/constants/colour.dart';
 import '../../../../core/constants/icons.dart';
 import '../../../../main.dart';
-import '../../controller/addingcontroller_page.dart';
+import '../../controller/doctor_controller.dart';
+import '../../controller/user_controller.dart';
 
 class HomePage extends ConsumerStatefulWidget {
   const HomePage({super.key});
@@ -32,21 +33,6 @@ class HomePage extends ConsumerStatefulWidget {
 class _HomePageState extends ConsumerState<HomePage> {
   TextEditingController search_controller=TextEditingController();
 
-
-  // List items=[
-  //   {"images":"ImageIcons.catogory1",
-  //     "text":"Doctor"
-  //   },
-  //   {"images":"ImageIcons.Pharmacy",
-  //     "text":"Pharmacy"
-  //   },
-  //   {"images":"ImageIcons.Hospital",
-  //     "text":"Hospital"
-  //   },
-  //   {"images":"ImageIcons.Ambulance",
-  //     "text":"Ambulance"
-  //   }
-  // ];
   int currentIndex=0;
   List pages=[
    ImageIcons.banner1,
@@ -55,40 +41,6 @@ class _HomePageState extends ConsumerState<HomePage> {
     ImageIcons.CTA
 
   ];
-  // List doctor=[
-  //   {
-  //     "image":ImageIcons.drmarcus1,
-  //     "name":"Dr. Marcus Horizon",
-  //     "spl":"Chardiologist",
-  //     "star":"4,7",
-  //     "distene":"800m away",
-  //
-  //   },
-  //   {
-  //     "image":ImageIcons.drmaria,
-  //     "name":"Dr. Maria",
-  //     "spl":"Gynecologist",
-  //     "star":"4,7",
-  //     "distene":"500m away",
-  //
-  //   },
-  //   {
-  //     "image":ImageIcons.drstevi,
-  //     "name":"Dr. Stevi",
-  //     "spl":"dermatologist",
-  //     "star":"4,8",
-  //     "distene":"900m away",
-  //
-  //   }
-  //   ,{
-  //     "image":ImageIcons.drluke,
-  //     "name":"Dr. Luke",
-  //     "spl":"General medicine",
-  //     "star":"4,7",
-  //     "distene":"800m away",
-  //
-  //   }
-  // ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -291,16 +243,6 @@ class _HomePageState extends ConsumerState<HomePage> {
                           dotHeight: width*0.02,
                           dotWidth: width*0.02,
                         )),
-                    // Container(
-                    //   height: width*0.4,
-                    //   width: width*0.9,
-                    //   decoration: BoxDecoration(
-                    //     borderRadius: BorderRadius.circular(width*0.04),
-                    //     image: DecorationImage(
-                    //         image: AssetImage(ImageIcons.CTA),fit: BoxFit.fill)
-                    //   ),
-                    // ),
-                    // SizedBox(height: width*0.04,),
                     Container(
                       width: width*0.9,
                       child: Row(
@@ -369,10 +311,6 @@ class _HomePageState extends ConsumerState<HomePage> {
                               ),
                               Row(
                                 children: [
-
-
-                                  // SizedBox(width: width*0.02,),
-                                  // SvgPicture.asset(ImageIcons.location,color: Colors.grey,),
                                   Text(data[index].exp.toString(),style: TextStyle(
                                     color: Colour.gray
                                   ),)
