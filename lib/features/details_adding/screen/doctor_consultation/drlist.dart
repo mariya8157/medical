@@ -157,7 +157,7 @@ class _TopDoctorPageState extends ConsumerState<DoctorList> {
                 },
                 itemCount:data.length
             ),
-                  );
+            );
           }
         ),
             ],

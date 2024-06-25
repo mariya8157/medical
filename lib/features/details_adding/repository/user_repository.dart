@@ -35,10 +35,7 @@ class AddingRepository{
   addingUser(name, email, password){
     _firebaseAuth.createUserWithEmailAndPassword(email: email, password: password);
   }
-
   }
-
-
 
 
 

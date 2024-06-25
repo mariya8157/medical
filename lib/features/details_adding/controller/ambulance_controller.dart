@@ -23,7 +23,6 @@ class AmbulanceController {
   deleteData(AmbulanceModel ambulanceDelete) {
     _ambulanceRepository.deleteAmbulance(ambulanceDelete);
   }
-
   updateData(AmbulanceModel ambulanceUpdate) {
     _ambulanceRepository.UpdateAmbulance(ambulanceUpdate);
   }

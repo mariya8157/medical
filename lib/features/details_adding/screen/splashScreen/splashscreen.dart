@@ -14,7 +14,6 @@ import '../../../../models/user_model.dart';
 import 'getstarted.dart';
 import 'onboarding.dart';
 
-
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 

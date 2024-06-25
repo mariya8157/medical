@@ -191,8 +191,7 @@ class _AmbulancePageState extends ConsumerState<AmbulancePage> {
                                                 ),
                                               ),
                                             );
-                                          },);
-                      },
+                                          },);},
                                       child: SvgPicture.asset(ImageIcons.nxtback))
                                 ],
                               ),

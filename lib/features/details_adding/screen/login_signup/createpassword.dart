@@ -63,8 +63,7 @@ class _CreatePasswordPageState extends State<CreatePasswordPage> {
                           fontWeight: FontWeight.w500,
                           color: Colour.color1
                       ),)
-                  ],
-                ),
+                  ],),
                 SizedBox(height: width*0.05,),
                 Container(
                   decoration: BoxDecoration(

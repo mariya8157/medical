@@ -166,7 +166,6 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                 ],
               ),
               SizedBox(height: height*0.02,),
-
               Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   CircleAvatar(

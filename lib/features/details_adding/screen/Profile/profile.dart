@@ -200,8 +200,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                               offset: Offset(0, 4))
                                         ]),
                                   )
-                                ],
-                              )
+                                ],)
                             ],
                           ),
                         ),

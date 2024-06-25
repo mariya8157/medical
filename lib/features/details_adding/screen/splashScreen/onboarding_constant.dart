@@ -25,8 +25,4 @@ List<UnboardingConstant> constants=[
     discription:"Get connect our Online",
     discription2:"Consultation",
   ),
-
-
-
-
 ];

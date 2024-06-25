@@ -4,7 +4,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:medical/features/details_adding/screen/Profile/profile.dart';
 import 'package:medical/features/details_adding/screen/home/homepage.dart';
 import '../../../../core/constants/colour.dart';
-
 import '../../../../core/constants/colour.dart';
 import '../doctor_consultation/schedule.dart';
 import '../online_pharmacy/article.dart';

@@ -651,8 +651,7 @@ class _OrderDetailsState extends ConsumerState<OrderDetails> {
                           )
                         ],
                       )),
-                ],
-              ),
+                ],),
               SizedBox(height: width*0.04,),
               Row(
                 children: [

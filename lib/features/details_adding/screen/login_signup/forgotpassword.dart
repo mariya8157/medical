@@ -19,8 +19,8 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
   final phoneValidation=RegExp(r"[0-9]{10}$");
   final emailValidation=RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
   final formKey=GlobalKey<FormState>();
-
   bool toggle = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

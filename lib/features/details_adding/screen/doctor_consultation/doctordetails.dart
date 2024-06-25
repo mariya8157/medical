@@ -22,7 +22,6 @@ final DoctorModel dr;
 class _DoctordetailsPageState extends State<DoctordetailsPage> {
 
   DateTime? date;
-
   // List doctor=[
   //   {
   //     "image":ImageIcons.drmarcus1,

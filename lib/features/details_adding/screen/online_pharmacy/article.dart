@@ -17,6 +17,7 @@ class Articles extends StatefulWidget {
 }
 
 class _ArticlesState extends State<Articles> {
+
   TextEditingController articleController =TextEditingController();
   List a=[
     {

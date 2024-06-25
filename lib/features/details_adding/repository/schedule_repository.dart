@@ -6,7 +6,6 @@ import '../providers/firebase_provider.dart';
 
 final ScheduleRepositoryProvider = Provider((ref) => ScheduleRepository(firestore: ref.watch(fireStoreProvider)));
 
-
 class ScheduleRepository{
   final FirebaseFirestore _firestore;
   ScheduleRepository({required FirebaseFirestore firestore}):_firestore=firestore;

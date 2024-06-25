@@ -24,8 +24,6 @@ signInWithGoogle(BuildContext context) async {
   userEmail=userDetails!.email;
   userImage=userDetails!.photoURL;
 
-  //==========================================
-
   var userlist= await FirebaseFirestore.instance.collection("users").where("email",isEqualTo:userEmail).get();
   print(userlist);
 

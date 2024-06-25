@@ -13,7 +13,6 @@ import 'package:medical/features/details_adding/screen/login_signup/signup.dart'
 import 'package:medical/models/user_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 import '../../../../core/constants/colour.dart';
 import '../../../../core/constants/icons.dart';
 import '../../../../core/constants/images.dart';

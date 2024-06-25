@@ -151,8 +151,7 @@ class _VerificationPageState extends State<VerificationPage> {
                             fontWeight: FontWeight.w600,
                             color: Colour.primarycolour
                         ),),
-                    ],
-                  )
+                    ],)
               ),
             ],
           ),

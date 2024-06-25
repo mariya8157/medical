@@ -43,7 +43,6 @@ class _DrugDetailsPageState extends State<DrugDetailsPage> {
     total = 0;
     for (int i = 0; i < d.length; i++) {
       total = d[i]["text6"] * d[i]["price"] + total;
-
     }
     print(total);
     setState(() {

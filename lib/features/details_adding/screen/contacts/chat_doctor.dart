@@ -16,7 +16,6 @@ class _ChatdoctorState extends State<Chatdoctor> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
     );
   }
 }

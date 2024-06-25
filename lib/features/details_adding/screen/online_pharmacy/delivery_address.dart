@@ -52,9 +52,7 @@ class _DeliveryPageState extends ConsumerState<DeliveryPage> {
       appBar: AppBar(
         scrolledUnderElevation: 0,
         centerTitle: true,
-        backgroundColor: Colors.white24,
-        // resizeToAvoidBottomInset: false,
-        elevation: 0,
+       elevation: 0,
         leading: InkWell(
           onTap: () {
             Navigator.pop(context);

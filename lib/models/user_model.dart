@@ -17,8 +17,7 @@ class UsersModel {
       'email': this.email,
       'password': this.password,
       'id': this.id,
-    };
-  }
+    };}
 
   factory UsersModel.fromMap(Map<String, dynamic>map){
     return UsersModel(

@@ -21,7 +21,4 @@ class DoctorController{
   updateData(DoctorModel docUpdate){
     _doctorRepository.UpdateDoc(docUpdate);
   }
-
-
-
 }

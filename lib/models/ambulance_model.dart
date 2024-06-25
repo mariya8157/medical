@@ -21,8 +21,7 @@ class AmbulanceModel {
       name: map['name'] ?? "",
       number: map['number'] ?? "",
       id: map['id'] ?? "",
-    );
-  }
+    );}
 
   AmbulanceModel copyWith({
     String? name,

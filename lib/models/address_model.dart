@@ -29,8 +29,7 @@ class AddressModel {
       'country': this.country,
       'houseName': this.houseName,
       'id': this.id,
-    };
-  }
+    };}
 
   factory AddressModel.fromMap(Map<String, dynamic>map){
     return AddressModel(

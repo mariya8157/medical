@@ -54,8 +54,7 @@ class _ChatPageState extends State<ChatPage> {
                 context,
                 MaterialPageRoute(
                   builder: (context) => FindDoctor(),
-                ));
-          },
+                ));},
           child: SizedBox(
             height: width * 0.05,
             width: width * 0.8,

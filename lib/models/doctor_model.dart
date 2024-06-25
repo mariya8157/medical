@@ -54,8 +54,7 @@ class DoctorModel {
       name: map['name'] ?? "",
       id: map['id'] ?? "",
       userId: map['userId'] ?? "",
-    );
-  }
+    );}
 
   DoctorModel copyWith({
     String? name,

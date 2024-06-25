@@ -580,7 +580,6 @@ class _MyCartPageState extends State<MyCartPage> {
                       ),
                     ),
                   ),
-
                 ],
               ),
             ),

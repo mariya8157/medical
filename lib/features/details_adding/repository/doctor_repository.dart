@@ -4,7 +4,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../models/doctor_model.dart';
 import '../providers/firebase_provider.dart';
 
-///doctor
 final DoctorRepositoryProvider = Provider((ref) => DoctorRepository(firestore: ref.watch(fireStoreProvider)));
 
 class DoctorRepository{

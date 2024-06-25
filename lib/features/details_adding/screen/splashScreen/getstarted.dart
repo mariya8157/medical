@@ -6,7 +6,6 @@ import 'package:medical/features/details_adding/screen/home/bottomnavigation.dar
 import 'package:medical/features/details_adding/screen/home/homepage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 import '../../../../core/constants/colour.dart';
 import '../../../../core/constants/icons.dart';
 import '../../../../main.dart';

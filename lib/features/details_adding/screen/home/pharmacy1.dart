@@ -11,7 +11,6 @@ class PharmacyOne extends StatefulWidget {
   @override
   State<PharmacyOne> createState() => _PharmacyOneState();
 }
-
 class _PharmacyOneState extends State<PharmacyOne> {
   List docter=[
     {

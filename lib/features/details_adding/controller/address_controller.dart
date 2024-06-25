@@ -21,5 +21,4 @@ class AddressController{
   updateData(AddressModel addressUpdate){
     _addressRepository.UpdateAddress(addressUpdate);
   }
-
 }

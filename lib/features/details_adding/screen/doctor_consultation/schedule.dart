@@ -7,7 +7,6 @@ import 'package:medical/core/constants/colour.dart';
 import 'package:medical/features/details_adding/controller/user_controller.dart';
 import 'package:medical/core/constants/icons.dart';
 import 'package:medical/models/doctor_model.dart';
-
 import '../../../../main.dart';
 import 'doctordetails.dart';
 

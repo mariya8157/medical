@@ -21,8 +21,6 @@ class _TopDoctorPageState extends ConsumerState<TopDoctorPage> {
     return Scaffold(
       appBar: AppBar(
           centerTitle: true,
-          backgroundColor: Colors.white24,
-          // resizeToAvoidBottomInset: false,
           elevation: 0,
           surfaceTintColor: Colour.secondarycolour,
           leading: InkWell(

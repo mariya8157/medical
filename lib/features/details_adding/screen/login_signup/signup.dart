@@ -257,8 +257,7 @@ class _SignupPageState extends ConsumerState<SignupPage> {
                                           fontWeight: FontWeight.w500,
                                           fontSize: width * 0.033,
                                           color: Colour.thirdcolour)),
-                                ],
-                              ),
+                                ],),
                               Container(
                                 width: width * 0.79,
                                 child: Text("Privacy and Policy",

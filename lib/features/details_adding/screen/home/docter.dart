@@ -70,7 +70,6 @@ class _DocterPageState extends State<DocterPage> {
       "consultation":70.00,
       "Admin Fee":01.00,
       "Aditional Discount":01.00,
-
     }
   ];
 

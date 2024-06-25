@@ -701,8 +701,7 @@ class _PharmacyPageState extends State<PharmacyPage> {
                                     ],
                                   ),
                                 )
-                              ],
-                            ),
+                              ],),
                           ),
                         ),
                       ),

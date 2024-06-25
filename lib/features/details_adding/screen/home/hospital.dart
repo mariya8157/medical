@@ -12,7 +12,6 @@ class HospitalPage extends StatefulWidget {
   @override
   State<HospitalPage> createState() => _HospitalPageState();
 }
-
 class _HospitalPageState extends State<HospitalPage> {
   List docter=[
     {"image":ImagePictures.hsptl1,

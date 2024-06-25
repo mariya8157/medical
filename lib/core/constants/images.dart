@@ -1,4 +1,5 @@
 class ImagePictures{
+
   static const covid1 = "assets/images/covid_19_1.png";
   static const doc8 = "assets/images/doc8.png";
   static const doc5 = "assets/images/doc5.jpeg";

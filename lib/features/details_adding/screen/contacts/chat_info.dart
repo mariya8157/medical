@@ -32,13 +32,9 @@ class ChatInfo extends StatelessWidget {
                   color:Colour.gray
               ),
             ),
-
-
           ],
         ),
-      )
-      ,
-
+      ),
     );
   }
 }
