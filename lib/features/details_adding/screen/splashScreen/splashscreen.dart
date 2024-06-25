@@ -4,16 +4,15 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:medical/features/details_adding/screen/home/bottomnavigation.dart';
 import 'package:medical/features/details_adding/screen/home/homepage.dart';
-import 'package:medical/features/details_adding/screen/splashSceen/getstarted.dart';
-import 'package:medical/features/details_adding/screen/splashSceen/onboarding.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 import '../../../../core/constants/colour.dart';
 import '../../../../core/constants/icons.dart';
 import '../../../../core/constants/images.dart';
 import '../../../../main.dart';
-import '../../../../models/model1.dart';
+import '../../../../models/user_model.dart';
+import 'getstarted.dart';
+import 'onboarding.dart';
 
 
 class SplashScreen extends StatefulWidget {

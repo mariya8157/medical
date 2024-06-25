@@ -1,5 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../../models/model2.dart';
+import '../../../models/address_model.dart';
 import '../repository/address_repository.dart';
 
 final AddressControllerProvider = Provider((ref) => AddressController(addressRepository: ref.watch(AddressRepositoryProvider)));

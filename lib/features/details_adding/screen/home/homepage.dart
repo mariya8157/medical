@@ -4,13 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:medical/features/details_adding/screen/doctor%20Consultation/findDoctor.dart';
 import 'package:medical/features/details_adding/screen/home/ambulance.dart';
 import 'package:medical/features/details_adding/screen/home/docter.dart';
 import 'package:medical/features/details_adding/screen/home/hospital.dart';
 import 'package:medical/features/details_adding/screen/home/pharmacy1.dart';
 import 'package:medical/features/details_adding/screen/home/topdoctor.dart';
-import 'package:medical/features/details_adding/screen/onlinePharmacy/pharmacy.dart';
 import 'package:pinput/pinput.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -23,6 +21,8 @@ import '../../../../core/constants/images.dart';
 import '../../../../main.dart';
 import '../../controller/doctor_controller.dart';
 import '../../controller/user_controller.dart';
+import '../doctor_consultation/findDoctor.dart';
+import '../online_pharmacy/pharmacy.dart';
 
 class HomePage extends ConsumerStatefulWidget {
   const HomePage({super.key});

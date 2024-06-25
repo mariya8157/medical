@@ -1,22 +1,13 @@
-
-
-
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:medical/features/details_adding/screen/login%20&%20Sign%20Up/signup.dart';
-
+import 'package:medical/features/details_adding/screen/login_signup/signup.dart';
 import '../home/bottomnavigation.dart';
 import '../home/homepage.dart';
 import 'login.dart';
 
 signInWithGoogle(BuildContext context) async {
-
-
-
-
   final GoogleSignInAccount? googleSignInAccount = await GoogleSignIn().signIn();
 
   final GoogleSignInAuthentication? googleSignInAuthentication = await googleSignInAccount?.authentication;
@@ -26,8 +17,6 @@ signInWithGoogle(BuildContext context) async {
       accessToken: googleSignInAuthentication?.accessToken);
 
   UserCredential result = await FirebaseAuth.instance.signInWithCredential(credential);
-
-
 
   User? userDetails = result.user;
 

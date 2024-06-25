@@ -1,5 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../../models/doctormodel.dart';
+import '../../../models/doctor_model.dart';
 import '../repository/doctor_repository.dart';
 
 final DoctorControllerProvider = Provider((ref) => DoctorController(doctorRepository: ref.watch(DoctorRepositoryProvider)));

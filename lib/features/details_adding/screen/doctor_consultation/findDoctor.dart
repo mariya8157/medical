@@ -5,15 +5,15 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:medical/features/details_adding/controller/user_controller.dart';
-import 'package:medical/features/details_adding/screen/doctor%20Consultation/doctordetails.dart';
-import 'package:medical/features/details_adding/screen/doctor%20Consultation/drlist.dart';
 import 'package:medical/features/details_adding/screen/home/bottomnavigation.dart';
-import 'package:medical/models/doctormodel.dart';
+import 'package:medical/models/doctor_model.dart';
 
 import '../../../../core/constants/colour.dart';
 import '../../../../core/constants/icons.dart';
 import '../../../../main.dart';
 import '../../controller/doctor_controller.dart';
+import 'doctordetails.dart';
+import 'drlist.dart';
 
 
 class FindDoctor extends ConsumerStatefulWidget {

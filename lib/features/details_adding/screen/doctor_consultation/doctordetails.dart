@@ -3,12 +3,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:medical/features/details_adding/screen/doctor%20Consultation/bookingdoctor.dart';
 import 'package:readmore/readmore.dart';
 import '../../../../core/constants/colour.dart';
 import '../../../../core/constants/icons.dart';
 import '../../../../main.dart';
-import '../../../../models/doctormodel.dart';
+import '../../../../models/doctor_model.dart';
+import 'bookingdoctor.dart';
 import 'chatwithdoctor.dart';
 
 class DoctordetailsPage extends StatefulWidget {

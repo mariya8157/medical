@@ -4,14 +4,12 @@ import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:medical/core/constants/images.dart';
 import 'package:medical/features/details_adding/controller/user_controller.dart';
-import 'package:medical/features/details_adding/screen/doctor%20Consultation/chatwithdoctor.dart';
-import 'package:medical/features/details_adding/screen/doctor%20Consultation/doctordetails.dart';
-import 'package:medical/models/doctormodel.dart';
+import 'package:medical/models/doctor_model.dart';
 import '../../../../core/constants/colour.dart';
 import '../../../../core/constants/icons.dart';
 import '../../../../main.dart';
 import '../../controller/schedule_controller.dart';
-import '../onlinePharmacy/drugsdetail.dart';
+import 'chatwithdoctor.dart';
 
 class BookingPage extends ConsumerStatefulWidget {
   final DoctorModel time;

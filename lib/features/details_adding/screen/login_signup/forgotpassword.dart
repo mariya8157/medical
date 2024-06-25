@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:medical/features/details_adding/screen/login%20&%20Sign%20Up/verify.dart';
-
+import 'package:medical/features/details_adding/screen/login_signup/verify.dart';
 import '../../../../core/constants/colour.dart';
 import '../../../../core/constants/icons.dart';
 import '../../../../main.dart';

@@ -5,19 +5,18 @@ import 'package:flutter_svg/svg.dart';
 import 'package:medical/features/details_adding/screen/home/bottomnavigation.dart';
 import '../../../../core/constants/colour.dart';
 import '../../../../core/constants/icons.dart';
-
 import '../../../../core/constants/images.dart';
 import '../../../../main.dart';
 
 
-class articles extends StatefulWidget {
-  const articles({super.key});
+class Articles extends StatefulWidget {
+  const Articles({super.key});
 
   @override
-  State<articles> createState() => _articlesState();
+  State<Articles> createState() => _ArticlesState();
 }
 
-class _articlesState extends State<articles> {
+class _ArticlesState extends State<Articles> {
   TextEditingController articleController =TextEditingController();
   List a=[
     {
@@ -90,8 +89,6 @@ bool o=false;
       appBar: AppBar(
         scrolledUnderElevation: 0,
         centerTitle: true,
-        backgroundColor: Colors.white24,
-        // resizeToAvoidBottomInset: false,
         elevation: 0,
         leading: InkWell(
           onTap: () {
@@ -114,7 +111,7 @@ bool o=false;
         title:  Text(
           "Articles",
           style: TextStyle(
-              color: Colors.black,
+              color: Colour.thirdcolour,
               fontWeight: FontWeight.w700,
               fontSize: width*0.063
           ),

@@ -1,9 +1,9 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:medical/models/model1.dart';
+import 'package:medical/models/user_model.dart';
 
-import '../../../models/ambulanceModel.dart';
-import '../../../models/doctormodel.dart';
-import '../../../models/model2.dart';
+import '../../../models/ambulance_model.dart';
+import '../../../models/doctor_model.dart';
+import '../../../models/address_model.dart';
 import '../repository/address_repository.dart';
 import '../repository/ambulance_repository.dart';
 import '../repository/doctor_repository.dart';

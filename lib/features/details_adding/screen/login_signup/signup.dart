@@ -9,7 +9,7 @@ import '../../../../core/constants/colour.dart';
 import '../../../../core/constants/icons.dart';
 import '../../../../core/constants/images.dart';
 import '../../../../main.dart';
-import '../../../../models/model1.dart';
+import '../../../../models/user_model.dart';
 import '../../controller/user_controller.dart';
 import 'login.dart';
 

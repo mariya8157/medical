@@ -2,17 +2,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:medical/features/details_adding/screen/Profile/profile.dart';
-import 'package:medical/features/details_adding/screen/doctor%20Consultation/bookingdoctor.dart';
-import 'package:medical/features/details_adding/screen/doctor%20Consultation/chatwithdoctor.dart';
-import 'package:medical/features/details_adding/screen/doctor%20Consultation/findDoctor.dart';
-import 'package:medical/features/details_adding/screen/doctor%20Consultation/schedule.dart';
 import 'package:medical/features/details_adding/screen/home/homepage.dart';
-import 'package:medical/features/details_adding/screen/onlinePharmacy/article.dart';
-import 'package:medical/features/details_adding/screen/onlinePharmacy/pharmacy.dart';
-
 import '../../../../core/constants/colour.dart';
 
 import '../../../../core/constants/colour.dart';
+import '../doctor_consultation/schedule.dart';
+import '../online_pharmacy/article.dart';
 
 class BottomNavigationPage extends StatefulWidget {
   final String email;
@@ -29,7 +24,7 @@ class BottomNavigationPage extends StatefulWidget {
 class _HomeState extends State<BottomNavigationPage> {
   List pages=[
     HomePage(),
-    articles(),
+    Articles(),
     SchedulePage(),
     ProfilePage()
   ];

@@ -1,5 +1,3 @@
-import 'package:medical/features/details_adding/screen/login%20&%20Sign%20Up/login.dart';
-
 class DoctorModel {
   String name;
   String image;

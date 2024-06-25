@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../../models/ambulanceModel.dart';
+import '../../../models/ambulance_model.dart';
 import '../repository/ambulance_repository.dart';
 
 final AmbulanceControllerProvider = Provider((ref) => AmbulanceController(ambulanceRepository: ref.watch(AmbulanceRepositoryProvider)));

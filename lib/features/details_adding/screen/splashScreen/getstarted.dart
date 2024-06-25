@@ -4,14 +4,14 @@ import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:medical/features/details_adding/screen/home/bottomnavigation.dart';
 import 'package:medical/features/details_adding/screen/home/homepage.dart';
-import 'package:medical/features/details_adding/screen/login%20&%20Sign%20Up/login.dart';
-import 'package:medical/features/details_adding/screen/login%20&%20Sign%20Up/signup.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../../core/constants/colour.dart';
 import '../../../../core/constants/icons.dart';
 import '../../../../main.dart';
+import '../login_signup/login.dart';
+import '../login_signup/signup.dart';
 
 class GetStartedPage extends StatefulWidget {
   const GetStartedPage({super.key});

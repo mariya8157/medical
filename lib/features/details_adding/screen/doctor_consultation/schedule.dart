@@ -5,12 +5,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:medical/core/constants/colour.dart';
 import 'package:medical/features/details_adding/controller/user_controller.dart';
-import 'package:medical/features/details_adding/screen/doctor%20Consultation/bookingdoctor.dart';
-import 'package:medical/features/details_adding/screen/doctor%20Consultation/doctordetails.dart';
 import 'package:medical/core/constants/icons.dart';
-import 'package:medical/models/doctormodel.dart';
+import 'package:medical/models/doctor_model.dart';
 
 import '../../../../main.dart';
+import 'doctordetails.dart';
 
 class SchedulePage extends StatefulWidget {
   const SchedulePage({super.key});

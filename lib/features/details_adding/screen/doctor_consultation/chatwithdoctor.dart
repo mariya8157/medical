@@ -13,14 +13,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:medical/features/details_adding/screen/doctor%20Consultation/findDoctor.dart';
-import 'package:medical/features/details_adding/screen/widgets/chat_info.dart';
-import 'package:medical/features/details_adding/screen/widgets/chat_doctor.dart';
 import '../../../../core/constants/colour.dart';
 import '../../../../core/constants/icons.dart';
 import '../../../../core/constants/images.dart';
 import '../../../../main.dart';
+import '../contacts/chat_info.dart';
 import '../home/bottomnavigation.dart';
+import 'findDoctor.dart';
 
 class ChatPage extends StatefulWidget {
   const ChatPage({super.key});

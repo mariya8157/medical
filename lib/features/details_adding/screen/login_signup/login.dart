@@ -9,9 +9,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:medical/features/details_adding/screen/home/bottomnavigation.dart';
 import 'package:medical/features/details_adding/screen/home/homepage.dart';
-import 'package:medical/features/details_adding/screen/login%20&%20Sign%20Up/forgotpassword.dart';
-import 'package:medical/features/details_adding/screen/login%20&%20Sign%20Up/signup.dart';
-import 'package:medical/models/model1.dart';
+import 'package:medical/features/details_adding/screen/login_signup/signup.dart';
+import 'package:medical/models/user_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -20,6 +19,7 @@ import '../../../../core/constants/icons.dart';
 import '../../../../core/constants/images.dart';
 import '../../../../main.dart';
 import '../../controller/user_controller.dart';
+import 'forgotpassword.dart';
 import 'google_signIn.dart';
 
 String? userEmail;

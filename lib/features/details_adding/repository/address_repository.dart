@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../../models/model2.dart';
+import '../../../models/address_model.dart';
 import '../providers/firebase_provider.dart';
 
 final AddressRepositoryProvider = Provider((ref) => AddressRepository(firestore: ref.watch(fireStoreProvider)));

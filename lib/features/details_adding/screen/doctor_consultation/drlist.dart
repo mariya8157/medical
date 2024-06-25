@@ -5,7 +5,7 @@ import 'package:flutter_svg/svg.dart';
 import '../../../../core/constants/colour.dart';
 import '../../../../core/constants/icons.dart';
 import '../../../../main.dart';
-import '../../../../models/doctormodel.dart';
+import '../../../../models/doctor_model.dart';
 import '../../controller/user_controller.dart';
 
 class DoctorList extends ConsumerStatefulWidget {
