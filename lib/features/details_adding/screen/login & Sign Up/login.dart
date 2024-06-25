@@ -244,7 +244,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                                          password: passwordController.text,
                                     ),));
 
-                                     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                                     ScaffoldMessenger.of(context).showSnackBar(SnackBar(backgroundColor:Colour.primarycolour,
                                      content: Text("Submitted Sucsessfully ")));
                                       },
                                         child: Container(
