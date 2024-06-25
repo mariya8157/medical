@@ -17,6 +17,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../../core/constants/colour.dart';
 import '../../../../core/constants/icons.dart';
+import '../../../../core/constants/images.dart';
 import '../../../../main.dart';
 import '../../controller/user_controller.dart';
 import 'google_signIn.dart';
@@ -217,7 +218,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                                       Container(
                                       height: width*0.25,
                                         width: width*0.25,
-                                       child: Image.asset(ImageIcons.done)),
+                                       child: Image.asset(ImagePictures.done)),
                                       Container(
                                         child: Column(
                                        children: [

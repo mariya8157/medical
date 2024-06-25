@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 
 import '../../../../core/constants/colour.dart';
 import '../../../../core/constants/icons.dart';
+import '../../../../core/constants/images.dart';
 import '../../../../main.dart';
 
 class DocterPage extends StatefulWidget {
@@ -15,7 +16,7 @@ class DocterPage extends StatefulWidget {
 class _DocterPageState extends State<DocterPage> {
   List drlist=[
     {
-      "image":ImageIcons.drmarcus1,
+      "image":ImagePictures.drmarcus1,
       "name":"Dr. Marcus",
       "spl":"Chardiologist",
       "star":"4,7",
@@ -26,7 +27,7 @@ class _DocterPageState extends State<DocterPage> {
 
     },
     {
-      "image":ImageIcons.drmaria1,
+      "image":ImagePictures.drmaria1,
       "name":"Dr. Maria",
       "spl":"Gynecologist",
       "star":"4,7",
@@ -38,7 +39,7 @@ class _DocterPageState extends State<DocterPage> {
 
     },
     {
-      "image":ImageIcons.drstevi1,
+      "image":ImagePictures.drstevi1,
       "name":"Dr. Stevi",
       "spl":"dermatologist",
       "star":"4,8",
@@ -50,7 +51,7 @@ class _DocterPageState extends State<DocterPage> {
     }
     ,
     {
-      "image":ImageIcons.drgerty,
+      "image":ImagePictures.drgerty,
       "name":"Dr. Gerty Cori",
       "spl":"Orthopedist",
       "star":"4,7",
@@ -61,7 +62,7 @@ class _DocterPageState extends State<DocterPage> {
 
     },
     {
-      "image":ImageIcons.drdiandra,
+      "image":ImagePictures.drdiandra,
       "name":"Dr. Diandra",
       "spl":"Orthopedist",
       "star":"4,7",
@@ -71,11 +72,7 @@ class _DocterPageState extends State<DocterPage> {
       "Aditional Discount":01.00,
 
     }
-
-
   ];
-
-
 
   @override
   Widget build(BuildContext context) {

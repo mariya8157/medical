@@ -18,6 +18,7 @@ import 'package:medical/features/details_adding/screen/widgets/chat_info.dart';
 import 'package:medical/features/details_adding/screen/widgets/chat_doctor.dart';
 import '../../../../core/constants/colour.dart';
 import '../../../../core/constants/icons.dart';
+import '../../../../core/constants/images.dart';
 import '../../../../main.dart';
 import '../home/bottomnavigation.dart';
 
@@ -159,7 +160,7 @@ class _ChatPageState extends State<ChatPage> {
                                 decoration: BoxDecoration(
                                     image: DecorationImage(
                                         image: AssetImage(
-                                          ImageIcons.tick,
+                                          ImagePictures.tick,
                                         ),
                                         filterQuality: FilterQuality.high)),
                               )
@@ -236,7 +237,7 @@ class _ChatPageState extends State<ChatPage> {
                                 decoration: BoxDecoration(
                                     image: DecorationImage(
                                         image: AssetImage(
-                                          ImageIcons.tick,
+                                          ImagePictures.tick,
                                         ),
                                         filterQuality: FilterQuality.high)),
                               )

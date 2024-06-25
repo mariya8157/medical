@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:medical/features/details_adding/screen/login%20&%20Sign%20Up/login.dart';
 import '../../../../core/constants/colour.dart';
 import '../../../../core/constants/icons.dart';
+import '../../../../core/constants/images.dart';
 import '../../../../main.dart';
 
 class CreatePasswordPage extends StatefulWidget {
@@ -199,7 +200,7 @@ class _CreatePasswordPageState extends State<CreatePasswordPage> {
                                   Container(
                                       height: width * 0.25,
                                       width: width * 0.25,
-                                      child: Image.asset(ImageIcons.done)),
+                                      child: Image.asset(ImagePictures.done)),
                                   Container(
                                       child: Column(
                                     children: [

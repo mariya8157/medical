@@ -6,6 +6,7 @@ import '../../../../core/constants/colour.dart';
 import '../../../../core/constants/icons.dart';
 import '../../../../core/constants/colour.dart';
 import '../../../../core/constants/icons.dart';
+import '../../../../core/constants/images.dart';
 import '../../../../main.dart';
 import '../../controller/ambulance_controller.dart';
 import '../../controller/user_controller.dart';
@@ -65,7 +66,7 @@ class _AmbulancePageState extends ConsumerState<AmbulancePage> {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(width*0.03),
                   border: Border.all(color: Colour.lightgreen,width: width*0.005),
-                  image: DecorationImage(image: AssetImage(ImageIcons.ambulance7),fit: BoxFit.fill),
+                  image: DecorationImage(image: AssetImage(ImagePictures.ambulance7),fit: BoxFit.fill),
                 ),
               ),
               SizedBox(height: height*0.02,),

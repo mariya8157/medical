@@ -6,6 +6,7 @@ import 'package:medical/features/details_adding/screen/home/bottomnavigation.dar
 import '../../../../core/constants/colour.dart';
 import '../../../../core/constants/icons.dart';
 
+import '../../../../core/constants/images.dart';
 import '../../../../main.dart';
 
 
@@ -31,21 +32,21 @@ class _articlesState extends State<articles> {
   ];
   List c=[
     {
-      "image":ImageIcons.covid1,
+      "image":ImagePictures.covid1,
       "Text1":"Covid-19",
       "Text2":"Comparing the \nAstraZeneca and \nSinovac COVID-19 \nVaccines",
       "Text3":"Jun 12, 2021.",
       "Text4":" 6 min read",
     },
     {
-      "image":ImageIcons.covid2,
+      "image":ImagePictures.covid2,
       "Text1":"Covid-19",
       "Text2":"The Horror Of The \nSecond Wave Of \nCOVID-19",
       "Text3":"Jun 10, 2021.",
       "Text4":" 5 min read",
     },
     {
-      "image":ImageIcons.covid3,
+      "image":ImagePictures.covid3,
       "Text1":"Covid-19",
       "Text2":"Comparing the \nAstraZeneca and \nSinovac COVID-19 \nVaccines",
       "Text3":"Jun 12, 2021.",
@@ -54,21 +55,21 @@ class _articlesState extends State<articles> {
   ];
   List d=[
     {
-      "image":ImageIcons.covid4,
+      "image":ImagePictures.covid4,
       "text1":"The 25 Healthiest Fruits Eat\nAccording to a Nutritionist",
       "icon":ImageIcons.save,
       "text2":"Jun 10, 2021.",
       "text3":" 5min read",
     },
     {
-      "image":ImageIcons.covid5,
+      "image":ImagePictures.covid5,
       "text1":"Traditional Herbal Medicine\nTreatments for COVID-19",
       "icon":ImageIcons.save,
       "text2":"Jun 9, 2021.",
       "text3":" 8 min read",
     },
     {
-      "image":ImageIcons.covid6,
+      "image":ImagePictures.covid6,
       "text1":"Beauty Tips For Face: 10 Dos\nNaturally Beautiful Skin",
       "icon":ImageIcons.save,
       "text2":"Jun 10, 2021.",

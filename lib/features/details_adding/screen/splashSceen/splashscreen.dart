@@ -11,6 +11,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../../core/constants/colour.dart';
 import '../../../../core/constants/icons.dart';
+import '../../../../core/constants/images.dart';
 import '../../../../main.dart';
 import '../../../../models/model1.dart';
 
@@ -62,7 +63,7 @@ class _SplashScreenState extends State<SplashScreen> {
            width: width*0.45,
            decoration: BoxDecoration(
              image: DecorationImage(
-                 image:AssetImage(ImageIcons.medics,)
+                 image:AssetImage(ImagePictures.medics,)
              )
            ),
          ),

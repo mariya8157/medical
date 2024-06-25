@@ -14,6 +14,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../../core/constants/colour.dart';
 import '../../../../core/constants/icons.dart';
+import '../../../../core/constants/images.dart';
 import '../doctor Consultation/bookingdoctor.dart';
 import '../login & Sign Up/login.dart';
 import '../login & Sign Up/signup.dart';
@@ -63,7 +64,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   children: [
                     Stack(children: [
                       Image.asset(
-                        ImageIcons.line,
+                        ImagePictures.line,
                         width: width * 0.8,
                       ),
                       Padding(
@@ -73,7 +74,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           children: [
                             file == null
                                 ? Image.asset(
-                                    ImageIcons.lady,
+                              ImagePictures.lady,
                                     width: width * 0.29,
                                   )
                                 : CircleAvatar(

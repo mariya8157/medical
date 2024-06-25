@@ -4,6 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 import '../../../../core/constants/colour.dart';
 import '../../../../core/constants/icons.dart';
+import '../../../../core/constants/images.dart';
 import '../../../../main.dart';
 import 'drugsdetail.dart';
 import 'mycart.dart';
@@ -19,7 +20,7 @@ class _PharmacyPageState extends State<PharmacyPage> {
   TextEditingController drugsControl = TextEditingController();
   List a = [
     {
-      "image": ImageIcons.panadol,
+      "image": ImagePictures.panadol,
       "text1": "Panadol",
       "text2": "20pcs",
       "text3": "\$15.98",
@@ -32,7 +33,7 @@ class _PharmacyPageState extends State<PharmacyPage> {
           "such as fever, headache, and sneezing...",
     },
     {
-      "image": ImageIcons.herbal,
+      "image": ImagePictures.herbal,
       "text1": "Bodrex Herbal",
       "text2": "100ml",
       "text3": "\$7.99",
@@ -45,7 +46,7 @@ class _PharmacyPageState extends State<PharmacyPage> {
           "such as fever, headache, and sneezing...",
     },
     {
-      "image": ImageIcons.konidin,
+      "image": ImagePictures.konidin,
       "text1": "Konidin",
       "text2": "3pcs",
       "text3": "\$5.99",
@@ -60,7 +61,7 @@ class _PharmacyPageState extends State<PharmacyPage> {
   ];
   List c = [
     {
-      "image": ImageIcons.calvit,
+      "image": ImagePictures.calvit,
       "text1": "OBH Combi",
       "text2": "75ml",
       "text3": "\$9.99",
@@ -74,7 +75,7 @@ class _PharmacyPageState extends State<PharmacyPage> {
           "such as fever, headache, and sneezing...",
     },
     {
-      "image": ImageIcons.herbal,
+      "image": ImagePictures.herbal,
       "text1": "Betadine",
       "text2": "50ml",
       "text3": "\$6.99",
@@ -88,7 +89,7 @@ class _PharmacyPageState extends State<PharmacyPage> {
           "such as fever, headache, and sneezing...",
     },
     {
-      "image": ImageIcons.konidin,
+      "image": ImagePictures.konidin,
       "text1": "Bodrexin",
       "text2": "75ml",
       "text3": "\$7.99",
@@ -245,7 +246,7 @@ class _PharmacyPageState extends State<PharmacyPage> {
                                     child: Text(
                                   "Upload Prescription",
                                   style: TextStyle(
-                                      color: Colors.white,
+                                      color: Colour.secondarycolour,
                                       fontWeight: FontWeight.w700),
                                 )),
                               ),
@@ -254,7 +255,7 @@ class _PharmacyPageState extends State<PharmacyPage> {
                         ),
                       ),
                       Image.asset(
-                        ImageIcons.tablet,
+                        ImagePictures.tablet,
                         width: width * 0.37,
                       ),
                       // SizedBox(width: width*0.03,)
@@ -452,7 +453,7 @@ class _PharmacyPageState extends State<PharmacyPage> {
                                           },
                                           child: !favorite.contains(index)
                                               ? Image.asset(
-                                                  ImageIcons.heart1,
+                                            ImagePictures.heart1,
                                                   width: width * 0.05,
                                                 )
                                               : SvgPicture.asset(
@@ -664,7 +665,7 @@ class _PharmacyPageState extends State<PharmacyPage> {
                                             child: Container(
                                               height: width * 0.005,
                                               width: width * 0.115,
-                                              color: Colors.grey,
+                                              color: Colour.gray,
                                             ),
                                           )
                                         ],
@@ -681,7 +682,7 @@ class _PharmacyPageState extends State<PharmacyPage> {
                                           },
                                           child: !favorite1.contains(index)
                                               ? Image.asset(
-                                            ImageIcons.heart1,
+                                            ImagePictures.heart1,
                                             width: width * 0.05,
                                           )
                                               : SvgPicture.asset(

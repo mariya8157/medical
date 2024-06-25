@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import '../../../../core/constants/colour.dart';
 import '../../../../core/constants/icons.dart';
+import '../../../../core/constants/images.dart';
 import '../../../../main.dart';
 import 'bottomnavigation.dart';
 
@@ -14,15 +15,15 @@ class HospitalPage extends StatefulWidget {
 
 class _HospitalPageState extends State<HospitalPage> {
   List docter=[
-    {"image":ImageIcons.hsptl1,
+    {"image":ImagePictures.hsptl1,
     "text":"ICU"},
-    {"image":ImageIcons.hsptl2,
+    {"image":ImagePictures.hsptl2,
       "text":"Op"},
-    {"image":ImageIcons.hsptl3,
+    {"image":ImagePictures.hsptl3,
       "text":"hospital"},
-    {"image":ImageIcons.hsptl4,
+    {"image":ImagePictures.hsptl4,
       "text":"Pharmacy"},
-    {"image":ImageIcons.hsptl5,
+    {"image":ImagePictures.hsptl5,
       "text":"Reception"},
   ];
   @override
@@ -60,12 +61,7 @@ class _HospitalPageState extends State<HospitalPage> {
               fontSize: width*0.06
           ),
         ),
-        // actions: [Row(
-        //     children: [
-        //       SvgPicture.asset(ImageIcons.columnDot),
-        //       SizedBox(width: width*0.05,)
-        //     ],)],
-      ),
+        ),
 
       body: Padding(
         padding:  EdgeInsets.all(width*0.03),

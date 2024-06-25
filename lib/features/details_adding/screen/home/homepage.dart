@@ -19,6 +19,7 @@ import '../../../../core/constants/icons.dart';
 
 import '../../../../core/constants/colour.dart';
 import '../../../../core/constants/icons.dart';
+import '../../../../core/constants/images.dart';
 import '../../../../main.dart';
 import '../../controller/doctor_controller.dart';
 import '../../controller/user_controller.dart';
@@ -35,10 +36,10 @@ class _HomePageState extends ConsumerState<HomePage> {
 
   int currentIndex=0;
   List pages=[
-   ImageIcons.banner1,
-   ImageIcons.banner2,
-   ImageIcons.banner3,
-    ImageIcons.CTA
+    ImagePictures.banner1,
+    ImagePictures.banner2,
+    ImagePictures.banner3,
+    ImagePictures.CTA
 
   ];
   @override

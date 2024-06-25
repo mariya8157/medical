@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import '../../../../core/constants/colour.dart';
 import '../../../../core/constants/icons.dart';
+import '../../../../core/constants/images.dart';
 import '../../../../main.dart';
 
 class PharmacyOne extends StatefulWidget {
@@ -14,31 +15,31 @@ class PharmacyOne extends StatefulWidget {
 class _PharmacyOneState extends State<PharmacyOne> {
   List docter=[
     {
-      "image":ImageIcons.paracetamol,
+      "image":ImagePictures.paracetamol,
       "name":"Paracetamol",
       "ml":"650mg",
       "Rs":"\$25"
     },
     {
-      "image":ImageIcons.omega,
+      "image":ImagePictures.omega,
       "name":"Omega",
       "ml":"100mg",
       "Rs":"\$155"
     },
     {
-      "image":ImageIcons.cough,
+      "image":ImagePictures.cough,
       "name":"Cough",
       "ml":"500mg",
       "Rs":"\$30"
     },
     {
-      "image":ImageIcons.cardiac,
+      "image":ImagePictures.cardiac,
       "name":"Cardicheck",
       "ml":"10mg",
       "Rs":"\$80"
     },
     {
-      "image":ImageIcons.telma,
+      "image":ImagePictures.telma,
       "name":"Telma",
       "ml":"20mg",
       "Rs":"\$80"

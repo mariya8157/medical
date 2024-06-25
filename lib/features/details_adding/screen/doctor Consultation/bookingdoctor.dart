@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:medical/core/constants/images.dart';
 import 'package:medical/features/details_adding/controller/user_controller.dart';
 import 'package:medical/features/details_adding/screen/doctor%20Consultation/chatwithdoctor.dart';
 import 'package:medical/features/details_adding/screen/doctor%20Consultation/doctordetails.dart';
@@ -24,7 +25,7 @@ class _BookingPageState extends ConsumerState<BookingPage> {
   int selectedOption=1;
   List doctor=[
     {
-      "image":ImageIcons.drmarcus1,
+      "image":ImagePictures.drmarcus1,
       "name":"Dr. Marcus Horizon",
       "spl":"Chardiologist",
       "star":"4,7",
@@ -539,7 +540,7 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                                   Container(
                                       height: width*0.25,
                                       width: width*0.25,
-                                      child: Image.asset(ImageIcons.done)),
+                                      child: Image.asset(ImagePictures.done)),
                                   Container(
                                       child: Column(
                                         children: [

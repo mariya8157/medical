@@ -6,6 +6,7 @@ import 'package:quickalert/models/quickalert_type.dart';
 import 'package:quickalert/widgets/quickalert_dialog.dart';
 import '../../../../core/constants/colour.dart';
 import '../../../../core/constants/icons.dart';
+import '../../../../core/constants/images.dart';
 import '../../../../main.dart';
 
 class MyCartPage extends StatefulWidget {
@@ -101,12 +102,10 @@ class _MyCartPageState extends State<MyCartPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colour.secondarycolour,
       appBar: AppBar(
         scrolledUnderElevation: 0,
         centerTitle: true,
-        backgroundColor: Colors.white24,
-        // resizeToAvoidBottomInset: false,
         elevation: 0,
         leading: InkWell(
           onTap: () {
@@ -433,7 +432,7 @@ class _MyCartPageState extends State<MyCartPage> {
                 children: [
                   SizedBox(height: width*0.05,),
                   ListTile(
-                    leading: Image.asset(ImageIcons.phonepe,width: width*0.098,),
+                    leading: Image.asset(ImagePictures.phonepe,width: width*0.098,),
                     title: Text("PhonePe",style: TextStyle(fontWeight: FontWeight.w600,fontSize: width*0.05),),
                     trailing: Radio(
                       activeColor: Colour.primarycolour,
@@ -452,7 +451,7 @@ class _MyCartPageState extends State<MyCartPage> {
                     indent: width*0.05,
                   ),
                   ListTile(
-                    leading: Image.asset(ImageIcons.googlepay,width: width*0.098,),
+                    leading: Image.asset(ImagePictures.googlepay,width: width*0.098,),
                     title: Text("Google Pay",style: TextStyle(fontWeight: FontWeight.w600,fontSize: width*0.05),),
                     trailing: Radio(
                       activeColor: Colour.primarycolour,
@@ -471,7 +470,7 @@ class _MyCartPageState extends State<MyCartPage> {
                     indent: width*0.05,
                   ),
                   ListTile(
-                    leading: Image.asset(ImageIcons.paytm,width: width*0.098,),
+                    leading: Image.asset(ImagePictures.paytm,width: width*0.098,),
                     title: Text("Paytm",style: TextStyle(fontWeight: FontWeight.w600,fontSize: width*0.05),),
                     trailing: Radio(
                       activeColor: Colour.primarycolour,
@@ -504,7 +503,7 @@ class _MyCartPageState extends State<MyCartPage> {
                         style: TextStyle(
                             fontSize: width * 0.042,
                             fontWeight: FontWeight.w500,
-                            color: Colors.grey),
+                            color: Colour.gray),
                       ),
                       Text(
                         "\$$total1",
@@ -574,7 +573,7 @@ class _MyCartPageState extends State<MyCartPage> {
                         child: Text(
                           "Checkout",
                           style: TextStyle(
-                              color: Colors.white,
+                              color: Colour.secondarycolour,
                               fontWeight: FontWeight.w600,
                               fontSize: width * 0.055),
                         ),
