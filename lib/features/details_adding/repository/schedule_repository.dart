@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../models/doctormodel.dart';
-import '../providers/firebaseprovider1.dart';
+import '../providers/firebase_provider.dart';
 
 final ScheduleRepositoryProvider = Provider((ref) => ScheduleRepository(firestore: ref.watch(fireStoreProvider)));
 

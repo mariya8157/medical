@@ -6,7 +6,7 @@ import '../../../models/ambulanceModel.dart';
 import '../../../models/doctormodel.dart';
 import '../../../models/model1.dart';
 import '../../../models/model2.dart';
-import '../providers/firebaseprovider1.dart';
+import '../providers/firebase_provider.dart';
 import '../screen/home/homepage.dart';
 
 final AddingRepositoryProvider= Provider((ref) => AddingRepository(firestore: ref.watch(fireStoreProvider), firebaseAuth: ref.watch(firebaseAuthProvider)));
