@@ -572,9 +572,6 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                             color: Colour.lightgreen,
                             borderRadius: BorderRadius.circular(width*0.03)
                         ),
-
-
-
                         child: ListTile(
                           leading: Container(
                             height: width*0.07,
@@ -638,7 +635,6 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                           },),),
                     ),
                     SizedBox(height: height*0.01,),
-
                     // Container(
                     //   height: width*0.18,
                     //   width: width*80,
@@ -695,8 +691,6 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                               ),
                             )
                             // widget.time[i]["consultation"]+widget.time[i]["Admin Fee"]-widget.time[i]["Aditional Discount"]
-
-
                           ],
                         )
                     ),
@@ -767,9 +761,7 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                                         ],)),
                                   InkWell(
                                     onTap: () {
-
                                       Navigator.push(context,MaterialPageRoute(builder: (context) => ChatPage(),));
-
                                     },
                                     child: Container(
                                       height: width*0.12,
