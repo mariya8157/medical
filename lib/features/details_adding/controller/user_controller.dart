@@ -22,7 +22,7 @@ class AddingController {
     _addingRepository.add(name, email, password, id);
   }
 
-  addUser(name, email, password) {
-    _addingRepository.addingUser(name, email, password);
+  addUser(name, email, password, id) {
+    _addingRepository.addingUser(name, email, password, id);
   }
 }

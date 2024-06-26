@@ -23,16 +23,16 @@ class AddingRepository{
         name: name,
         email: email,
         password: password,
-        id: ''
+        id: id
     );
 
     _users.add(userData.toMap()).then((value) {
-      value.update(userData.copyWith(id: value.id).toMap());
+      // value.update(userData.copyWith(id: value.id).toMap());
       _users.doc(userData.email.trim()).set(userData.toMap());
     },);
   }
 
-  addingUser(name, email, password){
+  addingUser(name, email, password, id){
     _firebaseAuth.createUserWithEmailAndPassword(email: email, password: password);
   }
   }

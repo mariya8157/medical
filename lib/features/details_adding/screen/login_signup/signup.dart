@@ -34,16 +34,19 @@ class _SignupPageState extends ConsumerState<SignupPage> {
   bool selectIcon = false;
   bool agree = false;
 
-  userDetails(){
+  userDetails()async{
+    var data= await FirebaseFirestore.instance.collection("users")
+        .doc(emailController.text.trim()).get();
+    currentModel= UsersModel.fromMap(data.data()!);
     ref.read(AddingControllerProvider).addUserData(
         nameController.text,
         emailController.text,
         passwordController.text,
         idController.text);
   }
-  addSignupDetails() {
+  addSignupDetails() async{
     ref.read(AddingControllerProvider).addUser(nameController.text,
-        emailController.text.trim(), passwordController.text);
+        emailController.text.trim(), passwordController.text,idController.text);
   }
   currentUser() async{
     var data= await FirebaseFirestore.instance.collection("users")
@@ -279,8 +282,8 @@ class _SignupPageState extends ConsumerState<SignupPage> {
                 InkWell(
                   onTap: () async {
                     userDetails();
-                    currentUser();
-                    addSignupDetails();
+                    // currentUser();
+                    // addSignupDetails();
                     if (nameController.text != "" &&
                         emailController.text != "" &&
                         passwordController.text != "" &&
