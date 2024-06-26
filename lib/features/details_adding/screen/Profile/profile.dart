@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -317,6 +318,9 @@ class _ProfilePageState extends State<ProfilePage> {
                                       prefs.remove("login");
                                       prefs.remove("name");
                                       prefs.clear();
+                                      FirebaseAuth.instance.signOut();
+                                      GoogleSignIn().signOut();
+
                                       Navigator.pushAndRemoveUntil(context,
                                           MaterialPageRoute(builder: (context) => LoginPage(),), (route) => false);
 

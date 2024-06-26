@@ -202,7 +202,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                       if(password==true){
                         ScaffoldMessenger.of(context).showSnackBar(SnackBar(backgroundColor:Colour.primarycolour,content: Text("No account found")));
                               }
-                      else{
+                             else{
                                showDialog(
                                   context: context,
                                   barrierDismissible: false,

@@ -12,17 +12,17 @@ import '../repository/user_repository.dart';
 
 final AddingControllerProvider = Provider((ref) => AddingController(addingRepository: ref.watch(AddingRepositoryProvider)));
 
-class AddingController{
+class AddingController {
   final AddingRepository _addingRepository;
-  AddingController({required AddingRepository addingRepository}): _addingRepository= addingRepository;
 
-  addUserData(name, email, password, id){
+  AddingController({required AddingRepository addingRepository})
+      : _addingRepository= addingRepository;
+
+  addUserData(name, email, password, id) {
     _addingRepository.add(name, email, password, id);
   }
-  addUser(name, email, password){
+
+  addUser(name, email, password) {
     _addingRepository.addingUser(name, email, password);
   }
 }
-
-
-
