@@ -320,7 +320,6 @@ class _ProfilePageState extends State<ProfilePage> {
                                       prefs.clear();
                                       FirebaseAuth.instance.signOut();
                                       GoogleSignIn().signOut();
-
                                       Navigator.pushAndRemoveUntil(context,
                                           MaterialPageRoute(builder: (context) => LoginPage(),), (route) => false);
 
