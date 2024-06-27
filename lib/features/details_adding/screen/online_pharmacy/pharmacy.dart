@@ -1,22 +1,24 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
 import '../../../../core/constants/colour.dart';
 import '../../../../core/constants/icons.dart';
 import '../../../../core/constants/images.dart';
 import '../../../../main.dart';
+import '../../controller/medicine_controller.dart';
 import 'drugsdetail.dart';
 import 'mycart.dart';
 
-class PharmacyPage extends StatefulWidget {
+class PharmacyPage extends ConsumerStatefulWidget {
   const PharmacyPage({super.key});
 
   @override
-  State<PharmacyPage> createState() => _PharmacyPageState();
+  ConsumerState<PharmacyPage> createState() => _PharmacyPageState();
 }
 
-class _PharmacyPageState extends State<PharmacyPage> {
+class _PharmacyPageState extends ConsumerState<PharmacyPage> {
   TextEditingController drugsControl = TextEditingController();
   List a = [
     {
@@ -124,13 +126,11 @@ class _PharmacyPageState extends State<PharmacyPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colour.secondarycolour,
       appBar: AppBar(
         scrolledUnderElevation: 0,
         centerTitle: true,
-        backgroundColor: Colors.white24,
-        // resizeToAvoidBottomInset: false,
-        elevation: 0,
+         elevation: 0,
         leading: InkWell(
           onTap: () {
             Navigator.pop(context);
@@ -150,7 +150,7 @@ class _PharmacyPageState extends State<PharmacyPage> {
         title: Text(
           "Pharmacy",
           style: TextStyle(
-              color: Colors.black,
+              color: Colour.thirdcolour,
               fontWeight: FontWeight.w700,
               fontSize: width * 0.063),
         ),
@@ -290,7 +290,7 @@ class _PharmacyPageState extends State<PharmacyPage> {
                           onTap: () {
                             setState(() {
                               k = true;
-                              g = false;
+                              g = true;
                               o = true;
                             });
                           },
@@ -312,9 +312,9 @@ class _PharmacyPageState extends State<PharmacyPage> {
                       : InkWell(
                           onTap: () {
                             setState(() {
-                              k = false;
-                              g = true;
-                              o = false;
+                              // k = false;
+                              // g = true;
+                              // o = false;
                             });
                           },
                           child: Container(
@@ -336,7 +336,7 @@ class _PharmacyPageState extends State<PharmacyPage> {
               ),
             ],
           ),
-          Container(
+          ref.watch(StreamMedProvider).when(data: (data) => Container(
             height: width * 0.63,
             width: width * 1,
             child: ListView.separated(
@@ -363,12 +363,12 @@ class _PharmacyPageState extends State<PharmacyPage> {
                           });
                           f.length == 1
                               ? Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => DrugDetailsPage(
-                                            c: [],
-                                            a: f,
-                                          )))
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => DrugDetailsPage(
+                                    c: [],
+                                    a: f,
+                                  )))
                               : f.clear();
                         },
                         child: Container(
@@ -379,7 +379,7 @@ class _PharmacyPageState extends State<PharmacyPage> {
                               border: Border.all(
                                   color: Colour.gray.withOpacity(0.2)),
                               borderRadius:
-                                  BorderRadius.circular(width * 0.05)),
+                              BorderRadius.circular(width * 0.05)),
                           child: Padding(
                             padding: EdgeInsets.all(width * 0.017),
                             child: Column(
@@ -390,8 +390,7 @@ class _PharmacyPageState extends State<PharmacyPage> {
                                 Container(
                                   height: width * 0.3,
                                   width: width * 0.3,
-                                  child: Image.asset(
-                                    a[index]["image"],
+                                  child: Image(image:NetworkImage(data[index].image.toString()),fit: BoxFit.fill,
                                     width: width * 0.27,
                                   ),
                                 ),
@@ -402,14 +401,14 @@ class _PharmacyPageState extends State<PharmacyPage> {
                                       width: width * 0.32,
                                       child: Column(
                                         crossAxisAlignment:
-                                            CrossAxisAlignment.start,
+                                        CrossAxisAlignment.start,
                                         mainAxisAlignment:
-                                            MainAxisAlignment.spaceEvenly,
+                                        MainAxisAlignment.spaceEvenly,
                                         children: [
                                           Row(
                                             children: [
                                               Text(
-                                                a[index]["text1"],
+                                                data[index].name.toString(),
                                                 style: TextStyle(
                                                     fontWeight: FontWeight.w800,
                                                     fontSize: width * 0.045),
@@ -417,7 +416,7 @@ class _PharmacyPageState extends State<PharmacyPage> {
                                             ],
                                           ),
                                           Text(
-                                            a[index]["text2"],
+                                            data[index].ml.toString(),
                                             style: TextStyle(
                                                 fontSize: width * 0.043,
                                                 color: Colour.gray,
@@ -433,10 +432,16 @@ class _PharmacyPageState extends State<PharmacyPage> {
                                   width: width * 0.45,
                                   child: Row(
                                     mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
+                                    MainAxisAlignment.spaceBetween,
                                     children: [
                                       Text(
-                                        a[index]["text3"],
+                                        "${data[index].rate.toString()}",
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.w900,
+                                            fontSize: width * 0.05),
+                                      ),
+                                      Text(
+                                        "${data[index].off.toString()}",
                                         style: TextStyle(
                                             fontWeight: FontWeight.w900,
                                             fontSize: width * 0.05),
@@ -454,12 +459,12 @@ class _PharmacyPageState extends State<PharmacyPage> {
                                           child: !favorite.contains(index)
                                               ? Image.asset(
                                             ImagePictures.heart1,
-                                                  width: width * 0.05,
-                                                )
+                                            width: width * 0.05,
+                                          )
                                               : SvgPicture.asset(
-                                                  a[index]["icon1"],
-                                                  width: width * 0.06,
-                                                ))
+                                            ImageIcons.heart,
+                                            width: width * 0.06,
+                                          ))
                                     ],
                                   ),
                                 )
@@ -478,6 +483,13 @@ class _PharmacyPageState extends State<PharmacyPage> {
                 },
                 itemCount: o == true ? a.length : 2),
           ),
+            error: (error, stackTrace) {
+              return ScaffoldMessenger(
+                  child: Center(child: Text(error.toString())));
+            },
+            loading: () {
+              return Center(child: CircularProgressIndicator());
+            },),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -502,9 +514,9 @@ class _PharmacyPageState extends State<PharmacyPage> {
                       ? InkWell(
                           onTap: () {
                             setState(() {
-                              x = true;
-                              y = false;
-                              z = true;
+                              // x = true;
+                              // y = false;
+                              // z = true;
                             });
                           },
                           child: Container(
@@ -525,9 +537,9 @@ class _PharmacyPageState extends State<PharmacyPage> {
                       : InkWell(
                           onTap: () {
                             setState(() {
-                              x = false;
-                              y = true;
-                              z = false;
+                              // x = false;
+                              // y = true;
+                              // z = false;
                             });
                           },
                           child: Container(
@@ -549,7 +561,7 @@ class _PharmacyPageState extends State<PharmacyPage> {
               ),
             ],
           ),
-          Container(
+          ref.watch(StreamMedProvider).when(data: (data) => Container(
             height: width * 0.63,
             width: width * 1,
             child: ListView.separated(
@@ -576,12 +588,12 @@ class _PharmacyPageState extends State<PharmacyPage> {
                           });
                           d.length == 1
                               ? Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => DrugDetailsPage(
-                                            c: d,
-                                            a: [],
-                                          )))
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => DrugDetailsPage(
+                                    c: d,
+                                    a: [],
+                                  )))
                               : d.clear();
                         },
                         child: Container(
@@ -592,7 +604,7 @@ class _PharmacyPageState extends State<PharmacyPage> {
                               border: Border.all(
                                   color: Colour.gray.withOpacity(0.2)),
                               borderRadius:
-                                  BorderRadius.circular(width * 0.05)),
+                              BorderRadius.circular(width * 0.05)),
                           child: Padding(
                             padding: EdgeInsets.all(width * 0.017),
                             child: Column(
@@ -603,8 +615,7 @@ class _PharmacyPageState extends State<PharmacyPage> {
                                 Container(
                                   height: width * 0.3,
                                   width: width * 0.3,
-                                  child: Image.asset(
-                                    c[index]["image"].toString(),
+                                  child: Image(image:NetworkImage(data[index].image.toString()),fit: BoxFit.fill,
                                     width: width * 0.27,
                                   ),
                                 ),
@@ -615,18 +626,18 @@ class _PharmacyPageState extends State<PharmacyPage> {
                                       width: width * 0.3,
                                       child: Column(
                                         crossAxisAlignment:
-                                            CrossAxisAlignment.start,
+                                        CrossAxisAlignment.start,
                                         mainAxisAlignment:
-                                            MainAxisAlignment.spaceEvenly,
+                                        MainAxisAlignment.spaceEvenly,
                                         children: [
                                           Text(
-                                            c[index]["text1"],
+                                            data[index].name.toString(),
                                             style: TextStyle(
                                                 fontWeight: FontWeight.w800,
                                                 fontSize: width * 0.05),
                                           ),
                                           Text(
-                                            c[index]["text2"],
+                                            data[index].ml.toString(),
                                             style: TextStyle(
                                                 fontSize: width * 0.043,
                                                 color: Colour.gray,
@@ -642,10 +653,10 @@ class _PharmacyPageState extends State<PharmacyPage> {
                                   width: width * 0.45,
                                   child: Row(
                                     mainAxisAlignment:
-                                        MainAxisAlignment.spaceBetween,
+                                    MainAxisAlignment.spaceBetween,
                                     children: [
                                       Text(
-                                        c[index]["text3"],
+                                        "${data[index].rate.toString()}",
                                         style: TextStyle(
                                             fontWeight: FontWeight.w900,
                                             fontSize: width * 0.05),
@@ -653,7 +664,7 @@ class _PharmacyPageState extends State<PharmacyPage> {
                                       Stack(
                                         children: [
                                           Text(
-                                            c[index]["text4"],
+                                            "${data[index].off.toString()}",
                                             style: TextStyle(
                                                 fontWeight: FontWeight.w700,
                                                 color: Colour.gray),
@@ -686,7 +697,7 @@ class _PharmacyPageState extends State<PharmacyPage> {
                                             width: width * 0.05,
                                           )
                                               : SvgPicture.asset(
-                                            a[index]["icon1"],
+                                            ImageIcons.heart,
                                             width: width * 0.06,
                                           ))
                                       // Container(
@@ -715,6 +726,14 @@ class _PharmacyPageState extends State<PharmacyPage> {
                 },
                 itemCount: z == true ? c.length : 2),
           ),
+            error: (error, stackTrace) {
+              return ScaffoldMessenger(
+                  child: Center(child: Text(error.toString())));
+            },
+            loading: () {
+              return Center(child: CircularProgressIndicator());
+            },),
+
         ],
       ),
     );
