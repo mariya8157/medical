@@ -12,17 +12,17 @@ import '../../../../core/constants/icons.dart';
 import '../../../../main.dart';
 import 'mycart.dart';
 
-class DrugDetailsPage extends StatefulWidget {
-  final MedicineModel med;
-  const DrugDetailsPage({super.key, required this.med,});
+class DrugDetailsPage2 extends StatefulWidget {
+  final MedicineModel med2;
+  const DrugDetailsPage2({super.key, required this.med2});
 
   @override
-  State<DrugDetailsPage> createState() => _DrugDetailsPageState();
+  State<DrugDetailsPage2> createState() => _DrugDetailsPage2State();
 }
 
-class _DrugDetailsPageState extends State<DrugDetailsPage> {
+class _DrugDetailsPage2State extends State<DrugDetailsPage2> {
   List d = [];
-  // dynamic added;
+  dynamic added;
   dynamic total = 0;
   // totalprice(){
   //   for(int i=0;i>widget.c.length;i++){
@@ -61,7 +61,7 @@ class _DrugDetailsPageState extends State<DrugDetailsPage> {
         backgroundColor: Colour.secondarycolour,
         appBar: AppBar(
           centerTitle: true,
-           elevation: 0,
+          elevation: 0,
           leading: InkWell(
             onTap: () {
               Navigator.pop(context);
@@ -92,7 +92,7 @@ class _DrugDetailsPageState extends State<DrugDetailsPage> {
             SizedBox(
               height: width * 0.05,
             ),
-            Center(child: Image(image: NetworkImage(widget.med.image))),
+            Center(child: Image(image: NetworkImage(widget.med2.image))),
             SizedBox(
               height: width * 0.05,
             ),
@@ -104,17 +104,17 @@ class _DrugDetailsPageState extends State<DrugDetailsPage> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    widget.med.name,
+                    widget.med2.name,
                     style: TextStyle(
                         fontWeight: FontWeight.w700,
                         fontSize: width * 0.057),
                   ),
                   Row(
                     mainAxisAlignment:
-                        MainAxisAlignment.spaceBetween,
+                    MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        widget.med.ml,
+                        widget.med2.ml,
                         style: TextStyle(
                             color: Colors.grey,
                             fontSize: width * 0.05),
@@ -128,9 +128,9 @@ class _DrugDetailsPageState extends State<DrugDetailsPage> {
 
                   Row(
                     mainAxisAlignment:
-                        MainAxisAlignment.spaceBetween,
+                    MainAxisAlignment.spaceBetween,
                     children: [
-                      widget.med.qty != 0
+                      widget.med2.qty != 0
                           ? Container(
                         height: width * 0.095,
                         width: width * 0.22,
@@ -146,9 +146,9 @@ class _DrugDetailsPageState extends State<DrugDetailsPage> {
                           children: [
                             InkWell(
                                 onTap: () {
-                                  widget.med.qty--;
-                                    totalnprice();
-                                    setState(() {
+                                  widget.med2.rate--;
+                                  totalnprice();
+                                  setState(() {
                                   });
 
                                 },
@@ -157,14 +157,14 @@ class _DrugDetailsPageState extends State<DrugDetailsPage> {
                                   color: Colors.white,
                                 )),
                             Text(
-                              widget.med.qty
+                              widget.med2.qty
                                   .toString(),
                               style: TextStyle(
                                   color: Colors.white),
                             ),
                             InkWell(
                                 onTap: () {
-                                  widget.med.qty++;
+                                  widget.med2.rate++;
                                   totalnprice();
                                   setState(() {
 
@@ -179,7 +179,7 @@ class _DrugDetailsPageState extends State<DrugDetailsPage> {
                       )
                           : InkWell(
                         onTap: () {
-                          widget.med.qty++;
+                          widget.med2.qty++;
                           totalnprice();
                           setState(() {
 
@@ -204,7 +204,7 @@ class _DrugDetailsPageState extends State<DrugDetailsPage> {
                       ),
 
                       Text(
-                       "\$${total.toStringAsFixed(2)}",
+                        "\$${total.toStringAsFixed(2)}",
                         style: TextStyle(
                             fontWeight: FontWeight.w800,
                             fontSize: width * 0.06),
@@ -231,7 +231,7 @@ class _DrugDetailsPageState extends State<DrugDetailsPage> {
                         fontWeight: FontWeight.w600),
                   ),
                   Text(
-                    widget.med.des,
+                    widget.med2.des,
                     style: TextStyle(color: Colors.grey),
                   ),
                 ],
@@ -246,14 +246,14 @@ class _DrugDetailsPageState extends State<DrugDetailsPage> {
                 children: [
                   Row(
                     mainAxisAlignment:
-                        MainAxisAlignment.spaceBetween,
+                    MainAxisAlignment.spaceBetween,
                     children: [
                       Container(
                         height: width * 0.14,
                         width: width * 0.14,
                         decoration: BoxDecoration(
                             color:
-                                Colors.lightGreen.withOpacity(0.09),
+                            Colors.lightGreen.withOpacity(0.09),
                             borderRadius: BorderRadius.circular(
                                 width * 0.02)),
                         child: Icon(

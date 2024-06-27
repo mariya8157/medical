@@ -7,6 +7,7 @@ class MedicineModel {
   String id;
   String des;
   int qty;
+  String userId;
 
   MedicineModel({
     required this.name,
@@ -17,6 +18,7 @@ class MedicineModel {
     required this.id,
     required this.des,
     required this.qty,
+    required this.userId,
   });
 
   Map<String, dynamic> toMap() {
@@ -29,6 +31,7 @@ class MedicineModel {
       'id': this.id,
       'des': this.des,
       'qty': this.qty,
+      'userId': this.userId,
     };
   }
 
@@ -42,6 +45,7 @@ class MedicineModel {
       id: map['id'] ?? "",
       des: map['des'] ?? "",
       qty: map['qty'] ?? "",
+      userId: map['userId'] ?? "",
     );
   }
 
@@ -54,6 +58,7 @@ class MedicineModel {
     String? id,
     String? des,
     int? qty,
+    String? userId,
   }) {
     return MedicineModel(
       name: name ?? this.name,
@@ -64,6 +69,7 @@ class MedicineModel {
       rate: rate ?? this.rate,
       des: des ?? this.des,
       qty: qty ?? this.qty,
+      userId: userId ?? this.userId,
     );
   }
 }

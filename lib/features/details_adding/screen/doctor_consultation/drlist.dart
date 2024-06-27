@@ -43,7 +43,7 @@ class _TopDoctorPageState extends ConsumerState<DoctorList> {
             ),
           ),
           title:  Text(
-            "Top Doctor",
+            "Doctor Category",
             style: TextStyle(
                 color: Colour.thirdcolour,
                 fontWeight: FontWeight.w700,

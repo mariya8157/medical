@@ -3,11 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:medical/models/medicine_model.dart';
 import '../../../../core/constants/colour.dart';
 import '../../../../core/constants/icons.dart';
 import '../../../../core/constants/images.dart';
 import '../../../../main.dart';
 import '../../controller/medicine_controller.dart';
+import 'drugdetail2.dart';
 import 'drugsdetail.dart';
 import 'mycart.dart';
 
@@ -19,16 +21,15 @@ class PharmacyPage extends ConsumerStatefulWidget {
 }
 
 class _PharmacyPageState extends ConsumerState<PharmacyPage> {
+
   TextEditingController drugsControl = TextEditingController();
-  int count = 0;
   int selectindex = 0;
   int selectindex1 = 0;
-  List d = [];
-  List f = [];
   bool see = false;
   bool see2 = false;
   List<int> favorite = [];
   List<int> favorite1 = [];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -233,28 +234,19 @@ class _PharmacyPageState extends ConsumerState<PharmacyPage> {
                       children: [
                         InkWell(
                           onTap: () {
-                            selectindex1 = index;
-                            setState(() {});
-                            f.add({
-                              // "image": a[index]["image"],
-                              // "text1": a[index]["text1"],
-                              // "text2": a[index]["text2"],
-                              // "text3": a[index]["text3"],
-                              // "price": a[index]["price"],
-                              // "icon": a[index]["icon"],
-                              // "icon1": a[index]["icon1"],
-                              // "text6": a[index]["text6"],
-                              // "text5": a[index]["text5"],
-                            });
-                            f.length == 1
-                                ? Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => DrugDetailsPage(
-                                      c: [],
-                                      a: f,
-                                    )))
-                                : f.clear();
+                            MedicineModel medicineData= MedicineModel(
+                                name: data[selectindex].name.toString(),
+                                image: data[selectindex].name.toString(),
+                                ml: data[selectindex].name.toString(),
+                                rate: data[selectindex].rate,
+                                off: data[selectindex].off,
+                                id: data[selectindex].id.toString(),
+                                des: data[selectindex].des.toString(),
+                                qty: data[selectindex].qty,
+                                userId: '');
+                            // print(currentModel!.id);
+                            print("----------------===================000000000000");
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => DrugDetailsPage( med: medicineData,)));
                           },
                           child: Container(
                             height: width * 0.6,
@@ -431,28 +423,19 @@ class _PharmacyPageState extends ConsumerState<PharmacyPage> {
                       children: [
                         InkWell(
                           onTap: () {
-                            selectindex = index;
-                            setState(() {});
-                            d.add({
-                              // "image": c[index]["image"],
-                              // "text1": c[index]["text1"],
-                              // "text2": c[index]["text2"],
-                              // "text3": c[index]["text3"],
-                              // "price": c[index]["price"],
-                              // "icon": c[index]["icon"],
-                              // "icon1": c[index]["icon1"],
-                              // "text6": c[index]["text6"],
-                              // "text5": c[index]["text5"],
-                            });
-                            d.length == 1
-                                ? Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => DrugDetailsPage(
-                                      c: d,
-                                      a: [],
-                                    )))
-                                : d.clear();
+                            MedicineModel medicineData2= MedicineModel(
+                                name: data[selectindex1].name.toString(),
+                                image: data[selectindex1].name.toString(),
+                                ml: data[selectindex1].name.toString(),
+                                rate: data[selectindex1].rate,
+                                off: data[selectindex1].off,
+                                id: data[selectindex1].id.toString(),
+                                des: data[selectindex1].des.toString(),
+                                qty: data[selectindex1].qty,
+                                userId: '');
+                            // print(currentModel!.id);
+                            print("----------------===================000000000000");
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => DrugDetailsPage2(med2: medicineData2,)));
                           },
                           child: Container(
                             height: width * 0.6,
