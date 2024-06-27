@@ -36,7 +36,7 @@ class _HospitalPageState extends State<HospitalPage> {
         elevation: 0,
         leading: InkWell(
           onTap: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) => BottomNavigationPage(email: '', password: '',),));
+            Navigator.push(context, MaterialPageRoute(builder: (context) => BottomNavigationPage(),));
           },
           child: SizedBox(
             height: width * 0.05,

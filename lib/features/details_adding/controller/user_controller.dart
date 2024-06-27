@@ -18,7 +18,7 @@ class AddingController {
   AddingController({required AddingRepository addingRepository})
       : _addingRepository= addingRepository;
 
-  addUserData(name, email, password, id) {
+  addUserData({required name, required email,required  password,required id}) {
     _addingRepository.add(name, email, password, id);
   }
 

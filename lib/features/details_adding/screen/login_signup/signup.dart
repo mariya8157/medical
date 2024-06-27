@@ -15,7 +15,8 @@ import 'login.dart';
 
 class SignupPage extends ConsumerStatefulWidget {
   final bool sign;
-  const SignupPage({super.key, required this.sign});
+  // final UsersModel userModel;
+  const SignupPage( {super.key, required this.sign});
 
   @override
   ConsumerState createState() => _SignupPageState();
@@ -35,14 +36,11 @@ class _SignupPageState extends ConsumerState<SignupPage> {
   bool agree = false;
 
   userDetails()async{
-    var data= await FirebaseFirestore.instance.collection("users")
-        .doc(emailController.text.trim()).get();
-    currentModel= UsersModel.fromMap(data.data()!);
-    ref.read(AddingControllerProvider).addUserData(
-        nameController.text,
-        emailController.text,
-        passwordController.text,
-        idController.text);
+        ref.watch(AddingControllerProvider).addUserData(
+        name:nameController.text,
+        email:emailController.text,
+        password:passwordController.text,
+        id:emailController.text.trim());
   }
   addSignupDetails() async{
     ref.read(AddingControllerProvider).addUser(nameController.text,
@@ -283,7 +281,7 @@ class _SignupPageState extends ConsumerState<SignupPage> {
                   onTap: () async {
                     userDetails();
                     // currentUser();
-                    // addSignupDetails();
+                    addSignupDetails();
                     if (nameController.text != "" &&
                         emailController.text != "" &&
                         passwordController.text != "" &&

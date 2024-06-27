@@ -439,7 +439,7 @@ class _ChatPageState extends State<ChatPage> {
                 ),
                 InkWell(
                   onTap: () {
-                    Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => BottomNavigationPage(email: '', password: '',),), (route) => false);
+                    Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => BottomNavigationPage(),), (route) => false);
                   },
                   child: Container(
                     width: width * 0.3,

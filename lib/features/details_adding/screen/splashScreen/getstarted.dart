@@ -49,7 +49,7 @@ class _GetStartedPageState extends State<GetStartedPage> {
             onTap: () async {
               SharedPreferences prefs=await SharedPreferences.getInstance();
              prefs.setString('name', nameController.text);
-             Navigator.pushAndRemoveUntil(context, CupertinoPageRoute(builder: (context) =>prefs.getBool("login")==true?BottomNavigationPage(email: "", password: ""):LoginPage(),), (route) => false);
+             Navigator.pushAndRemoveUntil(context, CupertinoPageRoute(builder: (context) =>prefs.getBool("login")==true?BottomNavigationPage():LoginPage(),), (route) => false);
             },
             child: Container(
               height: width*0.14,
@@ -70,8 +70,7 @@ class _GetStartedPageState extends State<GetStartedPage> {
           SizedBox(height: width*0.04,),
           InkWell(
             onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => SignupPage(sign: false,),));
-
+              Navigator.push(context, MaterialPageRoute(builder: (context) => SignupPage(sign: true,),));
             },
             child: Container(
               height: width*0.14,

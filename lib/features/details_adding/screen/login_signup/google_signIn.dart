@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:medical/features/details_adding/screen/login_signup/signup.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../home/bottomnavigation.dart';
 import '../home/homepage.dart';
 import 'login.dart';
@@ -28,7 +29,9 @@ signInWithGoogle(BuildContext context) async {
   print(userlist);
 
   if(userlist.docs.isEmpty){
-    Navigator.push(context, CupertinoPageRoute(builder: (context) => BottomNavigationPage(email: userEmail!, password: '',),));
+    SharedPreferences prefs=await SharedPreferences.getInstance();
+    prefs.setBool('login', true);
+    Navigator.push(context, CupertinoPageRoute(builder: (context) => BottomNavigationPage(),));
   }else {
     userId = userlist.docs[0].id;
     Navigator.push(context, CupertinoPageRoute(builder: (context) => SignupPage(sign: true),));

@@ -22,22 +22,18 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  TextEditingController nameController = TextEditingController();
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
+
   @override
   bool login=false;
   splash() async {
   SharedPreferences prefs = await SharedPreferences.getInstance();
   login=prefs.getBool('login')??false;
-  var data= await FirebaseFirestore.instance.collection("users")
-      .doc(emailController.text.trim()).get();
-  currentModel= UsersModel.fromMap(data.data()!);
+
 
   Future.delayed(Duration(
     seconds: 5
   )).then((value) => Navigator.push(context, MaterialPageRoute(builder: (context) =>
-    login==true?BottomNavigationPage(email: emailController.text, password:passwordController.text):GetStartedPage()
+    login==true?BottomNavigationPage():GetStartedPage()
     ,)));
   }
   void initState() {

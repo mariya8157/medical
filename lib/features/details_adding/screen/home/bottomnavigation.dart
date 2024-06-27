@@ -9,11 +9,7 @@ import '../doctor_consultation/schedule.dart';
 import '../online_pharmacy/article.dart';
 
 class BottomNavigationPage extends StatefulWidget {
-  final String email;
-  final String password;
-  const BottomNavigationPage({super.key,
-    required this.email,
-    required this.password});
+  const BottomNavigationPage({super.key});
 
 
   @override

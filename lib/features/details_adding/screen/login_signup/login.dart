@@ -198,11 +198,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                       password: passwordController.text,
                     ).then((value) async {
                       var data = await FirebaseFirestore.instance.collection("users").where("email",isEqualTo: emailController.text).get();
-                      var password = data.docs[0]["password"];
-                      if(password==true){
-                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(backgroundColor:Colour.primarycolour,content: Text("No account found")));
-                              }
-                             else{
+                      userName = data.docs[0]["name"];
                                showDialog(
                                   context: context,
                                   barrierDismissible: false,
@@ -238,11 +234,11 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                                        color: Colour.color1),),
                                        ],)),
                                        InkWell(
-                                       onTap: () {
-                                         Navigator.push(context, MaterialPageRoute(builder: (context) => BottomNavigationPage(
-                                         email: emailController.text,
-                                         password: passwordController.text,
-                                    ),));
+                                       onTap: () async {
+                                         SharedPreferences prefs=await SharedPreferences.getInstance();
+                                         prefs.setBool('login', true);
+                                         prefs.setString('name', userName.toString());
+                                         Navigator.push(context, MaterialPageRoute(builder: (context) => BottomNavigationPage(),));
 
                                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(backgroundColor:Colour.primarycolour,
                                      content: Text("Submitted Sucsessfully ")));
@@ -263,11 +259,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                                        ),),
                                       ),
                                   ),),],),),);  },);
-                      }
-                      SharedPreferences prefs=await SharedPreferences.getInstance();
-                      prefs.setBool('login', true);
-
-                    }).catchError((error){
+                       }).catchError((error){
                       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                           content: Text(error.toString())));
                     });
