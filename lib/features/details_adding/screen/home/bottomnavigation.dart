@@ -6,7 +6,7 @@ import 'package:medical/features/details_adding/screen/home/homepage.dart';
 import '../../../../core/constants/colour.dart';
 import '../../../../core/constants/colour.dart';
 import '../doctor_consultation/schedule.dart';
-import '../online_pharmacy/article.dart';
+import 'article.dart';
 
 class BottomNavigationPage extends StatefulWidget {
   const BottomNavigationPage({super.key});

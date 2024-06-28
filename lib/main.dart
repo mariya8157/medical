@@ -6,10 +6,7 @@ import 'package:medical/features/details_adding/screen/home/ambulance.dart';
 import 'package:medical/features/details_adding/screen/home/bottomnavigation.dart';
 import 'package:medical/features/details_adding/screen/home/docter.dart';
 import 'package:medical/features/details_adding/screen/home/homepage.dart';
-import 'package:medical/features/details_adding/screen/home/hospital.dart';
-import 'package:medical/features/details_adding/screen/home/pharmacy1.dart';
 import 'package:medical/features/details_adding/screen/home/topdoctor.dart';
-
 import 'package:medical/features/details_adding/screen/online_pharmacy/pharmacy.dart';
 import 'package:medical/models/user_model.dart';
 import 'features/details_adding/screen/Profile/profile.dart';
