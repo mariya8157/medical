@@ -249,7 +249,7 @@ class _PharmacyPageState extends ConsumerState<PharmacyPage> {
                                 qty: data[selectindex].qty,
                                 userId: '');
                             // print(currentModel!.id);
-                            print("----------------===================000000000000");
+                            // print("----------------===================000000000000");
                             Navigator.push(context, MaterialPageRoute(builder: (context) => DrugDetailsPage( med: medicineData,)));
                           },
                           child: Container(
