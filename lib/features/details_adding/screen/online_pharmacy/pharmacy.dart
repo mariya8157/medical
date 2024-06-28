@@ -425,8 +425,8 @@ class _PharmacyPageState extends ConsumerState<PharmacyPage> {
                           onTap: () {
                             MedicineModel medicineData2= MedicineModel(
                                 name: data[selectindex1].name.toString(),
-                                image: data[selectindex1].name.toString(),
-                                ml: data[selectindex1].name.toString(),
+                                image: data[selectindex1].image.toString(),
+                                ml: data[selectindex1].ml.toString(),
                                 rate: data[selectindex1].rate,
                                 off: data[selectindex1].off,
                                 id: data[selectindex1].id.toString(),
