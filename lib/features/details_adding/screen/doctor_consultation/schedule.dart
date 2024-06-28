@@ -22,7 +22,7 @@ class _SchedulePageState extends State<SchedulePage> {
 
   @override
   Widget build(BuildContext context) {
-    return       DefaultTabController(
+    return DefaultTabController(
       length: 2,
       child: Scaffold(
         appBar: AppBar(
@@ -34,7 +34,7 @@ class _SchedulePageState extends State<SchedulePage> {
             ),),
         ),
         body: Padding(
-          padding:  EdgeInsets.all(width*0.03),
+          padding: EdgeInsets.all(width*0.03),
           child: Column(
             children: [
               Container(

@@ -22,33 +22,16 @@ class DrugDetailsPage extends StatefulWidget {
 
 class _DrugDetailsPageState extends State<DrugDetailsPage> {
   List d = [];
-  // dynamic added;
   dynamic total = 0;
-  // totalprice(){
-  //   for(int i=0;i>widget.c.length;i++){
-  //     if(widget.c[i]["quantity"]>0){
-  //       added=widget.c[i];
-  //       d.add(added);
-  //     }
-  //     // print(a);
-  //     // print("oooooooooooooooooooooooooooooooo");
-  //
-  //   }
-  //
-  //   setState(() {
-  //
-  //   });
-  // }
   totalnprice() {
     total = 0;
     for (int i = 0; i < d.length; i++) {
-      total = d[i]["text6"] * d[i]["price"] + total;
+      total = widget.med.qty * widget.med.rate + total;
     }
     print(total);
     setState(() {
 
-    });
-  }
+    });}
 
   void initState() {
     // totalprice();
@@ -154,13 +137,13 @@ class _DrugDetailsPageState extends State<DrugDetailsPage> {
                                 },
                                 child: const Icon(
                                   Icons.remove,
-                                  color: Colors.white,
+                                  color: Colour.secondarycolour,
                                 )),
                             Text(
                               widget.med.qty
                                   .toString(),
                               style: TextStyle(
-                                  color: Colors.white),
+                                  color: Colour.secondarycolour),
                             ),
                             InkWell(
                                 onTap: () {
@@ -204,7 +187,7 @@ class _DrugDetailsPageState extends State<DrugDetailsPage> {
                       ),
 
                       Text(
-                       "\$${total.toStringAsFixed(2)}",
+                       widget.med.rate.toString(),
                         style: TextStyle(
                             fontWeight: FontWeight.w800,
                             fontSize: width * 0.06),

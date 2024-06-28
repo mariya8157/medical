@@ -394,12 +394,12 @@ class _PharmacyPageState extends ConsumerState<PharmacyPage> {
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                    see2? Text(
-                                     "See all",
+                                     "See less",
                                      style: TextStyle(
                                          fontSize: width * 0.045,
                                          color: Colour.primarycolour),
                                    ):Text(
-                                      "See less",
+                                      "See all",
                                       style: TextStyle(
                                           fontSize: width * 0.045,
                                           color: Colour.primarycolour),
