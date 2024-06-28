@@ -18,24 +18,7 @@ class MyCartPage extends StatefulWidget {
 }
 
 class _MyCartPageState extends State<MyCartPage> {
-  // List a = [
-  //   {
-  //     "image": ImageIcons.herbal,
-  //     "text1": "OBH Combi",
-  //     "text2": "75ml",
-  //     "text3": "1",
-  //     "icon": ImageIcons.c_add,
-  //     "text4": "\$9.99",
-  //   },
-  //   {
-  //     "image": ImageIcons.calvit,
-  //     "text1": "Panadol",
-  //     "text2": "20pcs",
-  //     "text3": "2",
-  //     "icon": ImageIcons.c_add,
-  //     "text4": "\$15.99",
-  //   },
-  // ];
+
   dynamic total =0;
   dynamic added;
   List f=[];
