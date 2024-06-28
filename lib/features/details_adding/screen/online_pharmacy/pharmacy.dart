@@ -240,8 +240,8 @@ class _PharmacyPageState extends ConsumerState<PharmacyPage> {
                             });
                             MedicineModel medicineData= MedicineModel(
                                 name: data[selectindex].name.toString(),
-                                image: data[selectindex].name.toString(),
-                                ml: data[selectindex].name.toString(),
+                                image: data[selectindex].image.toString(),
+                                ml: data[selectindex].ml.toString(),
                                 rate: data[selectindex].rate,
                                 off: data[selectindex].off,
                                 id: data[selectindex].id.toString(),

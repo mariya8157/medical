@@ -79,8 +79,7 @@ class _DrugDetailsPageState extends State<DrugDetailsPage> {
                   height: width * 0.05,
                 ),
                 Container(
-                  color: Colors.yellow,
-                    height: height*0.25,
+                  height: height*0.25,
                     width: width*0.5,
                     child: Image(image: NetworkImage(widget.med.image,),fit: BoxFit.fill,)),
                 SizedBox(
@@ -106,7 +105,7 @@ class _DrugDetailsPageState extends State<DrugDetailsPage> {
                           Text(
                             widget.med.ml,
                             style: TextStyle(
-                                color: Colors.grey,
+                                color: Colour.gray,
                                 fontSize: width * 0.05),
                           ),
                           //     SvgPicture.asset(
@@ -162,7 +161,7 @@ class _DrugDetailsPageState extends State<DrugDetailsPage> {
                                     },
                                     child: Icon(
                                       Icons.add,
-                                      color: Colors.white,
+                                      color: Colour.secondarycolour,
                                     )),
                               ],
                             ),
@@ -188,7 +187,7 @@ class _DrugDetailsPageState extends State<DrugDetailsPage> {
                                   child: Text(
                                     "Add item",
                                     style: TextStyle(
-                                        color: Colors.white),
+                                        color: Colour.secondarycolour),
                                   )),
                             ),
                           ),
@@ -208,7 +207,6 @@ class _DrugDetailsPageState extends State<DrugDetailsPage> {
                   height: width * 0.05,
                 ),
                 Container(
-                  color: Colors.yellow,
                   width: width * 0.9,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -220,6 +218,7 @@ class _DrugDetailsPageState extends State<DrugDetailsPage> {
                             fontSize: width * 0.053,
                             fontWeight: FontWeight.w600),
                       ),
+                      SizedBox(height: height*0.03,),
                       Text(
                         widget.med.des,
                         style: TextStyle(color: Colors.grey),
@@ -227,10 +226,9 @@ class _DrugDetailsPageState extends State<DrugDetailsPage> {
                     ],
                   ),
                 ),
-                SizedBox(height: width*0.05,),
+                SizedBox(height: height*0.15,),
                 Container(
-                  color: Colors.blue,
-                  height: width * 0.45,
+                  height: width * 0.15,
                   width: width * 0.9,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.end,
