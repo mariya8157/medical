@@ -234,6 +234,10 @@ class _PharmacyPageState extends ConsumerState<PharmacyPage> {
                       children: [
                         InkWell(
                           onTap: () {
+                            selectindex=index;
+                            setState(() {
+
+                            });
                             MedicineModel medicineData= MedicineModel(
                                 name: data[selectindex].name.toString(),
                                 image: data[selectindex].name.toString(),
@@ -319,6 +323,7 @@ class _PharmacyPageState extends ConsumerState<PharmacyPage> {
                                         InkWell(
                                             onTap: () {
                                               setState(() {
+
                                                 if (favorite.contains(index)) {
                                                   favorite.remove(index);
                                                 } else {
@@ -423,6 +428,10 @@ class _PharmacyPageState extends ConsumerState<PharmacyPage> {
                       children: [
                         InkWell(
                           onTap: () {
+                            selectindex1=index;
+                            setState(() {
+
+                            });
                             MedicineModel medicineData2= MedicineModel(
                                 name: data[selectindex1].name.toString(),
                                 image: data[selectindex1].image.toString(),

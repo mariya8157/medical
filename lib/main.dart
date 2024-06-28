@@ -9,6 +9,7 @@ import 'package:medical/features/details_adding/screen/home/homepage.dart';
 import 'package:medical/features/details_adding/screen/home/hospital.dart';
 import 'package:medical/features/details_adding/screen/home/pharmacy1.dart';
 import 'package:medical/features/details_adding/screen/home/topdoctor.dart';
+import 'package:medical/features/details_adding/screen/online_pharmacy/pharmacy.dart';
 import 'package:medical/models/user_model.dart';
 import 'features/details_adding/screen/Profile/profile.dart';
 import 'features/details_adding/screen/splashScreen/splashscreen.dart';
@@ -40,7 +41,7 @@ class MyApp extends StatelessWidget {
             theme: ThemeData(
               textTheme: GoogleFonts.interTextTheme()
             ),
-            home:SplashScreen(),
+            home:PharmacyPage(),
     ),);
   }
 }
