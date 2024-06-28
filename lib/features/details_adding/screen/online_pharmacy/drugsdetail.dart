@@ -70,210 +70,220 @@ class _DrugDetailsPageState extends State<DrugDetailsPage> {
           ),
 
         ),
-        body: Column(
-          children: [
-            SizedBox(
-              height: width * 0.05,
-            ),
-            Center(child: Image(image: NetworkImage(widget.med.image))),
-            SizedBox(
-              height: width * 0.05,
-            ),
-            Container(
-              height: width * 0.45,
-              width: width * 0.9,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    widget.med.name,
-                    style: TextStyle(
-                        fontWeight: FontWeight.w700,
-                        fontSize: width * 0.057),
-                  ),
-                  Row(
-                    mainAxisAlignment:
-                        MainAxisAlignment.spaceBetween,
+        body: SingleChildScrollView(
+          child: Padding(
+            padding:  EdgeInsets.all(width*0.03),
+            child: Column(
+              children: [
+                SizedBox(
+                  height: width * 0.05,
+                ),
+                Container(
+                  color: Colors.yellow,
+                    height: height*0.25,
+                    width: width*0.5,
+                    child: Image(image: NetworkImage(widget.med.image,),fit: BoxFit.fill,)),
+                SizedBox(
+                  height: width * 0.05,
+                ),
+                Container(
+                  height: width * 0.45,
+                  width: width * 0.9,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        widget.med.ml,
+                        widget.med.name,
                         style: TextStyle(
-                            color: Colors.grey,
-                            fontSize: width * 0.05),
+                            fontWeight: FontWeight.w700,
+                            fontSize: width * 0.057),
                       ),
-                      //     SvgPicture.asset(
-                      //   d[index]["icon1"],
-                      //   width: width * 0.06,
-                      // )
+                      Row(
+                        mainAxisAlignment:
+                            MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            widget.med.ml,
+                            style: TextStyle(
+                                color: Colors.grey,
+                                fontSize: width * 0.05),
+                          ),
+                          //     SvgPicture.asset(
+                          //   d[index]["icon1"],
+                          //   width: width * 0.06,
+                          // )
+                        ],
+                      ),
+
+                      Row(
+                        mainAxisAlignment:
+                            MainAxisAlignment.spaceBetween,
+                        children: [
+                          widget.med.qty != 0
+                              ? Container(
+                            height: width * 0.095,
+                            width: width * 0.22,
+                            decoration: BoxDecoration(
+                                color: Colour.primarycolour,
+                                borderRadius:
+                                BorderRadius.circular(
+                                    width * 0.03)),
+                            child: Row(
+                              mainAxisAlignment:
+                              MainAxisAlignment
+                                  .spaceBetween,
+                              children: [
+                                InkWell(
+                                    onTap: () {
+                                      widget.med.qty--;
+                                        totalnprice();
+                                        setState(() {
+                                      });
+
+                                    },
+                                    child:  Icon(
+                                      Icons.remove,
+                                      color: Colour.secondarycolour,
+                                    )),
+                                Text(
+                                  widget.med.qty
+                                      .toString(),
+                                  style: TextStyle(
+                                      color: Colour.secondarycolour),
+                                ),
+                                InkWell(
+                                    onTap: () {
+                                      widget.med.qty++;
+                                      totalnprice();
+                                      setState(() {
+
+                                      });
+                                    },
+                                    child: Icon(
+                                      Icons.add,
+                                      color: Colors.white,
+                                    )),
+                              ],
+                            ),
+                          )
+                              : InkWell(
+                            onTap: () {
+                              widget.med.qty++;
+                              totalnprice();
+                              setState(() {
+
+                              });
+                            },
+                            child: Container(
+                              height: width * 0.095,
+                              width: width * 0.22,
+                              decoration: BoxDecoration(
+                                color: Colour.primarycolour,
+                                borderRadius:
+                                BorderRadius.circular(
+                                    width * 0.03),
+                              ),
+                              child: Center(
+                                  child: Text(
+                                    "Add item",
+                                    style: TextStyle(
+                                        color: Colors.white),
+                                  )),
+                            ),
+                          ),
+
+                          Text(
+                           widget.med.rate.toString(),
+                            style: TextStyle(
+                                fontWeight: FontWeight.w800,
+                                fontSize: width * 0.06),
+                          )
+                        ],
+                      ),
                     ],
                   ),
-
-                  Row(
-                    mainAxisAlignment:
-                        MainAxisAlignment.spaceBetween,
+                ),
+                SizedBox(
+                  height: width * 0.05,
+                ),
+                Container(
+                  color: Colors.yellow,
+                  width: width * 0.9,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      widget.med.qty != 0
-                          ? Container(
-                        height: width * 0.095,
-                        width: width * 0.22,
-                        decoration: BoxDecoration(
-                            color: Colour.primarycolour,
-                            borderRadius:
-                            BorderRadius.circular(
-                                width * 0.03)),
-                        child: Row(
-                          mainAxisAlignment:
-                          MainAxisAlignment
-                              .spaceBetween,
-                          children: [
-                            InkWell(
-                                onTap: () {
-                                  widget.med.qty--;
-                                    totalnprice();
-                                    setState(() {
-                                  });
-
-                                },
-                                child: const Icon(
-                                  Icons.remove,
-                                  color: Colour.secondarycolour,
-                                )),
-                            Text(
-                              widget.med.qty
-                                  .toString(),
-                              style: TextStyle(
-                                  color: Colour.secondarycolour),
-                            ),
-                            InkWell(
-                                onTap: () {
-                                  widget.med.qty++;
-                                  totalnprice();
-                                  setState(() {
-
-                                  });
-                                },
-                                child: Icon(
-                                  Icons.add,
-                                  color: Colors.white,
-                                )),
-                          ],
-                        ),
-                      )
-                          : InkWell(
-                        onTap: () {
-                          widget.med.qty++;
-                          totalnprice();
-                          setState(() {
-
-                          });
-                        },
-                        child: Container(
-                          height: width * 0.095,
-                          width: width * 0.22,
-                          decoration: BoxDecoration(
-                            color: Colour.primarycolour,
-                            borderRadius:
-                            BorderRadius.circular(
-                                width * 0.03),
-                          ),
-                          child: Center(
-                              child: Text(
-                                "Add item",
-                                style: TextStyle(
-                                    color: Colors.white),
-                              )),
-                        ),
-                      ),
-
                       Text(
-                       widget.med.rate.toString(),
+                        "Description",
                         style: TextStyle(
-                            fontWeight: FontWeight.w800,
-                            fontSize: width * 0.06),
-                      )
+                            fontSize: width * 0.053,
+                            fontWeight: FontWeight.w600),
+                      ),
+                      Text(
+                        widget.med.des,
+                        style: TextStyle(color: Colors.grey),
+                      ),
                     ],
                   ),
-                ],
-              ),
-            ),
-            SizedBox(
-              height: width * 0.05,
-            ),
-            Container(
-              height: width * 0.37,
-              width: width * 0.9,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Text(
-                    "Description",
-                    style: TextStyle(
-                        fontSize: width * 0.053,
-                        fontWeight: FontWeight.w600),
-                  ),
-                  Text(
-                    widget.med.des,
-                    style: TextStyle(color: Colors.grey),
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(height: width*0.05,),
-            Container(
-              height: width * 0.45,
-              width: width * 0.9,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Row(
-                    mainAxisAlignment:
-                        MainAxisAlignment.spaceBetween,
+                ),
+                SizedBox(height: width*0.05,),
+                Container(
+                  color: Colors.blue,
+                  height: width * 0.45,
+                  width: width * 0.9,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      Container(
-                        height: width * 0.14,
-                        width: width * 0.14,
-                        decoration: BoxDecoration(
-                            color:
-                                Colors.lightGreen.withOpacity(0.09),
-                            borderRadius: BorderRadius.circular(
-                                width * 0.02)),
-                        child: Icon(
-                          Icons.shopping_cart_outlined,
-                          color: Colors.green,
-                        ),
-                      ),
-                      InkWell(
-                        onTap: () {
-                          Navigator.push(
-                              context, MaterialPageRoute(
-                            builder: (context) => MyCartPage(d: d,),));
-                        },
-                        child: Container(
-                          height: width * 0.14,
-                          width: width * 0.64,
-                          decoration: BoxDecoration(
-                              color: Colour.primarycolour,
-                              borderRadius: BorderRadius.circular(
-                                  width * 0.07)),
-                          child: Center(
-                            child: Text(
-                              "Buy Now",
-                              style: TextStyle(
-                                  fontSize: width * 0.06,
-                                  fontWeight: FontWeight.w700,
-                                  color: Colors.white),
+                      Row(
+                        mainAxisAlignment:
+                            MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                            height: width * 0.14,
+                            width: width * 0.14,
+                            decoration: BoxDecoration(
+                                color:
+                                    Colors.lightGreen.withOpacity(0.09),
+                                borderRadius: BorderRadius.circular(
+                                    width * 0.02)),
+                            child: Icon(
+                              Icons.shopping_cart_outlined,
+                              color: Colors.green,
                             ),
                           ),
-                        ),
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(
+                                  context, MaterialPageRoute(
+                                builder: (context) => MyCartPage(d: d,),));
+                            },
+                            child: Container(
+                              height: width * 0.14,
+                              width: width * 0.64,
+                              decoration: BoxDecoration(
+                                  color: Colour.primarycolour,
+                                  borderRadius: BorderRadius.circular(
+                                      width * 0.07)),
+                              child: Center(
+                                child: Text(
+                                  "Buy Now",
+                                  style: TextStyle(
+                                      fontSize: width * 0.06,
+                                      fontWeight: FontWeight.w700,
+                                      color: Colors.white),
+                                ),
+                              ),
+                            ),
+                          )
+                        ],
                       )
                     ],
-                  )
-                ],
-              ),
-            )
-          ],
+                  ),
+                )
+              ],
+            ),
+          ),
         ));
   }
 }
