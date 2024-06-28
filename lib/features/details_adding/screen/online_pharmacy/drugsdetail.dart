@@ -193,7 +193,7 @@ class _DrugDetailsPageState extends State<DrugDetailsPage> {
                           ),
 
                           Text(
-                           widget.med.rate.toString(),
+                          "${widget.med.qty*widget.med.rate}",
                             style: TextStyle(
                                 fontWeight: FontWeight.w800,
                                 fontSize: width * 0.06),
