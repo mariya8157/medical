@@ -333,7 +333,7 @@ class _PharmacyPageState extends ConsumerState<PharmacyPage> {
                                             },
                                             child: !favorite.contains(index)
                                                 ? Image.asset(
-                                              ImagePictures.heart1,
+                                              ImagePictures.heart,
                                               width: width * 0.05,
                                             )
                                                 : SvgPicture.asset(
@@ -529,7 +529,7 @@ class _PharmacyPageState extends ConsumerState<PharmacyPage> {
                                             },
                                             child: !favorite1.contains(index)
                                                 ? Image.asset(
-                                              ImagePictures.heart1,
+                                              ImagePictures.heart,
                                               width: width * 0.05,
                                             )
                                                 : SvgPicture.asset(

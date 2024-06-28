@@ -20,6 +20,8 @@ import '../../controller/doctor_controller.dart';
 import '../../controller/user_controller.dart';
 import '../doctor_consultation/findDoctor.dart';
 import '../online_pharmacy/pharmacy.dart';
+// import '../../controller/addingcontroller_page.dart';
+import '../onlinePharmacy/pharmacy2.dart';
 
 class HomePage extends ConsumerStatefulWidget {
   const HomePage({super.key});

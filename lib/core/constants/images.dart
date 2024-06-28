@@ -40,7 +40,7 @@ class ImagePictures{
   static const phonepe="assets/images/phonepe .png";
   static const googlepay="assets/images/google pay.png";
   static const paytm="assets/images/paytm.png";
-  static const heart1="assets/images/heart1.png";
+  static const heart="assets/images/heart1.png";
 
   ///jpeg
   static const banner1="assets/images/banner1.jpg";
