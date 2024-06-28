@@ -8,16 +8,19 @@ import 'package:flutter_svg/svg.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:medical/features/details_adding/controller/user_controller.dart';
+import 'package:medical/features/details_adding/screen/online_pharmacy/mycart.dart';
 import 'package:medical/models/address_model.dart';
 
 import '../../../../core/constants/colour.dart';
 import '../../../../core/constants/icons.dart';
 import '../../../../main.dart';
+import '../../../../models/medicine_model.dart';
 import '../../controller/address_controller.dart';
 import 'address.dart';
 
 class DeliveryPage extends ConsumerStatefulWidget {
-  const DeliveryPage({super.key});
+  final MedicineModel item2;
+  const DeliveryPage({super.key, required this.item2});
 
   @override
   ConsumerState createState() => _DeliveryPageState();
@@ -44,7 +47,12 @@ class _DeliveryPageState extends ConsumerState<DeliveryPage> {
         city: cityController.text,
         country: countryController.text,
         houseName: houseController.text,
-        id: idController.text));
+        id: idController.text,
+        itemName: widget.item2.name,
+        itemImage: widget.item2.image,
+        itemMl: widget.item2.ml,
+        itemRate: widget.item2.rate.toInt(),
+        userId: ''));
   }
   @override
   Widget build(BuildContext context) {
@@ -125,13 +133,13 @@ class _DeliveryPageState extends ConsumerState<DeliveryPage> {
                         fontWeight: FontWeight.w300,
                       ),
                       border: OutlineInputBorder(
-                        borderSide: const BorderSide(
+                        borderSide: BorderSide(
                           color: Colour.color4,
                         ),
                         borderRadius: BorderRadius.circular(width * 0.03),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(
+                        borderSide: BorderSide(
                         ),
                         borderRadius: BorderRadius.circular(width * 0.03),
                       ),
@@ -227,7 +235,6 @@ class _DeliveryPageState extends ConsumerState<DeliveryPage> {
                           LengthLimitingTextInputFormatter(6)
                         ],
                         decoration: InputDecoration(
-                          // suffixText:"kousar",
                           labelStyle: TextStyle(
                             fontSize: width * 0.05,
                             fontWeight: FontWeight.w300,
@@ -312,19 +319,18 @@ class _DeliveryPageState extends ConsumerState<DeliveryPage> {
                       LengthLimitingTextInputFormatter(15)
                     ],
                     decoration: InputDecoration(
-                      // suffixText:"kousar",
                       labelStyle: TextStyle(
                         fontSize: width * 0.05,
                         fontWeight: FontWeight.w300,
                       ),
                       border: OutlineInputBorder(
-                        borderSide: const BorderSide(
+                        borderSide: BorderSide(
                           color: Colour.color4,
                         ),
                         borderRadius: BorderRadius.circular(width * 0.03),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(
+                        borderSide: BorderSide(
                         ),
                         borderRadius: BorderRadius.circular(width * 0.03),
                       ),
@@ -399,13 +405,13 @@ class _DeliveryPageState extends ConsumerState<DeliveryPage> {
                         fontWeight: FontWeight.w300,
                       ),
                       border: OutlineInputBorder(
-                        borderSide: const BorderSide(
+                        borderSide: BorderSide(
                           color: Colour.color4,
                         ),
                         borderRadius: BorderRadius.circular(width * 0.03),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(
+                        borderSide: BorderSide(
                         ),
                         borderRadius: BorderRadius.circular(width * 0.03),
                       ),
@@ -439,13 +445,13 @@ class _DeliveryPageState extends ConsumerState<DeliveryPage> {
                         fontWeight: FontWeight.w300,
                       ),
                       border: OutlineInputBorder(
-                        borderSide: const BorderSide(
+                        borderSide: BorderSide(
                           color: Colour.color4,
                         ),
                         borderRadius: BorderRadius.circular(width * 0.03),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(
+                        borderSide: BorderSide(
                         ),
                         borderRadius: BorderRadius.circular(width * 0.03),
                       ),
@@ -466,7 +472,22 @@ class _DeliveryPageState extends ConsumerState<DeliveryPage> {
                   )
                   {
                     addressDetails();
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => OrderDetails(),));
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => MyCartPage(
+                        details: AddressModel(
+                            name: nameController.text,
+                            phone: int.parse(phoneController.text),
+                            pincode: int.parse(pincodeController.text),
+                            street: streetController.text,
+                            city: cityController.text,
+                            country: countryController.text,
+                            houseName: houseController.text,
+                            id: idController.text,
+                            itemName: widget.item2.name,
+                            itemImage: widget.item2.image,
+                            itemMl: widget.item2.ml,
+                            itemRate: widget.item2.rate.toInt(),
+                            userId: ''),
+                    ),));
                   }
                   else{
                     nameController.text==""?

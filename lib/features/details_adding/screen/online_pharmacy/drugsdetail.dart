@@ -10,6 +10,7 @@ import 'package:medical/models/medicine_model.dart';
 import '../../../../core/constants/colour.dart';
 import '../../../../core/constants/icons.dart';
 import '../../../../main.dart';
+import 'delivery_address.dart';
 import 'mycart.dart';
 
 class DrugDetailsPage extends StatefulWidget {
@@ -252,9 +253,19 @@ class _DrugDetailsPageState extends State<DrugDetailsPage> {
                           ),
                           InkWell(
                             onTap: () {
+                              MedicineModel itemDtails= MedicineModel(
+                                  name: widget.med.name.toString(),
+                                  image: widget.med.image.toString(),
+                                  ml: widget.med.ml.toString(),
+                                  rate: widget.med.rate,
+                                  off: widget.med.off,
+                                  id: widget.med.id.toString(),
+                                  des: '',
+                                  qty: widget.med.qty,
+                                  userId: '');
                               Navigator.push(
                                   context, MaterialPageRoute(
-                                builder: (context) => MyCartPage(d: d,),));
+                                  builder: (context) => DeliveryPage(item2: itemDtails,)));
                             },
                             child: Container(
                               height: width * 0.14,

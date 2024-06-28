@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:medical/models/address_model.dart';
 import 'package:quickalert/models/quickalert_type.dart';
 import 'package:quickalert/widgets/quickalert_dialog.dart';
 import '../../../../core/constants/colour.dart';
@@ -10,8 +11,8 @@ import '../../../../core/constants/images.dart';
 import '../../../../main.dart';
 
 class MyCartPage extends StatefulWidget {
-  final List d;
-  const MyCartPage({super.key,  required this.d});
+  final AddressModel details;
+  const MyCartPage({super.key,  required this.details});
 
   @override
   State<MyCartPage> createState() => _MyCartPageState();
@@ -22,32 +23,32 @@ class _MyCartPageState extends State<MyCartPage> {
   dynamic total =0;
   dynamic added;
   List f=[];
-  totalprice(){
-    for(int i=0;i<widget.d.length;i++){
-      if(widget.d[i]["text6"]>0){
-        added=widget.d[i];
-        f.add(added);
-      }
-      print(f);
-      print("oooooooooooooooooooooooooooooooo");
-
-    }
-
-    setState(() {
-
-    });
-  }
-  totalnprice() {
-    total = 0;
-    for (int i = 0; i < f.length; i++) {
-      total = f[i]["text6"] * f[i]["price"] + total;
-
-    }
-    print(total);
-    setState(() {
-
-    });
-  }
+  // totalprice(){
+  //   for(int i=0;i<widget.d.length;i++){
+  //     if(widget.d[i]["text6"]>0){
+  //       added=widget.d[i];
+  //       f.add(added);
+  //     }
+  //     print(f);
+  //     print("oooooooooooooooooooooooooooooooo");
+  //
+  //   }
+  //
+  //   setState(() {
+  //
+  //   });
+  // }
+  // totalnprice() {
+  //   total = 0;
+  //   for (int i = 0; i < f.length; i++) {
+  //     total = f[i]["text6"] * f[i]["price"] + total;
+  //
+  //   }
+  //   print(total);
+  //   setState(() {
+  //
+  //   });
+  // }
 
   dynamic total1=0;
   dynamic a=0;
@@ -56,19 +57,19 @@ class _MyCartPageState extends State<MyCartPage> {
   totalAdd(){
     total1=0;
     a=0;
-    for(int i=0;i<widget.d.length;i++){
-      a=widget.d[i]['price']*widget.d[i]["text6"]+a+c;
-      total1=a+total1;
-    }
-    setState(() {
-
-    });
+  //   for(int i=0;i<widget.d.length;i++){
+  //     a=widget.d[i]['price']*widget.d[i]["text6"]+a+c;
+  //     total1=a+total1;
+  //   }
+  //   setState(() {
+  //
+  //   });
   }
 
   void initState() {
-    totalprice();
-    totalnprice();
-    totalAdd();
+    // totalprice();
+    // totalnprice();
+    // totalAdd();
     // TODO: implement initState
     super.initState();
   }

@@ -7,6 +7,11 @@ class AddressModel {
   String country;
   String houseName;
   String id;
+  String userId;
+  String itemName;
+  String itemImage;
+  String itemMl;
+  int itemRate;
 
   AddressModel({
     required this.name,
@@ -17,6 +22,11 @@ class AddressModel {
     required this.country,
     required this.houseName,
     required this.id,
+    required this.itemName,
+    required this.itemImage,
+    required this.itemMl,
+    required this.itemRate,
+    required this.userId,
   });
 
   Map<String, dynamic> toMap() {
@@ -29,6 +39,11 @@ class AddressModel {
       'country': this.country,
       'houseName': this.houseName,
       'id': this.id,
+      'itemName': this.itemName,
+      'itemImage': this.itemImage,
+      'itemMl': this.itemMl,
+      'itemRate': this.itemRate,
+      'userId': this.userId,
     };}
 
   factory AddressModel.fromMap(Map<String, dynamic>map){
@@ -41,6 +56,11 @@ class AddressModel {
       houseName: map['houseName'] ?? "",
       name: map['name'] ?? "",
       id: map['id'] ?? "",
+      itemName: map['itemName'] ?? "",
+      itemImage: map['itemImage'] ?? "",
+      itemMl: map['itemMl'] ?? "",
+      itemRate: map['itemRate'] ?? "",
+      userId: map['userId'] ?? "",
     );
   }
 
@@ -53,6 +73,11 @@ class AddressModel {
     String? country,
     String? houseName,
     String? id,
+    String? itemName,
+    String? itemImage,
+    String? itemMl,
+    String? userId,
+    int? itemRate,
   }) {
     return AddressModel(
       name: name ?? this.name,
@@ -63,6 +88,11 @@ class AddressModel {
       country: country ?? this.country,
       houseName: houseName ?? this.houseName,
       id: id ?? this.id,
+      itemName: itemName ?? this.itemName,
+      itemImage: itemImage ?? this.itemImage,
+      itemMl: itemMl ?? this.itemMl,
+      itemRate: itemRate ?? this.itemRate,
+      userId: userId ?? this.userId,
     );
   }
 }

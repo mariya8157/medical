@@ -256,12 +256,12 @@ class _ProfilePageState extends State<ProfilePage> {
                             ),
                             InkWell(
                               onTap: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => MyCartPage(
-                                              d: [],
-                                            )));
+                                // Navigator.push(
+                                //     context,
+                                //     MaterialPageRoute(
+                                //         builder: (context) => MyCartPage(
+                                //               details: ,
+                                //             )));
                               },
                               child: ListTile(
                                 leading: CircleAvatar(
