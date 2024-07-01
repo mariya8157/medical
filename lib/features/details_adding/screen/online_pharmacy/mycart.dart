@@ -72,9 +72,13 @@ class _MyCartPageState extends ConsumerState<MyCartPage> {
     // totalprice();
     // totalnprice();
     // totalAdd();
-    print("----------------------------"); print("----------------------------");
+    print("----------------------------");
+    print("----------------------------");
+
     print(widget.details.itemName);
-    print("----------------------------"); print("----------------------------");
+
+    print("----------------------------");
+    print("----------------------------");
      // TODO: implement initState
     super.initState();
   }
