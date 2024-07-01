@@ -9,6 +9,7 @@ import 'package:medical/features/details_adding/screen/home/docter.dart';
 import 'package:medical/features/details_adding/screen/home/homepage.dart';
 import 'package:medical/features/details_adding/screen/home/topdoctor.dart';
 import 'package:medical/features/details_adding/screen/online_pharmacy/pharmacy.dart';
+import 'package:medical/features/details_adding/screen/splashScreen/splashscreen.dart';
 // import 'package:medical/features/details_adding/screen/login%20&%20Sign%20Up/login.dart';
 // import 'package:medical/features/details_adding/screen/onlinePharmacy/drugsdetail.dart';
 // import 'package:medical/features/details_adding/screen/onlinePharmacy/mycart.dart';
