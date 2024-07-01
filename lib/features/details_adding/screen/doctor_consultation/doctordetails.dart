@@ -383,6 +383,7 @@ surfaceTintColor:Colour.thirdcolour ,
                   InkWell(
                     onTap: () {
                       DoctorModel doctorData= DoctorModel(
+                        search: widget.dr.search,
                           name: widget.dr.name,
                           cons: widget.dr.cons,
                           admin: widget.dr.admin,

@@ -22,8 +22,16 @@ class DoctorRepository{
   deleteDoc(DoctorModel docDelete){
     _doctors.doc(docDelete.id).delete();
   }
-  streamDoc(){
-    return _doctors.snapshots().map((event) => event.docs.map((e) => DoctorModel.fromMap(e.data() as Map<String, dynamic>)).toList());
+  streamDoc(String search){
+
+    if(search ==''){
+      return _doctors.snapshots().map((event) => event.docs.map((e) => DoctorModel.fromMap(e.data() as Map<String, dynamic>)).toList());
+
+    }else{
+      return _doctors.where('search',arrayContains: search.toUpperCase()).snapshots().map((event) => event.docs.map((e) => DoctorModel.fromMap(e.data() as Map<String, dynamic>)).toList());
+
+    }
+
   }
 
   UpdateDoc(DoctorModel docedit){

@@ -10,6 +10,7 @@ class DoctorModel {
   double dis;
   String id;
   String userId;
+  List search;
 
   DoctorModel({
     required this.name,
@@ -23,6 +24,7 @@ class DoctorModel {
     required this.exp,
     required this.id,
     required this.userId,
+    required this.search,
   });
 
   Map<String, dynamic> toMap() {
@@ -38,6 +40,7 @@ class DoctorModel {
       'exp': this.exp,
       'id': this.id,
       'userId': this.userId,
+      'search': this.search,
     };
   }
 
@@ -54,6 +57,7 @@ class DoctorModel {
       name: map['name'] ?? "",
       id: map['id'] ?? "",
       userId: map['userId'] ?? "",
+      search: map['search'] ?? [],
     );}
 
   DoctorModel copyWith({
@@ -68,6 +72,7 @@ class DoctorModel {
     String? spcl,
     String? id,
     String? userId,
+    List?search,
   }) {
     return DoctorModel(
       name: name ?? this.name,
@@ -81,6 +86,7 @@ class DoctorModel {
       userId: userId ?? this.userId,
       spcl: spcl ?? this.spcl,
       exp: exp ?? this.exp,
+      search: search??this.search
     );
   }
 }

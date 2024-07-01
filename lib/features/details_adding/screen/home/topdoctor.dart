@@ -15,7 +15,7 @@ class TopDoctorPage extends ConsumerStatefulWidget {
 }
 
 class _TopDoctorPageState extends ConsumerState<TopDoctorPage> {
-
+  TextEditingController searchController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,10 +59,18 @@ class _TopDoctorPageState extends ConsumerState<TopDoctorPage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            ref.watch(StreamDocProvider).when(data: (data) => Container(
+            TextFormField(
+              controller: searchController,
+              onChanged: (value) {
+                setState(() {
+
+                });
+              },
+            ),
+            ref.watch(StreamDocProvider(searchController.text)).when(data: (data) => Container(
               child: ListView.separated(
                   shrinkWrap: true,
-                   physics: BouncingScrollPhysics(),
+                   physics: NeverScrollableScrollPhysics(),
                       scrollDirection: Axis.vertical,
                   itemBuilder: (context, index) {
                     return

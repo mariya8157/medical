@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
@@ -85,12 +86,27 @@ class _FindDoctorState extends ConsumerState<FindDoctor> {
             ),
           ),
         ),
-        title:  Text(
-          "Find Doctors",
-          style: TextStyle(
-              color: Colour.thirdcolour,
-              fontWeight: FontWeight.w700,
-              fontSize: width*0.06
+        title:  GestureDetector(
+          onTap: () async {
+           var data = await FirebaseFirestore.instance.collection('doctors').get();
+
+           for(var docs in data.docs){
+             DoctorModel doc = DoctorModel.fromMap(docs.data());
+             FirebaseFirestore.instance.collection('doctors').doc(doc.id).update(
+               {
+                 'search': setSearchParam(doc.name + ' '+ doc.spcl)
+               }
+             );
+           }
+
+          },
+          child: Text(
+            "Find Doctors",
+            style: TextStyle(
+                color: Colour.thirdcolour,
+                fontWeight: FontWeight.w700,
+                fontSize: width*0.06
+            ),
           ),
         ),
       ),
@@ -200,7 +216,7 @@ class _FindDoctorState extends ConsumerState<FindDoctor> {
                     ),
                   ),
                 ),
-              ref.watch(StreamDocProvider).when(data: (data) =>    Column(
+              ref.watch(StreamDocProvider(searchController.text)).when(data: (data) =>    Column(
                   children: [
                     Row(
                       children: [
@@ -216,6 +232,7 @@ class _FindDoctorState extends ConsumerState<FindDoctor> {
                     InkWell(
                       onTap: () {
                         DoctorModel doctorData= DoctorModel(
+                          search: data[selectIndex].search??[] ,
                             name: data[selectIndex].name.toString(),
                             cons: data[selectIndex].cons,
                             admin: data[selectIndex].admin,
@@ -380,3 +397,22 @@ class _FindDoctorState extends ConsumerState<FindDoctor> {
   }
 }
 
+setSearchParam(String caseNumber) {
+  List<String> caseSearchList = [];
+  String temp = "";
+
+  List<String> nameSplits = caseNumber.split(" ");
+  for (int i = 0; i < nameSplits.length; i++) {
+    String name = "";
+    for (int k = i; k < nameSplits.length; k++) {
+      name = i==nameSplits.length-1 ? name + nameSplits[k] : name + nameSplits[k] + " ";
+    }
+    temp = "";
+
+    for (int j = 0; j < name.length; j++) {
+      temp = temp + name[j];
+      caseSearchList.add(temp.toUpperCase());
+    }
+  }
+  return caseSearchList;
+}

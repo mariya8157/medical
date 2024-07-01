@@ -268,7 +268,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                   ],
                 ),
               ),
-              ref.watch(StreamDocProvider).when(data: (data) => Container(
+              ref.watch(StreamDocProvider(search_controller.text)).when(data: (data) => Container(
                 height: width*0.55,
                 width: width*1,
                 // margin: EdgeInsets.only(left: width*0.03),
