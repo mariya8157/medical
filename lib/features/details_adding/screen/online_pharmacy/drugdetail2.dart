@@ -84,7 +84,7 @@ class _DrugDetailsPage2State extends State<DrugDetailsPage2> {
             style: TextStyle(
                 color: Colour.thirdcolour,
                 fontWeight: FontWeight.w700,
-                fontSize: width * 0.063),
+                fontSize: width * 0.04),
           ),
 
         ),
@@ -114,7 +114,7 @@ class _DrugDetailsPage2State extends State<DrugDetailsPage2> {
                         widget.med2.name,
                         style: TextStyle(
                             fontWeight: FontWeight.w700,
-                            fontSize: width * 0.057),
+                            fontSize: width * 0.04),
                       ),
                       Row(
                         mainAxisAlignment:
@@ -124,7 +124,7 @@ class _DrugDetailsPage2State extends State<DrugDetailsPage2> {
                             widget.med2.ml,
                             style: TextStyle(
                                 color: Colour.gray,
-                                fontSize: width * 0.05),
+                                fontSize: width * 0.04),
                           ),
                         ],
                       ),
@@ -210,7 +210,7 @@ class _DrugDetailsPage2State extends State<DrugDetailsPage2> {
                             "${widget.med2.qty*widget.med2.rate}",
                             style: TextStyle(
                                 fontWeight: FontWeight.w800,
-                                fontSize: width * 0.06),
+                                fontSize: width * 0.04),
                           )
                         ],
                       ),
@@ -229,8 +229,8 @@ class _DrugDetailsPage2State extends State<DrugDetailsPage2> {
                       Text(
                         "Description",
                         style: TextStyle(
-                            fontSize: width * 0.053,
-                            fontWeight: FontWeight.w600),
+                            fontSize: width * 0.04,
+                            fontWeight: FontWeight.w700),
                       ),
                       SizedBox(height: height*0.03,),
                       Text(
@@ -281,8 +281,8 @@ class _DrugDetailsPage2State extends State<DrugDetailsPage2> {
                                 builder: (context) => DeliveryPage(item2: itemDtails,)));
                             },
                             child: Container(
-                              height: width * 0.14,
-                              width: width * 0.64,
+                              height: width * 0.12,
+                              width: width * 0.62,
                               decoration: BoxDecoration(
                                   color: Colour.primarycolour,
                                   borderRadius: BorderRadius.circular(
@@ -291,7 +291,7 @@ class _DrugDetailsPage2State extends State<DrugDetailsPage2> {
                                 child: Text(
                                   "Buy Now",
                                   style: TextStyle(
-                                      fontSize: width * 0.06,
+                                      fontSize: width * 0.045,
                                       fontWeight: FontWeight.w700,
                                       color: Colors.white),
                                 ),

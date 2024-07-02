@@ -517,12 +517,10 @@ class _PharmacyPageState extends ConsumerState<PharmacyPage> {
                                               });
                                             },
                                             child: !favorite1.contains(index)
-                                                ? Image.asset(
-                                              ImagePictures.heart,
+                                                ? Image.asset(ImagePictures.heart,
                                               width: width * 0.05,
                                             )
-                                                : SvgPicture.asset(
-                                              ImageIcons.heart,
+                                                : SvgPicture.asset(ImageIcons.heart,
                                               width: width * 0.06,
                                             ))
                                         // Container(

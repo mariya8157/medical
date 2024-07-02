@@ -82,7 +82,7 @@ class _DeliveryPageState extends ConsumerState<DeliveryPage> {
           style: TextStyle(
               color: Colour.thirdcolour,
               fontWeight: FontWeight.w700,
-              fontSize: width * 0.063),
+              fontSize: width * 0.04),
         ),
       ),
       body: SingleChildScrollView(
@@ -94,14 +94,14 @@ class _DeliveryPageState extends ConsumerState<DeliveryPage> {
               Row(
                 children: [
                   SizedBox(width: width*0.05,),
-                  Text(" Shipping Details",style: TextStyle(fontSize: width*0.06,fontWeight: FontWeight.w600),),
+                  Text(" Shipping Details",style: TextStyle(fontSize: width*0.04,fontWeight: FontWeight.w700),),
                 ],
               ),
               SizedBox(height: width*0.05,),
               Row(
                 children: [
                   SizedBox(width: width*0.07,),
-                  Text("Full Name",style: TextStyle(fontWeight: FontWeight.w500,fontSize: width*0.05),),
+                  Text("Full Name",style: TextStyle(fontWeight: FontWeight.w500,fontSize: width*0.04),),
                   Text(" *",style: TextStyle(color: Colour.color4),),
                 ],
               ),
@@ -129,7 +129,7 @@ class _DeliveryPageState extends ConsumerState<DeliveryPage> {
                           child: Icon(Icons.clear)),
                       // suffixText:"kousar",
                       labelStyle: TextStyle(
-                        fontSize: width * 0.06,
+                        fontSize: width * 0.04,
                         fontWeight: FontWeight.w300,
                       ),
                       border: OutlineInputBorder(
@@ -150,7 +150,7 @@ class _DeliveryPageState extends ConsumerState<DeliveryPage> {
               Row(
                 children: [
                   SizedBox(width: width*0.07,),
-                  Text("Phone Number",style: TextStyle(fontWeight: FontWeight.w500,fontSize: width*0.05),),
+                  Text("Phone Number",style: TextStyle(fontWeight: FontWeight.w500,fontSize: width*0.04),),
                   Text(" *",style: TextStyle(color: Colour.color4),),
                 ],
               ),
