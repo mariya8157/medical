@@ -182,7 +182,7 @@ child:                 Container(
                     children: [
                       Text("Popular Articles",
                         style: TextStyle(
-                            fontSize: width*0.05,
+                            fontSize: width*0.06,
                             fontWeight: FontWeight.w700
                         ),),
                     ],
@@ -203,8 +203,8 @@ child:                 Container(
                               Row(
                                 children: [
                                   Container(
-                                    height: width*0.17,
-                                    width: width*0.33,
+                                    height: width*0.16,
+                                    width: width*0.31,
                                     // margin: EdgeInsets.only(left: width*0.05),
                                     decoration: BoxDecoration(
                                         color: Colour.primarycolour,
@@ -241,7 +241,7 @@ child:                 Container(
                         children: [
                           Text("Trending Articles",
                             style: TextStyle(
-                                fontSize: width*0.065,
+                                fontSize: width*0.06,
                                 fontWeight: FontWeight.w700
                             ),),
                         ],
@@ -272,7 +272,7 @@ child:                 Container(
                                             Text(
                                               "See all",
                                               style: TextStyle(
-                                                  fontSize: width * 0.045,
+                                                  fontSize: width * 0.04,
                                                   color: Colour.primarycolour),
                                             ),
                                           ],
@@ -295,7 +295,7 @@ child:                 Container(
                                             Text(
                                               "See less",
                                               style: TextStyle(
-                                                  fontSize: width * 0.045,
+                                                  fontSize: width * 0.04,
                                                   color: Colour.primarycolour),
                                             ),
                                           ],
@@ -318,8 +318,8 @@ child:                 Container(
                           return Column(
                             children: [
                               Container(
-                                height: width*0.85,
-                                width: width*0.57,
+                                height: width*0.83,
+                                width: width*0.53,
                                 decoration: BoxDecoration(
                                     border: Border.all(color: Colour.gray.withOpacity(0.2)),
                                     borderRadius: BorderRadius.circular(width*0.04)
@@ -355,14 +355,14 @@ child:                 Container(
                                           Text(c[index]["Text2"],
                                             style: TextStyle(
                                                 fontWeight: FontWeight.w700,
-                                                fontSize: width*0.0485
+                                                fontSize: width*0.037
                                             ),),
                                         ],
                                       ),
                                       Row(
                                         children: [
-                                          Text(c[index]["Text3"],style: TextStyle(fontWeight: FontWeight.w500,color: Colors.grey,fontSize: width*0.036),),
-                                          Text(c[index]["Text4"],style: TextStyle(fontWeight: FontWeight.w500,color: Colour.primarycolour,fontSize: width*0.037),),
+                                          Text(c[index]["Text3"],style: TextStyle(fontWeight: FontWeight.w500,color: Colors.grey,fontSize: width*0.034),),
+                                          Text(c[index]["Text4"],style: TextStyle(fontWeight: FontWeight.w500,color: Colour.primarycolour,fontSize: width*0.034),),
                                         ],
                                       )
                                     ],
@@ -390,7 +390,7 @@ child:                 Container(
                         children: [
                           Text("Related Articles",
                             style: TextStyle(
-                                fontSize: width*0.065,
+                                fontSize: width*0.06,
                                 fontWeight: FontWeight.w700
                             ),),
                         ],
@@ -421,7 +421,7 @@ child:                 Container(
                                             Text(
                                               "See all",
                                               style: TextStyle(
-                                                  fontSize: width * 0.045,
+                                                  fontSize: width * 0.04,
                                                   color: Colour.primarycolour),
                                             ),
                                           ],
@@ -444,7 +444,7 @@ child:                 Container(
                                             Text(
                                               "See less",
                                               style: TextStyle(
-                                                  fontSize: width * 0.045,
+                                                  fontSize: width * 0.04,
                                                   color: Colour.primarycolour),
                                             ),
                                           ],
@@ -482,8 +482,9 @@ child:                 Container(
                                         width: width*0.62,
                                         height: width*0.2,
                                         child: Column(
-                                          // crossAxisAlignment: CrossAxisAlignment.start,
+                                          crossAxisAlignment: CrossAxisAlignment.start,
                                           children: [
+                                            SizedBox(height: width*0.03,),
                                             Text(
                                                 d[index]["text1"],
                                               style: TextStyle(

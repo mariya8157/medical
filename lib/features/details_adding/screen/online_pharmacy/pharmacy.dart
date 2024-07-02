@@ -180,7 +180,7 @@ class _PharmacyPageState extends ConsumerState<PharmacyPage> {
                         Text(
                           "Popular Product",
                           style: TextStyle(
-                              fontSize: width * 0.045,
+                              fontSize: width * 0.06,
                               fontWeight: FontWeight.w700),
                         ),
                       ],
