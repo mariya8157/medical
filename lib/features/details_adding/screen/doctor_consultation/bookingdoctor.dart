@@ -87,7 +87,7 @@ class _BookingPageState extends ConsumerState<BookingPage> {
           style: TextStyle(
               color: Colour.thirdcolour,
               fontWeight: FontWeight.w700,
-              fontSize: width*0.06
+              fontSize: width*0.04
           ),
         ),
       ),
@@ -127,8 +127,8 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                                 children: [
                                   Text(widget.time.name.toString(),
                                     style: TextStyle(
-                                        fontSize: width*0.05,
-                                        fontWeight: FontWeight.w800,
+                                        fontSize: width*0.04,
+                                        fontWeight: FontWeight.w700,
                                         color:Colour.thirdcolour
                                     ),
                                   ),
@@ -158,8 +158,8 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                 children: [
                   Text("Date",
                     style: TextStyle(
-                        fontSize: width*0.05,
-                        fontWeight: FontWeight.w800,
+                        fontSize: width*0.04,
+                        fontWeight: FontWeight.w700,
                         color:Colour.thirdcolour
                     ),
                   ),
@@ -196,8 +196,8 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                 children: [
                   Text("Reason",
                     style: TextStyle(
-                        fontSize: width*0.05,
-                        fontWeight: FontWeight.w800,
+                        fontSize: width*0.04,
+                        fontWeight: FontWeight.w700,
                         color:Colour.thirdcolour
                     ),
                   ),
@@ -240,7 +240,7 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                         )
                       ),
                       style: TextStyle(
-                        fontSize: width*0.05,
+                        fontSize: width*0.04,
                         fontWeight: FontWeight.w500,
                         color: Colour.thirdcolour
                       ),
@@ -255,8 +255,8 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                 children: [
                   Text("Payment Detail",
                     style: TextStyle(
-                        fontSize: width*0.05,
-                        fontWeight: FontWeight.w800,
+                        fontSize: width*0.04,
+                        fontWeight: FontWeight.w700,
                         color:Colour.thirdcolour
                     ),
                   ),
@@ -267,7 +267,7 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                 children: [
                   Text("Consultation",
                     style: TextStyle(
-                        fontSize: width*0.05,
+                        fontSize: width*0.04,
                         fontWeight: FontWeight.w500,
                         color:Colour.gray
                     ),
@@ -278,14 +278,14 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                       children: [
                         Text("\$ ",
                           style: TextStyle(
-                              fontSize: width*0.05,
+                              fontSize: width*0.04,
                               fontWeight: FontWeight.w500,
                               color:Colour.thirdcolour
                           ),
                         ),
                         Text(widget.time.cons.toString(),
                           style: TextStyle(
-                              fontSize: width*0.05,
+                              fontSize: width*0.04,
                               fontWeight: FontWeight.w500,
                               color:Colour.thirdcolour
                           ),
@@ -300,7 +300,7 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                 children: [
                   Text("Admin Fee",
                     style: TextStyle(
-                        fontSize: width*0.05,
+                        fontSize: width*0.04,
                         fontWeight: FontWeight.w500,
                         color:Colour.gray
                     ),
@@ -311,14 +311,14 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                       children: [
                       Text("\$ ",
                       style: TextStyle(
-                          fontSize: width*0.05,
+                          fontSize: width*0.04,
                           fontWeight: FontWeight.w500,
                           color:Colour.thirdcolour
                       ),
                     ),
                     Text(widget.time.admin.toString(),
                       style: TextStyle(
-                          fontSize: width*0.05,
+                          fontSize: width*0.04,
                           fontWeight: FontWeight.w500,
                           color:Colour.thirdcolour
                       ),
@@ -333,7 +333,7 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                 children: [
                   Text("Aditional Discount",
                     style: TextStyle(
-                        fontSize: width*0.05,
+                        fontSize: width*0.04,
                         fontWeight: FontWeight.w500,
                         color:Colour.gray
                     ),
@@ -344,14 +344,14 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                         children: [
                           Text("\$ ",
                             style: TextStyle(
-                                fontSize: width*0.05,
+                                fontSize: width*0.04,
                                 fontWeight: FontWeight.w500,
                                 color:Colour.thirdcolour
                             ),
                           ),
                           Text(widget.time.dis.toString(),
                             style: TextStyle(
-                                fontSize: width*0.05,
+                                fontSize: width*0.04,
                                 fontWeight: FontWeight.w500,
                                 color:Colour.thirdcolour
                             ),
@@ -366,7 +366,7 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                 children: [
                   Text("Total",
                     style: TextStyle(
-                        fontSize: width*0.05,
+                        fontSize: width*0.04,
                         fontWeight: FontWeight.w600,
                         color:Colour.thirdcolour
                     ),
@@ -384,7 +384,7 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                           ),
                           Text("${widget.time.cons+widget.time.admin-widget.time.dis}",
                             style: TextStyle(
-                                fontSize: width*0.05,
+                                fontSize: width*0.04,
                                 fontWeight: FontWeight.w600,
                                 color:Colour.primarycolour
                             ),
@@ -402,8 +402,8 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                 children: [
                   Text("Payment Method",
                     style: TextStyle(
-                        fontSize: width*0.05,
-                        fontWeight: FontWeight.w800,
+                        fontSize: width*0.04,
+                        fontWeight: FontWeight.w700,
                         color:Colour.thirdcolour
                     ),
                   ),
@@ -425,7 +425,11 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                             width: width*0.07,
                             child: Image(image: NetworkImage("https://pbs.twimg.com/profile_images/1615271089705463811/v-emhrqu_400x400.png"),
                              ),),
-                          title: Text("PhonePe"),
+                          title: Text("PhonePe",
+                          style: TextStyle(
+                            fontSize: width*0.04,
+
+                          ),),
                           trailing: Radio(value: 1,
                             groupValue: selectedOption,
                             onChanged: ( value) {
@@ -448,7 +452,12 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                             height: width*0.07,
                             width: width*0.07,
                             child: Image(image: NetworkImage("https://www.computerhope.com/jargon/g/google-pay.png"))),
-                        title: Text("GPay"),
+                        title: Text("GPay",
+                          style: TextStyle(
+                          fontSize: width*0.04,
+
+                        ),),
+
                         trailing: Radio(value: 2,
                           groupValue: selectedOption,
                           onChanged: ( value) {
@@ -467,7 +476,11 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                       ),
                       child: ListTile(
                         leading: SvgPicture.asset(ImageIcons.apple),
-                        title: Text("Apple Pay"),
+                        title: Text("Apple Pay",
+                          style: TextStyle(
+                            fontSize: width*0.04,
+
+                          ),),
                         trailing: Radio(value: 3,
                           groupValue: selectedOption,
                           onChanged: ( value) {
@@ -489,7 +502,7 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                           children: [
                             Text("Total",
                               style: TextStyle(
-                                  fontSize: width*0.05,
+                                  fontSize: width*0.04,
                                   fontWeight: FontWeight.w600,
                                   color:Colour.gray
                               ),
@@ -500,15 +513,15 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                                   children: [
                                     Text("\$ ",
                                       style:TextStyle(
-                                          fontSize: width*0.05,
-                                          fontWeight: FontWeight.w800,
+                                          fontSize: width*0.04,
+                                          fontWeight: FontWeight.w700,
                                           color:Colour.thirdcolour
                                       ),
                                     ),
                                     Text("${widget.time.cons+widget.time.admin-widget.time.dis}",
                                       style: TextStyle(
-                                          fontSize: width*0.05,
-                                          fontWeight: FontWeight.w800,
+                                          fontSize: width*0.04,
+                                          fontWeight: FontWeight.w700,
                                           color:Colour.thirdcolour
                                       ),
                                     ),
@@ -544,7 +557,7 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                                           Text("Payment Success",
                                             style: TextStyle(
                                                 fontWeight: FontWeight.w600,
-                                                fontSize: width*0.042,
+                                                fontSize: width*0.04,
                                                 color: Colour.thirdcolour),),
                                           Text("Your payment has been successful,",
                                             style: TextStyle(
@@ -599,8 +612,8 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                       child: Center(
                         child: Text("Booking",
                           style: TextStyle(
-                              fontSize: width*0.045,
-                              fontWeight: FontWeight.w600,
+                              fontSize: width*0.04,
+                              fontWeight: FontWeight.w700,
                               color: Colour.secondarycolour
                           ),),
                       ),

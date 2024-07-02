@@ -104,7 +104,7 @@ class _FindDoctorState extends ConsumerState<FindDoctor> {
             style: TextStyle(
                 color: Colour.thirdcolour,
                 fontWeight: FontWeight.w700,
-                fontSize: width*0.06
+                fontSize: width*0.04
             ),
           ),
         ),
@@ -130,7 +130,7 @@ class _FindDoctorState extends ConsumerState<FindDoctor> {
                     controller:searchController ,
                     keyboardType: TextInputType.name,
                     textInputAction: TextInputAction.search,
-                    style: TextStyle(fontSize: width*0.045,fontWeight: FontWeight.w500,color: Colour.thirdcolour),
+                    style: TextStyle(fontSize: width*0.04,fontWeight: FontWeight.w500,color: Colour.thirdcolour),
                     decoration: InputDecoration(
                         prefixIcon:Padding(
                           padding:  EdgeInsets.all(width*0.03),
@@ -163,7 +163,7 @@ class _FindDoctorState extends ConsumerState<FindDoctor> {
                   children: [
                     Text("Category",
                       style: TextStyle(
-                          fontSize: width*0.06,
+                          fontSize: width*0.04,
                           fontWeight: FontWeight.w700,
                           color:Colour.thirdcolour
                       ),
@@ -221,14 +221,14 @@ class _FindDoctorState extends ConsumerState<FindDoctor> {
                       children: [
                         Text("Recommended Doctors",
                           style: TextStyle(
-                              fontSize: width*0.06,
+                              fontSize: width*0.04,
                               fontWeight: FontWeight.w700,
                               color:Colour.thirdcolour
                           ),
                         ),
                       ],
                     ),
-                    InkWell(
+               data.isEmpty   ?Text('no doctor found'):  InkWell(
                       onTap: () {
                         DoctorModel doctorData= DoctorModel(
                           search: data[selectIndex].search??[] ,
@@ -275,8 +275,9 @@ class _FindDoctorState extends ConsumerState<FindDoctor> {
                                         children: [
                                           Text(data[selectIndex].name.toString(),
                                             style: TextStyle(
-                                                fontSize: width*0.05,
-                                                fontWeight: FontWeight.w600,
+                                                fontSize: width*0.04,
+                                                fontWeight: FontWeight.w700,
+
                                                 color:Colour.thirdcolour
                                             ),
 
@@ -329,7 +330,7 @@ class _FindDoctorState extends ConsumerState<FindDoctor> {
                       children: [
                         Text("Your Recent Doctors",
                           style: TextStyle(
-                              fontSize: width*0.06,
+                              fontSize: width*0.04,
                               fontWeight: FontWeight.w700,
                               color:Colour.thirdcolour
                           ),

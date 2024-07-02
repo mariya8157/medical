@@ -114,7 +114,7 @@ int selectIndex1=0;
           style: TextStyle(
               color: Colour.thirdcolour,
               fontWeight: FontWeight.w700,
-              fontSize: width*0.06
+              fontSize: width*0.04
           ),
         ),
 surfaceTintColor:Colour.thirdcolour ,
@@ -153,7 +153,7 @@ surfaceTintColor:Colour.thirdcolour ,
                               children: [
                                 Text(widget.dr.name,
                                   style: TextStyle(
-                                      fontSize: width*0.05,
+                                      fontSize: width*0.04,
                                       fontWeight: FontWeight.w800,
                                       color:Colour.thirdcolour
                                   ),
@@ -195,7 +195,7 @@ surfaceTintColor:Colour.thirdcolour ,
                 children: [
                   Text("About",
                     style: TextStyle(
-                        fontSize: width*0.05,
+                        fontSize: width*0.04,
                         fontWeight: FontWeight.w700,
                         color:Colour.thirdcolour
                     ),
@@ -225,6 +225,7 @@ surfaceTintColor:Colour.thirdcolour ,
                 firstDate: DateTime.now(),
                 lastDate: DateTime(DateTime.now().year, DateTime.now().month+1,DateTime.daysPerWeek),
                 focusDate: date ?? DateTime.now(),
+
                 onDateChange: (selectedDate) {
                   date=selectedDate;
                   print(date);
@@ -349,7 +350,7 @@ surfaceTintColor:Colour.thirdcolour ,
                               child: Text(time[index],
                                                     style: TextStyle(
                                 color: selectIndex1==index?Colour.secondarycolour:Colour.thirdcolour,
-                                fontSize: width*0.04
+                                fontSize: width*0.035
                                                     ),
                                                   ),
                             )),
@@ -395,8 +396,16 @@ surfaceTintColor:Colour.thirdcolour ,
                           id: widget.dr.id,
                           time: time[selectIndex1],
                           date: date.toString(), userId: '');
-
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => BookingPage(time:doctorData,)));
+                      if(date!=null) {
+                        Navigator.push(context, MaterialPageRoute(builder: (
+                            context) => BookingPage(time: doctorData,)));
+                      }else{
+                        ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                                backgroundColor: Colour.primarycolour,
+                                content: Text(
+                                    "Please select any date ")));
+                      }
                        },
                     child: Container(
                       height: height*0.07,
@@ -408,7 +417,7 @@ surfaceTintColor:Colour.thirdcolour ,
                       child: Center(
                         child: Text("Book Apointment",
                           style: TextStyle(
-                              fontSize: width*0.045,
+                              fontSize: width*0.04,
                               fontWeight: FontWeight.w600,
                               color: Colour.secondarycolour
                           ),),

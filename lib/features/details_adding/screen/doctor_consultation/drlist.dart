@@ -47,7 +47,7 @@ class _TopDoctorPageState extends ConsumerState<DoctorList> {
             style: TextStyle(
                 color: Colour.thirdcolour,
                 fontWeight: FontWeight.w700,
-                fontSize: width*0.06
+                fontSize: width*0.04
             ),
           ),
           actions: [

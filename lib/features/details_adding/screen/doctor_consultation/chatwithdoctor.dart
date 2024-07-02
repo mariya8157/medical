@@ -74,7 +74,7 @@ class _ChatPageState extends State<ChatPage> {
           style: TextStyle(
               color: Colour.thirdcolour,
               fontWeight: FontWeight.w700,
-              fontSize: width * 0.06),
+              fontSize: width * 0.04),
         ),
       ),
       body: Stack(

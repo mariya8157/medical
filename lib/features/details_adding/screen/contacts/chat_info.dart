@@ -20,7 +20,7 @@ class ChatInfo extends StatelessWidget {
           children: [
             Text("Consultion Start",
               style: TextStyle(
-                  fontSize: width*0.05,
+                  fontSize: width*0.04,
                   fontWeight: FontWeight.w600,
                   color:Colour.primarycolour
               ),
