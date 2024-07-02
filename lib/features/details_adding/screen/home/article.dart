@@ -114,7 +114,7 @@ bool o=false;
           style: TextStyle(
               color: Colour.thirdcolour,
               fontWeight: FontWeight.w700,
-              fontSize: width*0.06
+              fontSize: width*0.04
           ),
         ),
         actions: [
@@ -182,7 +182,7 @@ child:                 Container(
                     children: [
                       Text("Popular Articles",
                         style: TextStyle(
-                            fontSize: width*0.06,
+                            fontSize: width*0.04,
                             fontWeight: FontWeight.w700
                         ),),
                     ],
@@ -203,8 +203,8 @@ child:                 Container(
                               Row(
                                 children: [
                                   Container(
-                                    height: width*0.16,
-                                    width: width*0.31,
+                                    height: width*0.13,
+                                    width: width*0.28,
                                     // margin: EdgeInsets.only(left: width*0.05),
                                     decoration: BoxDecoration(
                                         color: Colour.primarycolour,
@@ -214,7 +214,7 @@ child:                 Container(
                                       a[index]["Text"],
                                       style: TextStyle(
                                           fontWeight: FontWeight.w700,
-                                          fontSize: width*0.043,
+                                          fontSize: width*0.04,
                                           color: Colour.secondarycolour
                                       ),)),
                                   ),
@@ -241,7 +241,7 @@ child:                 Container(
                         children: [
                           Text("Trending Articles",
                             style: TextStyle(
-                                fontSize: width*0.06,
+                                fontSize: width*0.04,
                                 fontWeight: FontWeight.w700
                             ),),
                         ],
@@ -272,7 +272,7 @@ child:                 Container(
                                             Text(
                                               "See all",
                                               style: TextStyle(
-                                                  fontSize: width * 0.04,
+                                                  fontSize: width * 0.03,
                                                   color: Colour.primarycolour),
                                             ),
                                           ],
@@ -295,7 +295,7 @@ child:                 Container(
                                             Text(
                                               "See less",
                                               style: TextStyle(
-                                                  fontSize: width * 0.04,
+                                                  fontSize: width * 0.03,
                                                   color: Colour.primarycolour),
                                             ),
                                           ],
@@ -390,7 +390,7 @@ child:                 Container(
                         children: [
                           Text("Related Articles",
                             style: TextStyle(
-                                fontSize: width*0.06,
+                                fontSize: width*0.04,
                                 fontWeight: FontWeight.w700
                             ),),
                         ],
@@ -421,7 +421,7 @@ child:                 Container(
                                             Text(
                                               "See all",
                                               style: TextStyle(
-                                                  fontSize: width * 0.04,
+                                                  fontSize: width * 0.03,
                                                   color: Colour.primarycolour),
                                             ),
                                           ],
@@ -444,7 +444,7 @@ child:                 Container(
                                             Text(
                                               "See less",
                                               style: TextStyle(
-                                                  fontSize: width * 0.04,
+                                                  fontSize: width * 0.03,
                                                   color: Colour.primarycolour),
                                             ),
                                           ],
