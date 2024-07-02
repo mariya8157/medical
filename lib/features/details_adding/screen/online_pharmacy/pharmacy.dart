@@ -59,7 +59,7 @@ class _PharmacyPageState extends ConsumerState<PharmacyPage> {
           style: TextStyle(
               color: Colour.thirdcolour,
               fontWeight: FontWeight.w700,
-              fontSize: width * 0.06),
+              fontSize: width * 0.04),
         ),
       ),
       body: Padding(
@@ -94,7 +94,7 @@ class _PharmacyPageState extends ConsumerState<PharmacyPage> {
                            labelStyle: TextStyle(fontWeight: FontWeight.w500,fontSize: width*0.04, color: Colour.color1),
                            hintText: "search drugs here",
                            hintStyle: TextStyle(
-                             fontSize: width*0.05,
+                             fontSize: width*0.04,
                              fontWeight: FontWeight.w400,
                            ),
                            focusedBorder: OutlineInputBorder(
@@ -124,17 +124,17 @@ class _PharmacyPageState extends ConsumerState<PharmacyPage> {
                       children: [
                         Center(
                           child: Container(
-                            height: width * 0.28,
-                            width: width * 0.5,
+                            height: width * 0.27,
+                            width: width * 0.45,
                             child: Container(
-                              height: height*0.17,
+                              height: height*0.15,
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                children: [
                                   Text(
                                     "Order quickly with\nPrescription",
                                     style: TextStyle(
-                                        fontWeight: FontWeight.w900,
+                                        fontWeight: FontWeight.w700,
                                         fontSize: width * 0.05),
                                   ),
                                   Container(
@@ -172,6 +172,7 @@ class _PharmacyPageState extends ConsumerState<PharmacyPage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
+                SizedBox(width: width*0.02,),
                 Container(
                     height: width * 0.13,
                     width: width * 0.58,
@@ -180,7 +181,7 @@ class _PharmacyPageState extends ConsumerState<PharmacyPage> {
                         Text(
                           "Popular Product",
                           style: TextStyle(
-                              fontSize: width * 0.06,
+                              fontSize: width * 0.04,
                               fontWeight: FontWeight.w700),
                         ),
                       ],
@@ -201,12 +202,12 @@ class _PharmacyPageState extends ConsumerState<PharmacyPage> {
                                     see?Text(
                                       "See less",
                                       style: TextStyle(
-                                          fontSize: width * 0.035,
+                                          fontSize: width * 0.032,
                                           color: Colour.primarycolour),
                                     ):Text(
                                       "See all",
                                       style: TextStyle(
-                                          fontSize: width * 0.035,
+                                          fontSize: width * 0.032,
                                           color: Colour.primarycolour),
                                     ),
                                   ],
@@ -217,7 +218,7 @@ class _PharmacyPageState extends ConsumerState<PharmacyPage> {
               ],
             ),
             ref.watch(StreamMedProvider).when(data: (data) => Container(
-              height: width * 0.63,
+              height: width * 0.6,
               width: width * 1,
               child: ListView.separated(
                   shrinkWrap: true,
@@ -259,9 +260,7 @@ class _PharmacyPageState extends ConsumerState<PharmacyPage> {
                               padding: EdgeInsets.all(width * 0.017),
                               child: Column(
                                 children: [
-                                  SizedBox(
-                                    height: width * 0.01,
-                                  ),
+                                  SizedBox(height: width * 0.01,),
                                   Container(
                                     height: width * 0.3,
                                     width: width * 0.3,
@@ -283,14 +282,14 @@ class _PharmacyPageState extends ConsumerState<PharmacyPage> {
                                                   data[index].name.toString(),
                                                   style: TextStyle(
                                                       fontWeight: FontWeight.w700,
-                                                      fontSize: width * 0.045),
+                                                      fontSize: width * 0.035),
                                                 ),
                                               ],
                                             ),
                                             Text(
                                               data[index].ml.toString(),
                                               style: TextStyle(
-                                                  fontSize: width * 0.04,
+                                                  fontSize: width * 0.035,
                                                   color: Colour.gray,
                                                   fontWeight: FontWeight.w500),
                                             ),
@@ -310,7 +309,7 @@ class _PharmacyPageState extends ConsumerState<PharmacyPage> {
                                           "${data[index].rate.toString()}",
                                           style: TextStyle(
                                               fontWeight: FontWeight.w700,
-                                              fontSize: width * 0.05),
+                                              fontSize: width * 0.035),
                                         ),
                                         InkWell(
                                             onTap: () {
@@ -359,18 +358,18 @@ class _PharmacyPageState extends ConsumerState<PharmacyPage> {
               },),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
                     height: width * 0.13,
                     width: width * 0.55,
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [SizedBox(width: width*0.03,),
                         Text(
                           "Product on Sale",
                           style: TextStyle(
-                              fontSize: width * 0.06,
+                              fontSize: width * 0.04,
                               fontWeight: FontWeight.w700),
                         ),
                       ],
@@ -393,12 +392,12 @@ class _PharmacyPageState extends ConsumerState<PharmacyPage> {
                                    see2? Text(
                                      "See less",
                                      style: TextStyle(
-                                         fontSize: width * 0.045,
+                                         fontSize: width * 0.032,
                                          color: Colour.primarycolour),
                                    ):Text(
                                       "See all",
                                       style: TextStyle(
-                                          fontSize: width * 0.045,
+                                          fontSize: width * 0.032,
                                           color: Colour.primarycolour),
                                     ),
                                   ],
@@ -435,7 +434,7 @@ class _PharmacyPageState extends ConsumerState<PharmacyPage> {
                                 qty: data[selectindex1].qty,
                                 userId: '');
                             // print(currentModel!.id);
-                            print("----------------===================000000000000");
+
                             Navigator.push(context, MaterialPageRoute(builder: (context) => DrugDetailsPage2(med2: medicineData2,)));
                           },
                           child: Container(
@@ -466,21 +465,19 @@ class _PharmacyPageState extends ConsumerState<PharmacyPage> {
                                       Container(
                                         height: width * 0.15,
                                         child: Column(
-                                          crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                          mainAxisAlignment:
-                                          MainAxisAlignment.spaceEvenly,
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                           children: [
                                             Text(
                                               data[index].name.toString(),
                                               style: TextStyle(
                                                   fontWeight: FontWeight.w800,
-                                                  fontSize: width * 0.05),
+                                                  fontSize: width * 0.035),
                                             ),
                                             Text(
                                               data[index].ml.toString(),
                                               style: TextStyle(
-                                                  fontSize: width * 0.043,
+                                                  fontSize: width * 0.035,
                                                   color: Colour.gray,
                                                   fontWeight: FontWeight.w500),
                                             ),
@@ -500,7 +497,7 @@ class _PharmacyPageState extends ConsumerState<PharmacyPage> {
                                           "${data[index].rate.toString()}",
                                           style: TextStyle(
                                               fontWeight: FontWeight.w900,
-                                              fontSize: width * 0.05),
+                                              fontSize: width * 0.035),
                                         ),
                                         Text(
                                           "${data[index].off.toString()}",
