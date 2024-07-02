@@ -79,8 +79,7 @@ class _FindDoctorState extends ConsumerState<FindDoctor> {
               padding: EdgeInsets.only(left: width*0.023),
               child: Padding(
                 padding:  EdgeInsets.all(width*0.007),
-                child:
-                SvgPicture.asset(
+                child: SvgPicture.asset(
                   ImageIcons.back,),
               ),
             ),
@@ -164,7 +163,7 @@ class _FindDoctorState extends ConsumerState<FindDoctor> {
                   children: [
                     Text("Category",
                       style: TextStyle(
-                          fontSize: width*0.05,
+                          fontSize: width*0.06,
                           fontWeight: FontWeight.w700,
                           color:Colour.thirdcolour
                       ),
@@ -222,7 +221,7 @@ class _FindDoctorState extends ConsumerState<FindDoctor> {
                       children: [
                         Text("Recommended Doctors",
                           style: TextStyle(
-                              fontSize: width*0.05,
+                              fontSize: width*0.06,
                               fontWeight: FontWeight.w700,
                               color:Colour.thirdcolour
                           ),
@@ -330,7 +329,7 @@ class _FindDoctorState extends ConsumerState<FindDoctor> {
                       children: [
                         Text("Your Recent Doctors",
                           style: TextStyle(
-                              fontSize: width*0.05,
+                              fontSize: width*0.06,
                               fontWeight: FontWeight.w700,
                               color:Colour.thirdcolour
                           ),
