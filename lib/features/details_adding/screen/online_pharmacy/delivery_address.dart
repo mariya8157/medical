@@ -51,7 +51,7 @@ class _DeliveryPageState extends ConsumerState<DeliveryPage> {
         itemName: widget.item2.name,
         itemImage: widget.item2.image,
         itemMl: widget.item2.ml,
-        itemRate: widget.item2.rate.toInt(),
+        itemRate: widget.item2.rate.toInt()*widget.item2.qty.toInt(),
         userId: ''));
   }
   @override
@@ -472,22 +472,6 @@ class _DeliveryPageState extends ConsumerState<DeliveryPage> {
                   )
                   {
                     addressDetails();
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => MyCartPage(
-                        details: AddressModel(
-                            name: nameController.text,
-                            phone: int.parse(phoneController.text),
-                            pincode: int.parse(pincodeController.text),
-                            street: streetController.text,
-                            city: cityController.text,
-                            country: countryController.text,
-                            houseName: houseController.text,
-                            id: idController.text,
-                            itemName: widget.item2.name,
-                            itemImage: widget.item2.image,
-                            itemMl: widget.item2.ml,
-                            itemRate: widget.item2.rate.toInt(),
-                            userId: ''),
-                    ),));
                   }
                   else{
                     nameController.text==""?

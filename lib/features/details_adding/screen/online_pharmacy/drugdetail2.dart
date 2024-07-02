@@ -3,8 +3,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:givestarreviews/givestarreviews.dart';
+import 'package:medical/features/details_adding/providers/firebase_provider.dart';
 import 'package:medical/features/details_adding/screen/online_pharmacy/delivery_address.dart';
 import 'package:medical/models/medicine_model.dart';
 
@@ -13,15 +15,15 @@ import '../../../../core/constants/icons.dart';
 import '../../../../main.dart';
 import 'mycart.dart';
 
-class DrugDetailsPage2 extends StatefulWidget {
+class DrugDetailsPage2 extends ConsumerStatefulWidget {
   final MedicineModel med2;
   const DrugDetailsPage2({super.key, required this.med2});
 
   @override
-  State<DrugDetailsPage2> createState() => _DrugDetailsPage2State();
+  ConsumerState<DrugDetailsPage2> createState() => _DrugDetailsPage2State();
 }
 
-class _DrugDetailsPage2State extends State<DrugDetailsPage2> {
+class _DrugDetailsPage2State extends ConsumerState<DrugDetailsPage2> {
   List d = [];
   dynamic added;
   dynamic total = 0;
@@ -251,17 +253,110 @@ class _DrugDetailsPage2State extends State<DrugDetailsPage2> {
                         mainAxisAlignment:
                         MainAxisAlignment.spaceBetween,
                         children: [
-                          Container(
-                            height: width * 0.14,
-                            width: width * 0.14,
-                            decoration: BoxDecoration(
-                                color:
-                                Colors.lightGreen.withOpacity(0.09),
-                                borderRadius: BorderRadius.circular(
-                                    width * 0.02)),
-                            child: Icon(
-                              Icons.shopping_cart_outlined,
-                              color: Colors.green,
+                          InkWell(
+                            onTap: () {
+                              showDialog(
+                                context: context,
+                                // barrierDismissible: false,
+                                builder: (context) {
+                                  return AlertDialog(
+                                    content: Container(
+                                      height: height*0.18,
+                                      width: width*0.5,
+                                      child: Column(
+                                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                        children: [
+                                          Container(
+                                              child: Column(
+                                                children: [
+                                                  Text("Are you sure You want to",
+                                                    style: TextStyle(
+                                                        fontWeight: FontWeight.w600,
+                                                        fontSize: width*0.04,
+                                                        color: Colour.thirdcolour),),
+                                                  Text("add this to cart?",
+                                                    style: TextStyle(
+                                                        fontWeight: FontWeight.w600,
+                                                        fontSize: width*0.04,
+                                                        color: Colour.thirdcolour),),
+                                                ],)),
+                                          Row(
+                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              InkWell(
+                                                onTap: ()  {
+                                                  MedicineModel cartDetails= MedicineModel(
+                                                      name: widget.med2.name.toString(),
+                                                      image: widget.med2.image.toString(),
+                                                      ml: widget.med2.ml.toString(),
+                                                      rate: widget.med2.rate,
+                                                      off: widget.med2.off,
+                                                      id: widget.med2.id.toString(),
+                                                      des: '',
+                                                      qty: widget.med2.qty,
+                                                      userId: '');
+                                                  ref.read(cartNotifier.notifier).updateList(cartDetails);
+                                                  Navigator.push(context, MaterialPageRoute(builder: (context) => MyCartPage(details: cartDetails ),));
+                                                  // Navigator.pop(context);
+                                                },
+                                                child: Container(
+                                                  height: height*0.05,
+                                                  width: width*0.26,
+                                                  decoration: BoxDecoration(
+                                                      color: Colour.primarycolour,
+                                                      borderRadius: BorderRadius.circular(width*0.03)
+                                                  ),
+                                                  child: Center(
+                                                    child: Text("Yes",
+                                                      style: TextStyle(
+                                                          fontSize: width*0.04,
+                                                          fontWeight: FontWeight.w600,
+                                                          color: Colour.secondarycolour
+                                                      ),),
+                                                  ),
+                                                ),
+                                              ),
+                                              InkWell(
+                                                onTap: () {
+                                                  Navigator.pop(context);
+                                                },
+                                                child: Container(
+                                                  height: height*0.05,
+                                                  width: width*0.26,
+                                                  decoration: BoxDecoration(
+                                                      color: Colour.primarycolour,
+                                                      borderRadius: BorderRadius.circular(width*0.03)
+                                                  ),
+                                                  child: Center(
+                                                    child: Text("No",
+                                                      style: TextStyle(
+                                                          fontSize: width*0.04,
+                                                          fontWeight: FontWeight.w600,
+                                                          color: Colour.secondarycolour
+                                                      ),),
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  );
+                                },);
+                             },
+                            child: Container(
+                              height: width * 0.14,
+                              width: width * 0.14,
+                              decoration: BoxDecoration(
+                                  color:
+                                  Colors.lightGreen.withOpacity(0.09),
+                                  borderRadius: BorderRadius.circular(
+                                      width * 0.02)),
+                              child: Icon(
+                                Icons.shopping_cart_outlined,
+                                color: Colors.green,
+                              ),
                             ),
                           ),
                           InkWell(

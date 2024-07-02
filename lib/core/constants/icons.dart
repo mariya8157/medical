@@ -28,7 +28,7 @@ class ImageIcons{
   static const Pharmacy = "assets/icons/Pharmacy.svg";
   static const Hospital = "assets/icons/Hospital.svg";
   static const Ambulance = "assets/icons/Ambulance.svg";
-
+  static const delete = "assets/icons/Delete.svg";
   static const star = "assets/icons/Star.svg";
   static const location = "assets/icons/Location.svg";
   static const location1 = "assets/icons/location1.svg";

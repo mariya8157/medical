@@ -8,6 +8,7 @@ import 'package:medical/features/details_adding/screen/home/bottomnavigation.dar
 import 'package:medical/features/details_adding/screen/home/docter.dart';
 import 'package:medical/features/details_adding/screen/home/homepage.dart';
 import 'package:medical/features/details_adding/screen/home/topdoctor.dart';
+import 'package:medical/features/details_adding/screen/online_pharmacy/mycart.dart';
 import 'package:medical/features/details_adding/screen/online_pharmacy/pharmacy.dart';
 import 'package:medical/features/details_adding/screen/splashScreen/splashscreen.dart';
 // import 'package:medical/features/details_adding/screen/login%20&%20Sign%20Up/login.dart';
@@ -24,7 +25,6 @@ import 'features/details_adding/screen/Profile/profile.dart';
 // import 'features/details_adding/screen/onlinePharmacy/address.dart';
 // import 'features/details_adding/screen/onlinePharmacy/article.dart';
 // import 'features/details_adding/screen/onlinePharmacy/delivery_address.dart';
-import 'features/details_adding/screen/onlinePharmacy/pharmacy2.dart';
 import 'features/details_adding/screen/online_pharmacy/pharmacy.dart';
 import 'firebase_options.dart';
 import 'models/user_model.dart';
@@ -56,7 +56,7 @@ class MyApp extends StatelessWidget {
             theme: ThemeData(
               textTheme: GoogleFonts.interTextTheme()
             ),
-            home:SplashScreen()
+            home:BottomNavigationPage()
     ),);
   }
 }
