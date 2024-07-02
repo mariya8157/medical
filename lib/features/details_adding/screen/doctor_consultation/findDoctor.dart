@@ -276,7 +276,7 @@ class _FindDoctorState extends ConsumerState<FindDoctor> {
                                           Text(data[selectIndex].name.toString(),
                                             style: TextStyle(
                                                 fontSize: width*0.05,
-                                                fontWeight: FontWeight.w700,
+                                                fontWeight: FontWeight.w600,
                                                 color:Colour.thirdcolour
                                             ),
 
