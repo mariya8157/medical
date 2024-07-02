@@ -274,17 +274,15 @@ class _PharmacyPageState extends ConsumerState<PharmacyPage> {
                                       Container(
                                         height: width * 0.15,
                                         child: Column(
-                                          crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                          mainAxisAlignment:
-                                          MainAxisAlignment.spaceEvenly,
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                           children: [
                                             Row(
                                               children: [
                                                 Text(
                                                   data[index].name.toString(),
                                                   style: TextStyle(
-                                                      fontWeight: FontWeight.w800,
+                                                      fontWeight: FontWeight.w700,
                                                       fontSize: width * 0.045),
                                                 ),
                                               ],
@@ -372,7 +370,7 @@ class _PharmacyPageState extends ConsumerState<PharmacyPage> {
                         Text(
                           "Product on Sale",
                           style: TextStyle(
-                              fontSize: width * 0.04,
+                              fontSize: width * 0.06,
                               fontWeight: FontWeight.w700),
                         ),
                       ],
