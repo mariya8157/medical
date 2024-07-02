@@ -114,7 +114,7 @@ bool o=false;
           style: TextStyle(
               color: Colour.thirdcolour,
               fontWeight: FontWeight.w700,
-              fontSize: width*0.063
+              fontSize: width*0.06
           ),
         ),
         actions: [
@@ -136,65 +136,53 @@ bool o=false;
                 children: [
                   SizedBox(height: width*0.05,),
                   Center(
-                    child: Container(
-                      height: width*0.14,
-                      width: width*0.9,
-                      decoration: BoxDecoration(
-                        color:Colour.white,
-                        borderRadius: BorderRadius.circular(width*0.08),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey.withOpacity(0.295), // Shadow color
-                            spreadRadius: 2, // Spread radius
-                            blurRadius: 03, // Blur radius
-                            offset: Offset(0, 3), // Offset
-                          ),
-                        ],
-                      ),
-                      child: TextFormField(
-                        controller:articleController ,
-                        // textCapitalization: TextCapitalization.sentences,
-                        keyboardType:TextInputType.text ,
-                        autofocus: false,
-                        textInputAction: TextInputAction.next,
-                        style: TextStyle(
-                            fontSize: width*0.04,
-                            fontWeight: FontWeight.w600
-                        ),
-                        decoration: InputDecoration(
-                          prefixIcon: SizedBox(
-                              height: width*0.03,
-                              width: width*0.05,
-                              child: Center(child: SvgPicture.asset(ImageIcons.search,width: width*0.06,))),
-                          // suffixText:"kousar",
-
-                          labelStyle: TextStyle(
-                            fontSize: width*0.05,
-                            fontWeight: FontWeight.w500,
-                          ),
-                          hintText: "Search articles, news...",
-                          hintStyle: TextStyle(
-                            fontSize: width*0.05,
-                            fontWeight: FontWeight.w600,
-                          ),
-                          border: InputBorder.none,
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              color: Colour.gray.withOpacity(0.12),
-                            ),
-                            borderRadius: BorderRadius.circular(width*0.08),
-                          ),
-
-                        ),
-                      ),
-                    ),
-                  ),
+child:                 Container(
+  height: height*0.06,
+  width: width*0.9,
+  decoration: BoxDecoration(
+      color: Colour.color3,
+      borderRadius: BorderRadius.circular(width*0.07)
+  ),
+  child: TextFormField(
+    controller:articleController ,
+    keyboardType: TextInputType.name,
+    textInputAction: TextInputAction.search,
+    style: TextStyle(fontSize: width*0.045,fontWeight: FontWeight.w500,color: Colour.thirdcolour),
+    decoration: InputDecoration(
+        prefixIcon:Padding(
+          padding:  EdgeInsets.all(width*0.03),
+          child: SvgPicture.asset(ImageIcons.search),
+        ),
+        labelText: "search articles,news..,",
+        labelStyle: TextStyle(fontWeight: FontWeight.w500,fontSize: width*0.04, color: Colour.color1),
+        hintText: "search  articles",
+        hintStyle: TextStyle(
+          fontSize: width*0.05,
+          fontWeight: FontWeight.w400,
+        ),
+        focusedBorder: OutlineInputBorder(
+            borderSide: BorderSide(
+              color: Colour.color2,
+            ),
+            borderRadius: BorderRadius.circular(
+                width*0.07)
+        ),
+        enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(width*0.07),
+            borderSide: BorderSide(
+              color: Colour.color2,
+            )
+        )
+    ),
+  ),
+),
+                                      ),
                   SizedBox(height: width*0.05,),
                   Row(
                     children: [
                       Text("Popular Articles",
                         style: TextStyle(
-                            fontSize: width*0.065,
+                            fontSize: width*0.05,
                             fontWeight: FontWeight.w700
                         ),),
                     ],

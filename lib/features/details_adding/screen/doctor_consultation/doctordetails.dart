@@ -114,7 +114,7 @@ int selectIndex1=0;
           style: TextStyle(
               color: Colour.thirdcolour,
               fontWeight: FontWeight.w700,
-              fontSize: width*0.063
+              fontSize: width*0.06
           ),
         ),
 surfaceTintColor:Colour.thirdcolour ,
@@ -196,7 +196,7 @@ surfaceTintColor:Colour.thirdcolour ,
                   Text("About",
                     style: TextStyle(
                         fontSize: width*0.05,
-                        fontWeight: FontWeight.w800,
+                        fontWeight: FontWeight.w700,
                         color:Colour.thirdcolour
                     ),
                   ),

@@ -165,7 +165,7 @@ class _FindDoctorState extends ConsumerState<FindDoctor> {
                     Text("Category",
                       style: TextStyle(
                           fontSize: width*0.05,
-                          fontWeight: FontWeight.w800,
+                          fontWeight: FontWeight.w700,
                           color:Colour.thirdcolour
                       ),
                     ),
@@ -223,7 +223,7 @@ class _FindDoctorState extends ConsumerState<FindDoctor> {
                         Text("Recommended Doctors",
                           style: TextStyle(
                               fontSize: width*0.05,
-                              fontWeight: FontWeight.w800,
+                              fontWeight: FontWeight.w700,
                               color:Colour.thirdcolour
                           ),
                         ),
@@ -247,7 +247,6 @@ class _FindDoctorState extends ConsumerState<FindDoctor> {
                           userId: '',
                             );
                         // print(currentModel!.id);
-                        print("----------------===================000000000000");
                         Navigator.push(context, MaterialPageRoute(builder: (context) => DoctordetailsPage(dr:doctorData,),));
                       },
                       child: Container(
@@ -278,7 +277,7 @@ class _FindDoctorState extends ConsumerState<FindDoctor> {
                                           Text(data[selectIndex].name.toString(),
                                             style: TextStyle(
                                                 fontSize: width*0.05,
-                                                fontWeight: FontWeight.w800,
+                                                fontWeight: FontWeight.w700,
                                                 color:Colour.thirdcolour
                                             ),
 
@@ -332,7 +331,7 @@ class _FindDoctorState extends ConsumerState<FindDoctor> {
                         Text("Your Recent Doctors",
                           style: TextStyle(
                               fontSize: width*0.05,
-                              fontWeight: FontWeight.w800,
+                              fontWeight: FontWeight.w700,
                               color:Colour.thirdcolour
                           ),
                         ),

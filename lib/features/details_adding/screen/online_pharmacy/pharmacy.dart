@@ -59,7 +59,7 @@ class _PharmacyPageState extends ConsumerState<PharmacyPage> {
           style: TextStyle(
               color: Colour.thirdcolour,
               fontWeight: FontWeight.w700,
-              fontSize: width * 0.063),
+              fontSize: width * 0.06),
         ),
       ),
       body: Padding(
@@ -73,52 +73,46 @@ class _PharmacyPageState extends ConsumerState<PharmacyPage> {
               width: width * 1,
               child: Column(
                  children: [
-                  Container(
-                    height: width * 0.13,
-                    width: width * 0.88,
-                    decoration: BoxDecoration(
-                      color: Colour.gray.withOpacity(0.07),
-                      border:
-                          Border.all(color: Colour.lightgreen.withOpacity(0.3)),
-                      borderRadius: BorderRadius.circular(width * 0.08),
-                    ),
-                    child: TextFormField(
-                      controller: drugsControl,
-                      keyboardType: TextInputType.text,
-                      autofocus: false,
-                      textInputAction: TextInputAction.next,
-                      style: TextStyle(
-                          fontSize: width * 0.04, fontWeight: FontWeight.w600),
-                      decoration: InputDecoration(
-                        prefixIcon: SizedBox(
-                            height: width * 0.03,
-                            width: width * 0.05,
-                            child: Center(
-                                child: SvgPicture.asset(
-                              ImageIcons.search,
-                              width: width * 0.06,
-                            ))),
-                        // suffixText:"kousar",
-
-                        labelStyle: TextStyle(
-                          fontSize: width * 0.05,
-                          fontWeight: FontWeight.w500,
-                        ),
-                        hintText: "Search drugs, category...",
-                        hintStyle: TextStyle(
-                          fontSize: width * 0.05,
-                          fontWeight: FontWeight.w600,
-                        ),
-                        border: InputBorder.none,
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Colour.lightgreen.withOpacity(0.03),
-                          ),
-                          borderRadius: BorderRadius.circular(width * 0.08),
-                        ),
-                      ),
-                    ),
-                  ),
+                   Container(
+                     height: height*0.06,
+                     width: width*0.9,
+                     decoration: BoxDecoration(
+                         color: Colour.color3,
+                         borderRadius: BorderRadius.circular(width*0.07)
+                     ),
+                     child: TextFormField(
+                       controller: drugsControl,
+                       keyboardType: TextInputType.name,
+                       textInputAction: TextInputAction.search,
+                       style: TextStyle(fontSize: width*0.045,fontWeight: FontWeight.w500,color: Colour.thirdcolour),
+                       decoration: InputDecoration(
+                           prefixIcon:Padding(
+                             padding:  EdgeInsets.all(width*0.03),
+                             child: SvgPicture.asset(ImageIcons.search),
+                           ),
+                           labelText: "search drugs,category",
+                           labelStyle: TextStyle(fontWeight: FontWeight.w500,fontSize: width*0.04, color: Colour.color1),
+                           hintText: "search drugs here",
+                           hintStyle: TextStyle(
+                             fontSize: width*0.05,
+                             fontWeight: FontWeight.w400,
+                           ),
+                           focusedBorder: OutlineInputBorder(
+                               borderSide: BorderSide(
+                                 color: Colour.color2,
+                               ),
+                               borderRadius: BorderRadius.circular(
+                                   width*0.07)
+                           ),
+                           enabledBorder: OutlineInputBorder(
+                               borderRadius: BorderRadius.circular(width*0.07),
+                               borderSide: BorderSide(
+                                 color: Colour.color2,
+                               )
+                           )
+                       ),
+                     ),
+                   ),
                   SizedBox(height: width*0.03,),
                   Container(
                     height: width * 0.43,
@@ -184,7 +178,7 @@ class _PharmacyPageState extends ConsumerState<PharmacyPage> {
                     child: Row(
                       children: [
                         Text(
-                          "Trending Articles",
+                          "Popular Product",
                           style: TextStyle(
                               fontSize: width * 0.045,
                               fontWeight: FontWeight.w700),
@@ -298,7 +292,7 @@ class _PharmacyPageState extends ConsumerState<PharmacyPage> {
                                             Text(
                                               data[index].ml.toString(),
                                               style: TextStyle(
-                                                  fontSize: width * 0.043,
+                                                  fontSize: width * 0.04,
                                                   color: Colour.gray,
                                                   fontWeight: FontWeight.w500),
                                             ),
@@ -317,7 +311,7 @@ class _PharmacyPageState extends ConsumerState<PharmacyPage> {
                                         Text(
                                           "${data[index].rate.toString()}",
                                           style: TextStyle(
-                                              fontWeight: FontWeight.w900,
+                                              fontWeight: FontWeight.w700,
                                               fontSize: width * 0.05),
                                         ),
                                         InkWell(
@@ -378,7 +372,7 @@ class _PharmacyPageState extends ConsumerState<PharmacyPage> {
                         Text(
                           "Product on Sale",
                           style: TextStyle(
-                              fontSize: width * 0.07,
+                              fontSize: width * 0.04,
                               fontWeight: FontWeight.w700),
                         ),
                       ],

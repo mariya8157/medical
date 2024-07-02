@@ -55,7 +55,9 @@ class _HomePageState extends ConsumerState<HomePage> {
                   SizedBox(height: height*0.15,),
                   Text("Find your desire\nhealth solution",style: TextStyle(
                     fontSize: width*0.06,
-                      fontWeight: FontWeight.w700
+                      fontWeight: FontWeight.w700,
+                    color: Colour.thirdcolour,
+
                   ),),
                 ],
               ),

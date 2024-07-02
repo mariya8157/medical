@@ -87,7 +87,7 @@ class _BookingPageState extends ConsumerState<BookingPage> {
           style: TextStyle(
               color: Colour.thirdcolour,
               fontWeight: FontWeight.w700,
-              fontSize: width*0.063
+              fontSize: width*0.06
           ),
         ),
       ),
