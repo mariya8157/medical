@@ -298,7 +298,10 @@ class _FindDoctorState extends ConsumerState<FindDoctor> {
 
 
                                           ),
-                                          Text(data[selectIndex].exp.toString())
+                                          Text(data[selectIndex].exp.toString(),style: TextStyle(
+                                              color: Colour.primarycolour,
+                                              fontSize: width*0.04
+                                          ),)
                                         ],
                                       )
 

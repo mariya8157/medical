@@ -43,7 +43,6 @@ class _HomePageState extends ConsumerState<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       body: Padding(
         padding: EdgeInsets.all(width*0.05),
         child: SingleChildScrollView(
@@ -60,8 +59,6 @@ class _HomePageState extends ConsumerState<HomePage> {
                   ),),
                 ],
               ),
-
-              // SizedBox(height: width*0.05,),
               Column(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -107,7 +104,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                       ),
                     ),
                   ),
-                  // SizedBox(height: width*0.05,),
+                  SizedBox(height: width*0.035,),
                   Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -195,8 +192,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                           ),)
                       ],
                     )
-                  ],
-                              ),
+                  ],),
                 ],
               ),
               // SizedBox(height: width*0.04,),
@@ -325,7 +321,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                     separatorBuilder:(context, index) {
                       return SizedBox(width: width*0.03,);
                     },
-                    itemCount: data.length),
+                    itemCount: 3),
               ), error: (Object error, StackTrace stackTrace) {  return ScaffoldMessenger(
                   child: Center(child: Text(error.toString())));
               },
