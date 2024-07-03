@@ -276,15 +276,17 @@ class _PharmacyPageState extends ConsumerState<PharmacyPage> {
                                           crossAxisAlignment: CrossAxisAlignment.start,
                                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                           children: [
-                                            Row(
-                                              children: [
-                                                Text(
-                                                  data[index].name.toString(),
-                                                  style: TextStyle(
-                                                      fontWeight: FontWeight.w700,
-                                                      fontSize: width * 0.035),
-                                                ),
-                                              ],
+                                            Container(
+                                              child: Row(
+                                                children: [
+                                                  Text(
+                                                    data[index].name.toString(),
+                                                    style: TextStyle(
+                                                        fontWeight: FontWeight.w700,
+                                                        fontSize: width * 0.035),
+                                                  ),
+                                                ],
+                                              ),
                                             ),
                                             Text(
                                               data[index].ml.toString(),
@@ -306,7 +308,7 @@ class _PharmacyPageState extends ConsumerState<PharmacyPage> {
                                       MainAxisAlignment.spaceBetween,
                                       children: [
                                         Text(
-                                          "${data[index].rate.toString()}",
+                                          "\$${data[index].rate.toString()}",
                                           style: TextStyle(
                                               fontWeight: FontWeight.w700,
                                               fontSize: width * 0.035),
@@ -347,7 +349,7 @@ class _PharmacyPageState extends ConsumerState<PharmacyPage> {
                       height: width * 0.03,
                     );
                   },
-                  itemCount:  see? data.length:2),
+                  itemCount:see? data.length:2),
             ),
               error: (error, stackTrace) {
                 return ScaffoldMessenger(
@@ -494,13 +496,13 @@ class _PharmacyPageState extends ConsumerState<PharmacyPage> {
                                       MainAxisAlignment.spaceBetween,
                                       children: [
                                         Text(
-                                          "${data[index].rate.toString()}",
+                                          "\$${data[index].rate.toString()}",
                                           style: TextStyle(
-                                              fontWeight: FontWeight.w900,
+                                              fontWeight: FontWeight.w700,
                                               fontSize: width * 0.035),
                                         ),
                                         Text(
-                                          "${data[index].off.toString()}",
+                                          "\$${data[index].off.toString()}",
                                           style: TextStyle( decoration: TextDecoration.lineThrough,
                                               decorationColor: Colour.color1,
                                               fontWeight: FontWeight.w700,
@@ -523,16 +525,7 @@ class _PharmacyPageState extends ConsumerState<PharmacyPage> {
                                                 : SvgPicture.asset(ImageIcons.heart,
                                               width: width * 0.06,
                                             ))
-                                        // Container(
-                                        //   height: width*0.06,
-                                        //   width: width*0.06,
-                                        //   decoration: BoxDecoration(
-                                        //       color: Colour.primarycolour,
-                                        //       borderRadius: BorderRadius.circular(width*0.01)
-                                        //   ),
-                                        //   child: Icon(Icons.add,color: Colors.white,),
-                                        // )
-                                      ],
+                                        ],
                                     ),
                                   )
                                 ],),

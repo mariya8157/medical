@@ -108,11 +108,7 @@ class _DrugDetailsPageState extends ConsumerState<DrugDetailsPage> {
                                 color: Colour.gray,
                                 fontSize: width * 0.04),
                           ),
-                          //     SvgPicture.asset(
-                          //   d[index]["icon1"],
-                          //   width: width * 0.06,
-                          // )
-                        ],
+                          ],
                       ),
 
                       Row(
@@ -124,7 +120,7 @@ class _DrugDetailsPageState extends ConsumerState<DrugDetailsPage> {
                             height: width * 0.095,
                             width: width * 0.22,
                             decoration: BoxDecoration(
-                                color: Colour.primarycolour,
+                                color: Colour.secondarycolour,
                                 borderRadius:
                                 BorderRadius.circular(
                                     width * 0.03)),
@@ -136,20 +132,22 @@ class _DrugDetailsPageState extends ConsumerState<DrugDetailsPage> {
                                 InkWell(
                                     onTap: () {
                                       widget.med.qty--;
-                                        totalnprice();
+                                        // totalnprice();
                                         setState(() {
                                       });
 
                                     },
                                     child:  Icon(
                                       Icons.remove,
-                                      color: Colour.secondarycolour,
+                                      color: Colour.color5,
                                     )),
                                 Text(
                                   widget.med.qty
                                       .toString(),
                                   style: TextStyle(
-                                      color: Colour.secondarycolour),
+                                      fontWeight: FontWeight.w800,
+                                      fontSize: width * 0.04,
+                                      color: Colour.thirdcolour),
                                 ),
                                 InkWell(
                                     onTap: () {
@@ -159,9 +157,12 @@ class _DrugDetailsPageState extends ConsumerState<DrugDetailsPage> {
 
                                       });
                                     },
-                                    child: Icon(
-                                      Icons.add,
-                                      color: Colour.secondarycolour,
+                                    child: Container(
+                                      color: Colour.primarycolour,
+                                      child: Icon(
+                                        Icons.add,
+                                        color: Colour.secondarycolour,
+                                      ),
                                     )),
                               ],
                             ),
@@ -181,7 +182,7 @@ class _DrugDetailsPageState extends ConsumerState<DrugDetailsPage> {
                                 color: Colour.primarycolour,
                                 borderRadius:
                                 BorderRadius.circular(
-                                    width * 0.03),
+                                    width * 0.015),
                               ),
                               child: Center(
                                   child: Text(
@@ -193,7 +194,7 @@ class _DrugDetailsPageState extends ConsumerState<DrugDetailsPage> {
                           ),
 
                           Text(
-                          "${widget.med.qty*widget.med.rate}",
+                          "\$${widget.med.qty*widget.med.rate}",
                             style: TextStyle(
                                 fontWeight: FontWeight.w800,
                                 fontSize: width * 0.04),
@@ -221,7 +222,7 @@ class _DrugDetailsPageState extends ConsumerState<DrugDetailsPage> {
                       SizedBox(height: height*0.03,),
                       Text(
                         widget.med.des,
-                        style: TextStyle(color: Colors.grey),
+                        style: TextStyle(color: Colour.gray),
                       ),
                     ],
                   ),
@@ -357,7 +358,7 @@ class _DrugDetailsPageState extends ConsumerState<DrugDetailsPage> {
                                   userId: '');
                               Navigator.push(
                                   context, MaterialPageRoute(
-                                  builder: (context) => DeliveryPage(item2: itemDtails,)));
+                                  builder: (context) => DeliveryPage(item2: itemDtails, cartItems: CartNotifier(),)));
                             },
                             child: Container(
                               height: width * 0.12,
@@ -372,7 +373,7 @@ class _DrugDetailsPageState extends ConsumerState<DrugDetailsPage> {
                                   style: TextStyle(
                                       fontSize: width * 0.045,
                                       fontWeight: FontWeight.w700,
-                                      color: Colors.white),
+                                      color: Colour.secondarycolour),
                                 ),
                               ),
                             ),

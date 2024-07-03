@@ -8,6 +8,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:medical/features/details_adding/controller/user_controller.dart';
+import 'package:medical/features/details_adding/providers/firebase_provider.dart';
 import 'package:medical/features/details_adding/screen/online_pharmacy/mycart.dart';
 import 'package:medical/models/address_model.dart';
 
@@ -20,7 +21,8 @@ import 'address.dart';
 
 class DeliveryPage extends ConsumerStatefulWidget {
   final MedicineModel item2;
-  const DeliveryPage({super.key, required this.item2});
+  final CartNotifier cartItems;
+  const DeliveryPage({super.key, required this.item2,required this.cartItems});
 
   @override
   ConsumerState createState() => _DeliveryPageState();
@@ -54,6 +56,23 @@ class _DeliveryPageState extends ConsumerState<DeliveryPage> {
         itemRate: widget.item2.rate.toInt()*widget.item2.qty.toInt(),
         userId: ''));
   }
+  addressDetails2(){
+    ref.read(AddressControllerProvider).addAddressData(AddressModel(
+        name: nameController.text,
+        phone: int.parse(phoneController.text),
+        pincode: int.parse(pincodeController.text),
+        street: streetController.text,
+        city: cityController.text,
+        country: countryController.text,
+        houseName: houseController.text,
+        id: idController.text,
+        itemName: widget.item2.name,
+        itemImage: widget.item2.image,
+        itemMl: widget.item2.ml,
+        itemRate: widget.item2.rate.toInt()*widget.item2.qty.toInt(),
+        userId: ''));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

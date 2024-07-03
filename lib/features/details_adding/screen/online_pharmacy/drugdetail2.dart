@@ -139,11 +139,6 @@ class _DrugDetailsPage2State extends ConsumerState<DrugDetailsPage2> {
                               ? Container(
                             height: width * 0.095,
                             width: width * 0.22,
-                            decoration: BoxDecoration(
-                                color: Colour.primarycolour,
-                                borderRadius:
-                                BorderRadius.circular(
-                                    width * 0.03)),
                             child: Row(
                               mainAxisAlignment:
                               MainAxisAlignment
@@ -159,13 +154,15 @@ class _DrugDetailsPage2State extends ConsumerState<DrugDetailsPage2> {
                                     },
                                     child:  Icon(
                                       Icons.remove,
-                                      color: Colour.secondarycolour,
+                                      color: Colour.color5,
                                     )),
                                 Text(
                                   widget.med2.qty
                                       .toString(),
                                   style: TextStyle(
-                                      color: Colour.secondarycolour),
+                                      fontWeight: FontWeight.w800,
+                                      fontSize: width * 0.04,
+                                      color: Colour.thirdcolour),
                                 ),
                                 InkWell(
                                     onTap: () {
@@ -175,9 +172,12 @@ class _DrugDetailsPage2State extends ConsumerState<DrugDetailsPage2> {
 
                                       });
                                     },
-                                    child: Icon(
-                                      Icons.add,
-                                      color: Colour.secondarycolour,
+                                    child: Container(
+                                      color: Colour.primarycolour,
+                                      child: Icon(
+                                        Icons.add,
+                                        color: Colour.secondarycolour,
+                                      ),
                                     )),
                               ],
                             ),
@@ -197,7 +197,7 @@ class _DrugDetailsPage2State extends ConsumerState<DrugDetailsPage2> {
                                 color: Colour.primarycolour,
                                 borderRadius:
                                 BorderRadius.circular(
-                                    width * 0.03),
+                                    width * 0.015),
                               ),
                               child: Center(
                                   child: Text(
@@ -209,7 +209,7 @@ class _DrugDetailsPage2State extends ConsumerState<DrugDetailsPage2> {
                           ),
 
                           Text(
-                            "${widget.med2.qty*widget.med2.rate}",
+                            "\$${widget.med2.qty*widget.med2.rate}",
                             style: TextStyle(
                                 fontWeight: FontWeight.w800,
                                 fontSize: width * 0.04),
@@ -373,7 +373,7 @@ class _DrugDetailsPage2State extends ConsumerState<DrugDetailsPage2> {
                                   userId: '');
                               Navigator.push(
                                   context, MaterialPageRoute(
-                                builder: (context) => DeliveryPage(item2: itemDtails,)));
+                                builder: (context) => DeliveryPage(item2: itemDtails, cartItems: CartNotifier(),)));
                             },
                             child: Container(
                               height: width * 0.12,

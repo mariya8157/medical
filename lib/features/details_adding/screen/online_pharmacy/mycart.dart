@@ -6,6 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:medical/features/details_adding/controller/address_controller.dart';
 import 'package:medical/features/details_adding/providers/firebase_provider.dart';
+import 'package:medical/features/details_adding/screen/online_pharmacy/delivery_address.dart';
 import 'package:medical/models/address_model.dart';
 import 'package:pinput/pinput.dart';
 import 'package:quickalert/models/quickalert_type.dart';
@@ -30,33 +31,6 @@ class _MyCartPageState extends ConsumerState<MyCartPage> {
   dynamic total =0;
   dynamic added;
   List f=[];
-  // totalprice(){
-  //   for(int i=0;i<widget.d.length;i++){
-  //     if(widget.d[i]["text6"]>0){
-  //       added=widget.d[i];
-  //       f.add(added);
-  //     }
-  //     print(f);
-  //     print("oooooooooooooooooooooooooooooooo");
-  //
-  //   }
-  //
-  //   setState(() {
-  //
-  //   });
-  // }
-  // totalnprice() {
-  //   total = 0;
-  //   for (int i = 0; i < f.length; i++) {
-  //     total = f[i]["text6"] * f[i]["price"] + total;
-  //
-  //   }
-  //   print(total);
-  //   setState(() {
-  //
-  //   });
-  // }
-
   dynamic total1=0;
   dynamic a=0;
   dynamic b=0;
@@ -64,18 +38,6 @@ class _MyCartPageState extends ConsumerState<MyCartPage> {
   totalAdd(){
     total1=0;
     a=0;
-  //   for(int i=0;i<widget.d.length;i++){
-  //     a=widget.d[i]['price']*widget.d[i]["text6"]+a+c;
-  //     total1=a+total1;
-  //   }
-  //   setState(() {
-  //
-  //   });
-  }
-
-  void initState() {
-     // TODO: implement initState
-    super.initState();
   }
 
   String? j;
@@ -178,11 +140,6 @@ class _MyCartPageState extends ConsumerState<MyCartPage> {
                                                     ? Container(
                                                   height: width * 0.095,
                                                   width: width * 0.22,
-                                                  decoration: BoxDecoration(
-                                                      color: Colour.primarycolour,
-                                                      borderRadius:
-                                                      BorderRadius.circular(
-                                                          width * 0.03)),
                                                   child: Row(
                                                     mainAxisAlignment:
                                                     MainAxisAlignment
@@ -198,25 +155,29 @@ class _MyCartPageState extends ConsumerState<MyCartPage> {
                                                           },
                                                           child:  Icon(
                                                             Icons.remove,
-                                                            color: Colour.secondarycolour,
+                                                            color: Colour.color5,
                                                           )),
                                                       Text(
                                                         cart[index].qty
                                                             .toString(),
                                                         style: TextStyle(
-                                                            color: Colour.secondarycolour),
+                                                            fontWeight: FontWeight.w800,
+                                                            fontSize: width * 0.04,
+                                                            color: Colour.thirdcolour),
                                                       ),
                                                       InkWell(
                                                           onTap: () {
                                                             cart[index].qty++;
-                                                            // totalnprice();
                                                             setState(() {
 
                                                             });
                                                           },
-                                                          child: Icon(
-                                                            Icons.add,
-                                                            color: Colour.secondarycolour,
+                                                          child: Container(
+                                                            color: Colour.primarycolour,
+                                                            child: Icon(
+                                                              Icons.add,
+                                                              color: Colour.secondarycolour,
+                                                            ),
                                                           )),
                                                     ],
                                                   ),
@@ -224,7 +185,6 @@ class _MyCartPageState extends ConsumerState<MyCartPage> {
                                                     : InkWell(
                                                   onTap: () {
                                                     cart[index].qty++;
-                                                    // totalnprice();
                                                     setState(() {
 
                                                     });
@@ -236,7 +196,7 @@ class _MyCartPageState extends ConsumerState<MyCartPage> {
                                                       color: Colour.primarycolour,
                                                       borderRadius:
                                                       BorderRadius.circular(
-                                                          width * 0.03),
+                                                          width * 0.015),
                                                     ),
                                                     child: Center(
                                                         child: Text(
@@ -246,13 +206,6 @@ class _MyCartPageState extends ConsumerState<MyCartPage> {
                                                         )),
                                                   ),
                                                 ),
-
-                                                Text(
-                                                  "${cart[index].qty*cart[index].rate}",
-                                                  style: TextStyle(
-                                                      fontWeight: FontWeight.w800,
-                                                      fontSize: width * 0.06),
-                                                )
                                               ],
                                             ),
                                           ],
@@ -268,20 +221,11 @@ class _MyCartPageState extends ConsumerState<MyCartPage> {
 
                                                 },
                                                 child: SvgPicture.asset(ImageIcons.delete)),
-                                            Container(
-                                              child: Row(
-                                                children: [
-                                                  Text("\$",style: TextStyle(
-                                                      fontWeight: FontWeight.w800,
-                                                      fontSize: width * 0.04)),
-                                                  Text(
-                                                    cart[index].rate.toString(),
-                                                    style: TextStyle(
-                                                        fontWeight: FontWeight.w800,
-                                                        fontSize: width * 0.04),
-                                                  ),
-                                                ],
-                                              ),
+                                            Text(
+                                              "\$${cart[index].qty*cart[index].rate}",
+                                              style: TextStyle(
+                                                  fontWeight: FontWeight.w800,
+                                                  fontSize: width * 0.04),
                                             )
                                           ],
                                         ),
@@ -493,54 +437,17 @@ class _MyCartPageState extends ConsumerState<MyCartPage> {
                           SizedBox(height: width*0.03,),
                           InkWell(
                             onTap: () {
-                              QuickAlert.show(
-                              titleColor: Colour.primarycolour,
-                                textColor: Colour.primarycolour,
-
-                                context: context,
-                                type: QuickAlertType.success,
-                                text: 'Transaction Completed Successfully!',
-                                autoCloseDuration: const Duration(seconds: 2),
-                                showConfirmBtn: false,
-                              );
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => DeliveryPage(cartItems: CartNotifier(), item2: MedicineModel(
+                                  name: '',
+                                  image: '',
+                                  ml: '',
+                                  rate: 0,
+                                  off: 0,
+                                  id: '',
+                                  des: '',
+                                  qty: 0,
+                                  userId: ''),),));
                             },
-                            // onTap: () {
-                            //   x = false;
-                            //   y = true;
-                            //   z = false;
-                            //   showDialog(
-                            //     barrierDismissible: false,
-                            //     context: context,
-                            //     builder: (context) {
-                            //       return AlertDialog(
-                            //         title: Column(
-                            //           mainAxisAlignment: MainAxisAlignment.center,
-                            //           children: [
-                            //             Center(
-                            //               child: Text(
-                            //                   "Your payment has been successful, \n"
-                            //                       "you can have a consultation session \n "
-                            //                       "with your trusted doctor",
-                            //                 style: TextStyle(fontSize: width*0.044),textAlign:TextAlign.center,
-                            //               ),
-                            //             ),
-                            //             Container(
-                            //               height: width*0.13,
-                            //               width: width*0.44,
-                            //               decoration: BoxDecoration(
-                            //                 color: Colour.primarycolour,
-                            //                 borderRadius: BorderRadius.circular(width*0.07)
-                            //               ),
-                            //               child: Center(child: Text("Back to Home",style: TextStyle(fontSize: width*0.05,color: Colors.white,fontWeight: FontWeight.w900),)),
-                            //             )
-                            //           ],
-                            //         ),
-                            //
-                            //       );
-                            //     },
-                            //   );
-                            //   setState(() {});
-                            // },
                             child: Container(
                               height: width * 0.15,
                               width: width * 0.55,
