@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 class MedicineModel {
   String image;
   String name;
@@ -48,6 +50,15 @@ class MedicineModel {
       userId: map['userId'] ?? "",
     );
   }
+
+  String toJson()=> json.encode(toMap());
+
+  // MedicineModel decodeUser(String json) {
+  //   return MedicineModel.fromJson(jsonDecode(json));
+  // }
+
+  factory MedicineModel.fromJson(String source)=>MedicineModel.fromMap(jsonDecode(source));
+
 
   MedicineModel copyWith({
     String? name,

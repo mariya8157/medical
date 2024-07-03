@@ -69,7 +69,7 @@ class _PharmacyPageState extends ConsumerState<PharmacyPage> {
           physics: BouncingScrollPhysics(),
           children: [
             Container(
-              height: width * 0.7,
+              height: width * 0.63,
               width: width * 1,
               child: Column(
                  children: [
@@ -113,7 +113,7 @@ class _PharmacyPageState extends ConsumerState<PharmacyPage> {
                        ),
                      ),
                    ),
-                  SizedBox(height: width*0.03,),
+                  SizedBox(height: width*0.04,),
                   Container(
                     height: width * 0.43,
                     width: width * 0.9,
@@ -325,8 +325,8 @@ class _PharmacyPageState extends ConsumerState<PharmacyPage> {
                                               });
                                             },
                                             child: !favorite.contains(index)
-                                                ? Image.asset(
-                                              ImagePictures.heart,
+                                                ? SvgPicture.asset(
+                                              ImageIcons.c_add,
                                               width: width * 0.05,
                                             )
                                                 : SvgPicture.asset(
@@ -519,7 +519,8 @@ class _PharmacyPageState extends ConsumerState<PharmacyPage> {
                                               });
                                             },
                                             child: !favorite1.contains(index)
-                                                ? Image.asset(ImagePictures.heart,
+                                                ? SvgPicture.asset(
+                                              ImageIcons.c_add,
                                               width: width * 0.05,
                                             )
                                                 : SvgPicture.asset(ImageIcons.heart,
