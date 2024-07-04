@@ -209,7 +209,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                             padding: const EdgeInsets.all(8.0),
                             child: Container(
                                 height: width*0.2,
-                                width: width*1,
+                                width: width*1.5,
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(10),
                                   image: DecorationImage(

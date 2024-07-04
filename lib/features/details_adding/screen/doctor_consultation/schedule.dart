@@ -30,7 +30,7 @@ class _SchedulePageState extends State<SchedulePage> {
             style: TextStyle(
                 color: Colour.thirdcolour,
                 fontWeight: FontWeight.w700,
-                fontSize: width*0.06
+                fontSize: width*0.04
             ),),
         ),
         body: Padding(
@@ -56,12 +56,12 @@ class _SchedulePageState extends State<SchedulePage> {
                     tabs: [
                       Tab(
                         child: Text("Schedule",style: TextStyle(
-                          fontSize: width*0.045,fontWeight: FontWeight.w600
+                          fontSize: width*0.04,fontWeight: FontWeight.w600
                         ),),
                       ),
                       Tab(
                         child: Text("Orders",style: TextStyle(
-                            fontSize: width*0.045,fontWeight: FontWeight.w600
+                            fontSize: width*0.04,fontWeight: FontWeight.w600
                         ),),
                       ),
 
@@ -121,7 +121,7 @@ class _SchedulePageState extends State<SchedulePage> {
                                                         children: [
                                                           Text("${data[index]["name"].toString()}",
                                                               style: TextStyle(
-                                                                  fontSize: width*0.05,
+                                                                  fontSize: width*0.04,
                                                                   fontWeight: FontWeight.w700)),
                                                         ],
                                                       ),
