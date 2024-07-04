@@ -51,13 +51,13 @@ class MedicineModel {
     );
   }
 
-  String toJson()=> json.encode(toMap());
+  // String toJson()=> json.encode(toMap());
 
   // MedicineModel decodeUser(String json) {
   //   return MedicineModel.fromJson(jsonDecode(json));
   // }
 
-  factory MedicineModel.fromJson(String source)=>MedicineModel.fromMap(jsonDecode(source));
+  // factory MedicineModel.fromJson(String source)=>MedicineModel.fromMap(jsonDecode(source));
 
 
   MedicineModel copyWith({

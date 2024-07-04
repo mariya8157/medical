@@ -2,6 +2,7 @@ class UsersModel {
   String name;
   String email;
   String password;
+  List cart;
   String id;
 
   UsersModel({
@@ -9,6 +10,7 @@ class UsersModel {
     required this.email,
     required this.password,
     required this.id,
+    required this.cart,
   });
 
   Map<String, dynamic> toMap() {
@@ -17,6 +19,7 @@ class UsersModel {
       'email': this.email,
       'password': this.password,
       'id': this.id,
+      'cart': this.cart,
     };}
 
   factory UsersModel.fromMap(Map<String, dynamic>map){
@@ -25,6 +28,7 @@ class UsersModel {
       email: map['email'] ?? "",
       name: map['name'] ?? "",
       id: map['id'] ?? "",
+      cart: map['cart'] ?? "",
     );
   }
 
@@ -33,12 +37,14 @@ class UsersModel {
     String? password,
     String? email,
     String? id,
+    List? cart,
   }) {
     return UsersModel(
       name: name ?? this.name,
       email: email ?? this.email,
       password: password ?? this.password,
       id: id ?? this.id,
+      cart: cart ?? this.cart,
     );
   }
 }

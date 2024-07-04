@@ -1,4 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:medical/models/medicine_model.dart';
 import 'package:medical/models/user_model.dart';
 
 import '../../../models/ambulance_model.dart';
@@ -18,11 +19,14 @@ class AddingController {
   AddingController({required AddingRepository addingRepository})
       : _addingRepository= addingRepository;
 
-  addUserData({required name, required email,required  password,required id}) {
-    _addingRepository.add(name, email, password, id);
+  addUserData({required name, required email,required password,required id, required cart}) {
+    _addingRepository.add(name, email, password, id, cart);
   }
 
-  addUser(name, email, password, id) {
-    _addingRepository.addingUser(name, email, password, id);
+  addUser(name, email, password, id, cart) {
+    _addingRepository.addingUser(name, email, password, id, cart);
+  }
+  updatecart(UsersModel usersModel,MedicineModel medicineModel){
+    _addingRepository.updateCart(usersModel, medicineModel);
   }
 }

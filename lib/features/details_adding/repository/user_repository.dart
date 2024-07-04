@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:medical/models/medicine_model.dart';
 import '../../../models/ambulance_model.dart';
 import '../../../models/doctor_model.dart';
 import '../../../models/user_model.dart';
@@ -18,12 +19,13 @@ class AddingRepository{
 
   CollectionReference get _users => _firestore.collection("users");
 
-  add(name, email, password, id){
+  add(name, email, password, id, cart){
     UsersModel userData = UsersModel(
         name: name,
         email: email,
         password: password,
-        id: email
+        id: email,
+        cart: []
     );
 
     // _users.add(userData.toMap()).then((value) {
@@ -32,8 +34,16 @@ class AddingRepository{
         _users.doc(userData.email.trim()).set(userData.toMap());
   }
 
-  addingUser(name, email, password, id){
+  addingUser(name, email, password, id, cart){
     _firebaseAuth.createUserWithEmailAndPassword(email: email, password: password);
+  }
+  updateCart(UsersModel usersModel,MedicineModel medicineModel){
+    usersModel.cart.add(medicineModel.toMap());
+    _users.doc(usersModel.id).update(
+      usersModel.copyWith(
+        cart: usersModel.cart
+      ).toMap()
+    );
   }
   }
 

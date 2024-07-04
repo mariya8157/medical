@@ -148,6 +148,7 @@ class _PharmacyPageState extends ConsumerState<PharmacyPage> {
                                         child: Text(
                                       "Upload Prescription",
                                       style: TextStyle(
+                                        fontSize: width*0.03,
                                           color: Colour.secondarycolour,
                                           fontWeight: FontWeight.w700),
                                     )),

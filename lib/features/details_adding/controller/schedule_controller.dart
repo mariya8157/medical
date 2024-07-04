@@ -11,4 +11,5 @@ class ScheduleController{
     _scheduleRepository.addbooking(drmodel: drmodel);
 
   }
+
 }

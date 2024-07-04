@@ -8,6 +8,7 @@ import 'package:medical/models/medicine_model.dart';
 import '../../../../core/constants/colour.dart';
 import '../../../../core/constants/icons.dart';
 import '../../../../main.dart';
+import '../../controller/user_controller.dart';
 import '../../providers/firebase_provider.dart';
 import 'delivery_address.dart';
 import 'mycart.dart';
@@ -280,7 +281,7 @@ class _DrugDetailsPageState extends ConsumerState<DrugDetailsPage> {
                                                       des: '',
                                                       qty: widget.med.qty,
                                                       userId: '');
-                                                  ref.read(cartNotifier.notifier).updateList(cartDetails);
+                                                  ref.read(AddingControllerProvider).updatecart(currentModel!,cartDetails);
                                                   Navigator.push(context, MaterialPageRoute(builder: (context) => MyCartPage(details: cartDetails ),));
                                                   // Navigator.pop(context);
                                                 },
