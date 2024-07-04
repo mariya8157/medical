@@ -135,11 +135,11 @@ class _PharmacyPageState extends ConsumerState<PharmacyPage> {
                                     "Order quickly with\nPrescription",
                                     style: TextStyle(
                                         fontWeight: FontWeight.w700,
-                                        fontSize: width * 0.05),
+                                        fontSize: width * 0.04),
                                   ),
                                   Container(
                                     height: width * 0.099,
-                                    width: width * 0.35,
+                                    width: width * 0.39,
                                     decoration: BoxDecoration(
                                         color: Colour.primarycolour,
                                         borderRadius:
