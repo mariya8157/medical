@@ -47,7 +47,9 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                spcl: widget.time.spcl,
                exp: widget.time.exp,
                id: widget.time.id,
-           userId: widget.time.userId
+             userId: currentModel!.id,
+
+             // userId: widget.time.userId
          )
          );
     }

@@ -239,13 +239,13 @@ class _FindDoctorState extends ConsumerState<FindDoctor> {
                             image: data[selectIndex].image,
                             spcl: data[selectIndex].spcl.toString(),
                             exp: data[selectIndex].exp.toString(),
-                            // userId: currentModel!.id,
+                            userId: currentModel!.id,
                             id:"",
                             time: '',
                             date: '',
-                          userId: '',
+                          // userId: '',
                             );
-                        // print(currentModel!.id);
+                        print(currentModel!.id);
                         Navigator.push(context, MaterialPageRoute(builder: (context) => DoctordetailsPage(dr:doctorData,),));
                       },
                       child: Container(

@@ -392,10 +392,12 @@ surfaceTintColor:Colour.thirdcolour ,
                           image:widget.dr.image,
                           spcl: widget.dr.spcl,
                           exp: widget.dr.exp,
-                          // userId: currentModel!.id,
+                          userId: currentModel!.id,
                           id: widget.dr.id,
                           time: time[selectIndex1],
-                          date: date.toString(), userId: '');
+                          date: date.toString(),
+                          // userId: ''
+                      );
                       if(date!=null) {
                         Navigator.push(context, MaterialPageRoute(builder: (
                             context) => BookingPage(time: doctorData,)));
