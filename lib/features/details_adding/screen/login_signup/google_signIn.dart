@@ -29,14 +29,17 @@ signInWithGoogle(BuildContext context) async {
 
   var userlist= await FirebaseFirestore.instance.collection("users").where("email",isEqualTo:userEmail).get();
 List<UsersModel> A=userlist.docs.map((e) => UsersModel.fromMap(e.data())).toList();
-currentModel=A[0];
-print(currentModel!.name);
 
-  if(userlist.docs.isEmpty){
+
+if(userlist.docs.isEmpty){
     SharedPreferences prefs=await SharedPreferences.getInstance();
     prefs.setBool('login', true);
     Navigator.push(context, CupertinoPageRoute(builder: (context) => BottomNavigationPage(),));
-  }else {
+  }
+else
+{
+    currentModel=A[0];
+    print(currentModel!.name);
     userId = userlist.docs[0].id;
     Navigator.push(context, CupertinoPageRoute(builder: (context) => SignupPage(sign: true),));
     // Navigator.push(context, CupertinoPageRoute(builder: (context) => HomePage(),));
