@@ -37,7 +37,20 @@ class _ProfilePageState extends State<ProfilePage> {
       });
     }
   }
+  String name="";
+  userName() async{
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    name=prefs.getString('name')??"users";
+    setState(() {
 
+    });
+  }
+@override
+  void initState() {
+    userName();
+    // TODO: implement initState
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -100,7 +113,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             Padding(
                               padding: EdgeInsets.only(top: width * 0.3),
                               child: Text(
-                                "Amelia Renata",
+                                "$name",
                                 style: TextStyle(
                                     fontSize: width * 0.05,
                                     fontWeight: FontWeight.w700,

@@ -3,6 +3,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:medical/features/details_adding/screen/login_signup/signup.dart';
+import 'package:medical/main.dart';
+import 'package:medical/models/user_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../home/bottomnavigation.dart';
 import '../home/homepage.dart';
@@ -26,7 +28,9 @@ signInWithGoogle(BuildContext context) async {
   userImage=userDetails!.photoURL;
 
   var userlist= await FirebaseFirestore.instance.collection("users").where("email",isEqualTo:userEmail).get();
-  print(userlist);
+List<UsersModel> A=userlist.docs.map((e) => UsersModel.fromMap(e.data())).toList();
+currentModel=A[0];
+print(currentModel!.name);
 
   if(userlist.docs.isEmpty){
     SharedPreferences prefs=await SharedPreferences.getInstance();
