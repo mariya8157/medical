@@ -19,8 +19,11 @@ import '../../../../models/medicine_model.dart';
 
 class MyCartPage extends ConsumerStatefulWidget {
   final MedicineModel details;
+  // final QuerySnapshot<Map<String, dynamic>> data;
 
-  const MyCartPage({super.key, required this.details,});
+  const MyCartPage({super.key, required this.details,
+    // required this.data,
+  });
 
   @override
   ConsumerState<MyCartPage> createState() => _MyCartPageState();
@@ -30,7 +33,7 @@ class _MyCartPageState extends ConsumerState<MyCartPage> {
 
   dynamic total =0;
   dynamic added;
-  List f=[];
+
   dynamic total1=0;
   dynamic a=0;
   dynamic b=0;
@@ -44,6 +47,7 @@ class _MyCartPageState extends ConsumerState<MyCartPage> {
   bool x=false;
   bool y=false;
   bool z=false;
+ @override
 
   // double total = 0;
   // double totalPrice = 0;
@@ -159,170 +163,180 @@ class _MyCartPageState extends ConsumerState<MyCartPage> {
             children: [
               Container(
                 margin: EdgeInsets.all(width*0.02),
-                child: ListView.separated(
-                    shrinkWrap: true,
-                    physics: BouncingScrollPhysics(),
-                    itemBuilder: (context, index) {
-                      return Column(
-                        children: [
-                          Container(
-                            height: width * 0.35,
-                            width: width * 0.94,
-                            decoration: BoxDecoration(
-                                border: Border.all(
-                                  width: width*0.005,
-                                    color: Colors.grey.withOpacity(0.15)),
-                                borderRadius: BorderRadius.circular(width * 0.04)),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                Container(
-                                    height: width * 0.2,
-                                    width: width * 0.27,
-                                    child: Image(image: NetworkImage(cart[index].image.toString()))
-                                ),
-                                Container(
-                                  height: width * 0.27,
-                                  width: width * 0.55,
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Container(
-                                        child: Column(
-                                          crossAxisAlignment: CrossAxisAlignment.start,
-                                          mainAxisAlignment:
-                                          MainAxisAlignment.spaceEvenly,
-                                          children: [
-                                            Text(
-                                              cart[index].name,
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.w800,
-                                                  fontSize: width * 0.045),
-                                            ),
-                                            Text(
-                                              cart[index].ml.toString(),
-                                              style: TextStyle(
-                                                  fontSize: width * 0.04,
-                                                  color: Colour.gray),
-                                            ),
-                                            SizedBox(
-                                              height: width * 0.03,
-                                            ),
-                                            Row(
+                child: StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
+                  stream: FirebaseFirestore.instance.collection("users").snapshots(),
+                  builder: (context, snapshot){
+                    if(!snapshot.hasData){
+                      return Center(child:Text("Loading..."));
+                    }
+                    var data =currentModel!.cart;
+                    return ListView.separated(
+                        shrinkWrap: true,
+                        physics: BouncingScrollPhysics(),
+                        itemCount:data.length,
+                        itemBuilder: (context, index) {
+                          return Column(
+                            children: [
+                              Container(
+                                height: width * 0.35,
+                                width: width * 0.94,
+                                decoration: BoxDecoration(
+                                    border: Border.all(
+                                        width: width*0.005,
+                                        color: Colors.grey.withOpacity(0.15)),
+                                    borderRadius: BorderRadius.circular(width * 0.04)),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    Container(
+                                        height: width * 0.2,
+                                        width: width * 0.27,
+                                        child: Image(image: NetworkImage(data[index]['image'].toString()))
+                                    ),
+                                    Container(
+                                      height: width * 0.27,
+                                      width: width * 0.55,
+                                      child: Row(
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Container(
+                                            child: Column(
+                                              crossAxisAlignment: CrossAxisAlignment.start,
                                               mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
+                                              MainAxisAlignment.spaceEvenly,
                                               children: [
-                                                cart[index].qty != 0
-                                                    ? Container(
-                                                  height: width * 0.095,
-                                                  width: width * 0.22,
-                                                  child: Row(
-                                                    mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
-                                                    children: [
-                                                      InkWell(
-                                                          onTap: () {
-                                                            cart[index].qty--;
-                                                            // totalnprice();
-                                                            setState(() {
-                                                            });
+                                                Text(
+                                                  data[index]['name'],
+                                                  style: TextStyle(
+                                                      fontWeight: FontWeight.w800,
+                                                      fontSize: width * 0.045),
+                                                ),
+                                                Text(
+                                                  data[index]['ml'].toString(),
+                                                  style: TextStyle(
+                                                      fontSize: width * 0.04,
+                                                      color: Colour.gray),
+                                                ),
+                                                SizedBox(
+                                                  height: width * 0.03,
+                                                ),
+                                                Row(
+                                                  mainAxisAlignment:
+                                                  MainAxisAlignment.spaceBetween,
+                                                  children: [
+                                                    data[index]['qty'] != 0
+                                                        ? Container(
+                                                      height: width * 0.095,
+                                                      width: width * 0.22,
+                                                      child: Row(
+                                                        mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .spaceBetween,
+                                                        children: [
+                                                          InkWell(
+                                                              onTap: () {
+                                                                data[index]['qty']--;
+                                                                // totalnprice();
+                                                                setState(() {
+                                                                });
 
-                                                          },
-                                                          child:  Icon(
-                                                            Icons.remove,
-                                                            color: Colour.color5,
-                                                          )),
-                                                      Text(
-                                                        cart[index].qty
-                                                            .toString(),
-                                                        style: TextStyle(
-                                                            fontWeight: FontWeight.w800,
-                                                            fontSize: width * 0.04,
-                                                            color: Colour.thirdcolour),
+                                                              },
+                                                              child:  Icon(
+                                                                Icons.remove,
+                                                                color: Colour.color5,
+                                                              )),
+                                                          Text(
+                                                            data[index]['qty']
+                                                                .toString(),
+                                                            style: TextStyle(
+                                                                fontWeight: FontWeight.w800,
+                                                                fontSize: width * 0.04,
+                                                                color: Colour.thirdcolour),
+                                                          ),
+                                                          InkWell(
+                                                              onTap: () {
+                                                                data[index]['qty']++;
+                                                                setState(() {
+
+                                                                });
+                                                              },
+                                                              child: Container(
+                                                                color: Colour.primarycolour,
+                                                                child: Icon(
+                                                                  Icons.add,
+                                                                  color: Colour.secondarycolour,
+                                                                ),
+                                                              )),
+                                                        ],
                                                       ),
-                                                      InkWell(
-                                                          onTap: () {
-                                                            cart[index].qty++;
-                                                            setState(() {
+                                                    )
+                                                        : InkWell(
+                                                      onTap: () {
+                                                        data[index]['qty']++;
+                                                        setState(() {
 
-                                                            });
-                                                          },
-                                                          child: Container(
-                                                            color: Colour.primarycolour,
-                                                            child: Icon(
-                                                              Icons.add,
-                                                              color: Colour.secondarycolour,
-                                                            ),
-                                                          )),
-                                                    ],
-                                                  ),
-                                                )
-                                                    : InkWell(
-                                                  onTap: () {
-                                                    cart[index].qty++;
-                                                    setState(() {
-
-                                                    });
-                                                  },
-                                                  child: Container(
-                                                    height: width * 0.095,
-                                                    width: width * 0.22,
-                                                    decoration: BoxDecoration(
-                                                      color: Colour.primarycolour,
-                                                      borderRadius:
-                                                      BorderRadius.circular(
-                                                          width * 0.015),
+                                                        });
+                                                      },
+                                                      child: Container(
+                                                        height: width * 0.095,
+                                                        width: width * 0.22,
+                                                        decoration: BoxDecoration(
+                                                          color: Colour.primarycolour,
+                                                          borderRadius:
+                                                          BorderRadius.circular(
+                                                              width * 0.015),
+                                                        ),
+                                                        child: Center(
+                                                            child: Text(
+                                                              "Add item",
+                                                              style: TextStyle(
+                                                                  color: Colour.secondarycolour),
+                                                            )),
+                                                      ),
                                                     ),
-                                                    child: Center(
-                                                        child: Text(
-                                                          "Add item",
-                                                          style: TextStyle(
-                                                              color: Colour.secondarycolour),
-                                                        )),
-                                                  ),
+                                                  ],
                                                 ),
                                               ],
                                             ),
-                                          ],
-                                        ),
-                                      ),
-                                      Container(
-                                        height: width*0.23,
-                                        child: Column(
-                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            InkWell(
-                                                onTap:() {
+                                          ),
+                                          Container(
+                                            height: width*0.23,
+                                            child: Column(
+                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                              children: [
+                                                InkWell(
+                                                    onTap:() {
 
-                                                },
-                                                child: SvgPicture.asset(ImageIcons.delete)),
-                                            Text(
-                                              "\$${cart[index].qty*cart[index].rate}",
-                                              style: TextStyle(
-                                                  fontWeight: FontWeight.w800,
-                                                  fontSize: width * 0.04),
-                                            )
-                                          ],
-                                        ),
+                                                    },
+                                                    child: SvgPicture.asset(ImageIcons.delete)),
+                                                Text(
+                                                  "\$${data[index]['qty']*data[index]['rate']}",
+                                                  style: TextStyle(
+                                                      fontWeight: FontWeight.w800,
+                                                      fontSize: width * 0.04),
+                                                )
+                                              ],
+                                            ),
+                                          ),
+                                        ],
                                       ),
-                                    ],
-                                  ),
+                                    ),
+                                  ],
                                 ),
-                              ],
-                            ),
-                          ),
-                          // SizedBox(height: width*0.03,),
-                        ],
-                      );
-                    },
-                    separatorBuilder: (context, index) {
-                      return SizedBox(
-                        height: width * 0.05,
-                      );
-                    },
-                    itemCount:cart.length
-                ),
+                              ),
+                              // SizedBox(height: width*0.03,),
+                            ],
+                          );
+                        },
+                        separatorBuilder: (context, index) {
+                          return SizedBox(
+                            height: width * 0.05,
+                          );
+                        },
+                    );
+                  },
+                )
+
               ),
 
           SizedBox(height: width * 0.05,),

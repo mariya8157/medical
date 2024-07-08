@@ -13,6 +13,7 @@ import 'package:medical/models/medicine_model.dart';
 import '../../../../core/constants/colour.dart';
 import '../../../../core/constants/icons.dart';
 import '../../../../main.dart';
+import '../../controller/user_controller.dart';
 import 'mycart.dart';
 
 class DrugDetailsPage2 extends ConsumerStatefulWidget {
@@ -295,7 +296,7 @@ class _DrugDetailsPage2State extends ConsumerState<DrugDetailsPage2> {
                                                       des: '',
                                                       qty: widget.med2.qty,
                                                       userId: '');
-                                                  ref.read(cartNotifier.notifier).updateList(cartDetails);
+                                                  ref.read(AddingControllerProvider).updatecart(currentModel!,cartDetails);
                                                   Navigator.push(context, MaterialPageRoute(builder: (context) => MyCartPage(details: cartDetails ),));
                                                   // Navigator.pop(context);
                                                 },

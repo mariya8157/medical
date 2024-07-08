@@ -200,11 +200,6 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                       var data = await FirebaseFirestore.instance.collection("users").where("email",isEqualTo: emailController.text).get();
                       List<UsersModel> A=data.docs.map((e) => UsersModel.fromMap(e.data())).toList();
                       currentModel=A[0];
-                      print("current user");
-                      print("---------------------------------------------");
-                      print(currentModel!.name);
-                      print(currentModel!.name);
-                      print(currentModel!.name);
                       print(currentModel!.name);
 
                       userName = data.docs[0]["name"];

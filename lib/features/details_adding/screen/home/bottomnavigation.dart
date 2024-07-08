@@ -5,6 +5,7 @@ import 'package:medical/features/details_adding/screen/Profile/profile.dart';
 import 'package:medical/features/details_adding/screen/home/homepage.dart';
 import '../../../../core/constants/colour.dart';
 import '../../../../core/constants/colour.dart';
+import '../../../../main.dart';
 import '../doctor_consultation/schedule.dart';
 import 'article.dart';
 
@@ -28,7 +29,10 @@ class _HomeState extends State<BottomNavigationPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: pages[selectedIndex],
-      bottomNavigationBar: BottomNavigationBar(
+      bottomNavigationBar: BottomNavigationBar(selectedLabelStyle: TextStyle(
+        fontSize: width*0.03,
+        fontWeight: FontWeight.w600
+      ),
         type: BottomNavigationBarType.fixed,
         showUnselectedLabels: false,
         showSelectedLabels: true,
@@ -43,7 +47,7 @@ class _HomeState extends State<BottomNavigationPage> {
         },
         items: [
           BottomNavigationBarItem(icon: Icon(Icons.home),
-              label: 'Home'),
+              label: 'Home',),
           BottomNavigationBarItem(icon: Icon(Icons.article_outlined),
               label: 'Article'),
           BottomNavigationBarItem(icon:Icon(CupertinoIcons.calendar

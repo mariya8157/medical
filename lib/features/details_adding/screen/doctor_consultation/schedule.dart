@@ -110,7 +110,6 @@ class _SchedulePageState extends State<SchedulePage> {
                                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                                               crossAxisAlignment: CrossAxisAlignment.start,
                                               children: [
-
                                                 Container(
                                                   height: width*0.15,
                                                   width: width*0.55,
