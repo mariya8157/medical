@@ -11,13 +11,15 @@ import 'package:medical/models/doctor_model.dart';
 import '../../../../core/constants/colour.dart';
 import '../../../../core/constants/icons.dart';
 import '../../../../main.dart';
+import '../../../../models/user_model.dart';
 import '../../controller/doctor_controller.dart';
 import 'doctordetails.dart';
 import 'drlist.dart';
 
 
 class FindDoctor extends ConsumerStatefulWidget {
-  const FindDoctor({super.key});
+
+  const FindDoctor( {super.key});
 
   @override
   ConsumerState createState() => _FindDoctorState();
@@ -172,47 +174,45 @@ class _FindDoctorState extends ConsumerState<FindDoctor> {
                 ),
                 Container(
                   width: width*1,
-                  child: Expanded(
-                    child: GridView.builder(
-                      itemCount:category.length,
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        childAspectRatio: 1,
-                        crossAxisSpacing:height*0.009,
-                        mainAxisSpacing: width*0.03,
-                        crossAxisCount: 4,
-                      ),
-                      physics: BouncingScrollPhysics(),
-                      shrinkWrap: true,
-                      // scrollDirection: Axis.horizontal,
-                      itemBuilder: (context, index) {
-                        return
-                          InkWell(
-                            onTap: () {
-                              Navigator.push(context, MaterialPageRoute(builder: (context) =>DoctorList(name: category[index]["text"],) ,));
-                            },
-                            child: Container(
-                              width: width*0.25,
-                              height: width*0.15,
-                              child: Column(
-                                children: [
-
-                                  Container(
-                                      width: width*0.07,
-                                      height: height*0.05,
-                                      child: SvgPicture.asset(category[index]["image"],)
-                                  ),
-                                  Text(category[index]["text"],
-                                    style: TextStyle(
-                                        color: Colour.color1,
-                                        fontSize: width*0.03
-                                    ),
-                                  )
-                                ],
-                              ),
-                            ),
-                          );
-                      },
+                  child: GridView.builder(
+                    itemCount:category.length,
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      childAspectRatio: 1,
+                      crossAxisSpacing:height*0.009,
+                      mainAxisSpacing: width*0.03,
+                      crossAxisCount: 4,
                     ),
+                    physics: BouncingScrollPhysics(),
+                    shrinkWrap: true,
+                    // scrollDirection: Axis.horizontal,
+                    itemBuilder: (context, index) {
+                      return
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(context, MaterialPageRoute(builder: (context) =>DoctorList(name: category[index]["text"],) ,));
+                          },
+                          child: Container(
+                            width: width*0.25,
+                            height: width*0.15,
+                            child: Column(
+                              children: [
+
+                                Container(
+                                    width: width*0.07,
+                                    height: height*0.05,
+                                    child: SvgPicture.asset(category[index]["image"],)
+                                ),
+                                Text(category[index]["text"],
+                                  style: TextStyle(
+                                      color: Colour.color1,
+                                      fontSize: width*0.03
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                        );
+                    },
                   ),
                 ),
               ref.watch(StreamDocProvider(searchController.text)).when(data: (data) =>    Column(
