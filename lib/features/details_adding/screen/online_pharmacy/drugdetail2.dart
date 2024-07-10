@@ -295,7 +295,7 @@ class _DrugDetailsPage2State extends ConsumerState<DrugDetailsPage2> {
                                                       id: widget.med2.id.toString(),
                                                       des: '',
                                                       qty: widget.med2.qty,
-                                                      userId: '');
+                                                      userId: currentModel!.id);
                                                   ref.read(AddingControllerProvider).updatecart(currentModel!,cartDetails);
                                                   Navigator.push(context, MaterialPageRoute(builder: (context) => MyCartPage(details: cartDetails ),));
                                                   // Navigator.pop(context);
@@ -371,7 +371,7 @@ class _DrugDetailsPage2State extends ConsumerState<DrugDetailsPage2> {
                                   id: widget.med2.id.toString(),
                                   des: '',
                                   qty: widget.med2.qty,
-                                  userId: '');
+                                  userId: currentModel!.id);
                               Navigator.push(
                                   context, MaterialPageRoute(
                                 builder: (context) => DeliveryPage(item2: itemDtails, cartItems: CartNotifier(),)));

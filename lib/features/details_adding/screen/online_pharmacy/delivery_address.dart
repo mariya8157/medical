@@ -49,12 +49,12 @@ class _DeliveryPageState extends ConsumerState<DeliveryPage> {
         city: cityController.text,
         country: countryController.text,
         houseName: houseController.text,
-        id: idController.text,
+        id: widget.item2.id,
         itemName: widget.item2.name,
         itemImage: widget.item2.image,
         itemMl: widget.item2.ml,
         itemRate: widget.item2.rate.toInt()*widget.item2.qty.toInt(),
-        userId: ''));
+        userId: currentModel!.id));
   }
   addressDetails2(){
     ref.read(AddressControllerProvider).addAddressData(AddressModel(
@@ -65,12 +65,12 @@ class _DeliveryPageState extends ConsumerState<DeliveryPage> {
         city: cityController.text,
         country: countryController.text,
         houseName: houseController.text,
-        id: idController.text,
+        id: widget.item2.id,
         itemName: widget.item2.name,
         itemImage: widget.item2.image,
         itemMl: widget.item2.ml,
         itemRate: widget.item2.rate.toInt()*widget.item2.qty.toInt(),
-        userId: ''));
+        userId: currentModel!.id));
   }
 
   @override
@@ -491,9 +491,24 @@ class _DeliveryPageState extends ConsumerState<DeliveryPage> {
                         houseController.text!=""&&
                         formKey.currentState!.validate()
                     )
-                    {
-                      addressDetails();
-                    }
+                           {
+                           addressDetails();
+                              Navigator.push(context, MaterialPageRoute(builder: (context) => OrderDetails(id: AddressModel(
+                               name: nameController.text,
+                               phone: int.parse(phoneController.text),
+                                pincode: int.parse(pincodeController.text),
+                                  street: streetController.text,
+                                 city: cityController.text,
+                                  country: countryController.text,
+                                  houseName: houseController.text,
+                                 id: widget.item2.id,
+                                 itemName: widget.item2.name,
+                                 itemImage: widget.item2.image,
+                                itemMl: widget.item2.ml,
+                                itemRate: widget.item2.rate.toInt()*widget.item2.qty.toInt(),
+                              userId: currentModel!.id)),));
+                               }
+
                     else{
                       nameController.text==""?
                       ScaffoldMessenger.of(context).showSnackBar(SnackBar(backgroundColor: Colour.primarycolour,content: Text("Please enter your Name!"))):
@@ -529,8 +544,8 @@ class _DeliveryPageState extends ConsumerState<DeliveryPage> {
                           fontSize: width*0.05
                       ),),
                     ),
+                )
                   ),
-                ),
                 SizedBox(height:width*0.03 ,)
               ],
             ),

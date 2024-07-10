@@ -91,7 +91,6 @@ class _SchedulePageState extends State<SchedulePage> {
                                 shrinkWrap: true,
                                 physics: BouncingScrollPhysics(),
                                 itemBuilder:(context,  index) {
-
                                   return InkWell(
                                     onTap: () {
                                     },

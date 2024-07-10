@@ -243,8 +243,9 @@ class _PharmacyPageState extends ConsumerState<PharmacyPage> {
                                 id: data[selectindex].id.toString(),
                                 des: data[selectindex].des.toString(),
                                 qty: data[selectindex].qty,
-                                userId: '');
+                                userId: currentModel!.id);
                             // print(currentModel!.id);
+                            print(data[index].id);
                             // print("----------------===================000000000000");
                             Navigator.push(context, MaterialPageRoute(builder: (context) => DrugDetailsPage( med: medicineData,)));
                           },
@@ -435,7 +436,7 @@ class _PharmacyPageState extends ConsumerState<PharmacyPage> {
                                 id: data[selectindex1].id.toString(),
                                 des: data[selectindex1].des.toString(),
                                 qty: data[selectindex1].qty,
-                                userId: '');
+                                userId: currentModel!.id);
                             // print(currentModel!.id);
 
                             Navigator.push(context, MaterialPageRoute(builder: (context) => DrugDetailsPage2(med2: medicineData2,)));
