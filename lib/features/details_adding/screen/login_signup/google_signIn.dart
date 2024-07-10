@@ -31,16 +31,17 @@ signInWithGoogle(BuildContext context) async {
 List<UsersModel> A=userlist.docs.map((e) => UsersModel.fromMap(e.data())).toList();
 
 
-if(userlist.docs.isEmpty){
+if(userlist.docs.isNotEmpty){
     SharedPreferences prefs=await SharedPreferences.getInstance();
     prefs.setBool('login', true);
+    currentModel=A[0];
+    print(currentModel!.name);
+    userId = userlist.docs[0].id;
     Navigator.push(context, CupertinoPageRoute(builder: (context) => BottomNavigationPage(),));
   }
 else
 {
-    currentModel=A[0];
-    print(currentModel!.name);
-    userId = userlist.docs[0].id;
+
     Navigator.push(context, CupertinoPageRoute(builder: (context) => SignupPage(sign: true),));
     // Navigator.push(context, CupertinoPageRoute(builder: (context) => HomePage(),));
 
