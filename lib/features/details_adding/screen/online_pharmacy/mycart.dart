@@ -42,11 +42,14 @@ class _MyCartPageState extends ConsumerState<MyCartPage> {
     total1=0;
     a=0;
   }
-
+double totalss=0;
   String? j;
   bool x=false;
   bool y=false;
   bool z=false;
+  subTotal(){
+
+  }
  @override
 
 
@@ -101,6 +104,9 @@ class _MyCartPageState extends ConsumerState<MyCartPage> {
                         physics: BouncingScrollPhysics(),
                         itemCount:data.length,
                         itemBuilder: (context, index) {
+                          totalss=totalss+data[index]["rate"]*data[index]["qty"];
+                          print(totalss);
+
                           return Column(
                             children: [
                               Container(
@@ -147,17 +153,14 @@ class _MyCartPageState extends ConsumerState<MyCartPage> {
                                                   height: width * 0.03,
                                                 ),
                                                 Row(
-                                                  mainAxisAlignment:
-                                                  MainAxisAlignment.spaceBetween,
+                                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                   children: [
                                                     data[index]['qty'] != 0
                                                         ? Container(
                                                       height: width * 0.095,
                                                       width: width * 0.22,
                                                       child: Row(
-                                                        mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .spaceBetween,
+                                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                         children: [
                                                           InkWell(
                                                               onTap: () {
@@ -287,7 +290,7 @@ class _MyCartPageState extends ConsumerState<MyCartPage> {
                               Text("Subtotal",
                                   style: TextStyle(
                                       fontSize: width * 0.043, color: Colour.gray)),
-                              Text("\$$total",
+                              Text("\$$totalss",
                                   style: TextStyle(
                                       fontSize: width * 0.045, color: Colour.gray)),
                             ],
