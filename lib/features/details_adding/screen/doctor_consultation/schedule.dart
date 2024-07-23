@@ -6,6 +6,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:medical/core/constants/colour.dart';
 import 'package:medical/features/details_adding/controller/user_controller.dart';
 import 'package:medical/core/constants/icons.dart';
+import 'package:medical/features/details_adding/screen/login_signup/login.dart';
 import 'package:medical/models/doctor_model.dart';
 import '../../../../main.dart';
 import 'doctordetails.dart';
@@ -76,7 +77,7 @@ class _SchedulePageState extends State<SchedulePage> {
                       child: Container(
                         width: width*1,
                         child: StreamBuilder(
-                            stream: FirebaseFirestore.instance.collection("schedule").where("userId",isEqualTo: currentModel?.id).snapshots(),
+                            stream: FirebaseFirestore.instance.collection("schedule").where("userId",isEqualTo: userId).snapshots(),
                             builder: (context, snapshot) {
                               if(!snapshot.hasData){
                                 return Center(child: Text("No document found"));
