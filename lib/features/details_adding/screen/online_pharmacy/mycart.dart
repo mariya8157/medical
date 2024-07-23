@@ -8,6 +8,7 @@ import 'package:medical/features/details_adding/controller/address_controller.da
 import 'package:medical/features/details_adding/providers/firebase_provider.dart';
 import 'package:medical/features/details_adding/screen/online_pharmacy/delivery_address.dart';
 import 'package:medical/models/address_model.dart';
+import 'package:medical/models/user_model.dart';
 import 'package:pinput/pinput.dart';
 import 'package:quickalert/models/quickalert_type.dart';
 import 'package:quickalert/widgets/quickalert_dialog.dart';
@@ -47,11 +48,21 @@ double totalss=0;
   bool x=false;
   bool y=false;
   bool z=false;
-  subTotal(){
 
+
+  subTotal(List data) {
+    totalss=0;
+    for (int i = 0; i < data.length; i++) {
+      totalss = totalss + data[i]['rate'] * data[i]["qty"];
+    }print(totalss);
   }
- @override
 
+@override
+  void initState() {
+    subTotal(currentModel!.cart);
+    // TODO: implement initState
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -163,8 +174,14 @@ double totalss=0;
                                                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                         children: [
                                                           InkWell(
-                                                              onTap: () {
+                                                              onTap: () async {
                                                                 data[index]['qty']--;
+                                                                await FirebaseFirestore.instance.collection("users").doc(currentModel!.id).update(
+                                                                    {
+                                                                      "cart": data,
+                                                                    }
+                                                                );
+
                                                                 // totalnprice();
                                                                 setState(() {
                                                                 });
@@ -183,8 +200,14 @@ double totalss=0;
                                                                 color: Colour.thirdcolour),
                                                           ),
                                                           InkWell(
-                                                              onTap: () {
+                                                              onTap: () async {
                                                                 data[index]['qty']++;
+
+                                                                await FirebaseFirestore.instance.collection("users").doc(currentModel!.id).update(
+                                                                    {
+                                                                      "cart": data,
+                                                                    }
+                                                                );
                                                                 setState(() {
 
                                                                 });
@@ -322,7 +345,7 @@ double totalss=0;
                                 style: TextStyle(
                                     fontWeight: FontWeight.w600, fontSize: width * 0.045),
                               ),
-                              Text("\$$total1",
+                              Text("\$${(totalss+tax).floor()}",
                                   style: TextStyle(
                                       fontWeight: FontWeight.w600,
                                       fontSize: width * 0.045)),
@@ -446,7 +469,7 @@ double totalss=0;
                                     color: Colour.gray),
                               ),
                               Text(
-                                "\$$total1",
+                                "\$${(totalss+tax).floor()}",
                                 style: TextStyle(
                                     fontSize: width * 0.045,
                                     fontWeight: FontWeight.w800),

@@ -17,6 +17,7 @@ import '../../../../core/constants/icons.dart';
 import '../../../../main.dart';
 import '../../../../models/medicine_model.dart';
 import '../../controller/address_controller.dart';
+import '../login_signup/login.dart';
 import 'address.dart';
 
 class DeliveryPage extends ConsumerStatefulWidget {
@@ -506,7 +507,7 @@ class _DeliveryPageState extends ConsumerState<DeliveryPage> {
                                  itemImage: widget.item2.image,
                                 itemMl: widget.item2.ml,
                                 itemRate: widget.item2.rate.toInt()*widget.item2.qty.toInt(),
-                              userId: currentModel!.id)),));
+                              userId: userId!)),));
                                }
 
                     else{

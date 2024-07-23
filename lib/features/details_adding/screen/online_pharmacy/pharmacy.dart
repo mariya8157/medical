@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:medical/features/details_adding/screen/login_signup/login.dart';
 import 'package:medical/models/medicine_model.dart';
 import '../../../../core/constants/colour.dart';
 import '../../../../core/constants/icons.dart';
@@ -243,7 +244,7 @@ class _PharmacyPageState extends ConsumerState<PharmacyPage> {
                                 id: data[selectindex].id.toString(),
                                 des: data[selectindex].des.toString(),
                                 qty: data[selectindex].qty,
-                                userId: currentModel!.id);
+                                userId: userId!);
                             // print(currentModel!.id);
                             print(data[index].id);
                             // print("----------------===================000000000000");

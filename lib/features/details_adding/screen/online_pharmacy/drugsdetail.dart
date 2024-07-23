@@ -10,6 +10,7 @@ import '../../../../core/constants/icons.dart';
 import '../../../../main.dart';
 import '../../controller/user_controller.dart';
 import '../../providers/firebase_provider.dart';
+import '../login_signup/login.dart';
 import 'delivery_address.dart';
 import 'mycart.dart';
 
@@ -280,7 +281,7 @@ class _DrugDetailsPageState extends ConsumerState<DrugDetailsPage> {
                                                       id: widget.med.id.toString(),
                                                       des: '',
                                                       qty: widget.med.qty,
-                                                      userId: currentModel!.id);
+                                                      userId: userId!);
                                                   ref.read(AddingControllerProvider).updatecart(currentModel!,cartDetails);
                                                   Navigator.push(context, MaterialPageRoute(builder: (context) => MyCartPage(details: cartDetails ),));
                                                   // Navigator.pop(context);
@@ -357,7 +358,7 @@ class _DrugDetailsPageState extends ConsumerState<DrugDetailsPage> {
                                   id: widget.med.id.toString(),
                                   des: '',
                                   qty: widget.med.qty,
-                                  userId: currentModel!.id);
+                                  userId: userId!);
                               Navigator.push(
                                   context, MaterialPageRoute(
                                   builder: (context) => DeliveryPage(item2: itemDtails, cartItems: CartNotifier(),)));
