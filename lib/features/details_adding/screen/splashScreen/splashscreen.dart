@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:medical/features/details_adding/screen/home/bottomnavigation.dart';
 import 'package:medical/features/details_adding/screen/home/homepage.dart';
+import 'package:medical/features/details_adding/screen/login_signup/login.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../../../core/constants/colour.dart';
@@ -13,6 +14,7 @@ import '../../../../main.dart';
 import '../../../../models/user_model.dart';
 import 'getstarted.dart';
 import 'onboarding.dart';
+
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -28,6 +30,11 @@ class _SplashScreenState extends State<SplashScreen> {
   splash() async {
   SharedPreferences prefs = await SharedPreferences.getInstance();
   login=prefs.getBool('login')??false;
+  print("gggggggggggggggggggggg77777777777777777777777777777777777777777777");
+  print(prefs.getString('id'));
+  userId = prefs.getString('id');
+
+
 
 
   Future.delayed(Duration(

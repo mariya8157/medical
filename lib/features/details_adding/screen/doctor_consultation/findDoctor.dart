@@ -7,6 +7,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:medical/features/details_adding/controller/user_controller.dart';
 import 'package:medical/features/details_adding/screen/home/bottomnavigation.dart';
+import 'package:medical/features/details_adding/screen/login_signup/login.dart';
 import 'package:medical/models/doctor_model.dart';
 import '../../../../core/constants/colour.dart';
 import '../../../../core/constants/icons.dart';
@@ -239,13 +240,13 @@ class _FindDoctorState extends ConsumerState<FindDoctor> {
                             image: data[selectIndex].image,
                             spcl: data[selectIndex].spcl.toString(),
                             exp: data[selectIndex].exp.toString(),
-                            userId: currentModel!.id,
+                            userId: userId!,
                             id:"",
                             time: '',
                             date: '',
                           // userId: '',
                             );
-                        print(currentModel!.id);
+                        print(userId);
                         Navigator.push(context, MaterialPageRoute(builder: (context) => DoctordetailsPage(dr:doctorData,),));
                       },
                       child: Container(

@@ -34,9 +34,13 @@ List<UsersModel> A=userlist.docs.map((e) => UsersModel.fromMap(e.data())).toList
 if(userlist.docs.isNotEmpty){
     SharedPreferences prefs=await SharedPreferences.getInstance();
     prefs.setBool('login', true);
+    prefs.setString('email', result.user!.email.toString());
     currentModel=A[0];
     print(currentModel!.name);
     userId = userlist.docs[0].id;
+    print("gggggggggggggggggggggg77777777777777777777777777777777777777777777");
+    print(userId);
+    prefs.setString('id', userlist.docs[0].id);
     Navigator.push(context, CupertinoPageRoute(builder: (context) => BottomNavigationPage(),));
   }
 else

@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:medical/features/details_adding/screen/login_signup/login.dart';
 import 'package:readmore/readmore.dart';
 import '../../../../core/constants/colour.dart';
 import '../../../../core/constants/icons.dart';
@@ -392,7 +393,7 @@ surfaceTintColor:Colour.thirdcolour ,
                           image:widget.dr.image,
                           spcl: widget.dr.spcl,
                           exp: widget.dr.exp,
-                          userId: currentModel!.id,
+                          userId: userId!,
                           id: widget.dr.id,
                           time: time[selectIndex1],
                           date: date.toString(),
