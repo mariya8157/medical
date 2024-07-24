@@ -40,7 +40,7 @@ class _ProfilePageState extends State<ProfilePage> {
   String name="";
   userName() async{
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    name=prefs.getString('name')??"users";
+    name=(prefs.getString('id')!.isEmpty? currentModel?.name : "users")!;
     setState(() {
 
     });
@@ -113,7 +113,7 @@ class _ProfilePageState extends State<ProfilePage> {
                             Padding(
                               padding: EdgeInsets.only(top: width * 0.3),
                               child: Text(
-                                "$name",
+                                currentModel!.name.isEmpty? "user" : currentModel!.name,
                                 style: TextStyle(
                                     fontSize: width * 0.05,
                                     fontWeight: FontWeight.w700,

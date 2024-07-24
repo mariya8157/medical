@@ -27,8 +27,8 @@ signInWithGoogle(BuildContext context) async {
   userEmail=userDetails!.email;
   userImage=userDetails!.photoURL;
 
-  var userlist= await FirebaseFirestore.instance.collection("users").where("email",isEqualTo:userEmail).get();
-List<UsersModel> A=userlist.docs.map((e) => UsersModel.fromMap(e.data())).toList();
+  QuerySnapshot userlist= await FirebaseFirestore.instance.collection("users").where("email",isEqualTo:userEmail).get();
+  List<UsersModel> A =userlist.docs.map((e) => UsersModel.fromMap(e.data() as Map<String,dynamic>)).toList();
 
 
 if(userlist.docs.isNotEmpty){
@@ -36,10 +36,11 @@ if(userlist.docs.isNotEmpty){
     prefs.setBool('login', true);
     prefs.setString('email', result.user!.email.toString());
     currentModel=A[0];
-    print(currentModel!.name);
+    print(" uuuuseerrrrrrrrrrrrrrrrrrrrrrrrrrr ufffffffffffffffffffffffffffffffffffff");
+    print(currentModel!.id);
+    print(" uuuuseerrrrrrrrrrrrrrrrrrrrrrrrrrr nameeeeeeeee **************");
+    print(currentModel?.name);
     userId = userlist.docs[0].id;
-    print("gggggggggggggggggggggg77777777777777777777777777777777777777777777");
-    print(userId);
     prefs.setString('id', userlist.docs[0].id);
     Navigator.push(context, CupertinoPageRoute(builder: (context) => BottomNavigationPage(),));
   }

@@ -272,6 +272,9 @@ class _DrugDetailsPageState extends ConsumerState<DrugDetailsPage> {
                                             children: [
                                               InkWell(
                                                 onTap: ()  {
+                                                  print("______________________++++++++++++++++++++++++++++++++++++++++++");
+                                                  print(currentModel!.name);
+
                                                   MedicineModel cartDetails= MedicineModel(
                                                       name: widget.med.name.toString(),
                                                       image: widget.med.image.toString(),
@@ -281,10 +284,11 @@ class _DrugDetailsPageState extends ConsumerState<DrugDetailsPage> {
                                                       id: widget.med.id.toString(),
                                                       des: '',
                                                       qty: widget.med.qty,
-                                                      userId: userId!);
+                                                      userId: userId!
+                                                  );
                                                   ref.read(AddingControllerProvider).updatecart(currentModel!,cartDetails);
                                                   Navigator.push(context, MaterialPageRoute(builder: (context) => MyCartPage(details: cartDetails ),));
-                                                  // Navigator.pop(context);
+
                                                 },
                                                 child: Container(
                                                   height: height*0.05,
