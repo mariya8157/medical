@@ -65,7 +65,6 @@ class _SchedulePageState extends State<SchedulePage> {
                             fontSize: width*0.04,fontWeight: FontWeight.w600
                         ),),
                       ),
-
                     ]
                 ),
               ),
