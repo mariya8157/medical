@@ -77,7 +77,7 @@ class _SchedulePageState extends State<SchedulePage> {
                       child: Container(
                         width: width*1,
                         child: StreamBuilder(
-                            stream: FirebaseFirestore.instance.collection("schedule").where("userId",isEqualTo: userId).snapshots(),
+                            stream: FirebaseFirestore.instance.collection("schedule").where("userId",isEqualTo: userId!).snapshots(),
                             builder: (context, snapshot) {
                               if(!snapshot.hasData){
                                 return Center(child: Text("No document found"));

@@ -31,8 +31,8 @@ class _SplashScreenState extends State<SplashScreen> {
   SharedPreferences prefs = await SharedPreferences.getInstance();
   login=prefs.getBool('login')??false;
   print("gggggggggggggggggggggg77777777777777777777777777777777777777777777");
-  print(prefs.getString('id'));
-  userId = prefs.getString('id');
+  print(prefs.getString('email'));
+  userId = prefs.getString('email');
 
 
 
