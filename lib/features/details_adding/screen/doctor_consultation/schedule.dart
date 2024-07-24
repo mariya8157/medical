@@ -65,6 +65,7 @@ class _SchedulePageState extends State<SchedulePage> {
                             fontSize: width*0.04,fontWeight: FontWeight.w600
                         ),),
                       ),
+
                     ]
                 ),
               ),
@@ -76,7 +77,7 @@ class _SchedulePageState extends State<SchedulePage> {
                       child: Container(
                         width: width*1,
                         child: StreamBuilder(
-                            stream: FirebaseFirestore.instance.collection("schedule").where("userId",isEqualTo: currentModel!.id).snapshots(),
+                            stream: FirebaseFirestore.instance.collection("schedule").where("userId",isEqualTo: userId).snapshots(),
                             builder: (context, snapshot) {
                               if(!snapshot.hasData){
                                 return Center(child: Text("No document found"));
@@ -204,7 +205,7 @@ class _SchedulePageState extends State<SchedulePage> {
                                                                       InkWell(
                                                                         onTap: ()  {
                                                                           String id=data[index].id.toString();
-                                                                         FirebaseFirestore.instance.collection("schedule").doc(id).delete();
+                                                                          FirebaseFirestore.instance.collection("schedule").doc(id).delete();
                                                                           Navigator.pop(context);
                                                                         },
                                                                         child: Container(
