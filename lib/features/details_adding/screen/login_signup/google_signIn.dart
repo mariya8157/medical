@@ -40,7 +40,7 @@ if(userlist.docs.isNotEmpty){
     userId = userlist.docs[0].id;
     print("gggggggggggggggggggggg77777777777777777777777777777777777777777777");
     print(userId);
-    prefs.setString('email', userlist.docs[0].id);
+    prefs.setString('id', userlist.docs[0].id);
     Navigator.push(context, CupertinoPageRoute(builder: (context) => BottomNavigationPage(),));
   }
 else
