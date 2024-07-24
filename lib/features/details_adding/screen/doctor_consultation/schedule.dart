@@ -205,7 +205,7 @@ class _SchedulePageState extends State<SchedulePage> {
                                                                       InkWell(
                                                                         onTap: ()  {
                                                                           String id=data[index].id.toString();
-                                                                          FirebaseFirestore.instance.collection("schedule").doc(id).delete();
+                                                                         FirebaseFirestore.instance.collection("schedule").doc(id).delete();
                                                                           Navigator.pop(context);
                                                                         },
                                                                         child: Container(
