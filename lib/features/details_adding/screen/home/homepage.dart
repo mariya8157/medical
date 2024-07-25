@@ -6,6 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:medical/features/details_adding/screen/home/ambulance.dart';
 import 'package:medical/features/details_adding/screen/home/docter.dart';
+import 'package:medical/features/details_adding/screen/home/hsptl.dart';
 import 'package:medical/features/details_adding/screen/home/topdoctor.dart';
 import 'package:pinput/pinput.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -154,7 +155,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                       children: [
                         InkWell(
                           onTap: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (context) => FindDoctor(),));
+                            Navigator.push(context, MaterialPageRoute(builder: (context) => HospitalPage()),);
                           },
                           child: Container(
                             height:height*0.06,
