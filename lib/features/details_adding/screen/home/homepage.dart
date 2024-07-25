@@ -83,7 +83,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                           labelStyle: TextStyle(fontWeight: FontWeight.w500,fontSize: width*0.04, color: Colour.color1),
                           hintText: "please enter search ",
                           hintStyle: TextStyle(
-                            fontSize: width*0.05,
+                            fontSize: width*0.03,
                             fontWeight: FontWeight.w400,
                           ),
                           focusedBorder: OutlineInputBorder(
