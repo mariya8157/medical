@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:medical/features/details_adding/providers/firebase_provider.dart';
 import 'package:medical/features/details_adding/screen/login_signup/login.dart';
 import 'package:medical/models/medicine_model.dart';
 import '../../../../core/constants/colour.dart';
@@ -62,6 +63,16 @@ class _PharmacyPageState extends ConsumerState<PharmacyPage> {
               fontWeight: FontWeight.w700,
               fontSize: width * 0.04),
         ),
+        actions: [
+          Padding(
+            padding: EdgeInsets.all(width*0.03),
+            child: InkWell(
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => MyCartPage(details: MedicineModel(name: '', image: '', ml: '', rate: 0, off: 0, id: '', des: '', qty: 0, userId: userId!)),));
+                },
+                child: Icon(CupertinoIcons.cart,weight: width*0.04,color: Colour.thirdcolour,)),
+          )
+        ],
       ),
       body: Padding(
         padding: EdgeInsets.all(width*0.03),

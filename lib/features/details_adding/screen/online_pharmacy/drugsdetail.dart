@@ -70,7 +70,12 @@ class _DrugDetailsPageState extends ConsumerState<DrugDetailsPage> {
                 fontWeight: FontWeight.w700,
                 fontSize: width * 0.04),
           ),
-
+          actions: [
+            Padding(
+              padding: EdgeInsets.all(width*0.03),
+              child: Icon(CupertinoIcons.cart,weight: width*0.04,color: Colour.thirdcolour,),
+            )
+          ],
         ),
         body: SingleChildScrollView(
           child: Padding(
@@ -272,6 +277,9 @@ class _DrugDetailsPageState extends ConsumerState<DrugDetailsPage> {
                                             children: [
                                               InkWell(
                                                 onTap: ()  {
+                                                  print('----------------------------------');
+                                                  print(userId!);
+                                                  print('----------------------------------');
                                                   print("______________________++++++++++++++++++++++++++++++++++++++++++");
                                                   print(currentModel!.name);
 
@@ -365,7 +373,7 @@ class _DrugDetailsPageState extends ConsumerState<DrugDetailsPage> {
                                   userId: userId!);
                               Navigator.push(
                                   context, MaterialPageRoute(
-                                  builder: (context) => DeliveryPage(item2: itemDtails, cartItems: CartNotifier(),)));
+                                  builder: (context) => DeliveryPage(item2: itemDtails, cartItems: [],)));
                             },
                             child: Container(
                               height: width * 0.12,

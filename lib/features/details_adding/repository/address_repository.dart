@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../models/address_model.dart';
+import '../../../models/medicine_model.dart';
 import '../providers/firebase_provider.dart';
 
 final AddressRepositoryProvider = Provider((ref) => AddressRepository(firestore: ref.watch(fireStoreProvider)));
@@ -28,5 +29,14 @@ class AddressRepository{
     print(_address.doc(addressedit.id));
     _address.doc(addressedit.id).update(addressedit.toMap()).then((value) {
     },);
+  }
+
+  updateCart(AddressModel addressModel,MedicineModel medicineModel){
+    addressModel.cart.add(medicineModel.toMap());
+    _address.doc(addressModel.id).update(
+        addressModel.copyWith(
+            cart: addressModel.cart
+        ).toMap()
+    );
   }
 }

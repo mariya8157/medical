@@ -22,8 +22,10 @@ import 'address.dart';
 
 class DeliveryPage extends ConsumerStatefulWidget {
   final MedicineModel item2;
-  final CartNotifier cartItems;
-  const DeliveryPage({super.key, required this.item2,required this.cartItems});
+   final List cartItems;
+  const DeliveryPage({super.key, required this.item2,required this.cartItems,
+    // required this.cartItems
+  });
 
   @override
   ConsumerState createState() => _DeliveryPageState();
@@ -55,9 +57,12 @@ class _DeliveryPageState extends ConsumerState<DeliveryPage> {
         itemImage: widget.item2.image,
         itemMl: widget.item2.ml,
         itemRate: widget.item2.rate.toInt()*widget.item2.qty.toInt(),
-        userId: currentModel!.id));
+        userId: currentModel!.id, cart: []));
   }
   addressDetails2(){
+    print('-------------------------------------');
+    print(widget.cartItems);
+    print('-------------------------------------');
     ref.read(AddressControllerProvider).addAddressData(AddressModel(
         name: nameController.text,
         phone: int.parse(phoneController.text),
@@ -66,12 +71,20 @@ class _DeliveryPageState extends ConsumerState<DeliveryPage> {
         city: cityController.text,
         country: countryController.text,
         houseName: houseController.text,
-        id: widget.item2.id,
-        itemName: widget.item2.name,
-        itemImage: widget.item2.image,
-        itemMl: widget.item2.ml,
-        itemRate: widget.item2.rate.toInt()*widget.item2.qty.toInt(),
-        userId: currentModel!.id));
+        id: '',
+        itemName: '',
+        itemImage:'',
+        itemMl: '',
+        itemRate: 0,
+        userId: currentModel!.id,
+        cart: widget.cartItems));
+  }
+  @override
+  void initState() {
+    // TODO: implement initState
+    // widget.cartItems;
+    // print("AAAAAAAAAAAAAAAAAAAAAA${widget.cartItems}");
+    super.initState();
   }
 
   @override
@@ -494,6 +507,7 @@ class _DeliveryPageState extends ConsumerState<DeliveryPage> {
                     )
                            {
                            addressDetails();
+                           addressDetails2();
                               Navigator.push(context, MaterialPageRoute(builder: (context) => OrderDetails(id: AddressModel(
                                name: nameController.text,
                                phone: int.parse(phoneController.text),
@@ -507,7 +521,7 @@ class _DeliveryPageState extends ConsumerState<DeliveryPage> {
                                  itemImage: widget.item2.image,
                                 itemMl: widget.item2.ml,
                                 itemRate: widget.item2.rate.toInt()*widget.item2.qty.toInt(),
-                              userId: userId!)),));
+                              userId: userId!, cart: [])),));
                                }
 
                     else{

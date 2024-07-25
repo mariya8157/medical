@@ -73,10 +73,7 @@ class _OrderDetailsState extends ConsumerState<OrderDetails> {
   List<TextDto> deliveredList = [
     TextDto("Your order has been delivered", "Thu, 31th Mar '22 - 3:58pm"),
   ];
-  String? j;
-  bool x=true;
-  bool y=false;
-  bool z=false;
+  int selectedOption=1;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -287,76 +284,87 @@ class _OrderDetailsState extends ConsumerState<OrderDetails> {
                 ),
               ),
               SizedBox(height: width*0.04,),
-              Container(
-                height: width * 0.66,
-                width: width * 0.9,
-                decoration: BoxDecoration(
-                    color: Colour.secondarycolour,
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black12,
-                        blurRadius: width*0.03,
-                      )
-                    ],
-                    borderRadius: BorderRadius.circular(width*0.06)
-                ),
-                child: Column(
+              Column(
                   children: [
-                    SizedBox(height: width*0.05,),
-                    ListTile(
-                      leading: Image.asset(ImagePictures.phonepe,width: width*0.098,),
-                      title: Text("PhonePe",style: TextStyle(fontWeight: FontWeight.w600,fontSize: width*0.047),),
-                      trailing: Radio(
-                        activeColor: Colour.primarycolour,
-                        value: "h",
-                        groupValue: j,
-                        onChanged: (value) {
-                          j = value!;
-                          setState(() {});
-                        },
-                      ),
-                    ),
-                    Divider(
-                      thickness: width*0.002,
-                      color: Colors.black12,
-                      endIndent: width*0.05,
-                      indent: width*0.05,
-                    ),
-                    ListTile(
-                      leading: Image.asset(ImagePictures.googlepay,width: width*0.098,),
-                      title: Text("Google Pay",style: TextStyle(fontWeight: FontWeight.w600,fontSize: width*0.047),),
-                      trailing: Radio(
-                        activeColor: Colour.primarycolour,
-                        value: "i",
-                        groupValue: j,
-                        onChanged: (value) {
-                          j = value!;
-                          setState(() {});
-                        },
-                      ),
-                    ),
-                    Divider(
-                      thickness: width*0.002,
-                      color: Colors.black12,
-                      endIndent: width*0.05,
-                      indent: width*0.05,
-                    ),
-                    ListTile(
-                      leading: Image.asset(ImagePictures.paytm,width: width*0.098,),
-                      title: Text("Paytm",style: TextStyle(fontWeight: FontWeight.w600,fontSize: width*0.047),),
-                      trailing: Radio(
-                        activeColor: Colour.primarycolour,
-                        value: "0",
-                        groupValue: j,
-                        onChanged: (value) {
-                          j = value!;
+                    Container(
+                        height: width*0.18,
+                        width: width*80,
+                        decoration: BoxDecoration(
+                            color: Colour.lightgreen,
+                            borderRadius: BorderRadius.circular(width*0.03)
+                        ),
+                        child: ListTile(
+                          leading: Container(
+                            height: width*0.07,
+                            width: width*0.07,
+                            child: Image(image: NetworkImage("https://pbs.twimg.com/profile_images/1615271089705463811/v-emhrqu_400x400.png"),
+                            ),),
+                          title: Text("PhonePe",
+                            style: TextStyle(
+                              fontSize: width*0.04,
 
-                          setState(() {});
-                        },
+                            ),),
+                          trailing: Radio(value: 1,
+                            groupValue: selectedOption,
+                            onChanged: ( value) {
+                              setState(() {
+                                selectedOption=value!;
+                              });
+                            },
+                          ),
+                        )),
+                    SizedBox(height: height*0.01,),
+                    Container(
+                      height: width*0.18,
+                      width: width*80,
+                      decoration: BoxDecoration(
+                          color: Colour.lightgreen,
+                          borderRadius: BorderRadius.circular(width*0.03)
                       ),
+                      child: ListTile(
+                        leading: Container(
+                            height: width*0.07,
+                            width: width*0.07,
+                            child: Image(image: NetworkImage("https://www.computerhope.com/jargon/g/google-pay.png"))),
+                        title: Text("GPay",
+                          style: TextStyle(
+                            fontSize: width*0.04,
+
+                          ),),
+
+                        trailing: Radio(value: 2,
+                          groupValue: selectedOption,
+                          onChanged: ( value) {
+                            setState(() {
+                              selectedOption=value!;
+                            });
+                          },),
+                      ),),
+                    SizedBox(height: height*0.01,),
+                    Container(
+                      height: width*0.18,
+                      width: width*80,
+                      decoration: BoxDecoration(
+                          color: Colour.lightgreen,
+                          borderRadius: BorderRadius.circular(width*0.03)
+                      ),
+                      child: ListTile(
+                        leading: SvgPicture.asset(ImageIcons.apple),
+                        title: Text("Apple Pay",
+                          style: TextStyle(
+                            fontSize: width*0.04,
+
+                          ),),
+                        trailing: Radio(value: 3,
+                          groupValue: selectedOption,
+                          onChanged: ( value) {
+                            setState(() {
+                              selectedOption=value!;
+                            });
+                          },),),
                     ),
-                  ],
-                ),
+                    SizedBox(height: height*0.01,),
+                  ]
               ),
               SizedBox(height: width*0.04,),
               InkWell(

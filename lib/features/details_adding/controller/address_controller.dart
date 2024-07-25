@@ -1,5 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../models/address_model.dart';
+import '../../../models/medicine_model.dart';
 import '../repository/address_repository.dart';
 
 final AddressControllerProvider = Provider((ref) => AddressController(addressRepository: ref.watch(AddressRepositoryProvider)));
@@ -20,5 +21,8 @@ class AddressController{
   }
   updateData(AddressModel addressUpdate){
     _addressRepository.UpdateAddress(addressUpdate);
+  }
+  updatecart(AddressModel addressModel,MedicineModel medicineModel){
+    _addressRepository.updateCart(addressModel, medicineModel);
   }
 }

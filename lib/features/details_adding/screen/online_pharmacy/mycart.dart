@@ -6,6 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:medical/features/details_adding/controller/address_controller.dart';
 import 'package:medical/features/details_adding/providers/firebase_provider.dart';
+import 'package:medical/features/details_adding/screen/login_signup/login.dart';
 import 'package:medical/features/details_adding/screen/online_pharmacy/delivery_address.dart';
 import 'package:medical/models/address_model.dart';
 import 'package:medical/models/user_model.dart';
@@ -32,23 +33,10 @@ class MyCartPage extends ConsumerStatefulWidget {
 
 class _MyCartPageState extends ConsumerState<MyCartPage> {
 
-  dynamic total =0;
-  dynamic added;
+  double tax= 1.00;
+  double totalss=0;
 
-  dynamic total1=0;
-  dynamic a=0;
-  dynamic b=0;
-  dynamic tax= 1.00;
-  totalAdd(){
-    total1=0;
-    a=0;
-  }
-double totalss=0;
-  String? j;
-  bool x=false;
-  bool y=false;
-  bool z=false;
-
+  int selectedOption=1;
 
   subTotal(List data) {
     totalss=0;
@@ -57,9 +45,29 @@ double totalss=0;
     }print(totalss);
   }
 
+  cartAdd(List data){
+    for (int i = 0; i < data.length; i++){
+      data= currentModel!.cart;
+      // ref.read(AddressControllerProvider).updatecart(currentModel!,data);
+      Navigator.push(context, MaterialPageRoute(builder: (context) => DeliveryPage(cartItems: data, item2: MedicineModel(
+        name:  '',
+        image: '',
+        ml: '',
+        rate: 0,
+        off: 0,
+        id: '',
+        des: '',
+        qty: 0,
+        userId: userId!),),));}
+    print(data);
+  }
+
 @override
   void initState() {
     subTotal(currentModel!.cart);
+    setState(() {
+
+    });
     // TODO: implement initState
     super.initState();
   }
@@ -109,16 +117,16 @@ double totalss=0;
                     if(!snapshot.hasData){
                       return Center(child:Text("Loading..."));
                     }
+                    else{
+                      Text("No Products added to Cart");
+                    }
                     var data =currentModel!.cart;
                     return ListView.separated(
                         shrinkWrap: true,
                         physics: BouncingScrollPhysics(),
                         itemCount:data.length,
                         itemBuilder: (context, index) {
-                          totalss=totalss+data[index]["rate"]*data[index]["qty"];
-                          print(totalss);
-
-                          return Column(
+                           return Column(
                             children: [
                               Container(
                                 height: width * 0.35,
@@ -176,7 +184,7 @@ double totalss=0;
                                                           InkWell(
                                                               onTap: () async {
                                                                 data[index]['qty']--;
-                                                                await FirebaseFirestore.instance.collection("users").doc(currentModel!.id).update(
+                                                                await FirebaseFirestore.instance.collection("users").doc(userId!).update(
                                                                     {
                                                                       "cart": data,
                                                                     }
@@ -203,7 +211,7 @@ double totalss=0;
                                                               onTap: () async {
                                                                 data[index]['qty']++;
 
-                                                                await FirebaseFirestore.instance.collection("users").doc(currentModel!.id).update(
+                                                                await FirebaseFirestore.instance.collection("users").doc(userId!).update(
                                                                     {
                                                                       "cart": data,
                                                                     }
@@ -262,7 +270,7 @@ double totalss=0;
                                                     },
                                                     child: SvgPicture.asset(ImageIcons.delete)),
                                                 Text(
-                                                  "\$${data[index]['qty']*data[index]['rate']}",
+                                                  "\$${(data[index]['qty']*data[index]['rate']).toStringAsFixed(2)}",
                                                   style: TextStyle(
                                                       fontWeight: FontWeight.w800,
                                                       fontSize: width * 0.04),
@@ -313,7 +321,7 @@ double totalss=0;
                               Text("Subtotal",
                                   style: TextStyle(
                                       fontSize: width * 0.043, color: Colour.gray)),
-                              Text("\$$totalss",
+                              Text("\$${totalss.toStringAsFixed(2)}",
                                   style: TextStyle(
                                       fontSize: width * 0.045, color: Colour.gray)),
                             ],
@@ -345,7 +353,7 @@ double totalss=0;
                                 style: TextStyle(
                                     fontWeight: FontWeight.w600, fontSize: width * 0.045),
                               ),
-                              Text("\$${(totalss+tax).floor()}",
+                              Text("\$${(totalss+tax).toStringAsFixed(2)}",
                                   style: TextStyle(
                                       fontWeight: FontWeight.w600,
                                       fontSize: width * 0.045)),
@@ -378,77 +386,88 @@ double totalss=0;
                         SizedBox(height: width*0.042,),
                         ],
                     ),
+                 Column(
+                  children: [
                     Container(
-                      height: width * 0.66,
-                      width: width * 0.9,
-                      decoration: BoxDecoration(
-                          color: Colour.secondarycolour,
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.black12,
-                              blurRadius: width*0.03,
-                            )
-                          ],
-                          borderRadius: BorderRadius.circular(width*0.06)
-                      ),
-                      child: Column(
-                        children: [
-                          SizedBox(height: width*0.05,),
-                          ListTile(
-                            leading: Image.asset(ImagePictures.phonepe,width: width*0.098,),
-                            title: Text("PhonePe",style: TextStyle(fontWeight: FontWeight.w600,fontSize: width*0.047),),
-                            trailing: Radio(
-                              activeColor: Colour.primarycolour,
-                              value: "h",
-                              groupValue: j,
-                              onChanged: (value) {
-                                j = value!;
-                                setState(() {});
-                              },
-                            ),
-                          ),
-                          Divider(
-                            thickness: width*0.002,
-                            color: Colors.black12,
-                            endIndent: width*0.05,
-                            indent: width*0.05,
-                          ),
-                          ListTile(
-                            leading: Image.asset(ImagePictures.googlepay,width: width*0.098,),
-                            title: Text("Google Pay",style: TextStyle(fontWeight: FontWeight.w600,fontSize: width*0.047),),
-                            trailing: Radio(
-                              activeColor: Colour.primarycolour,
-                              value: "i",
-                              groupValue: j,
-                              onChanged: (value) {
-                                j = value!;
-                                setState(() {});
-                              },
-                            ),
-                          ),
-                          Divider(
-                            thickness: width*0.002,
-                            color: Colors.black12,
-                            endIndent: width*0.05,
-                            indent: width*0.05,
-                          ),
-                          ListTile(
-                            leading: Image.asset(ImagePictures.paytm,width: width*0.098,),
-                            title: Text("Paytm",style: TextStyle(fontWeight: FontWeight.w600,fontSize: width*0.047),),
-                            trailing: Radio(
-                              activeColor: Colour.primarycolour,
-                              value: "0",
-                              groupValue: j,
-                              onChanged: (value) {
-                                j = value!;
+                        height: width*0.18,
+                        width: width*80,
+                        decoration: BoxDecoration(
+                            color: Colour.lightgreen,
+                            borderRadius: BorderRadius.circular(width*0.03)
+                        ),
+                        child: ListTile(
+                          leading: Container(
+                            height: width*0.07,
+                            width: width*0.07,
+                            child: Image(image: NetworkImage("https://pbs.twimg.com/profile_images/1615271089705463811/v-emhrqu_400x400.png"),
+                            ),),
+                          title: Text("PhonePe",
+                            style: TextStyle(
+                              fontSize: width*0.04,
 
-                                setState(() {});
-                              },
-                            ),
+                            ),),
+                          trailing: Radio(value: 1,
+                            groupValue: selectedOption,
+                            onChanged: ( value) {
+                              setState(() {
+                                selectedOption=value!;
+                              });
+                            },
                           ),
-                        ],
+                        )),
+                    SizedBox(height: height*0.01,),
+                    Container(
+                      height: width*0.18,
+                      width: width*80,
+                      decoration: BoxDecoration(
+                          color: Colour.lightgreen,
+                          borderRadius: BorderRadius.circular(width*0.03)
                       ),
+                      child: ListTile(
+                        leading: Container(
+                            height: width*0.07,
+                            width: width*0.07,
+                            child: Image(image: NetworkImage("https://www.computerhope.com/jargon/g/google-pay.png"))),
+                        title: Text("GPay",
+                          style: TextStyle(
+                            fontSize: width*0.04,
+
+                          ),),
+
+                        trailing: Radio(value: 2,
+                          groupValue: selectedOption,
+                          onChanged: ( value) {
+                            setState(() {
+                              selectedOption=value!;
+                            });
+                          },),
+                      ),),
+                    SizedBox(height: height*0.01,),
+                    Container(
+                      height: width*0.18,
+                      width: width*80,
+                      decoration: BoxDecoration(
+                          color: Colour.lightgreen,
+                          borderRadius: BorderRadius.circular(width*0.03)
+                      ),
+                      child: ListTile(
+                        leading: SvgPicture.asset(ImageIcons.apple),
+                        title: Text("Apple Pay",
+                          style: TextStyle(
+                            fontSize: width*0.04,
+
+                          ),),
+                        trailing: Radio(value: 3,
+                          groupValue: selectedOption,
+                          onChanged: ( value) {
+                            setState(() {
+                              selectedOption=value!;
+                            });
+                          },),),
                     ),
+                    SizedBox(height: height*0.01,),
+                  ]
+              ),
                     SizedBox(height: width*0.05,),
                     Container(
                       height: width*0.13,
@@ -469,7 +488,7 @@ double totalss=0;
                                     color: Colour.gray),
                               ),
                               Text(
-                                "\$${(totalss+tax).floor()}",
+                                "\$${(totalss+tax).toStringAsFixed(2)}",
                                 style: TextStyle(
                                     fontSize: width * 0.045,
                                     fontWeight: FontWeight.w800),
@@ -479,16 +498,26 @@ double totalss=0;
                           SizedBox(height: width*0.03,),
                           InkWell(
                             onTap: () {
-                              Navigator.push(context, MaterialPageRoute(builder: (context) => DeliveryPage(cartItems: CartNotifier(), item2: MedicineModel(
-                                  name: '',
-                                  image: '',
-                                  ml: '',
-                                  rate: 0,
-                                  off: 0,
-                                  id: '',
-                                  des: '',
-                                  qty: 0,
-                                  userId: ''),),));
+                            cartAdd(currentModel!.cart);
+                            // var data= currentModel!.cart;
+                            // Navigator.push(context, MaterialPageRoute(builder: (context) => DeliveryPage(cartItems: [
+                            // data['name'],
+                            // data[i]['image'],
+                            // data[i]['ml'],
+                            // data[i]['rate'],
+                            // data[i]['id'],
+                            // data[i]['qty'],
+                            // userId!
+                            // ], item2: MedicineModel(
+                            // name:  '',
+                            // image: '',
+                            // ml: '',
+                            // rate: 0,
+                            // off: 0,
+                            // id: '',
+                            // des: '',
+                            // qty: 0,
+                            //  userId: userId!),),));
                             },
                             child: Container(
                               height: width * 0.15,

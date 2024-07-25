@@ -12,6 +12,7 @@ class AddressModel {
   String itemImage;
   String itemMl;
   int itemRate;
+  List cart;
 
   AddressModel({
     required this.name,
@@ -27,6 +28,7 @@ class AddressModel {
     required this.itemMl,
     required this.itemRate,
     required this.userId,
+    required this.cart,
   });
 
   Map<String, dynamic> toMap() {
@@ -44,6 +46,7 @@ class AddressModel {
       'itemMl': this.itemMl,
       'itemRate': this.itemRate,
       'userId': this.userId,
+      'cart': this.cart,
     };}
 
   factory AddressModel.fromMap(Map<String, dynamic>map){
@@ -61,6 +64,7 @@ class AddressModel {
       itemMl: map['itemMl'] ?? "",
       itemRate: map['itemRate'] ?? "",
       userId: map['userId'] ?? "",
+      cart: map['cart'] ?? "",
     );
   }
 
@@ -78,6 +82,7 @@ class AddressModel {
     String? itemMl,
     String? userId,
     int? itemRate,
+    List? cart,
   }) {
     return AddressModel(
       name: name ?? this.name,
@@ -93,6 +98,7 @@ class AddressModel {
       itemMl: itemMl ?? this.itemMl,
       itemRate: itemRate ?? this.itemRate,
       userId: userId ?? this.userId,
+      cart: cart ?? this.cart,
     );
   }
 }

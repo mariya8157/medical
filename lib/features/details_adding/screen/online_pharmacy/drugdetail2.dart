@@ -90,7 +90,12 @@ class _DrugDetailsPage2State extends ConsumerState<DrugDetailsPage2> {
                 fontWeight: FontWeight.w700,
                 fontSize: width * 0.04),
           ),
-
+          actions: [
+            Padding(
+              padding: EdgeInsets.all(width*0.03),
+              child: Icon(CupertinoIcons.cart,weight: width*0.04,color: Colour.thirdcolour,),
+            )
+          ],
         ),
         body: SingleChildScrollView(
           child: Padding(
@@ -239,7 +244,7 @@ class _DrugDetailsPage2State extends ConsumerState<DrugDetailsPage2> {
                       SizedBox(height: height*0.03,),
                       Text(
                         widget.med2.des,
-                        style: TextStyle(color: Colors.grey),
+                        style: TextStyle(color: Colour.gray),
                       ),
                     ],
                   ),
@@ -375,7 +380,7 @@ class _DrugDetailsPage2State extends ConsumerState<DrugDetailsPage2> {
                                   userId: userId!);
                               Navigator.push(
                                   context, MaterialPageRoute(
-                                builder: (context) => DeliveryPage(item2: itemDtails, cartItems: CartNotifier(),)));
+                                builder: (context) => DeliveryPage(item2: itemDtails, cartItems: [],)));
                             },
                             child: Container(
                               height: width * 0.12,
