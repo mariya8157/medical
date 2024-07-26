@@ -11,6 +11,7 @@ import '../../../../core/constants/icons.dart';
 import '../../../../core/constants/images.dart';
 import '../../../../main.dart';
 import '../../controller/medicine_controller.dart';
+import '../../controller/user_controller.dart';
 import 'drugdetail2.dart';
 import 'drugsdetail.dart';
 import 'mycart.dart';
@@ -31,6 +32,7 @@ class _PharmacyPageState extends ConsumerState<PharmacyPage> {
   bool see2 = false;
   List<int> favorite = [];
   List<int> favorite1 = [];
+  int wishIndex=0;
 
   @override
   Widget build(BuildContext context) {
@@ -335,6 +337,17 @@ class _PharmacyPageState extends ConsumerState<PharmacyPage> {
                                                   favorite.remove(index);
                                                 } else {
                                                   favorite.add(index);
+                                                  MedicineModel wishlist= MedicineModel(
+                                                      name: data[selectindex].name,
+                                                      image: data[selectindex].image.toString(),
+                                                      ml: data[selectindex].ml.toString(),
+                                                      rate: data[selectindex].rate,
+                                                      off: data[selectindex].off,
+                                                      id: data[selectindex].id.toString(),
+                                                      des: data[selectindex].des.toString(),
+                                                      qty: data[selectindex].qty,
+                                                      userId: userId!);
+                                                  ref.read(AddingControllerProvider).updatewish(currentModel!,wishlist);
                                                 }
                                               });
                                             },
@@ -529,6 +542,17 @@ class _PharmacyPageState extends ConsumerState<PharmacyPage> {
                                                   favorite1.remove(index);
                                                 } else {
                                                   favorite1.add(index);
+                                                  MedicineModel wishlist= MedicineModel(
+                                                      name: data[selectindex1].name,
+                                                      image: data[selectindex1].image.toString(),
+                                                      ml: data[selectindex1].ml.toString(),
+                                                      rate: data[selectindex1].rate,
+                                                      off: data[selectindex1].off,
+                                                      id: data[selectindex1].id.toString(),
+                                                      des: data[selectindex1].des.toString(),
+                                                      qty: data[selectindex1].qty,
+                                                      userId: userId!);
+                                                  ref.read(AddingControllerProvider).updatewish(currentModel!,wishlist);
                                                 }
                                               });
                                             },

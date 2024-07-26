@@ -6,6 +6,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:medical/features/details_adding/screen/Profile/Wishlist.dart';
 import 'package:medical/main.dart';
 import 'package:medical/models/doctor_model.dart';
 import 'package:quickalert/models/quickalert_type.dart';
@@ -241,17 +242,16 @@ class _ProfilePageState extends State<ProfilePage> {
                             ),
                             InkWell(
                               onTap: () {
-                                // Navigator.push(
-                                //     context,
-                                //     MaterialPageRoute(
-                                //     builder: (context) => BookingPage(time:  DoctorModel(name: '', time: '', date: '', cons: 0, admin: 0, dis: 0, image: '', spcl: '', exp: '', id: '', userId: ''))));
-                              },
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                    builder: (context) => MySaved()));},
                               child: ListTile(
                                 leading: CircleAvatar(
                                   radius: width * 0.06,
                                   backgroundColor: Colour.lightgreen,
                                   child:
-                                      SvgPicture.asset(ImageIcons.appoitmnet),
+                                      SvgPicture.asset(ImageIcons.wish),
                                 ),
                                 title: Text(
                                   "My Saved",

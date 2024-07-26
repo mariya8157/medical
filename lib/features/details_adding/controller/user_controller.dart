@@ -19,14 +19,17 @@ class AddingController {
   AddingController({required AddingRepository addingRepository})
       : _addingRepository= addingRepository;
 
-  addUserData({required name, required email,required password,required id, required cart}) {
-    _addingRepository.add(name, email, password, id, cart);
+  addUserData({required name, required email,required password,required id, required cart, required wish}) {
+    _addingRepository.add(name, email, password, id, cart, wish);
   }
 
-  addUser(name, email, password, id, cart) {
-    _addingRepository.addingUser(name, email, password, id, cart);
+  addUser(name, email, password, id, cart, wish) {
+    _addingRepository.addingUser(name, email, password, id, cart, wish);
   }
   updatecart(UsersModel usersModel,MedicineModel medicineModel){
     _addingRepository.updateCart(usersModel, medicineModel);
+  }
+  updatewish(UsersModel usersModel,MedicineModel medicineModel){
+    _addingRepository.updateWish(usersModel, medicineModel);
   }
 }

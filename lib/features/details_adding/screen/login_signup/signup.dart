@@ -37,7 +37,7 @@ class _SignupPageState extends ConsumerState<SignupPage> {
 
   userDetails()async{
         ref.watch(AddingControllerProvider).addUserData(
-          cart: [],
+          cart: [], wish: [],
         name:nameController.text,
         email:emailController.text,
         password:passwordController.text,
@@ -45,7 +45,7 @@ class _SignupPageState extends ConsumerState<SignupPage> {
   }
   addSignupDetails() async{
     ref.read(AddingControllerProvider).addUser(nameController.text,
-        emailController.text.trim(), passwordController.text,idController.text, []);
+        emailController.text.trim(), passwordController.text,idController.text, [], []);
   }
   currentUser() async{
     var data= await FirebaseFirestore.instance.collection("users")

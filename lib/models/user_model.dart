@@ -3,6 +3,7 @@ class UsersModel {
   String email;
   String password;
   List cart;
+  List wish;
   String id;
 
   UsersModel({
@@ -11,6 +12,7 @@ class UsersModel {
     required this.password,
     required this.id,
     required this.cart,
+    required this.wish,
   });
 
   Map<String, dynamic> toMap() {
@@ -20,6 +22,7 @@ class UsersModel {
       'password': this.password,
       'id': this.id,
       'cart': this.cart,
+      'wish': this.wish,
     };}
 
   factory UsersModel.fromMap(Map<String, dynamic>map){
@@ -29,6 +32,7 @@ class UsersModel {
       name: map['name'] ?? "",
       id: map['id'] ?? "",
       cart: map['cart'] ?? "",
+      wish: map['wish'] ?? "",
     );
   }
 
@@ -38,6 +42,7 @@ class UsersModel {
     String? email,
     String? id,
     List? cart,
+    List? wish,
   }) {
     return UsersModel(
       name: name ?? this.name,
@@ -45,6 +50,7 @@ class UsersModel {
       password: password ?? this.password,
       id: id ?? this.id,
       cart: cart ?? this.cart,
+      wish: wish ?? this.wish,
     );
   }
 }

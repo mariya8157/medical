@@ -41,6 +41,7 @@ class ImageIcons{
   static const nxtback = "assets/icons/nxtback.svg";
   static const heartbeat = "assets/icons/Heartbeat.svg";
   static const fire = "assets/icons/Fire.svg";
+  static const wish = "assets/icons/wish.svg";
   static const danger = "assets/icons/Danger Circle.svg";
   static const appoitmnet = "assets/icons/appotmnet.svg";
   static const logout = "assets/icons/-logout.svg";

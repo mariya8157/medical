@@ -81,8 +81,7 @@ class _SplashScreenState extends State<SplashScreen> {
     String? userIds = await prefs.getString('id');
     if (userIds != null) {
       currentModel = await fetchUserData(userIds);
-      print("model check------------------------------------------");
-      print(currentModel?.name);
+       print(currentModel?.name);
     }
     // Navigate to the next screen after loading user data
   }

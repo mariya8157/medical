@@ -19,13 +19,14 @@ class AddingRepository{
 
   CollectionReference get _users => _firestore.collection("users");
 
-  add(name, email, password, id, cart){
+  add(name, email, password, id, cart, wish){
     UsersModel userData = UsersModel(
         name: name,
         email: email,
         password: password,
         id: email,
-        cart: []
+        cart: [],
+        wish: [],
     );
 
     // _users.add(userData.toMap()).then((value) {
@@ -34,7 +35,7 @@ class AddingRepository{
         _users.doc(userData.email.trim()).set(userData.toMap());
   }
 
-  addingUser(name, email, password, id, cart){
+  addingUser(name, email, password, id, cart, wish){
     _firebaseAuth.createUserWithEmailAndPassword(email: email, password: password);
   }
   updateCart(UsersModel usersModel,MedicineModel medicineModel){
@@ -43,6 +44,14 @@ class AddingRepository{
       usersModel.copyWith(
         cart: usersModel.cart
       ).toMap()
+    );
+  }
+  updateWish(UsersModel usersModel,MedicineModel medicineModel){
+    usersModel.wish.add(medicineModel.toMap());
+    _users.doc(usersModel.id).update(
+        usersModel.copyWith(
+            wish: usersModel.wish
+        ).toMap()
     );
   }
   }
