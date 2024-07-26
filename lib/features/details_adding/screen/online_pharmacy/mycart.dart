@@ -18,6 +18,7 @@ import '../../../../core/constants/icons.dart';
 import '../../../../core/constants/images.dart';
 import '../../../../main.dart';
 import '../../../../models/medicine_model.dart';
+import 'delivery_address2.dart';
 
 class MyCartPage extends ConsumerStatefulWidget {
   final MedicineModel details;
@@ -49,16 +50,7 @@ class _MyCartPageState extends ConsumerState<MyCartPage> {
     for (int i = 0; i < data.length; i++){
       data= currentModel!.cart;
       // ref.read(AddressControllerProvider).updatecart(currentModel!,data);
-      Navigator.push(context, MaterialPageRoute(builder: (context) => DeliveryPage(cartItems: data, item2: MedicineModel(
-        name:  '',
-        image: '',
-        ml: '',
-        rate: 0,
-        off: 0,
-        id: '',
-        des: '',
-        qty: 0,
-        userId: userId!),),));}
+      Navigator.push(context, MaterialPageRoute(builder: (context) => DeliveryPage2(cartItems: data),));}
     print(data);
   }
 
@@ -74,7 +66,6 @@ class _MyCartPageState extends ConsumerState<MyCartPage> {
 
   @override
   Widget build(BuildContext context) {
-    final cart=ref.watch(cartNotifier);
     return Scaffold(
         appBar: AppBar(
             scrolledUnderElevation: 0,
@@ -265,11 +256,88 @@ class _MyCartPageState extends ConsumerState<MyCartPage> {
                                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                               children: [
                                                 InkWell(
-                                                    onTap:() {
-
-                                                    },
-                                                    child: SvgPicture.asset(ImageIcons.delete)),
-                                                Text(
+                                                  onTap: () {
+                                                    showDialog(
+                                                      context: context,
+                                                      barrierDismissible: false,
+                                                      builder: (context) {
+                                                        return AlertDialog(
+                                                          content: Container(
+                                                            height: height*0.18,
+                                                            width: width*0.5,
+                                                            child: Column(
+                                                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                                              children: [
+                                                                Container(
+                                                                    child: Column(
+                                                                      children: [
+                                                                        Text("Are you sure You want to",
+                                                                          style: TextStyle(
+                                                                              fontWeight: FontWeight.w600,
+                                                                              fontSize: width*0.04,
+                                                                              color: Colour.thirdcolour),),
+                                                                        Text("Cancel this Appointment?",
+                                                                          style: TextStyle(
+                                                                              fontWeight: FontWeight.w600,
+                                                                              fontSize: width*0.04,
+                                                                              color: Colour.thirdcolour),),
+                                                                      ],)),
+                                                                Row(
+                                                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                  children: [
+                                                                    InkWell(
+                                                                      onTap: ()  {
+                                                                       // FirebaseFirestore.instance.collection("users").doc(userId).delete();
+                                                                        Navigator.pop(context);
+                                                                      },
+                                                                      child: Container(
+                                                                        height: height*0.05,
+                                                                        width: width*0.26,
+                                                                        decoration: BoxDecoration(
+                                                                            color: Colour.primarycolour,
+                                                                            borderRadius: BorderRadius.circular(width*0.03)
+                                                                        ),
+                                                                        child: Center(
+                                                                          child: Text("Cancel",
+                                                                            style: TextStyle(
+                                                                                fontSize: width*0.04,
+                                                                                fontWeight: FontWeight.w600,
+                                                                                color: Colour.secondarycolour
+                                                                            ),),
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                    InkWell(
+                                                                      onTap: () {
+                                                                        Navigator.pop(context);
+                                                                      },
+                                                                      child: Container(
+                                                                        height: height*0.05,
+                                                                        width: width*0.26,
+                                                                        decoration: BoxDecoration(
+                                                                            color: Colour.primarycolour,
+                                                                            borderRadius: BorderRadius.circular(width*0.03)
+                                                                        ),
+                                                                        child: Center(
+                                                                          child: Text("No",
+                                                                            style: TextStyle(
+                                                                                fontSize: width*0.04,
+                                                                                fontWeight: FontWeight.w600,
+                                                                                color: Colour.secondarycolour
+                                                                            ),),
+                                                                        ),
+                                                                      ),
+                                                                    ),
+                                                                  ],
+                                                                ),
+                                                              ],
+                                                            ),
+                                                          ),
+                                                        );
+                                                      },);
+                                                  },
+                                                  child: SvgPicture.asset(ImageIcons.delete)),
+                                               Text(
                                                   "\$${(data[index]['qty']*data[index]['rate']).toStringAsFixed(2)}",
                                                   style: TextStyle(
                                                       fontWeight: FontWeight.w800,

@@ -20,17 +20,19 @@ import '../../controller/address_controller.dart';
 import '../home/bottomnavigation.dart';
 import '../login_signup/login.dart';
 import 'address.dart';
+import 'address2.dart';
 
-class DeliveryPage extends ConsumerStatefulWidget {
-  final MedicineModel item2;
-  const DeliveryPage({super.key, required this.item2
+class DeliveryPage2 extends ConsumerStatefulWidget {
+  final List cartItems;
+  const DeliveryPage2({super.key,required this.cartItems,
+    // required this.cartItems
   });
 
   @override
   ConsumerState createState() => _DeliveryPageState();
 }
 
-class _DeliveryPageState extends ConsumerState<DeliveryPage> {
+class _DeliveryPageState extends ConsumerState<DeliveryPage2> {
 
   TextEditingController nameController=TextEditingController();
   TextEditingController pincodeController=TextEditingController();
@@ -42,7 +44,7 @@ class _DeliveryPageState extends ConsumerState<DeliveryPage> {
   TextEditingController idController=TextEditingController();
   final formKey=GlobalKey<FormState>();
 
-  addressDetails(){
+  addressDetails2(){
     ref.read(AddressControllerProvider).addAddressData(AddressModel(
         name: nameController.text,
         phone: int.parse(phoneController.text),
@@ -51,13 +53,20 @@ class _DeliveryPageState extends ConsumerState<DeliveryPage> {
         city: cityController.text,
         country: countryController.text,
         houseName: houseController.text,
-        id: widget.item2.id,
-        itemName: widget.item2.name,
-        itemImage: widget.item2.image,
-        itemQty: widget.item2.qty.toInt(),
-        itemMl: widget.item2.ml,
-        itemRate: widget.item2.rate.toInt()*widget.item2.qty.toInt(),
-        userId: currentModel!.id, cart: []));
+        id: '',
+        itemName: '',
+        itemImage:'',
+        itemMl: '',
+        itemRate: 0,
+        userId: currentModel!.id,
+        cart: widget.cartItems, itemQty: 0));
+  }
+  @override
+  void initState() {
+    // TODO: implement initState
+    // widget.cartItems;
+    // print("AAAAAAAAAAAAAAAAAAAAAA${widget.cartItems}");
+    super.initState();
   }
 
   @override
@@ -66,7 +75,7 @@ class _DeliveryPageState extends ConsumerState<DeliveryPage> {
       appBar: AppBar(
         scrolledUnderElevation: 0,
         centerTitle: true,
-       elevation: 0,
+        elevation: 0,
         leading: InkWell(
           onTap: () {
             Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => BottomNavigationPage(),), (route) => false);
@@ -200,7 +209,7 @@ class _DeliveryPageState extends ConsumerState<DeliveryPage> {
                             ),
                             focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(
-                                color: Colour.thirdcolour
+                                  color: Colour.thirdcolour
                               ),
                               borderRadius: BorderRadius.circular(width * 0.03),
                             ),
@@ -467,73 +476,73 @@ class _DeliveryPageState extends ConsumerState<DeliveryPage> {
                   ),),
                 SizedBox(height: width*0.06,),
                 InkWell(
-                  onTap: () {
-                    if(
-                    nameController.text!=""&&
-                        phoneController.text!=""&&
-                        pincodeController.text!=""&&
-                        streetController.text!=""&&
-                        cityController.text!=""&&
-                        countryController.text!=""&&
-                        houseController.text!=""&&
-                        formKey.currentState!.validate()
-                    )
-                           {
-                           addressDetails();
-                              Navigator.push(context, MaterialPageRoute(builder: (context) => OrderDetails(id: AddressModel(
-                               name: nameController.text,
-                               phone: int.parse(phoneController.text),
-                                pincode: int.parse(pincodeController.text),
-                                  street: streetController.text,
-                                 city: cityController.text,
-                                  country: countryController.text,
-                                  houseName: houseController.text,
-                                 id: widget.item2.id,
-                                 itemName: widget.item2.name,
-                                 itemImage: widget.item2.image,
-                                itemMl: widget.item2.ml,
-                                itemQty: widget.item2.qty.toInt(),
-                                itemRate: widget.item2.rate.toInt()*widget.item2.qty.toInt(),
-                              userId: userId!, cart: [])),));
-                               }
+                    onTap: () {
+                      if(
+                      nameController.text!=""&&
+                          phoneController.text!=""&&
+                          pincodeController.text!=""&&
+                          streetController.text!=""&&
+                          cityController.text!=""&&
+                          countryController.text!=""&&
+                          houseController.text!=""&&
+                          formKey.currentState!.validate()
+                      )
+                      {
+                        addressDetails2();
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => OrderDetails2(id: AddressModel(
+                            name: nameController.text,
+                            phone: int.parse(phoneController.text),
+                            pincode: int.parse(pincodeController.text),
+                            street: streetController.text,
+                            city: cityController.text,
+                            country: countryController.text,
+                            houseName: houseController.text,
+                            id: '',
+                            itemName: '',
+                            itemImage:'',
+                            itemMl: '',
+                            itemRate: 0,
+                            userId: currentModel!.id,
+                            cart: widget.cartItems, itemQty: 0)),));
+                      }
 
-                    else{
-                      nameController.text==""?
-                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(backgroundColor: Colour.primarycolour,content: Text("Please enter your Name!"))):
-                      phoneController.text==""?
-                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(backgroundColor: Colour.primarycolour,content: Text("Please enter your Phone Number!"))):
-                      pincodeController.text==""?
-                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(backgroundColor: Colour.primarycolour,content: Text("Please enter your Pincode!"))):
-                      streetController.text==""?
-                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(backgroundColor: Colour.primarycolour,content: Text("Please enter your Street!"))):
-                      cityController.text==""?
-                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(backgroundColor: Colour.primarycolour,content: Text("Please enter your City!"))):
-                      countryController.text==""?
-                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(backgroundColor: Colour.primarycolour,content: Text("Please enter your Country!"))):
-                      houseController.text==""?
-                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(backgroundColor: Colour.primarycolour,content: Text("Please enter your House/Apartment name!"))):
-                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(backgroundColor: Colour.primarycolour,content: Text("Please enter your Valid Details!")));
+                      else{
+                        nameController.text==""?
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(backgroundColor: Colour.primarycolour,content: Text("Please enter your Name!"))):
+                        phoneController.text==""?
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(backgroundColor: Colour.primarycolour,content: Text("Please enter your Phone Number!"))):
+                        pincodeController.text==""?
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(backgroundColor: Colour.primarycolour,content: Text("Please enter your Pincode!"))):
+                        streetController.text==""?
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(backgroundColor: Colour.primarycolour,content: Text("Please enter your Street!"))):
+                        cityController.text==""?
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(backgroundColor: Colour.primarycolour,content: Text("Please enter your City!"))):
+                        countryController.text==""?
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(backgroundColor: Colour.primarycolour,content: Text("Please enter your Country!"))):
+                        houseController.text==""?
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(backgroundColor: Colour.primarycolour,content: Text("Please enter your House/Apartment name!"))):
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(backgroundColor: Colour.primarycolour,content: Text("Please enter your Valid Details!")));
 
-                    }
-                  },
-                  child: Container(
-                    height: width*0.13,
-                    width: width*0.84,
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        colors: <Color>[Colour.primarycolour, Colour.lightprimarycolor],
+                      }
+                    },
+                    child: Container(
+                      height: width*0.13,
+                      width: width*0.84,
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          colors: <Color>[Colour.primarycolour, Colour.lightprimarycolor],
+                        ),
+                        borderRadius: BorderRadius.circular(width*0.04),
                       ),
-                      borderRadius: BorderRadius.circular(width*0.04),
-                    ),
-                    child: Center(
-                      child: Text("Add",style: TextStyle(
-                          fontWeight: FontWeight.w800,
-                          color: Colour.secondarycolour,
-                          fontSize: width*0.05
-                      ),),
-                    ),
-                )
-                  ),
+                      child: Center(
+                        child: Text("Add",style: TextStyle(
+                            fontWeight: FontWeight.w800,
+                            color: Colour.secondarycolour,
+                            fontSize: width*0.05
+                        ),),
+                      ),
+                    )
+                ),
                 SizedBox(height:width*0.03 ,)
               ],
             ),

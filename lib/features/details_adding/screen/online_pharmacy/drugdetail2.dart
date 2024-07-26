@@ -380,7 +380,7 @@ class _DrugDetailsPage2State extends ConsumerState<DrugDetailsPage2> {
                                   userId: userId!);
                               Navigator.push(
                                   context, MaterialPageRoute(
-                                builder: (context) => DeliveryPage(item2: itemDtails, cartItems: [],)));
+                                builder: (context) => DeliveryPage(item2: itemDtails,)));
                             },
                             child: Container(
                               height: width * 0.12,

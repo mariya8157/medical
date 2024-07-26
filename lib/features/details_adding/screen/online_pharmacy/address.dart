@@ -83,7 +83,7 @@ class _OrderDetailsState extends ConsumerState<OrderDetails> {
         elevation: 0,
         leading: InkWell(
           onTap: () {
-            Navigator.pop(context);
+            Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => BottomNavigationPage(),), (route) => false);
           },
           child: SizedBox(
             height: width * 0.05,
@@ -215,7 +215,7 @@ class _OrderDetailsState extends ConsumerState<OrderDetails> {
                                           fontSize: width*0.05,
                                           fontWeight: FontWeight.w600
                                       ),),
-                                      Text(widget.id.id.toString(), style: TextStyle(
+                                      Text(widget.id.userId.toString(), style: TextStyle(
                                           fontSize: width * 0.045, color:Colour.thirdcolour),)
                                     ],
                                   ),
@@ -251,6 +251,7 @@ class _OrderDetailsState extends ConsumerState<OrderDetails> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Container(
+                            height: width * 0.2,
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               mainAxisAlignment:
@@ -265,11 +266,27 @@ class _OrderDetailsState extends ConsumerState<OrderDetails> {
                                 Text(
                                   widget.id.itemMl.toString(),
                                   style: TextStyle(
+                                      fontWeight: FontWeight.w600,
                                       fontSize: width * 0.04,
                                       color: Colour.gray),
                                 ),
                                 Text(
-                                  "\$${widget.id.itemRate}",
+                                 "${widget.id.itemQty.toString()} Items",
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: width * 0.04,
+                                      color: Colour.thirdcolour),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Container(
+                            height: width*0.23,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Text(
+                                  "\$${widget.id.itemRate.toStringAsFixed(2)}",
                                   style: TextStyle(
                                       fontWeight: FontWeight.w800,
                                       fontSize: width * 0.04),

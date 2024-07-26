@@ -277,13 +277,7 @@ class _DrugDetailsPageState extends ConsumerState<DrugDetailsPage> {
                                             children: [
                                               InkWell(
                                                 onTap: ()  {
-                                                  print('----------------------------------');
-                                                  print(userId!);
-                                                  print('----------------------------------');
-                                                  print("______________________++++++++++++++++++++++++++++++++++++++++++");
-                                                  print(currentModel!.name);
-
-                                                  MedicineModel cartDetails= MedicineModel(
+                                                   MedicineModel cartDetails= MedicineModel(
                                                       name: widget.med.name.toString(),
                                                       image: widget.med.image.toString(),
                                                       ml: widget.med.ml.toString(),
@@ -373,7 +367,7 @@ class _DrugDetailsPageState extends ConsumerState<DrugDetailsPage> {
                                   userId: userId!);
                               Navigator.push(
                                   context, MaterialPageRoute(
-                                  builder: (context) => DeliveryPage(item2: itemDtails, cartItems: [],)));
+                                  builder: (context) => DeliveryPage(item2: itemDtails)));
                             },
                             child: Container(
                               height: width * 0.12,

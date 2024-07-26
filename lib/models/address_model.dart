@@ -11,6 +11,7 @@ class AddressModel {
   String itemName;
   String itemImage;
   String itemMl;
+  int itemQty;
   int itemRate;
   List cart;
 
@@ -26,6 +27,7 @@ class AddressModel {
     required this.itemName,
     required this.itemImage,
     required this.itemMl,
+    required this.itemQty,
     required this.itemRate,
     required this.userId,
     required this.cart,
@@ -42,6 +44,7 @@ class AddressModel {
       'houseName': this.houseName,
       'id': this.id,
       'itemName': this.itemName,
+      'itemQty': this.itemQty,
       'itemImage': this.itemImage,
       'itemMl': this.itemMl,
       'itemRate': this.itemRate,
@@ -60,6 +63,7 @@ class AddressModel {
       name: map['name'] ?? "",
       id: map['id'] ?? "",
       itemName: map['itemName'] ?? "",
+      itemQty: map['itemQty'] ?? "",
       itemImage: map['itemImage'] ?? "",
       itemMl: map['itemMl'] ?? "",
       itemRate: map['itemRate'] ?? "",
@@ -80,6 +84,7 @@ class AddressModel {
     String? itemName,
     String? itemImage,
     String? itemMl,
+    int? itemQty,
     String? userId,
     int? itemRate,
     List? cart,
@@ -95,6 +100,7 @@ class AddressModel {
       id: id ?? this.id,
       itemName: itemName ?? this.itemName,
       itemImage: itemImage ?? this.itemImage,
+      itemQty: itemQty ?? this.itemQty,
       itemMl: itemMl ?? this.itemMl,
       itemRate: itemRate ?? this.itemRate,
       userId: userId ?? this.userId,
