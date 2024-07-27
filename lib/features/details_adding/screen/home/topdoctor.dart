@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:medical/features/details_adding/screen/doctor_consultation/docsearch.dart';
 import '../../../../core/constants/colour.dart';
 import '../../../../core/constants/icons.dart';
 import '../../../../main.dart';
@@ -64,48 +65,54 @@ class _TopDoctorPageState extends ConsumerState<TopDoctorPage> {
           child: Column(
             children: [
               SizedBox(height: width*0.05,),
-              Container(
-                height: height*0.06,
-                width: width*0.9,
-                decoration: BoxDecoration(
-                    color: Colour.color3,
-                    borderRadius: BorderRadius.circular(width*0.07)
-                ),
-                child: TextFormField(
-                  controller: searchController,
-                  onChanged: (value) {
-                    setState(() {
+              InkWell(
+                onTap: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => DocSearchPage(),));
+                },
+                child: Container(
+                  height: height*0.06,
+                  width: width*0.9,
+                  decoration: BoxDecoration(
+                      color: Colour.color3,
+                      borderRadius: BorderRadius.circular(width*0.07)
+                  ),
+                  child: TextFormField(
+                    controller: searchController,
+                    onChanged: (value) {
 
-                    });
-                  },
-                  keyboardType: TextInputType.name,
-                  textInputAction: TextInputAction.search,
-                  style: TextStyle(fontSize: width*0.04,fontWeight: FontWeight.w500,color: Colour.thirdcolour),
-                  decoration: InputDecoration(
-                      prefixIcon:Padding(
-                        padding:  EdgeInsets.all(width*0.03),
-                        child: SvgPicture.asset(ImageIcons.search),
-                      ),
-                      labelText: "Top Doctor",
-                      labelStyle: TextStyle(fontWeight: FontWeight.w500,fontSize: width*0.04, color: Colour.color1),
-                      hintText: "search doctors here",
-                      hintStyle: TextStyle(
-                        fontSize: width*0.05,
-                        fontWeight: FontWeight.w400,
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: Colour.color2,
-                          ),
-                          borderRadius: BorderRadius.circular(
-                              width*0.07)
-                      ),
-                      enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(width*0.07),
-                          borderSide: BorderSide(
-                            color: Colour.color2,
-                          )
-                      )
+                      setState(() {
+
+                      });
+                    },
+                    keyboardType: TextInputType.name,
+                    textInputAction: TextInputAction.search,
+                    style: TextStyle(fontSize: width*0.04,fontWeight: FontWeight.w500,color: Colour.thirdcolour),
+                    decoration: InputDecoration(
+                        prefixIcon:Padding(
+                          padding:  EdgeInsets.all(width*0.03),
+                          child: SvgPicture.asset(ImageIcons.search),
+                        ),
+                        labelText: "Top Doctor",
+                        labelStyle: TextStyle(fontWeight: FontWeight.w500,fontSize: width*0.04, color: Colour.color1),
+                        hintText: "search doctors here",
+                        hintStyle: TextStyle(
+                          fontSize: width*0.05,
+                          fontWeight: FontWeight.w400,
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: Colour.color2,
+                            ),
+                            borderRadius: BorderRadius.circular(
+                                width*0.07)
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(width*0.07),
+                            borderSide: BorderSide(
+                              color: Colour.color2,
+                            )
+                        )
+                    ),
                   ),
                 ),
               ),

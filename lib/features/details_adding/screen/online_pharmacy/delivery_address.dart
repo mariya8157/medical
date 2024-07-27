@@ -324,7 +324,7 @@ class _DeliveryPageState extends ConsumerState<DeliveryPage> {
                       keyboardType: TextInputType.name,
                       inputFormatters: [
                         FilteringTextInputFormatter.singleLineFormatter,
-                        LengthLimitingTextInputFormatter(15)
+                        LengthLimitingTextInputFormatter(25)
                       ],
                       decoration: InputDecoration(
                         labelStyle: TextStyle(
@@ -513,7 +513,7 @@ class _DeliveryPageState extends ConsumerState<DeliveryPage> {
                       houseController.text==""?
                       ScaffoldMessenger.of(context).showSnackBar(SnackBar(backgroundColor: Colour.primarycolour,content: Text("Please enter your House/Apartment name!"))):
                       ScaffoldMessenger.of(context).showSnackBar(SnackBar(backgroundColor: Colour.primarycolour,content: Text("Please enter your Valid Details!")));
-
+// Navigator.pop(context);
                     }
                   },
                   child: Container(
