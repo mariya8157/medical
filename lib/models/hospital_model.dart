@@ -1,39 +1,39 @@
-class HospitalModel{
+class HsptlModel {
+  String name;
   String image;
-  String text;
   String id;
 
-  HospitalModel({
+  HsptlModel({
+    required this.name,
     required this.image,
-    required this.text,
-    required this.id
-});
+    required this.id,
+  });
 
-  Map<String,dynamic> toMap(){
-    return{
-      'image':this.image,
-      'text':this.text,
-      'id':this.id
+  Map<String, dynamic> toMap() {
+    return {
+      'name': this.name,
+      'image': this.image,
+      'id': this.id,
     };
   }
-  factory HospitalModel.fromMap(Map<String,dynamic>map){
-    return HospitalModel(
-        image: map['image']??"",
-        text: map['text']??"",
-      id: map['id']??""
+
+  factory HsptlModel.fromMap(Map<String, dynamic>map){
+    return HsptlModel(
+      image: map['image'] ?? "",
+      name: map['name'] ?? "",
+      id: map['id'] ?? "",
     );
   }
-  HospitalModel copyWith({
-    String? image,
-    String? text,
-    String? id
 
-  })
-  {
-    return HospitalModel(
-        image:  image ?? this.image,
-        text: text ?? this.text,
-      id: id ?? this.id
+  HsptlModel copyWith({
+    String? name,
+    String? image,
+    String? id,
+  }) {
+    return HsptlModel(
+      name: name ?? this.name,
+      id: id ?? this.id,
+      image: image ?? this.image,
     );
   }
 }
