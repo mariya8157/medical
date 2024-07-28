@@ -1,17 +1,18 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../../core/constants/images.dart';
 import '../../../../main.dart';
 
-class HospitalPage extends StatefulWidget {
+class HospitalPage extends ConsumerStatefulWidget {
   const HospitalPage({super.key});
 
   @override
-  State<HospitalPage> createState() => _HospitalPageState();
+  ConsumerState createState() => _HospitalPageState();
 }
 
-class _HospitalPageState extends State<HospitalPage> {
+class _HospitalPageState extends ConsumerState<HospitalPage> {
   int currentIndex=0;
   List pages=[
     ImagePictures.hsptl1,
@@ -60,12 +61,14 @@ class _HospitalPageState extends State<HospitalPage> {
                       currentIndex=index;
                     });
                   },
-                )),
+                )),SizedBox(height: width*0.03,),
             Text("Description",
               style: TextStyle(
+                fontSize: width*0.04,
                 fontWeight: FontWeight.w600
               ),
             ),
+            SizedBox(height: width*0.03,),
             Text("Medics General Hospital is a leading healthcare institution renowned for its commitment to providing high-quality medical care to the community. Established in 1965, our hospital has grown to become a center of excellence in various medical fields, including cardiology, oncology, neurology, and orthopedics .Our state-of-the-art facilities are equipped with the latest medical technology, and our team of experienced doctors and healthcare professionals is dedicated to delivering compassionate and personalized care. Whether you need routine check-ups or specialized treatments, Medics General Hospital is here to support your health and well-being.Visit us today and experience the difference in quality healthcare at Medics General Hospital. Your health is our priority.")
           ],
         ),
