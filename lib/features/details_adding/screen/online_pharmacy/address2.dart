@@ -291,7 +291,7 @@ class _OrderDetailsState extends ConsumerState<OrderDetails2> {
                                                       color: Colour.gray),
                                                 ),
                                                 Text(
-                                                  data[index]['qty'].toString(),
+                                                  "${data[index]['qty'].toString()} Items",
                                                   style: TextStyle(
                                                       fontWeight: FontWeight.w600,
                                                       fontSize: width * 0.04,

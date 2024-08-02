@@ -2,25 +2,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:medical/features/details_adding/screen/home/ambulance.dart';
-import 'package:medical/features/details_adding/screen/home/article.dart';
-import 'package:medical/features/details_adding/screen/home/bottomnavigation.dart';
-import 'package:medical/features/details_adding/screen/home/docter.dart';
-import 'package:medical/features/details_adding/screen/home/homepage.dart';
-
-
-import 'package:medical/features/details_adding/screen/home/topdoctor.dart';
-import 'package:medical/features/details_adding/screen/online_pharmacy/mycart.dart';
-import 'package:medical/features/details_adding/screen/online_pharmacy/pharmacy.dart';
 import 'package:medical/models/user_model.dart';
-import 'features/details_adding/screen/Profile/profile.dart';
 import 'features/details_adding/screen/splashScreen/splashscreen.dart';
-// import 'features/details_adding/screen/doctor Consultation/chatwithdoctor.dart';
-// import 'features/details_adding/screen/doctor Consultation/findDoctor.dart';
-// import 'features/details_adding/screen/onlinePharmacy/address.dart';
-// import 'features/details_adding/screen/onlinePharmacy/article.dart';
-// import 'features/details_adding/screen/onlinePharmacy/delivery_address.dart';
-import 'features/details_adding/screen/online_pharmacy/pharmacy.dart';
 import 'firebase_options.dart';
 
 UsersModel? currentModel;

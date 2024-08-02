@@ -73,7 +73,11 @@ class _DrugDetailsPageState extends ConsumerState<DrugDetailsPage> {
           actions: [
             Padding(
               padding: EdgeInsets.all(width*0.03),
-              child: Icon(CupertinoIcons.cart,weight: width*0.04,color: Colour.thirdcolour,),
+              child: InkWell(
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => MyCartPage(details: MedicineModel(name: '', image: '', ml: '', rate: 0, off: 0, id: '', des: '', qty: 0, userId: userId!)),));
+                  },
+                  child: Icon(CupertinoIcons.cart,weight: width*0.04,color: Colour.thirdcolour,)),
             )
           ],
         ),

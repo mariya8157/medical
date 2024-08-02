@@ -59,7 +59,8 @@ class _DeliveryPageState extends ConsumerState<DeliveryPage2> {
         itemMl: '',
         itemRate: 0,
         userId: currentModel!.id,
-        cart: widget.cartItems, itemQty: 0));
+        cart: widget.cartItems,
+        itemQty: 0));
   }
   @override
   void initState() {
@@ -503,7 +504,8 @@ class _DeliveryPageState extends ConsumerState<DeliveryPage2> {
                             itemMl: '',
                             itemRate: 0,
                             userId: currentModel!.id,
-                            cart: widget.cartItems, itemQty: 0)),));
+                            cart: widget.cartItems,
+                            itemQty: 0)),));
                       }
 
                       else{

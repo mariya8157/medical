@@ -57,7 +57,7 @@ class _DeliveryPageState extends ConsumerState<DeliveryPage> {
         itemQty: widget.item2.qty.toInt(),
         itemMl: widget.item2.ml,
         itemRate: widget.item2.rate.toInt()*widget.item2.qty.toInt(),
-        userId: currentModel!.id, cart: []));
+        userId: currentModel!.id, cart: [],));
   }
 
   @override
