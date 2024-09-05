@@ -1,10 +1,15 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../../../../core/constants/colour.dart';
 import '../../../../core/constants/icons.dart';
 import '../../../../main.dart';
+import '../../../../models/user_model.dart';
+import '../home/bottomnavigation.dart';
+import '../login_signup/login.dart';
 import 'getstarted.dart';
 import 'onboarding_constant.dart';
 
@@ -18,6 +23,42 @@ class OnBordingPage extends StatefulWidget {
 class _OnBordingPageState extends State<OnBordingPage> {
   int currentIndex=0;
   PageController controller=PageController();
+
+  bool login=false;
+
+
+  Future<UsersModel?> fetchUserData(String userId) async {
+    final doc = await FirebaseFirestore.instance.collection('users').doc(userId).get();
+    if (doc.exists) {
+      return UsersModel.fromMap(doc.data() as Map<String,dynamic>);
+    }
+    return null;
+  }
+
+  keepLogin()async{
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    login = prefs.getBool('login')??false;
+    userId = prefs.getString('id');
+  }
+
+
+  void loadUserData() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    String? userIds = await prefs.getString('id');
+    if (userIds != null) {
+      currentModel = await fetchUserData(userIds);
+      print(currentModel?.name);
+    }
+    // Navigate to the next screen after loading user data
+  }
+
+  @override
+  void initState() {
+    loadUserData();
+    keepLogin();
+    // TODO: implement initState
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -95,9 +136,9 @@ class _OnBordingPageState extends State<OnBordingPage> {
                   GestureDetector(
                     onTap: (){
                       controller.jumpToPage(2);
-                      Future.delayed(Duration(milliseconds: 500)).then((value) =>
-                          Navigator.push(context, MaterialPageRoute(builder: (context) =>GetStartedPage() ,))
-                      );
+                      Navigator.push(context, MaterialPageRoute(builder: (context) =>
+                      login==true?BottomNavigationPage():GetStartedPage()
+                        ,));
                       setState(() {
 
                       });
