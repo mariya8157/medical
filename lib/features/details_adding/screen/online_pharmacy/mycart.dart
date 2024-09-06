@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -8,6 +10,7 @@ import 'package:medical/features/details_adding/controller/address_controller.da
 import 'package:medical/features/details_adding/providers/firebase_provider.dart';
 import 'package:medical/features/details_adding/screen/login_signup/login.dart';
 import 'package:medical/features/details_adding/screen/online_pharmacy/delivery_address.dart';
+import 'package:medical/features/details_adding/screen/online_pharmacy/pharmacy.dart';
 import 'package:medical/models/address_model.dart';
 import 'package:medical/models/user_model.dart';
 import 'package:pinput/pinput.dart';
@@ -36,7 +39,7 @@ class _MyCartPageState extends ConsumerState<MyCartPage> {
 
   double tax= 1.00;
   double totalss=0;
-
+  bool delete= false;
   int selectedOption=1;
 
   subTotal(List data) {
@@ -73,7 +76,7 @@ class _MyCartPageState extends ConsumerState<MyCartPage> {
             elevation: 0,
             leading: InkWell(
               onTap: () {
-                Navigator.pop(context);
+                Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => PharmacyPage(),), (route) => false);
               },
               child: SizedBox(
                 height: width * 0.05,
@@ -92,7 +95,7 @@ class _MyCartPageState extends ConsumerState<MyCartPage> {
               style: TextStyle(
                   color: Colour.thirdcolour,
                   fontWeight: FontWeight.w700,
-                  fontSize: width * 0.063),
+                  fontSize: width * 0.06),
             ),
           ),
       body: SingleChildScrollView(
@@ -112,12 +115,12 @@ class _MyCartPageState extends ConsumerState<MyCartPage> {
                       Text("No Products added to Cart");
                     }
                     var data =currentModel!.cart;
-                    return ListView.separated(
+                    return ListView.builder(
                         shrinkWrap: true,
                         physics: BouncingScrollPhysics(),
                         itemCount:data.length,
                         itemBuilder: (context, index) {
-                           return Column(
+                           return data[index]['qty'] !=0?Column(
                             children: [
                               Container(
                                 height: width * 0.35,
@@ -257,84 +260,7 @@ class _MyCartPageState extends ConsumerState<MyCartPage> {
                                               children: [
                                                 InkWell(
                                                   onTap: () {
-                                                    showDialog(
-                                                      context: context,
-                                                      barrierDismissible: false,
-                                                      builder: (context) {
-                                                        return AlertDialog(
-                                                          content: Container(
-                                                            height: height*0.18,
-                                                            width: width*0.5,
-                                                            child: Column(
-                                                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                                              children: [
-                                                                Container(
-                                                                    child: Column(
-                                                                      children: [
-                                                                        Text("Are you sure You want to",
-                                                                          style: TextStyle(
-                                                                              fontWeight: FontWeight.w600,
-                                                                              fontSize: width*0.04,
-                                                                              color: Colour.thirdcolour),),
-                                                                        Text("Cancel this Appointment?",
-                                                                          style: TextStyle(
-                                                                              fontWeight: FontWeight.w600,
-                                                                              fontSize: width*0.04,
-                                                                              color: Colour.thirdcolour),),
-                                                                      ],)),
-                                                                Row(
-                                                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                  children: [
-                                                                    InkWell(
-                                                                      onTap: ()  {
-                                                                       // FirebaseFirestore.instance.collection("users").doc(userId).delete();
-                                                                        Navigator.pop(context);
-                                                                      },
-                                                                      child: Container(
-                                                                        height: height*0.05,
-                                                                        width: width*0.26,
-                                                                        decoration: BoxDecoration(
-                                                                            color: Colour.primarycolour,
-                                                                            borderRadius: BorderRadius.circular(width*0.03)
-                                                                        ),
-                                                                        child: Center(
-                                                                          child: Text("Cancel",
-                                                                            style: TextStyle(
-                                                                                fontSize: width*0.04,
-                                                                                fontWeight: FontWeight.w600,
-                                                                                color: Colour.secondarycolour
-                                                                            ),),
-                                                                        ),
-                                                                      ),
-                                                                    ),
-                                                                    InkWell(
-                                                                      onTap: () {
-                                                                        Navigator.pop(context);
-                                                                      },
-                                                                      child: Container(
-                                                                        height: height*0.05,
-                                                                        width: width*0.26,
-                                                                        decoration: BoxDecoration(
-                                                                            color: Colour.primarycolour,
-                                                                            borderRadius: BorderRadius.circular(width*0.03)
-                                                                        ),
-                                                                        child: Center(
-                                                                          child: Text("No",
-                                                                            style: TextStyle(
-                                                                                fontSize: width*0.04,
-                                                                                fontWeight: FontWeight.w600,
-                                                                                color: Colour.secondarycolour
-                                                                            ),),
-                                                                        ),
-                                                                      ),
-                                                                    ),
-                                                                  ],
-                                                                ),
-                                                              ],
-                                                            ),
-                                                          ),
-                                                        );
-                                                      },);
+                                                    
                                                   },
                                                   child: SvgPicture.asset(ImageIcons.delete)),
                                                Text(
@@ -352,13 +278,9 @@ class _MyCartPageState extends ConsumerState<MyCartPage> {
                                   ],
                                 ),
                               ),
+                              SizedBox(height: height*0.02,)
                             ],
-                          );
-                        },
-                        separatorBuilder: (context, index) {
-                          return SizedBox(
-                            height: width * 0.05,
-                          );
+                          ): Container(color: Colors.blue,);
                         },
                     );
                   },

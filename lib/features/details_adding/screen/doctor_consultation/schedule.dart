@@ -27,6 +27,7 @@ class _SchedulePageState extends State<SchedulePage> {
       length: 2,
       child: Scaffold(
         appBar: AppBar(
+          leading: null,
           title: Text("Schedule",
             style: TextStyle(
                 color: Colour.thirdcolour,
