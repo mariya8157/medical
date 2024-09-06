@@ -86,9 +86,7 @@ class _SchedulePageState extends State<SchedulePage> {
                               }
                               var data=snapshot.data!.docs;
                               return data.length==0?
-                              Center(child: Text("No document found")) :
-
-
+                              const Center(child: Text("No document found")) :
                               ListView.separated(
                                 itemCount:data.length,
                                 shrinkWrap: true,

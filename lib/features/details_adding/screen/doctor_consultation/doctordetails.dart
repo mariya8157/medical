@@ -129,7 +129,6 @@ surfaceTintColor:Colour.thirdcolour ,
               ListView.separated(
                   shrinkWrap: true,
                   // physics: BouncingScrollPhysics(),
-
                   itemBuilder: (context, index) {
                     return
                       Padding(
@@ -139,15 +138,11 @@ surfaceTintColor:Colour.thirdcolour ,
                             Container(
                               width: width*0.3,
                               height:height*0.15,
-
                               decoration: BoxDecoration(
                                 image: DecorationImage(image: NetworkImage(widget.dr.image)),
                                 // color: Colors.red,
                                 borderRadius: BorderRadius.circular(width*0.03),
-
                               ),
-
-
                             ),
                             Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -158,14 +153,12 @@ surfaceTintColor:Colour.thirdcolour ,
                                       fontWeight: FontWeight.w800,
                                       color:Colour.thirdcolour
                                   ),
-
                                 ),
                                 Text(widget.dr.spcl,
                                   style: TextStyle(
                                       color: Colour.gray,
                                       fontSize: width*0.04
                                   ),
-
                                 ),
                                 Text(widget.dr.exp,
                                   style: TextStyle(
@@ -173,16 +166,11 @@ surfaceTintColor:Colour.thirdcolour ,
                                       fontWeight: FontWeight.w500
                                   ),
                                 ),
-
                               ],
                             )
-
-
                           ],
                         ),
-                      )
-                    ;
-
+                      );
                   },
                   separatorBuilder: (context, index) {
                     return SizedBox(
@@ -205,17 +193,17 @@ surfaceTintColor:Colour.thirdcolour ,
               ),
               SizedBox(height: width*0.03,),
               ReadMoreText(
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit,\n"
-                    " sed do eiusmod tempor incididunt ut labore et dolore\n"
-                  " magna aliqua. Ut enim ad minim veniam\n"
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit,\n"
-                  " sed do eiusmod tempor incididunt ut labore et\n",
+                "Lorem ipsum dolor sit amet, consectetur adipiscing\n"
+                "elit, sed do eiusmod tempor incididunt ut labore et\n"
+                "dolore magna aliqua. Ut enim ad minim veniam Lorem\n"
+                "Ipsum dolor sit amet, consectetur adipiscing elit,\n"
+                "sed do eiusmod tempor incididunt ut labore eteno\n",
                 trimLines: 3,
                 colorClickableText: Colour.color4,
                 trimMode: TrimMode.Line,
                 trimCollapsedText: 'read more',
                 style: TextStyle(
-                  fontSize: width*0.03, fontWeight:FontWeight.w400,color: Colour.gray
+                  fontSize: width*0.033, fontWeight:FontWeight.w400,color: Colour.gray
                 ),
                 trimExpandedText: 'less',
                 lessStyle: TextStyle(fontSize:width*0.03, fontWeight: FontWeight.bold,color:Colour.primarycolour ),
@@ -326,7 +314,6 @@ surfaceTintColor:Colour.thirdcolour ,
                     mainAxisSpacing: width*0.02,
                     crossAxisCount: 3,
                   ),
-
                   physics: BouncingScrollPhysics(),
                   shrinkWrap: true,
                   // scrollDirection: Axis.horizontal,
@@ -346,26 +333,20 @@ surfaceTintColor:Colour.thirdcolour ,
                               border: Border.all(color: Colour.lightgreen,
                               width: width*0.005)
                             ),
-
                             child: Center(
                               child: Text(time[index],
-                                                    style: TextStyle(
+                                style: TextStyle(
                                 color: selectIndex1==index?Colour.secondarycolour:Colour.thirdcolour,
-                                fontSize: width*0.035
-                                                    ),
-                                                  ),
+                                fontSize: width*0.035),
+                              ),
                             )),
                       );
-
                   },
-
-
                 ),
               ),
               // SizedBox(height: width*0.03,),
               Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-
                   InkWell(
                     onTap: () {
                       Navigator.push(context, MaterialPageRoute(builder: (context) => ChatPage(),));
@@ -430,13 +411,9 @@ surfaceTintColor:Colour.thirdcolour ,
                 ],
               ),
             ],
-
-                ),
+          ),
         ),
-
       ),
-
-
     );
   }
 }

@@ -82,7 +82,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       ),
                       Padding(
                         padding: EdgeInsets.only(
-                            left: width * 0.182, top: width * 0.25),
+                            left: width * 0.18, top: width * 0.25),
                         child: Stack(
                           children: [
                             file == null
@@ -112,11 +112,11 @@ class _ProfilePageState extends State<ProfilePage> {
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsets.only(top: width * 0.3),
+                              padding: EdgeInsets.only(top: width * 0.3,left: width * 0.04, ),
                               child: Text(
                                 currentModel!.name.isEmpty? "user" : currentModel!.name,
                                 style: TextStyle(
-                                    fontSize: width * 0.05,
+                                    fontSize: width * 0.052,
                                     fontWeight: FontWeight.w700,
                                     color: Colour.secondarycolour),
                               ),
@@ -158,7 +158,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                   Text(
                                     "215bpm",
                                     style: TextStyle(
-                                        fontSize: width * 0.059,
+                                        fontSize: width * 0.05,
                                         fontWeight: FontWeight.w700,
                                         color: Colour.secondarycolour,
                                         shadows: [
@@ -203,7 +203,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                   Text(
                                     "756cal",
                                     style: TextStyle(
-                                        fontSize: width * 0.059,
+                                        fontSize: width * 0.05,
                                         fontWeight: FontWeight.w700,
                                         color: Colour.secondarycolour,
                                         shadows: [
@@ -257,7 +257,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                   "My Saved",
                                   style: TextStyle(
                                       fontWeight: FontWeight.w600,
-                                      fontSize: width * 0.05),
+                                      fontSize: width * 0.045),
                                 ),
                                 trailing: SvgPicture.asset(ImageIcons.nxtback),
                               ),
@@ -285,7 +285,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                 title: Text("Payment Method",
                                     style: TextStyle(
                                         fontWeight: FontWeight.w600,
-                                        fontSize: width * 0.05)),
+                                        fontSize: width * 0.045)),
                                 trailing: SvgPicture.asset(ImageIcons.nxtback),
                               ),
                             ),
@@ -307,7 +307,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                 title: Text("About Us",
                                     style: TextStyle(
                                         fontWeight: FontWeight.w600,
-                                        fontSize: width * 0.05)),
+                                        fontSize: width * 0.045)),
                                 trailing: SvgPicture.asset(ImageIcons.nxtback),
                               ),
                             ),
@@ -338,104 +338,6 @@ class _ProfilePageState extends State<ProfilePage> {
 
                                     });
                               },
-                              // onTap: () {
-                              //   showDialog(
-                              //     barrierDismissible: false,
-                              //     context: context,
-                              //     builder: (context) {
-                              //       return AlertDialog(
-                              //         title: Column(
-                              //           mainAxisAlignment:
-                              //               MainAxisAlignment.center,
-                              //           children: [
-                              //             SizedBox(height: width*0.05,),
-                              //             CircleAvatar(
-                              //               radius: width * 0.11,
-                              //               backgroundColor: Colour.lightblue,
-                              //               child: SvgPicture.asset(
-                              //                 ImageIcons.logout,
-                              //                 width: width * 0.13,
-                              //               ),
-                              //             ),
-                              //             SizedBox(height: width*0.05,),
-                              //             Container(
-                              //               height: width * 0.55,
-                              //               width: width * 0.8,
-                              //               child: Column(
-                              //                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              //                 children: [
-                              //                   Column(
-                              //                     children: [
-                              //                       Text(
-                              //                         "Are you sure to log out of ",
-                              //                         style: TextStyle(
-                              //                             fontWeight: FontWeight.w700,
-                              //                             fontSize: width * 0.055),
-                              //                       ),
-                              //                       Text("your account?",
-                              //                           style: TextStyle(
-                              //                               fontWeight:
-                              //                                   FontWeight.w700,
-                              //                               fontSize: width * 0.055)),
-                              //                     ],
-                              //                   ),
-                              //                   InkWell(
-                              //                     onTap: () {
-                              //                       Navigator.pushAndRemoveUntil(
-                              //                           context, MaterialPageRoute(
-                              //                           builder: (context) => SignupPage(),),(route) => false,);
-                              //                     },
-                              //                     child: Container(
-                              //                       height: width * 0.13,
-                              //                       width: width * 0.45,
-                              //                       decoration: BoxDecoration(
-                              //                           color: Colour.primarycolour,
-                              //                           borderRadius:
-                              //                               BorderRadius.circular(
-                              //                                   width * 0.08)),
-                              //                       child: Center(
-                              //                         child: Text(
-                              //                           "Log Out",
-                              //                           style: TextStyle(
-                              //                               fontSize: width * 0.055,
-                              //                               fontWeight:
-                              //                                   FontWeight.w700,
-                              //                               color: Colors.white),
-                              //                         ),
-                              //                       ),
-                              //                     ),
-                              //                   ),
-                              //                   InkWell(
-                              //                     onTap: () {
-                              //                       Navigator.pop(context);
-                              //                     },
-                              //                     child: Container(
-                              //                       height: width*0.09,
-                              //                       width: width*0.2,
-                              //                       child: Center(
-                              //                         child: Text(
-                              //                           "Cancel",
-                              //                           style: TextStyle(
-                              //                               fontSize: width * 0.047,
-                              //                               color:
-                              //                                   Colour.primarycolour),
-                              //                         ),
-                              //                       ),
-                              //                     ),
-                              //                   )
-                              //                 ],
-                              //               ),
-                              //             )
-                              //           ],
-                              //         ),
-                              //         content: SizedBox(
-                              //           height: height * 0.001,
-                              //           width: width * 0.05,
-                              //         ),
-                              //       );
-                              //     },
-                              //   );
-                              // },
                               child: ListTile(
                                 leading: CircleAvatar(
                                   radius: width * 0.06,
@@ -445,7 +347,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                 title: Text("Logout",
                                     style: TextStyle(
                                         fontWeight: FontWeight.w600,
-                                        fontSize: width * 0.05,
+                                        fontSize: width * 0.045,
                                         color: Colour.color4)),
                                 trailing: SvgPicture.asset(ImageIcons.nxtback),
                               ),
