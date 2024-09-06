@@ -1,12 +1,14 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:medical/core/constants/colour.dart';
 import 'package:medical/features/details_adding/controller/user_controller.dart';
 import 'package:medical/core/constants/icons.dart';
 import 'package:medical/features/details_adding/screen/login_signup/login.dart';
+import 'package:medical/models/address_model.dart';
 import 'package:medical/models/doctor_model.dart';
 import '../../../../main.dart';
 import 'doctordetails.dart';
@@ -294,12 +296,10 @@ class _SchedulePageState extends State<SchedulePage> {
                         ),
                       ),
                     ),
-
                     Padding(
-                      padding:  EdgeInsets.all(width*0.03),
+                      padding: EdgeInsets.all(width*0.03),
                       child:  Container(
-                          margin: EdgeInsets.all(width*0.02),
-                          child: StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
+                         child: StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
                             stream: FirebaseFirestore.instance.collection("users").snapshots(),
                             builder: (context, snapshot){
                               if(!snapshot.hasData){
@@ -308,7 +308,7 @@ class _SchedulePageState extends State<SchedulePage> {
                               else{
                                 Text("No Products added to Cart");
                               }
-                              var data =currentModel!.cart;
+                              var data = currentModel!.cart;
                               return ListView.separated(
                                 shrinkWrap: true,
                                 physics: BouncingScrollPhysics(),
@@ -318,11 +318,12 @@ class _SchedulePageState extends State<SchedulePage> {
                                     children: [
                                       Container(
                                         height: width * 0.35,
-                                        width: width * 0.94,
+                                        width: width * 0.95,
                                         decoration: BoxDecoration(
+                                          color: Colour.secondarycolour,
                                             border: Border.all(
                                                 width: width*0.005,
-                                                color: Colors.grey.withOpacity(0.15)),
+                                                color: Colour.lightgreen),
                                             borderRadius: BorderRadius.circular(width * 0.04)),
                                         child: Row(
                                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -338,7 +339,8 @@ class _SchedulePageState extends State<SchedulePage> {
                                               child: Row(
                                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                 children: [
-                                                  Container(
+                                                  SizedBox(
+                                                    height: height*0.11,
                                                     child: Column(
                                                       crossAxisAlignment: CrossAxisAlignment.start,
                                                       mainAxisAlignment:
@@ -356,8 +358,12 @@ class _SchedulePageState extends State<SchedulePage> {
                                                               fontSize: width * 0.04,
                                                               color: Colour.gray),
                                                         ),
-                                                        SizedBox(
-                                                          height: width * 0.03,
+                                                        Text(
+                                                          "${data[index]['qty'].toString()} Items",
+                                                          style: TextStyle(
+                                                              fontWeight: FontWeight.w600,
+                                                              fontSize: width * 0.04,
+                                                              color: Colour.thirdcolour),
                                                         ),
                                                       ],
                                                     ),

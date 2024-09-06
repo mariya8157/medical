@@ -4,6 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:medical/features/details_adding/providers/firebase_provider.dart';
+import 'package:medical/features/details_adding/screen/home/bottomnavigation.dart';
 import 'package:medical/features/details_adding/screen/login_signup/login.dart';
 import 'package:medical/models/medicine_model.dart';
 import '../../../../core/constants/colour.dart';
@@ -44,7 +45,7 @@ class _PharmacyPageState extends ConsumerState<PharmacyPage> {
          elevation: 0,
         leading: InkWell(
           onTap: () {
-            Navigator.pop(context);
+            Navigator.push(context, MaterialPageRoute(builder: (context) => BottomNavigationPage(),));
           },
           child: SizedBox(
             height: width * 0.05,
