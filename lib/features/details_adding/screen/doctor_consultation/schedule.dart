@@ -82,7 +82,7 @@ class _SchedulePageState extends State<SchedulePage> {
                             stream: FirebaseFirestore.instance.collection("schedule").where("userId",isEqualTo: userId!).snapshots(),
                             builder: (context, snapshot) {
                               if(!snapshot.hasData){
-                                return Center(child: Text("No document found"));
+                                return Center(child: Text("Loading..."));
                               }
                               var data=snapshot.data!.docs;
                               return data.length==0?
@@ -300,7 +300,7 @@ class _SchedulePageState extends State<SchedulePage> {
                       padding: EdgeInsets.all(width*0.03),
                       child:  Container(
                          child: StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
-                            stream: FirebaseFirestore.instance.collection("users").snapshots(),
+                            stream: FirebaseFirestore.instance.collection("address").where("userId", isEqualTo: userId!).snapshots(),
                             builder: (context, snapshot){
                               if(!snapshot.hasData){
                                 return Center(child:Text("Loading..."));
