@@ -29,11 +29,11 @@ class _SchedulePageState extends State<SchedulePage> {
       length: 2,
       child: Scaffold(
         appBar: AppBar(
-          title: Text("Schedule",
+          title: Text("Bookings",
             style: TextStyle(
                 color: Colour.thirdcolour,
                 fontWeight: FontWeight.w700,
-                fontSize: width*0.04
+                fontSize: width*0.05
             ),),
         ),
         body: Padding(

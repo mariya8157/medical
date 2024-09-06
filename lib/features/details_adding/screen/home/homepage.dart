@@ -80,9 +80,9 @@ class _HomePageState extends ConsumerState<HomePage> {
                             padding:  EdgeInsets.all(width*0.03),
                             child: SvgPicture.asset(ImageIcons.search),
                           ),
-                          labelText: "Search doctors,drugs,articles...",
+                          labelText: "Search doctors, drugs, articles..",
                           labelStyle: TextStyle(fontWeight: FontWeight.w500,fontSize: width*0.04, color: Colour.color1),
-                          hintText: "please enter search ",
+                          hintText: "search your desire health sloution",
                           hintStyle: TextStyle(
                             fontSize: width*0.03,
                             fontWeight: FontWeight.w400,

@@ -68,7 +68,7 @@ class _TopDoctorPageState extends ConsumerState<DoctorList> {
           }),
           builder: (context, snapshot) {
             if(!snapshot.hasData){
-              return Center(child: Text("No document found"));
+              return const Center(child: Text("No document found"));
             }
             List<DoctorModel> data=snapshot.data!;
             return Container(
