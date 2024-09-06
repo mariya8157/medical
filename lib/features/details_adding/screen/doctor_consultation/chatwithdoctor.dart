@@ -126,7 +126,7 @@ class _ChatPageState extends State<ChatPage> {
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         Container(
-                          height: height * 0.15,
+                          height: height * 0.19,
                           width: width * 0.7,
                           decoration: BoxDecoration(
                               color: Colour.primarycolour,
@@ -143,7 +143,7 @@ class _ChatPageState extends State<ChatPage> {
                                 child: Padding(
                                   padding: EdgeInsets.all(width * 0.03),
                                   child: Text(
-                                    "I have suffering from headache\n and cold for 3 days, I took 2 \ntablets of dolo, but still pain",
+                                    "I am suffering from headache\nand cold for 3 days, I took two\ntablets of dolo, but still it's\npaining.",
                                     style: TextStyle(
                                       color: Colour.secondarycolour,
                                       fontSize: width * 0.04,
@@ -188,7 +188,7 @@ class _ChatPageState extends State<ChatPage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            "Ok, Do you have fever? is the\nheadchace severe",
+                            "Ok, Do you have fever? is\nthe headache severe",
                             style: TextStyle(
                               fontSize: width * 0.04,
                             ),
@@ -218,9 +218,9 @@ class _ChatPageState extends State<ChatPage> {
                             children: [
                               Expanded(
                                 child: Padding(
-                                  padding: EdgeInsets.all(width * 0.04),
+                                  padding: EdgeInsets.all(width * 0.03),
                                   child: Text(
-                                    "I don,t have any fever, \nbut headchace is painful",
+                                    "I don't have any fever, but the\nheadache is so painful.",
                                     style: TextStyle(
                                       color: Colour.secondarycolour,
                                       fontSize: width * 0.04,
