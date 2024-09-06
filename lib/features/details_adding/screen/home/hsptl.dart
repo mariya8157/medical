@@ -27,7 +27,8 @@ class _HospitalPageState extends ConsumerState<HospitalPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Hospital",style: TextStyle(
+        title: Text("Hospital",
+          style: TextStyle(
             color: Colour.thirdcolour,
             fontWeight: FontWeight.w700,
             fontSize: width*0.06

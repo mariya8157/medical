@@ -479,23 +479,6 @@ class _SchedulePageState extends State<SchedulePage> {
 
                       ),
                     ),
-                    // Container(
-                    //     margin: EdgeInsets.all(width*0.02),
-                    //     child: StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
-                    //       stream: FirebaseFirestore.instance.collection("address").snapshots(),
-                    //       builder: (context, snapshot){
-                    //         if(!snapshot.hasData){
-                    //           return Center(child:Text("Loading..."));
-                    //         }
-                    //         else{
-                    //           Text("No Products are Ordered yet");
-                    //         }
-                    //         var data =currentModel!.cart;
-                    //
-                    //       },
-                    //     )
-                    //
-                    // ),
 
                   ],
                 ),
