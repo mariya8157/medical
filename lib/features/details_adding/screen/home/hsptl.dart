@@ -56,7 +56,6 @@ class _HospitalPageState extends ConsumerState<HospitalPage> {
                                 image: AssetImage(pages[index]),fit: BoxFit.fill
                             ),
                           )
-        
                       ),
                     );
                   },

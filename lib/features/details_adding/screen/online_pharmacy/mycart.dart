@@ -363,7 +363,6 @@ class _MyCartPageState extends ConsumerState<MyCartPage> {
                     );
                   },
                 )
-
               ),
           SizedBox(height: width * 0.05,),
                     Container(
