@@ -304,7 +304,7 @@ class _SchedulePageState extends State<SchedulePage> {
                                 return Center(child:Text("Loading..."));
                               }
                               else{
-                                Text("No Products added to Cart");
+                                Text("No Products are Ordered yet");
                               }
                               var data = currentModel!.cart;
                               return ListView.separated(

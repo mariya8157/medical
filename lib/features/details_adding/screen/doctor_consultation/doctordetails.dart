@@ -399,7 +399,7 @@ surfaceTintColor:Colour.thirdcolour ,
                           borderRadius: BorderRadius.circular(width*0.07)
                       ),
                       child: Center(
-                        child: Text("Book Apointment",
+                        child: Text("Book Appointment",
                           style: TextStyle(
                               fontSize: width*0.04,
                               fontWeight: FontWeight.w600,
