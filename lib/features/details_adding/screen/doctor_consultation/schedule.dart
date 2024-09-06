@@ -295,188 +295,207 @@ class _SchedulePageState extends State<SchedulePage> {
                       ),
                     ),
 
-                    Container(
-                        margin: EdgeInsets.all(width*0.02),
-                        child: StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
-                          stream: FirebaseFirestore.instance.collection("address").snapshots(),
-                          builder: (context, snapshot){
-                            if(!snapshot.hasData){
-                              return Center(child:Text("Loading..."));
-                            }
-                            else{
-                              Text("No Products are Ordered yet");
-                            }
-                            var data=snapshot.data!.docs;
-                            // return data.length==0?
-                            return ListView.separated(
-                              shrinkWrap: true,
-                              physics: BouncingScrollPhysics(),
-                              itemCount:data.length,
-                              itemBuilder: (context, index) {
-                                return Column(
-                                  children: [
-                                    Container(
-                                      height: width * 0.35,
-                                      width: width * 0.94,
-                                      decoration: BoxDecoration(
-                                          border: Border.all(
-                                              width: width*0.005,
-                                              color: Colors.grey.withOpacity(0.15)),
-                                          borderRadius: BorderRadius.circular(width * 0.04)),
-                                      child: Row(
-                                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                        children: [
-                                          Container(
-                                              height: width * 0.2,
-                                              width: width * 0.27,
-                                              child: Image(image: NetworkImage(data[index]['image'].toString()))
-                                          ),
-                                          Container(
-                                            height: width * 0.27,
-                                            width: width * 0.55,
-                                            child: Row(
-                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                              children: [
-                                                Container(
-                                                  child: Column(
-                                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                                    mainAxisAlignment:
-                                                    MainAxisAlignment.spaceEvenly,
-                                                    children: [
-                                                      Text(
-                                                        data[index]['name'],
-                                                        style: TextStyle(
-                                                            fontWeight: FontWeight.w800,
-                                                            fontSize: width * 0.045),
-                                                      ),
-                                                      Text(
-                                                        data[index]['ml'].toString(),
-                                                        style: TextStyle(
-                                                            fontSize: width * 0.04,
-                                                            color: Colour.gray),
-                                                      ),
-                                                      SizedBox(
-                                                        height: width * 0.03,
-                                                      ),
-                                                    ],
-                                                  ),
-                                                ),
-                                                Container(
-                                                  height: width*0.23,
-                                                  child: Column(
-                                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                    children: [
-                                                      InkWell(
-                                                          onTap: () {
-                                                            showDialog(
-                                                              context: context,
-                                                              barrierDismissible: false,
-                                                              builder: (context) {
-                                                                return AlertDialog(
-                                                                  content: Container(
-                                                                    height: height*0.18,
-                                                                    width: width*0.5,
-                                                                    child: Column(
-                                                                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                                                      children: [
-                                                                        Container(
-                                                                            child: Column(
-                                                                              children: [
-                                                                                Text("Are you sure You want to",
-                                                                                  style: TextStyle(
-                                                                                      fontWeight: FontWeight.w600,
-                                                                                      fontSize: width*0.04,
-                                                                                      color: Colour.thirdcolour),),
-                                                                                Text("Cancel this Appointment?",
-                                                                                  style: TextStyle(
-                                                                                      fontWeight: FontWeight.w600,
-                                                                                      fontSize: width*0.04,
-                                                                                      color: Colour.thirdcolour),),
-                                                                              ],)),
-                                                                        Row(
-                                                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                                                          children: [
-                                                                            InkWell(
-                                                                              onTap: ()  {
-                                                                                // FirebaseFirestore.instance.collection("users").doc(userId).delete();
-                                                                                Navigator.pop(context);
-                                                                              },
-                                                                              child: Container(
-                                                                                height: height*0.05,
-                                                                                width: width*0.26,
-                                                                                decoration: BoxDecoration(
-                                                                                    color: Colour.primarycolour,
-                                                                                    borderRadius: BorderRadius.circular(width*0.03)
-                                                                                ),
-                                                                                child: Center(
-                                                                                  child: Text("Cancel",
-                                                                                    style: TextStyle(
-                                                                                        fontSize: width*0.04,
-                                                                                        fontWeight: FontWeight.w600,
-                                                                                        color: Colour.secondarycolour
-                                                                                    ),),
-                                                                                ),
-                                                                              ),
-                                                                            ),
-                                                                            InkWell(
-                                                                              onTap: () {
-                                                                                Navigator.pop(context);
-                                                                              },
-                                                                              child: Container(
-                                                                                height: height*0.05,
-                                                                                width: width*0.26,
-                                                                                decoration: BoxDecoration(
-                                                                                    color: Colour.primarycolour,
-                                                                                    borderRadius: BorderRadius.circular(width*0.03)
-                                                                                ),
-                                                                                child: Center(
-                                                                                  child: Text("No",
-                                                                                    style: TextStyle(
-                                                                                        fontSize: width*0.04,
-                                                                                        fontWeight: FontWeight.w600,
-                                                                                        color: Colour.secondarycolour
-                                                                                    ),),
-                                                                                ),
-                                                                              ),
-                                                                            ),
-                                                                          ],
-                                                                        ),
-                                                                      ],
-                                                                    ),
-                                                                  ),
-                                                                );
-                                                              },);
-                                                          },
-                                                          child: SvgPicture.asset(ImageIcons.delete)),
-                                                      Text(
-                                                        "\$${(data[index]['qty']*data[index]['rate']).toStringAsFixed(2)}",
-                                                        style: TextStyle(
-                                                            fontWeight: FontWeight.w800,
-                                                            fontSize: width * 0.04),
-                                                      )
-                                                    ],
-                                                  ),
-                                                ),
-                                              ],
+                    Padding(
+                      padding:  EdgeInsets.all(width*0.03),
+                      child:  Container(
+                          margin: EdgeInsets.all(width*0.02),
+                          child: StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
+                            stream: FirebaseFirestore.instance.collection("users").snapshots(),
+                            builder: (context, snapshot){
+                              if(!snapshot.hasData){
+                                return Center(child:Text("Loading..."));
+                              }
+                              else{
+                                Text("No Products added to Cart");
+                              }
+                              var data =currentModel!.cart;
+                              return ListView.separated(
+                                shrinkWrap: true,
+                                physics: BouncingScrollPhysics(),
+                                itemCount:data.length,
+                                itemBuilder: (context, index) {
+                                  return Column(
+                                    children: [
+                                      Container(
+                                        height: width * 0.35,
+                                        width: width * 0.94,
+                                        decoration: BoxDecoration(
+                                            border: Border.all(
+                                                width: width*0.005,
+                                                color: Colors.grey.withOpacity(0.15)),
+                                            borderRadius: BorderRadius.circular(width * 0.04)),
+                                        child: Row(
+                                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                          children: [
+                                            Container(
+                                                height: width * 0.2,
+                                                width: width * 0.27,
+                                                child: Image(image: NetworkImage(data[index]['image'].toString()))
                                             ),
-                                          ),
-                                        ],
+                                            Container(
+                                              height: width * 0.27,
+                                              width: width * 0.55,
+                                              child: Row(
+                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                children: [
+                                                  Container(
+                                                    child: Column(
+                                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                                      mainAxisAlignment:
+                                                      MainAxisAlignment.spaceEvenly,
+                                                      children: [
+                                                        Text(
+                                                          data[index]['name'],
+                                                          style: TextStyle(
+                                                              fontWeight: FontWeight.w800,
+                                                              fontSize: width * 0.045),
+                                                        ),
+                                                        Text(
+                                                          data[index]['ml'].toString(),
+                                                          style: TextStyle(
+                                                              fontSize: width * 0.04,
+                                                              color: Colour.gray),
+                                                        ),
+                                                        SizedBox(
+                                                          height: width * 0.03,
+                                                        ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                  Container(
+                                                    height: width*0.23,
+                                                    child: Column(
+                                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                      children: [
+                                                        InkWell(
+                                                            onTap: () {
+                                                              showDialog(
+                                                                context: context,
+                                                                barrierDismissible: false,
+                                                                builder: (context) {
+                                                                  return AlertDialog(
+                                                                    content: Container(
+                                                                      height: height*0.18,
+                                                                      width: width*0.5,
+                                                                      child: Column(
+                                                                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                                                        children: [
+                                                                          Container(
+                                                                              child: Column(
+                                                                                children: [
+                                                                                  Text("Are you sure You want to",
+                                                                                    style: TextStyle(
+                                                                                        fontWeight: FontWeight.w600,
+                                                                                        fontSize: width*0.04,
+                                                                                        color: Colour.thirdcolour),),
+                                                                                  Text("Cancel this Appointment?",
+                                                                                    style: TextStyle(
+                                                                                        fontWeight: FontWeight.w600,
+                                                                                        fontSize: width*0.04,
+                                                                                        color: Colour.thirdcolour),),
+                                                                                ],)),
+                                                                          Row(
+                                                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                                            children: [
+                                                                              InkWell(
+                                                                                onTap: ()  {
+                                                                                  // FirebaseFirestore.instance.collection("users").doc(userId).delete();
+                                                                                  Navigator.pop(context);
+                                                                                },
+                                                                                child: Container(
+                                                                                  height: height*0.05,
+                                                                                  width: width*0.26,
+                                                                                  decoration: BoxDecoration(
+                                                                                      color: Colour.primarycolour,
+                                                                                      borderRadius: BorderRadius.circular(width*0.03)
+                                                                                  ),
+                                                                                  child: Center(
+                                                                                    child: Text("Cancel",
+                                                                                      style: TextStyle(
+                                                                                          fontSize: width*0.04,
+                                                                                          fontWeight: FontWeight.w600,
+                                                                                          color: Colour.secondarycolour
+                                                                                      ),),
+                                                                                  ),
+                                                                                ),
+                                                                              ),
+                                                                              InkWell(
+                                                                                onTap: () {
+                                                                                  Navigator.pop(context);
+                                                                                },
+                                                                                child: Container(
+                                                                                  height: height*0.05,
+                                                                                  width: width*0.26,
+                                                                                  decoration: BoxDecoration(
+                                                                                      color: Colour.primarycolour,
+                                                                                      borderRadius: BorderRadius.circular(width*0.03)
+                                                                                  ),
+                                                                                  child: Center(
+                                                                                    child: Text("No",
+                                                                                      style: TextStyle(
+                                                                                          fontSize: width*0.04,
+                                                                                          fontWeight: FontWeight.w600,
+                                                                                          color: Colour.secondarycolour
+                                                                                      ),),
+                                                                                  ),
+                                                                                ),
+                                                                              ),
+                                                                            ],
+                                                                          ),
+                                                                        ],
+                                                                      ),
+                                                                    ),
+                                                                  );
+                                                                },);
+                                                            },
+                                                            child: SvgPicture.asset(ImageIcons.delete)),
+                                                        Text(
+                                                          "\$${(data[index]['qty']*data[index]['rate']).toStringAsFixed(2)}",
+                                                          style: TextStyle(
+                                                              fontWeight: FontWeight.w800,
+                                                              fontSize: width * 0.04),
+                                                        )
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ],
+                                        ),
                                       ),
-                                    ),
-                                    // SizedBox(height: width*0.03,),
-                                  ],
-                                );
-                              },
-                              separatorBuilder: (context, index) {
-                                return SizedBox(
-                                  height: width * 0.05,
-                                );
-                              },
-                            );
-                          },
-                        )
+                                      // SizedBox(height: width*0.03,),
+                                    ],
+                                  );
+                                },
+                                separatorBuilder: (context, index) {
+                                  return SizedBox(
+                                    height: width * 0.05,
+                                  );
+                                },
+                              );
+                            },
+                          )
 
+                      ),
                     ),
+                    // Container(
+                    //     margin: EdgeInsets.all(width*0.02),
+                    //     child: StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
+                    //       stream: FirebaseFirestore.instance.collection("address").snapshots(),
+                    //       builder: (context, snapshot){
+                    //         if(!snapshot.hasData){
+                    //           return Center(child:Text("Loading..."));
+                    //         }
+                    //         else{
+                    //           Text("No Products are Ordered yet");
+                    //         }
+                    //         var data =currentModel!.cart;
+                    //
+                    //       },
+                    //     )
+                    //
+                    // ),
 
                   ],
                 ),

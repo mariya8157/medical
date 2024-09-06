@@ -368,7 +368,7 @@ class _MyCartPageState extends ConsumerState<MyCartPage> {
               ),
           SizedBox(height: width * 0.05,),
                     Container(
-                      height: width * 0.3,
+                      height: width * 0.32,
                       width: width * 0.9,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -537,7 +537,7 @@ class _MyCartPageState extends ConsumerState<MyCartPage> {
               ),
                     SizedBox(height: width*0.05,),
                     Container(
-                      height: width*0.13,
+                      height: width*0.15,
                       width: width*0.9,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
