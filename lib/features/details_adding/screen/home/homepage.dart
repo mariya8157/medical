@@ -223,7 +223,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                         },
                         options: CarouselOptions(
                           autoPlay: true,
-                          viewportFraction: 0.8,
+                          viewportFraction: 0.9,
                           autoPlayAnimationDuration: Duration(milliseconds: 200),
                           onPageChanged: (index, reason) {
                             setState(() {
