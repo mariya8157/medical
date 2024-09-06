@@ -13,14 +13,14 @@ import '../login_signup/login.dart';
 import 'getstarted.dart';
 import 'onboarding_constant.dart';
 
-class OnBordingPage extends StatefulWidget {
-  const OnBordingPage({super.key});
+class OnBoardingPage extends StatefulWidget {
+  const OnBoardingPage({super.key});
 
   @override
-  State<OnBordingPage> createState() => _OnBordingPageState();
+  State<OnBoardingPage> createState() => _OnBoardingPageState();
 }
 
-class _OnBordingPageState extends State<OnBordingPage> {
+class _OnBoardingPageState extends State<OnBoardingPage> {
   int currentIndex=0;
   PageController controller=PageController();
 
@@ -137,7 +137,7 @@ class _OnBordingPageState extends State<OnBordingPage> {
                     onTap: (){
                       controller.jumpToPage(2);
                       Navigator.push(context, MaterialPageRoute(builder: (context) =>
-                      login==true?BottomNavigationPage():GetStartedPage()
+                      login == true ? BottomNavigationPage() : GetStartedPage()
                         ,));
                       setState(() {
 

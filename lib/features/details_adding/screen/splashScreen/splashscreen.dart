@@ -91,7 +91,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Future.delayed(Duration(
       seconds: 5
     )).then((value) =>
-         Navigator.push(context, MaterialPageRoute(builder: (context) => OnBordingPage(),)));
+         Navigator.push(context, MaterialPageRoute(builder: (context) => OnBoardingPage(),)));
     super.initState();
   }
 
@@ -107,7 +107,7 @@ class _SplashScreenState extends State<SplashScreen> {
          child: Container(
            height: width*0.45,
            width: width*0.45,
-           decoration: BoxDecoration(
+           decoration: const BoxDecoration(
              image: DecorationImage(
                  image:AssetImage(ImagePictures.medics,)
              )
