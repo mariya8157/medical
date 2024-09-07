@@ -5,23 +5,16 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:medical/features/details_adding/screen/home/ambulance.dart';
-import 'package:medical/features/details_adding/screen/home/docter.dart';
 import 'package:medical/features/details_adding/screen/home/hsptl.dart';
 import 'package:medical/features/details_adding/screen/home/topdoctor.dart';
-import 'package:pinput/pinput.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import '../../../../core/constants/colour.dart';
-import '../../../../core/constants/icons.dart';
-
 import '../../../../core/constants/colour.dart';
 import '../../../../core/constants/icons.dart';
 import '../../../../core/constants/images.dart';
 import '../../../../main.dart';
 import '../../controller/doctor_controller.dart';
-import '../../controller/user_controller.dart';
 import '../doctor_consultation/findDoctor.dart';
 import '../online_pharmacy/pharmacy.dart';
-// import '../../controller/addingcontroller_page.dart';
 
 class HomePage extends ConsumerStatefulWidget {
   const HomePage({super.key});
@@ -39,8 +32,8 @@ class _HomePageState extends ConsumerState<HomePage> {
     ImagePictures.banner2,
     ImagePictures.banner3,
     ImagePictures.CTA
-
   ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,7 +49,6 @@ class _HomePageState extends ConsumerState<HomePage> {
                     fontSize: width*0.06,
                       fontWeight: FontWeight.w700,
                     color: Colour.thirdcolour,
-
                   ),),
                 ],
               ),
@@ -90,7 +82,6 @@ class _HomePageState extends ConsumerState<HomePage> {
                           focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: Colour.color2,
-
                               ),
                               borderRadius: BorderRadius.circular(
                                   width*0.07)
@@ -99,7 +90,6 @@ class _HomePageState extends ConsumerState<HomePage> {
                               borderRadius: BorderRadius.circular(width*0.07),
                               borderSide: BorderSide(
                                 color: Colour.color2,
-
                               )
                           )
                       ),
@@ -119,7 +109,6 @@ class _HomePageState extends ConsumerState<HomePage> {
                             height:height*0.06,
                             width: width*0.08,
                             child: SvgPicture.asset(ImageIcons.catogory1),
-
                           ),
                         ),
                         // SizedBox(height: width*0.04,),
@@ -140,7 +129,6 @@ class _HomePageState extends ConsumerState<HomePage> {
                             height:height*0.06,
                             width: width*0.08,
                             child: SvgPicture.asset(ImageIcons.Pharmacy),
-
                           ),
                         ),
                         // SizedBox(height: width*0.04,),
@@ -161,10 +149,8 @@ class _HomePageState extends ConsumerState<HomePage> {
                             height:height*0.06,
                             width: width*0.08,
                             child: SvgPicture.asset(ImageIcons.Hospital),
-
                           ),
                         ),
-                        // SizedBox(height: width*0.04,),
                         Text("Hospital",
                           style: TextStyle(
                               fontSize: width*0.03,
@@ -182,7 +168,6 @@ class _HomePageState extends ConsumerState<HomePage> {
                             height:height*0.06,
                             width: width*0.08,
                             child: SvgPicture.asset(ImageIcons.Ambulance),
-
                           ),
                         ),
                         // SizedBox(height: width*0.04,),
@@ -196,7 +181,6 @@ class _HomePageState extends ConsumerState<HomePage> {
                   ],),
                 ],
               ),
-              // SizedBox(height: width*0.04,),
               Container(
                 height: width*0.7,
                 width: width*1,
@@ -217,7 +201,6 @@ class _HomePageState extends ConsumerState<HomePage> {
                                       image: AssetImage(pages[index]),fit: BoxFit.fill
                                   ),
                                 )
-
                             ),
                           );
                         },
@@ -250,7 +233,6 @@ class _HomePageState extends ConsumerState<HomePage> {
                             fontWeight: FontWeight.w700,
                             fontSize: width*0.04
                           ),),
-                           // SizedBox(width: width*0.05,),
                           InkWell(
                             onTap: () {
                               Navigator.push(context, MaterialPageRoute(builder: (context) => TopDoctorPage(),));
@@ -332,7 +314,6 @@ class _HomePageState extends ConsumerState<HomePage> {
             ],
           ),
         ),
-        
       ),
     );
   }

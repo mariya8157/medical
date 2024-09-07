@@ -163,7 +163,6 @@ class _TopDoctorPageState extends ConsumerState<DoctorList> {
             ],
         ),
       ),
-
     );
   }
 }

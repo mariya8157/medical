@@ -320,7 +320,6 @@ class _OrderDetailsState extends ConsumerState<OrderDetails2> {
                                   ],
                                 ),
                               ),
-                              // SizedBox(height: width*0.03,),
                             ],
                           );
                         },
@@ -332,7 +331,6 @@ class _OrderDetailsState extends ConsumerState<OrderDetails2> {
                       );
                     },
                   )
-
               ),
               SizedBox(height: width*0.04,),
               Column(

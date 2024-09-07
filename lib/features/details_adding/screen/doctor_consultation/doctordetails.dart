@@ -299,8 +299,6 @@ surfaceTintColor:Colour.thirdcolour ,
               SizedBox(height: width*0.03,),
               Divider(thickness: width*0.004,
                 color: Colour.lightgreen,
-                // indent: width*0.03,
-                // endIndent: width*0.03,
               ),
               SizedBox(height: width*0.03,),
               Container(

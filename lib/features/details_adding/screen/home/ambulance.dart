@@ -98,7 +98,6 @@ class _AmbulancePageState extends ConsumerState<AmbulancePage> {
                                       fontWeight: FontWeight.w600),),
                                 ],
                               ),
-                              // SizedBox(height: height*0.009,),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
@@ -212,7 +211,6 @@ class _AmbulancePageState extends ConsumerState<AmbulancePage> {
                 loading: () {
                   return Center(child: CircularProgressIndicator());
                 },)
-
             ],
           ),
         ),

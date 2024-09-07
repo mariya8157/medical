@@ -325,7 +325,6 @@ class _ProfilePageState extends State<ProfilePage> {
                                     confirmBtnText: 'Yes',
                                     cancelBtnText: 'No',
                                     confirmBtnColor: Colour.primarycolour,
-
                                     onConfirmBtnTap: () async {
                                       SharedPreferences prefs = await SharedPreferences.getInstance();
                                       prefs.remove("login");
@@ -335,7 +334,6 @@ class _ProfilePageState extends State<ProfilePage> {
                                       GoogleSignIn().signOut();
                                       Navigator.pushAndRemoveUntil(context,
                                           MaterialPageRoute(builder: (context) => LoginPage(),), (route) => false);
-
                                     });
                               },
                               child: ListTile(

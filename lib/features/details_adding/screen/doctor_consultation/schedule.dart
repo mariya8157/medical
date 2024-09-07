@@ -2,13 +2,10 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:medical/core/constants/colour.dart';
-import 'package:medical/features/details_adding/controller/user_controller.dart';
 import 'package:medical/core/constants/icons.dart';
 import 'package:medical/features/details_adding/screen/login_signup/login.dart';
-import 'package:medical/models/address_model.dart';
 import 'package:medical/models/doctor_model.dart';
 import '../../../../main.dart';
 import 'doctordetails.dart';
@@ -67,7 +64,6 @@ class _SchedulePageState extends State<SchedulePage> {
                             fontSize: width*0.04,fontWeight: FontWeight.w600
                         ),),
                       ),
-
                     ]
                 ),
               ),
@@ -283,7 +279,14 @@ class _SchedulePageState extends State<SchedulePage> {
                                                           fontSize: width*0.04,
                                                           color: Colour.secondarycolour
                                                       ),
-                                                      )),),),],),)],)),);
+                                                      )),
+                                                    ),
+                                                  ),
+                                                ],),
+                                            ),
+                                          ],),
+                                    ),
+                                  );
                                 },
                                 separatorBuilder: (context, index) {
                                   return SizedBox(height: height*0.01,);
@@ -403,7 +406,6 @@ class _SchedulePageState extends State<SchedulePage> {
                               );
                             },
                           )
-
                       ),
                     ),
                   ],
@@ -414,6 +416,5 @@ class _SchedulePageState extends State<SchedulePage> {
         ),
       ),
     );
-
   }
 }

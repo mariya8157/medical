@@ -1,7 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
 import '../../../../core/constants/colour.dart';
 import '../../../../core/constants/images.dart';
 import '../../../../main.dart';

@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:medical/core/constants/images.dart';
-import 'package:medical/features/details_adding/controller/user_controller.dart';
 import 'package:medical/features/details_adding/screen/login_signup/login.dart';
 import 'package:medical/models/doctor_model.dart';
 import '../../../../core/constants/colour.dart';
@@ -48,9 +46,8 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                spcl: widget.time.spcl,
                exp: widget.time.exp,
                id: widget.time.id,
-             userId: userId,
-
-             // userId: widget.time.userId
+               userId: userId,
+           // userId: widget.time.userId
          )
          );
     }
