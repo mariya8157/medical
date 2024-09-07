@@ -229,7 +229,7 @@ class _FindDoctorState extends ConsumerState<FindDoctor> {
                         ),
                       ],
                     ),
-               data.isEmpty   ?Text('no doctor found'):  InkWell(
+                data.isEmpty ? Text('No doctor found') : InkWell(
                       onTap: () {
                         DoctorModel doctorData= DoctorModel(
                           search: data[selectIndex].search??[] ,
@@ -259,10 +259,8 @@ class _FindDoctorState extends ConsumerState<FindDoctor> {
                         child: ListView.separated(
                             shrinkWrap: true,
                             // physics: BouncingScrollPhysics(),
-
                             itemBuilder: (context, index) {
                               return
-
                                 Padding(
                                   padding:  EdgeInsets.all(width*0.03),
                                   child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -278,17 +276,14 @@ class _FindDoctorState extends ConsumerState<FindDoctor> {
                                             style: TextStyle(
                                                 fontSize: width*0.04,
                                                 fontWeight: FontWeight.w700,
-
                                                 color:Colour.thirdcolour
                                             ),
-
                                           ),
                                           Text(data[selectIndex].spcl.toString(),
                                             style: TextStyle(
                                                 color: Colour.color1,
                                                 fontSize: width*0.04
                                             ),
-
                                           ),
                                           Divider(
                                             // color:Colour.gray.withOpacity(0.2),
@@ -296,8 +291,6 @@ class _FindDoctorState extends ConsumerState<FindDoctor> {
                                             thickness: width*0.003,
                                             indent: width*0.05,
                                             endIndent: width*0.05,
-
-
                                           ),
                                           Text(data[selectIndex].exp.toString(),style: TextStyle(
                                               color: Colour.primarycolour,
@@ -305,13 +298,9 @@ class _FindDoctorState extends ConsumerState<FindDoctor> {
                                           ),)
                                         ],
                                       )
-
-
                                     ],
                                   ),
-                                )
-                              ;
-
+                                );
                             },
                             separatorBuilder: (context, index) {
                               return SizedBox(
@@ -327,8 +316,6 @@ class _FindDoctorState extends ConsumerState<FindDoctor> {
                       thickness: width*0.003,
                       indent: width*0.05,
                       endIndent: width*0.05,
-
-
                     ),
                     Row(
                       children: [
@@ -341,14 +328,13 @@ class _FindDoctorState extends ConsumerState<FindDoctor> {
                         ),
                       ],
                     ),
-                                   Container(
+                    Container(
                      height: height*0.17,
                      width: width*1,
                      child: ListView.separated(
                        // shrinkWrap: true,
                          scrollDirection: Axis.horizontal,
                          // physics: BouncingScrollPhysics(),
-
                          itemBuilder: (context, index) {
                            return InkWell(
                              onTap: () {
@@ -356,7 +342,6 @@ class _FindDoctorState extends ConsumerState<FindDoctor> {
                                setState(() {
 
                                });
-
                              },
                              child: Container(
                                child: Column(mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -366,14 +351,10 @@ class _FindDoctorState extends ConsumerState<FindDoctor> {
                                      backgroundImage:NetworkImage(data[index].image) ,
                                    ),
                                    Text(data[index].name.toString()),
-
-
                                  ],
                                ),
-
                              ),
                            );
-
                          },
                          separatorBuilder: (context, index) {
                            return SizedBox(
@@ -395,7 +376,6 @@ class _FindDoctorState extends ConsumerState<FindDoctor> {
           ),
         ),
       ),
-
     );
   }
 }
