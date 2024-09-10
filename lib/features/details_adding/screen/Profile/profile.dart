@@ -112,7 +112,7 @@ class _ProfilePageState extends State<ProfilePage> {
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsets.only(top: width * 0.3,left: width * 0.04, ),
+                              padding: EdgeInsets.only(top: width * 0.3,left: width * 0.03, ),
                               child: Text(
                                 currentModel!.name.isEmpty? "user" : currentModel!.name,
                                 style: TextStyle(

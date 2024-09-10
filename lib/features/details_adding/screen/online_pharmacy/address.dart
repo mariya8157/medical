@@ -165,7 +165,7 @@ class _OrderDetailsState extends ConsumerState<OrderDetails> {
                                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                     children: [
                                       Text("Address : ",style: TextStyle(
-                                          fontSize: width*0.05,
+                                          fontSize: width*0.045,
                                           fontWeight: FontWeight.w600
                                       ),),
                                       InkWell(
@@ -178,45 +178,45 @@ class _OrderDetailsState extends ConsumerState<OrderDetails> {
                                   Row(
                                     children: [
                                       Text(widget.id.name.toString(), style: TextStyle(
-                                          fontSize: width * 0.045, color:Colour.thirdcolour),),
+                                          fontSize: width * 0.042, color:Colour.thirdcolour),),
                                       Text(" , "),
                                       Text(widget.id.houseName.toString(), style: TextStyle(
-                                          fontSize: width * 0.045, color:Colour.thirdcolour),),
+                                          fontSize: width * 0.042, color:Colour.thirdcolour),),
                                       Text(" , "),
                                       Text(widget.id.street.toString(), style: TextStyle(
-                                          fontSize: width * 0.045, color:Colour.thirdcolour),),
+                                          fontSize: width * 0.042, color:Colour.thirdcolour),),
                                       Text(" , "),
                                     ],
                                   ),
                                   Row(
                                     children: [
                                       Text(widget.id.city.toString(), style: TextStyle(
-                                          fontSize: width * 0.045, color:Colour.thirdcolour),),
+                                          fontSize: width * 0.042, color:Colour.thirdcolour),),
                                       Text(" , "),
                                       Text(widget.id.pincode.toString(), style: TextStyle(
-                                          fontSize: width * 0.045, color:Colour.thirdcolour),),
+                                          fontSize: width * 0.042, color:Colour.thirdcolour),),
                                       Text(" , "),
                                       Text(widget.id.country.toString(), style: TextStyle(
-                                          fontSize: width * 0.045, color:Colour.thirdcolour),),
+                                          fontSize: width * 0.042, color:Colour.thirdcolour),),
                                     ],
                                   ),
                                   Row(
                                     children: [
                                       Text("Ph : ",style: TextStyle(
-                                          fontSize: width * 0.045, color:Colour.thirdcolour),),
+                                          fontSize: width * 0.042, color:Colour.thirdcolour),),
                                       Text(widget.id.phone.toString(), style: TextStyle(
-                                          fontSize: width * 0.045, color:Colour.thirdcolour),),
+                                          fontSize: width * 0.042, color:Colour.thirdcolour),),
                                     ],
                                   ),
                                   SizedBox(height: width*0.02,),
                                   Row(
                                     children: [
                                       Text("Order Id : ",style: TextStyle(
-                                          fontSize: width*0.05,
+                                          fontSize: width*0.045,
                                           fontWeight: FontWeight.w600
                                       ),),
                                       Text(widget.id.userId.toString(), style: TextStyle(
-                                          fontSize: width * 0.045, color:Colour.thirdcolour),)
+                                          fontSize: width * 0.042, color:Colour.thirdcolour),)
                                     ],
                                   ),
                                 ],
