@@ -2,8 +2,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:pinput/pinput.dart';
-
 import '../../../../core/constants/colour.dart';
 import '../../../../core/constants/icons.dart';
 import '../../../../main.dart';
@@ -69,7 +67,7 @@ class _MySavedState extends ConsumerState<MySaved> {
                       var data =currentModel!.wish;
                       return GridView.builder(
                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          childAspectRatio:.5,
+                          childAspectRatio:.65,
                             crossAxisSpacing: width*0.03,
                             mainAxisSpacing: width*0.03,
                             crossAxisCount: 2),

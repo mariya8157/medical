@@ -188,7 +188,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     CarouselSlider.builder(
-                        itemCount: 4,
+                        itemCount: pages.length,
                         itemBuilder: (BuildContext context, int index, int realIndex) {
                           return Padding(
                             padding: const EdgeInsets.all(8.0),
