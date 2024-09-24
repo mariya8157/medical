@@ -16,12 +16,14 @@ class AmbulanceModel {
       'id': this.id,
     };
   }
-  factory AmbulanceModel.fromMap(Map<String, dynamic>map){
+
+  factory AmbulanceModel.fromMap(Map<String, dynamic> map) {
     return AmbulanceModel(
       name: map['name'] ?? "",
       number: map['number'] ?? "",
       id: map['id'] ?? "",
-    );}
+    );
+  }
 
   AmbulanceModel copyWith({
     String? name,

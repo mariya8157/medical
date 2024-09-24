@@ -17,7 +17,7 @@ class HsptlModel {
     };
   }
 
-  factory HsptlModel.fromMap(Map<String, dynamic>map){
+  factory HsptlModel.fromMap(Map<String, dynamic> map) {
     return HsptlModel(
       image: map['image'] ?? "",
       name: map['name'] ?? "",

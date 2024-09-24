@@ -44,7 +44,7 @@ class DoctorModel {
     };
   }
 
-  factory DoctorModel.fromMap(Map<String, dynamic>map){
+  factory DoctorModel.fromMap(Map<String, dynamic> map) {
     return DoctorModel(
       cons: map['cons'].toDouble() ?? "",
       admin: map['admin'].toDouble() ?? "",
@@ -58,7 +58,8 @@ class DoctorModel {
       id: map['id'] ?? "",
       userId: map['userId'] ?? "",
       search: map['search'] ?? [],
-    );}
+    );
+  }
 
   DoctorModel copyWith({
     String? name,
@@ -72,21 +73,20 @@ class DoctorModel {
     String? spcl,
     String? id,
     String? userId,
-    List?search,
+    List? search,
   }) {
     return DoctorModel(
-      name: name ?? this.name,
-      date: date ?? this.date,
-      time: time ?? this.time,
-      cons: cons ?? this.cons,
-      admin: admin ?? this.admin,
-      dis: dis ?? this.dis,
-      image: image ?? this.image,
-      id: id ?? this.id,
-      userId: userId ?? this.userId,
-      spcl: spcl ?? this.spcl,
-      exp: exp ?? this.exp,
-      search: search??this.search
-    );
+        name: name ?? this.name,
+        date: date ?? this.date,
+        time: time ?? this.time,
+        cons: cons ?? this.cons,
+        admin: admin ?? this.admin,
+        dis: dis ?? this.dis,
+        image: image ?? this.image,
+        id: id ?? this.id,
+        userId: userId ?? this.userId,
+        spcl: spcl ?? this.spcl,
+        exp: exp ?? this.exp,
+        search: search ?? this.search);
   }
 }

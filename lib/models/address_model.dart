@@ -50,9 +50,10 @@ class AddressModel {
       'itemRate': this.itemRate,
       'userId': this.userId,
       'cart': this.cart,
-    };}
+    };
+  }
 
-  factory AddressModel.fromMap(Map<String, dynamic>map){
+  factory AddressModel.fromMap(Map<String, dynamic> map) {
     return AddressModel(
       phone: map['phone'] ?? "",
       pincode: map['pincode'] ?? "",

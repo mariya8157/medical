@@ -23,9 +23,10 @@ class UsersModel {
       'id': this.id,
       'cart': this.cart,
       'wish': this.wish,
-    };}
+    };
+  }
 
-  factory UsersModel.fromMap(Map<String, dynamic>map){
+  factory UsersModel.fromMap(Map<String, dynamic> map) {
     return UsersModel(
       password: map['password'] ?? "",
       email: map['email'] ?? "",

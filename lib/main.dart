@@ -10,30 +10,29 @@ import 'firebase_options.dart';
 UsersModel? currentModel;
 var height;
 var width;
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform
-  );
-  runApp(const ProviderScope(child:MyApp()));
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  runApp(const ProviderScope(child: MyApp()));
 }
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    width=MediaQuery.of(context).size.width;
-    height=MediaQuery.of(context).size.height;
+    width = MediaQuery.of(context).size.width;
+    height = MediaQuery.of(context).size.height;
     return GestureDetector(
-        onTap: () {
-          FocusManager.instance.primaryFocus!.unfocus();
-        },
-        child: MaterialApp(
-            debugShowCheckedModeBanner: false,
-            theme: ThemeData(
-              textTheme: GoogleFonts.interTextTheme()
-            ),
-            home: SplashScreen(),
-    ),);
+      onTap: () {
+        FocusManager.instance.primaryFocus!.unfocus();
+      },
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(textTheme: GoogleFonts.interTextTheme()),
+        home: SplashScreen(),
+      ),
+    );
   }
 }

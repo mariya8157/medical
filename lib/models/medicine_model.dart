@@ -37,7 +37,7 @@ class MedicineModel {
     };
   }
 
-  factory MedicineModel.fromMap(Map<String, dynamic>map){
+  factory MedicineModel.fromMap(Map<String, dynamic> map) {
     return MedicineModel(
       rate: map['rate'].toDouble() ?? "",
       off: map['off'].toDouble() ?? "",
@@ -58,7 +58,6 @@ class MedicineModel {
   // }
 
   // factory MedicineModel.fromJson(String source)=>MedicineModel.fromMap(jsonDecode(source));
-
 
   MedicineModel copyWith({
     String? name,
