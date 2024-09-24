@@ -10,51 +10,54 @@ import '../../../models/address_model.dart';
 import '../providers/firebase_provider.dart';
 import '../screen/home/homepage.dart';
 
-final AddingRepositoryProvider= Provider((ref) => AddingRepository(firestore: ref.watch(fireStoreProvider), firebaseAuth: ref.watch(firebaseAuthProvider)));
+final AddingRepositoryProvider = Provider((ref) => AddingRepository(
+    firestore: ref.watch(fireStoreProvider),
+    firebaseAuth: ref.watch(firebaseAuthProvider)));
 
-class AddingRepository{
+class AddingRepository {
   final FirebaseFirestore _firestore;
   final FirebaseAuth _firebaseAuth;
-  AddingRepository({required FirebaseAuth firebaseAuth,required FirebaseFirestore firestore}):_firebaseAuth=firebaseAuth,_firestore=firestore;
+
+  AddingRepository(
+      {required FirebaseAuth firebaseAuth,
+      required FirebaseFirestore firestore})
+      : _firebaseAuth = firebaseAuth,
+        _firestore = firestore;
 
   CollectionReference get _users => _firestore.collection("users");
 
-  add(name, email, password, id, cart, wish){
+  add(name, email, password, id, cart, wish) {
     UsersModel userData = UsersModel(
-        name: name,
-        email: email,
-        password: password,
-        id: email,
-        cart: [],
-        wish: [],
+      name: name,
+      email: email,
+      password: password,
+      id: email,
+      cart: [],
+      wish: [],
     );
 
     // _users.add(userData.toMap()).then((value) {
     //   value.update(userData.copyWith(id: value.id).toMap());
     // },
-        _users.doc(userData.email.trim()).set(userData.toMap());
+    _users.doc(userData.email.trim()).set(userData.toMap());
   }
 
-  addingUser(name, email, password, id, cart, wish){
-    _firebaseAuth.createUserWithEmailAndPassword(email: email, password: password);
+  addingUser(name, email, password, id, cart, wish) {
+    _firebaseAuth.createUserWithEmailAndPassword(
+        email: email, password: password);
   }
-  updateCart(UsersModel usersModel,MedicineModel medicineModel){
+
+  updateCart(UsersModel usersModel, MedicineModel medicineModel) {
     usersModel.cart.add(medicineModel.toMap());
-    _users.doc(usersModel.id).update(
-      usersModel.copyWith(
-        cart: usersModel.cart
-      ).toMap()
-    );
+    _users
+        .doc(usersModel.id)
+        .update(usersModel.copyWith(cart: usersModel.cart).toMap());
   }
-  updateWish(UsersModel usersModel,MedicineModel medicineModel){
+
+  updateWish(UsersModel usersModel, MedicineModel medicineModel) {
     usersModel.wish.add(medicineModel.toMap());
-    _users.doc(usersModel.id).update(
-        usersModel.copyWith(
-            wish: usersModel.wish
-        ).toMap()
-    );
+    _users
+        .doc(usersModel.id)
+        .update(usersModel.copyWith(wish: usersModel.wish).toMap());
   }
-  }
-
-
-
+}

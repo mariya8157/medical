@@ -4,22 +4,20 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../models/doctor_model.dart';
 import '../providers/firebase_provider.dart';
 
-final ScheduleRepositoryProvider = Provider((ref) => ScheduleRepository(firestore: ref.watch(fireStoreProvider)));
+final ScheduleRepositoryProvider = Provider(
+    (ref) => ScheduleRepository(firestore: ref.watch(fireStoreProvider)));
 
-class ScheduleRepository{
+class ScheduleRepository {
   final FirebaseFirestore _firestore;
-  ScheduleRepository({required FirebaseFirestore firestore}):_firestore=firestore;
+
+  ScheduleRepository({required FirebaseFirestore firestore})
+      : _firestore = firestore;
 
   CollectionReference get _schedule => _firestore.collection("schedule");
 
-  addbooking({required DoctorModel drmodel}){
-    _schedule.add(
-        drmodel.toMap()
-    ).then((value) {
-      value.update(
-          drmodel.copyWith(id: value.id).toMap()
-      );
+  addbooking({required DoctorModel drmodel}) {
+    _schedule.add(drmodel.toMap()).then((value) {
+      value.update(drmodel.copyWith(id: value.id).toMap());
     });
   }
-
 }

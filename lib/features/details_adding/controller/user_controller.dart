@@ -11,25 +11,34 @@ import '../repository/doctor_repository.dart';
 import '../repository/schedule_repository.dart';
 import '../repository/user_repository.dart';
 
-final AddingControllerProvider = Provider((ref) => AddingController(addingRepository: ref.watch(AddingRepositoryProvider)));
+final AddingControllerProvider = Provider((ref) =>
+    AddingController(addingRepository: ref.watch(AddingRepositoryProvider)));
 
 class AddingController {
   final AddingRepository _addingRepository;
 
   AddingController({required AddingRepository addingRepository})
-      : _addingRepository= addingRepository;
+      : _addingRepository = addingRepository;
 
-  addUserData({required name, required email,required password,required id, required cart, required wish}) {
+  addUserData(
+      {required name,
+      required email,
+      required password,
+      required id,
+      required cart,
+      required wish}) {
     _addingRepository.add(name, email, password, id, cart, wish);
   }
 
   addUser(name, email, password, id, cart, wish) {
     _addingRepository.addingUser(name, email, password, id, cart, wish);
   }
-  updatecart(UsersModel usersModel,MedicineModel medicineModel){
+
+  updatecart(UsersModel usersModel, MedicineModel medicineModel) {
     _addingRepository.updateCart(usersModel, medicineModel);
   }
-  updatewish(UsersModel usersModel,MedicineModel medicineModel){
+
+  updatewish(UsersModel usersModel, MedicineModel medicineModel) {
     _addingRepository.updateWish(usersModel, medicineModel);
   }
 }

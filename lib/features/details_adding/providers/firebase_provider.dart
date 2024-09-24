@@ -10,21 +10,21 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 final fireStoreProvider = Provider((ref) => FirebaseFirestore.instance);
 final firebaseAuthProvider = Provider((ref) => FirebaseAuth.instance);
-final cartNotifier = StateNotifierProvider<CartNotifier,List<MedicineModel>>((ref) {
-return CartNotifier(
-
-);
+final cartNotifier =
+    StateNotifierProvider<CartNotifier, List<MedicineModel>>((ref) {
+  return CartNotifier();
 });
+
 class CartNotifier extends StateNotifier<List<MedicineModel>> {
-  CartNotifier():super([]);
-  updateList(MedicineModel medicineModel,){
-   state.add(medicineModel);
-   print(state);
+  CartNotifier() : super([]);
+
+  updateList(
+    MedicineModel medicineModel,
+  ) {
+    state.add(medicineModel);
+    print(state);
   }
-
 }
-
-
 
 // class MedDataProvider extends ChangeNotifier {
 //   SharedPreferences? _prefs;
@@ -64,7 +64,3 @@ class CartNotifier extends StateNotifier<List<MedicineModel>> {
 //     return MedicineModel.fromJson(jsonDecode(medicineJson));
 //   }
 // }
-
-
-
-

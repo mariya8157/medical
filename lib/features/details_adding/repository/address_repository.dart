@@ -5,38 +5,46 @@ import '../../../models/address_model.dart';
 import '../../../models/medicine_model.dart';
 import '../providers/firebase_provider.dart';
 
-final AddressRepositoryProvider = Provider((ref) => AddressRepository(firestore: ref.watch(fireStoreProvider)));
+final AddressRepositoryProvider = Provider(
+    (ref) => AddressRepository(firestore: ref.watch(fireStoreProvider)));
 
-class AddressRepository{
+class AddressRepository {
   final FirebaseFirestore _firestore;
-  AddressRepository({required FirebaseFirestore firestore}):_firestore=firestore;
+
+  AddressRepository({required FirebaseFirestore firestore})
+      : _firestore = firestore;
 
   CollectionReference get _address => _firestore.collection("address");
 
-  add(AddressModel addressData){
-    _address.add(addressData.toMap()).then((value) {
-      value.update(addressData.copyWith(id: value.id).toMap());
-    },);
+  add(AddressModel addressData) {
+    _address.add(addressData.toMap()).then(
+      (value) {
+        value.update(addressData.copyWith(id: value.id).toMap());
+      },
+    );
   }
 
-  deleteAddress(AddressModel addressDelete){
+  deleteAddress(AddressModel addressDelete) {
     _address.doc(addressDelete.id).delete();
   }
-  streamAddress(){
-    return _address.snapshots().map((event) => event.docs.map((e) => AddressModel.fromMap(e.data() as Map<String, dynamic>)).toList());
-  }
-  UpdateAddress(AddressModel addressedit){
-    print(_address.doc(addressedit.id));
-    _address.doc(addressedit.id).update(addressedit.toMap()).then((value) {
-    },);
+
+  streamAddress() {
+    return _address.snapshots().map((event) => event.docs
+        .map((e) => AddressModel.fromMap(e.data() as Map<String, dynamic>))
+        .toList());
   }
 
-  updateCart(AddressModel addressModel,MedicineModel medicineModel){
+  UpdateAddress(AddressModel addressedit) {
+    print(_address.doc(addressedit.id));
+    _address.doc(addressedit.id).update(addressedit.toMap()).then(
+          (value) {},
+        );
+  }
+
+  updateCart(AddressModel addressModel, MedicineModel medicineModel) {
     addressModel.cart.add(medicineModel.toMap());
-    _address.doc(addressModel.id).update(
-        addressModel.copyWith(
-            cart: addressModel.cart
-        ).toMap()
-    );
+    _address
+        .doc(addressModel.id)
+        .update(addressModel.copyWith(cart: addressModel.cart).toMap());
   }
 }
