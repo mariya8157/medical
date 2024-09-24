@@ -320,7 +320,7 @@ class _DoctordetailsPageState extends State<DoctordetailsPage> {
               SizedBox(
                 height: width * 0.03,
               ),
-              Container(
+              SizedBox(
                 width: width * 1,
                 height: height * 0.3,
                 child: GridView.builder(

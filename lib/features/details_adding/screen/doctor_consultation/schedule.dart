@@ -75,7 +75,7 @@ class _SchedulePageState extends State<SchedulePage> {
                   children: [
                     Padding(
                       padding: EdgeInsets.all(width * 0.03),
-                      child: Container(
+                      child: SizedBox(
                         width: width * 1,
                         child: StreamBuilder(
                             stream: FirebaseFirestore.instance
@@ -118,7 +118,7 @@ class _SchedulePageState extends State<SchedulePage> {
                                                   crossAxisAlignment:
                                                       CrossAxisAlignment.start,
                                                   children: [
-                                                    Container(
+                                                    SizedBox(
                                                       height: width * 0.15,
                                                       width: width * 0.55,
                                                       child: Column(
@@ -164,7 +164,7 @@ class _SchedulePageState extends State<SchedulePage> {
                                                     )
                                                   ],
                                                 ),
-                                                Container(
+                                                SizedBox(
                                                   width: width * 0.8,
                                                   child: Row(
                                                     mainAxisAlignment:
@@ -198,7 +198,7 @@ class _SchedulePageState extends State<SchedulePage> {
                                                     ],
                                                   ),
                                                 ),
-                                                Container(
+                                                SizedBox(
                                                   width: width * 0.8,
                                                   child: Row(
                                                     mainAxisAlignment:
@@ -214,7 +214,7 @@ class _SchedulePageState extends State<SchedulePage> {
                                                             builder: (context) {
                                                               return AlertDialog(
                                                                 content:
-                                                                    Container(
+                                                                SizedBox(
                                                                   height:
                                                                       height *
                                                                           0.18,
@@ -225,7 +225,7 @@ class _SchedulePageState extends State<SchedulePage> {
                                                                         MainAxisAlignment
                                                                             .spaceEvenly,
                                                                     children: [
-                                                                      Container(
+                                                                      SizedBox(
                                                                           child:
                                                                               Column(
                                                                         children: [
@@ -377,7 +377,7 @@ class _SchedulePageState extends State<SchedulePage> {
                     ),
                     Padding(
                       padding: EdgeInsets.all(width * 0.03),
-                      child: Container(
+                      child: SizedBox(
                           child: StreamBuilder<
                               QuerySnapshot<Map<String, dynamic>>>(
                         stream: FirebaseFirestore.instance
@@ -412,14 +412,14 @@ class _SchedulePageState extends State<SchedulePage> {
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceEvenly,
                                       children: [
-                                        Container(
+                                        SizedBox(
                                             height: width * 0.2,
                                             width: width * 0.27,
                                             child: Image(
                                                 image: NetworkImage(data[index]
                                                         ['image']
                                                     .toString()))),
-                                        Container(
+                                        SizedBox(
                                           height: width * 0.27,
                                           width: width * 0.55,
                                           child: Row(
@@ -464,7 +464,7 @@ class _SchedulePageState extends State<SchedulePage> {
                                                   ],
                                                 ),
                                               ),
-                                              Container(
+                                              SizedBox(
                                                 height: width * 0.23,
                                                 child: Column(
                                                   mainAxisAlignment:

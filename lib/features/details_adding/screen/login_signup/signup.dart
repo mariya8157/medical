@@ -209,7 +209,7 @@ class _SignupPageState extends ConsumerState<SignupPage> {
                         },
                         child: Padding(
                           padding: EdgeInsets.all(width * 0.045),
-                          child: Container(
+                          child: SizedBox(
                               height: width * 0.09,
                               width: width * 0.09,
                               child: selectIcon
@@ -246,7 +246,7 @@ class _SignupPageState extends ConsumerState<SignupPage> {
                         });
                       },
                     ),
-                    Container(
+                    SizedBox(
                       child: Row(
                         children: [
                           Column(
@@ -270,7 +270,7 @@ class _SignupPageState extends ConsumerState<SignupPage> {
                                           color: Colour.thirdcolour)),
                                 ],
                               ),
-                              Container(
+                              SizedBox(
                                 width: width * 0.79,
                                 child: Text("Privacy and Policy",
                                     style: TextStyle(
@@ -297,24 +297,24 @@ class _SignupPageState extends ConsumerState<SignupPage> {
                         emailController.text != "" &&
                         passwordController.text != "" &&
                         formKey.currentState!.validate() &&
-                        agree == true)
+                        agree == true) {
                       showDialog(
                         barrierDismissible: false,
                         context: context,
                         builder: (context) {
                           return AlertDialog(
-                            content: Container(
+                            content: SizedBox(
                               height: width * 0.8,
                               width: width * 0.4,
                               child: Column(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceEvenly,
                                 children: [
-                                  Container(
+                                  SizedBox(
                                       height: width * 0.25,
                                       width: width * 0.25,
                                       child: Image.asset(ImagePictures.done)),
-                                  Container(
+                                  SizedBox(
                                       child: Column(
                                     children: [
                                       Text(
@@ -373,30 +373,30 @@ class _SignupPageState extends ConsumerState<SignupPage> {
                           );
                         },
                       );
-                    else {
+                    } else {
                       nameController.text == ""
-                          ? ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                          ? ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                               backgroundColor: Colour.primarycolour,
                               content: Text("Please enter your Name!")))
                           : emailController.text == ""
-                              ? ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                              ? ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                                   backgroundColor: Colour.primarycolour,
                                   content: Text("Please enter your Email!")))
                               : passwordController.text == ""
                                   ? ScaffoldMessenger.of(context).showSnackBar(
-                                      SnackBar(
+                                      const SnackBar(
                                           backgroundColor: Colour.primarycolour,
                                           content: Text(
                                               "Please enter your Password!")))
                                   : agree
                                       ? ScaffoldMessenger.of(context)
-                                          .showSnackBar(SnackBar(
+                                          .showSnackBar(const SnackBar(
                                               backgroundColor:
                                                   Colour.primarycolour,
                                               content: Text(
                                                   "Please agree to the Terms of Service!")))
                                       : ScaffoldMessenger.of(context)
-                                          .showSnackBar(SnackBar(
+                                          .showSnackBar(const SnackBar(
                                               backgroundColor:
                                                   Colour.primarycolour,
                                               content: Text(
@@ -423,7 +423,7 @@ class _SignupPageState extends ConsumerState<SignupPage> {
                 SizedBox(
                   height: width * 0.05,
                 ),
-                Container(
+                SizedBox(
                     height: width * 0.07,
                     width: width * 0.67,
                     child: Row(

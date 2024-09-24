@@ -5,7 +5,6 @@ import 'package:flutter_svg/svg.dart';
 import '../../../../core/constants/colour.dart';
 import '../../../../core/constants/icons.dart';
 import '../../../../main.dart';
-import '../login_signup/login.dart';
 
 class MySaved extends ConsumerStatefulWidget {
   const MySaved({super.key});
@@ -93,7 +92,7 @@ class _MySavedState extends ConsumerState<MySaved> {
                                       SizedBox(
                                         height: width * 0.01,
                                       ),
-                                      Container(
+                                      SizedBox(
                                         height: width * 0.3,
                                         width: width * 0.3,
                                         child: Image(
@@ -110,7 +109,7 @@ class _MySavedState extends ConsumerState<MySaved> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceEvenly,
                                         children: [
-                                          Container(
+                                          SizedBox(
                                             width: width * 0.4,
                                             height: width * 0.2,
                                             child: Column(

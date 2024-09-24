@@ -78,7 +78,7 @@ class _AmbulancePageState extends ConsumerState<AmbulancePage> {
                 height: height * 0.02,
               ),
               ref.watch(StreamAmbulanceProvider).when(
-                    data: (data) => Container(
+                    data: (data) => SizedBox(
                       width: width * 1,
                       child: ListView.separated(
                           shrinkWrap: true,
@@ -124,7 +124,7 @@ class _AmbulancePageState extends ConsumerState<AmbulancePage> {
                                                 barrierDismissible: false,
                                                 builder: (context) {
                                                   return AlertDialog(
-                                                    content: Container(
+                                                    content: SizedBox(
                                                       height: height * 0.18,
                                                       width: width * 0.5,
                                                       child: Column(
@@ -132,7 +132,7 @@ class _AmbulancePageState extends ConsumerState<AmbulancePage> {
                                                             MainAxisAlignment
                                                                 .spaceEvenly,
                                                         children: [
-                                                          Container(
+                                                          SizedBox(
                                                               child: Column(
                                                             children: [
                                                               Text(

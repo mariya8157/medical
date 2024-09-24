@@ -276,7 +276,7 @@ class _DeliveryPageState extends ConsumerState<DeliveryPage> {
                     SizedBox(
                       width: width * 0.06,
                     ),
-                    Container(
+                    SizedBox(
                       height: width * 0.12,
                       width: width * 0.3,
                       child: TextFormField(
@@ -346,7 +346,7 @@ class _DeliveryPageState extends ConsumerState<DeliveryPage> {
                           border: Border.all(color: Colour.primarycolour),
                           borderRadius: BorderRadius.circular(width * 0.03),
                         ),
-                        child: Row(
+                        child: const Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             Icon(Icons.my_location_outlined,
@@ -374,7 +374,7 @@ class _DeliveryPageState extends ConsumerState<DeliveryPage> {
                       style: TextStyle(
                           fontWeight: FontWeight.w500, fontSize: width * 0.04),
                     ),
-                    Text(
+                    const Text(
                       " *",
                       style: TextStyle(color: Colour.color4),
                     ),

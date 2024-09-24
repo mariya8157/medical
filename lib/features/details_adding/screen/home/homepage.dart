@@ -118,7 +118,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                                     builder: (context) => FindDoctor(),
                                   ));
                             },
-                            child: Container(
+                            child: SizedBox(
                               height: height * 0.06,
                               width: width * 0.08,
                               child: SvgPicture.asset(ImageIcons.catogory1),
@@ -142,7 +142,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                                     builder: (context) => PharmacyPage(),
                                   ));
                             },
-                            child: Container(
+                            child: SizedBox(
                               height: height * 0.06,
                               width: width * 0.08,
                               child: SvgPicture.asset(ImageIcons.Pharmacy),
@@ -166,7 +166,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                                     builder: (context) => HospitalPage()),
                               );
                             },
-                            child: Container(
+                            child: SizedBox(
                               height: height * 0.06,
                               width: width * 0.08,
                               child: SvgPicture.asset(ImageIcons.Hospital),
@@ -189,7 +189,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                                     builder: (context) => AmbulancePage(),
                                   ));
                             },
-                            child: Container(
+                            child: SizedBox(
                               height: height * 0.06,
                               width: width * 0.08,
                               child: SvgPicture.asset(ImageIcons.Ambulance),
@@ -207,7 +207,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                   ),
                 ],
               ),
-              Container(
+              SizedBox(
                 height: width * 0.7,
                 width: width * 1,
                 child: Column(
@@ -253,7 +253,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                           dotHeight: width * 0.02,
                           dotWidth: width * 0.02,
                         )),
-                    Container(
+                    SizedBox(
                       width: width * 0.9,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -286,7 +286,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                 ),
               ),
               ref.watch(StreamDocProvider(search_controller.text)).when(
-                  data: (data) => Container(
+                  data: (data) => SizedBox(
                         height: width * 0.55,
                         width: width * 1,
                         // margin: EdgeInsets.only(left: width*0.03),

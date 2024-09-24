@@ -104,7 +104,7 @@ class _PharmacyPageState extends ConsumerState<PharmacyPage> {
           shrinkWrap: true,
           physics: BouncingScrollPhysics(),
           children: [
-            Container(
+            SizedBox(
               height: width * 0.63,
               width: width * 1,
               child: Column(
@@ -163,10 +163,10 @@ class _PharmacyPageState extends ConsumerState<PharmacyPage> {
                     child: Row(
                       children: [
                         Center(
-                          child: Container(
+                          child: SizedBox(
                             height: width * 0.27,
                             width: width * 0.45,
-                            child: Container(
+                            child: SizedBox(
                               height: height * 0.15,
                               child: Column(
                                 mainAxisAlignment:
@@ -217,7 +217,7 @@ class _PharmacyPageState extends ConsumerState<PharmacyPage> {
                 SizedBox(
                   width: width * 0.02,
                 ),
-                Container(
+                SizedBox(
                     height: width * 0.13,
                     width: width * 0.58,
                     child: Row(
@@ -237,7 +237,7 @@ class _PharmacyPageState extends ConsumerState<PharmacyPage> {
                         see = !see;
                         setState(() {});
                       },
-                      child: Container(
+                      child: SizedBox(
                           height: width * 0.13,
                           width: width * 0.25,
                           child: Row(
@@ -264,7 +264,7 @@ class _PharmacyPageState extends ConsumerState<PharmacyPage> {
               ],
             ),
             ref.watch(StreamMedProvider).when(
-                  data: (data) => Container(
+                  data: (data) => SizedBox(
                     height: width * 0.6,
                     width: width * 1,
                     child: ListView.separated(
@@ -314,7 +314,7 @@ class _PharmacyPageState extends ConsumerState<PharmacyPage> {
                                         SizedBox(
                                           height: width * 0.01,
                                         ),
-                                        Container(
+                                        SizedBox(
                                           height: width * 0.3,
                                           width: width * 0.3,
                                           child: Image(
@@ -326,7 +326,7 @@ class _PharmacyPageState extends ConsumerState<PharmacyPage> {
                                         ),
                                         Row(
                                           children: [
-                                            Container(
+                                            SizedBox(
                                               height: width * 0.15,
                                               child: Column(
                                                 crossAxisAlignment:
@@ -335,7 +335,7 @@ class _PharmacyPageState extends ConsumerState<PharmacyPage> {
                                                     MainAxisAlignment
                                                         .spaceEvenly,
                                                 children: [
-                                                  Container(
+                                                  SizedBox(
                                                     child: Row(
                                                       children: [
                                                         Text(
@@ -365,7 +365,7 @@ class _PharmacyPageState extends ConsumerState<PharmacyPage> {
                                             ),
                                           ],
                                         ),
-                                        Container(
+                                        SizedBox(
                                           height: width * 0.10,
                                           width: width * 0.45,
                                           child: Row(
@@ -464,7 +464,7 @@ class _PharmacyPageState extends ConsumerState<PharmacyPage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Container(
+                SizedBox(
                     height: width * 0.13,
                     width: width * 0.55,
                     child: Row(
@@ -489,7 +489,7 @@ class _PharmacyPageState extends ConsumerState<PharmacyPage> {
                         see2 = !see2;
                         setState(() {});
                       },
-                      child: Container(
+                      child: SizedBox(
                           height: width * 0.13,
                           width: width * 0.25,
                           child: Row(
@@ -516,7 +516,7 @@ class _PharmacyPageState extends ConsumerState<PharmacyPage> {
               ],
             ),
             ref.watch(StreamMedProvider).when(
-                  data: (data) => Container(
+                  data: (data) => SizedBox(
                     height: width * 0.63,
                     width: width * 1,
                     child: ListView.separated(
@@ -565,7 +565,7 @@ class _PharmacyPageState extends ConsumerState<PharmacyPage> {
                                       SizedBox(
                                         height: width * 0.01,
                                       ),
-                                      Container(
+                                      SizedBox(
                                         height: width * 0.3,
                                         width: width * 0.3,
                                         child: Image(
@@ -577,7 +577,7 @@ class _PharmacyPageState extends ConsumerState<PharmacyPage> {
                                       ),
                                       Row(
                                         children: [
-                                          Container(
+                                          SizedBox(
                                             height: width * 0.15,
                                             child: Column(
                                               crossAxisAlignment:
@@ -605,7 +605,7 @@ class _PharmacyPageState extends ConsumerState<PharmacyPage> {
                                           ),
                                         ],
                                       ),
-                                      Container(
+                                      SizedBox(
                                         height: width * 0.10,
                                         width: width * 0.45,
                                         child: Row(
@@ -620,7 +620,7 @@ class _PharmacyPageState extends ConsumerState<PharmacyPage> {
                                             ),
                                             Text(
                                               "\$${data[index].off.toString()}",
-                                              style: TextStyle(
+                                              style: const TextStyle(
                                                   decoration: TextDecoration
                                                       .lineThrough,
                                                   decorationColor:

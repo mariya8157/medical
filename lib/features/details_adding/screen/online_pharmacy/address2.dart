@@ -5,17 +5,12 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
-import 'package:medical/features/details_adding/controller/user_controller.dart';
 import 'package:medical/features/details_adding/screen/home/bottomnavigation.dart';
 import 'package:medical/models/address_model.dart';
 import 'package:order_tracker/order_tracker.dart';
-import 'package:pinput/pinput.dart';
-
 import '../../../../core/constants/colour.dart';
 import '../../../../core/constants/icons.dart';
-import '../../../../core/constants/images.dart';
 import '../../../../main.dart';
-import '../../controller/address_controller.dart';
 
 class OrderDetails2 extends ConsumerStatefulWidget {
   final AddressModel id;
@@ -126,7 +121,7 @@ class _OrderDetailsState extends ConsumerState<OrderDetails2> {
             children: [
               Row(
                 children: [
-                  Container(
+                  SizedBox(
                       // width: width*0.6,
                       child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -154,7 +149,7 @@ class _OrderDetailsState extends ConsumerState<OrderDetails2> {
               ),
               Row(
                 children: [
-                  Container(
+                  SizedBox(
                     height: width * 0.42,
                     width: width * 0.9,
                     child: ListView.builder(
@@ -198,46 +193,41 @@ class _OrderDetailsState extends ConsumerState<OrderDetails2> {
                                 Row(
                                   children: [
                                     Text(
-                                      widget.id.name.toString(),
+                                     '${widget.id.name.toString()},',
                                       style: TextStyle(
                                           fontSize: width * 0.042,
                                           color: Colour.thirdcolour),
                                     ),
-                                    Text(" , "),
                                     Text(
-                                      widget.id.houseName.toString(),
+                                      '${widget.id.houseName.toString()},',
                                       style: TextStyle(
                                           fontSize: width * 0.042,
                                           color: Colour.thirdcolour),
                                     ),
-                                    Text(" , "),
                                     Text(
-                                      widget.id.street.toString(),
+                                      '${widget.id.street.toString()},',
                                       style: TextStyle(
                                           fontSize: width * 0.042,
                                           color: Colour.thirdcolour),
                                     ),
-                                    Text(" , "),
                                   ],
                                 ),
                                 Row(
                                   children: [
                                     Text(
-                                      widget.id.city.toString(),
+                                      '${widget.id.city.toString()},',
                                       style: TextStyle(
                                           fontSize: width * 0.042,
                                           color: Colour.thirdcolour),
                                     ),
-                                    Text(" , "),
                                     Text(
-                                      widget.id.pincode.toString(),
+                                      '${widget.id.pincode.toString()},',
                                       style: TextStyle(
                                           fontSize: width * 0.042,
                                           color: Colour.thirdcolour),
                                     ),
-                                    Text(" , "),
                                     Text(
-                                      widget.id.country.toString(),
+                                      '${widget.id.country.toString()},',
                                       style: TextStyle(
                                           fontSize: width * 0.042,
                                           color: Colour.thirdcolour),
@@ -324,21 +314,21 @@ class _OrderDetailsState extends ConsumerState<OrderDetails2> {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceEvenly,
                                   children: [
-                                    Container(
+                                    SizedBox(
                                         height: width * 0.2,
                                         width: width * 0.27,
                                         child: Image(
                                             image: NetworkImage(data[index]
                                                     ['image']
                                                 .toString()))),
-                                    Container(
+                                    SizedBox(
                                       height: width * 0.27,
                                       width: width * 0.55,
                                       child: Row(
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
                                         children: [
-                                          Container(
+                                          SizedBox(
                                             height: width * 0.2,
                                             child: Column(
                                               crossAxisAlignment:
@@ -373,7 +363,7 @@ class _OrderDetailsState extends ConsumerState<OrderDetails2> {
                                               ],
                                             ),
                                           ),
-                                          Container(
+                                          SizedBox(
                                             height: width * 0.23,
                                             child: Column(
                                               mainAxisAlignment:
@@ -417,10 +407,10 @@ class _OrderDetailsState extends ConsumerState<OrderDetails2> {
                         color: Colour.lightgreen,
                         borderRadius: BorderRadius.circular(width * 0.03)),
                     child: ListTile(
-                      leading: Container(
+                      leading: SizedBox(
                         height: width * 0.07,
                         width: width * 0.07,
-                        child: Image(
+                        child: const Image(
                           image: NetworkImage(
                               "https://pbs.twimg.com/profile_images/1615271089705463811/v-emhrqu_400x400.png"),
                         ),
@@ -451,10 +441,10 @@ class _OrderDetailsState extends ConsumerState<OrderDetails2> {
                       color: Colour.lightgreen,
                       borderRadius: BorderRadius.circular(width * 0.03)),
                   child: ListTile(
-                    leading: Container(
+                    leading: SizedBox(
                         height: width * 0.07,
                         width: width * 0.07,
-                        child: Image(
+                        child: const Image(
                             image: NetworkImage(
                                 "https://www.computerhope.com/jargon/g/google-pay.png"))),
                     title: Text(
@@ -522,7 +512,7 @@ class _OrderDetailsState extends ConsumerState<OrderDetails2> {
                   height: width * 0.13,
                   width: width * 0.84,
                   decoration: BoxDecoration(
-                    gradient: LinearGradient(
+                    gradient: const LinearGradient(
                       colors: <Color>[
                         Colour.primarycolour,
                         Colour.lightprimarycolor

@@ -78,7 +78,7 @@ class _TopDoctorPageState extends ConsumerState<DoctorList> {
                     return const Center(child: Text("No document found"));
                   }
                   List<DoctorModel> data = snapshot.data!;
-                  return Container(
+                  return SizedBox(
                     child: ListView.separated(
                         shrinkWrap: true,
                         physics: BouncingScrollPhysics(),
@@ -98,7 +98,7 @@ class _TopDoctorPageState extends ConsumerState<DoctorList> {
                                   SizedBox(
                                     width: width * 0.03,
                                   ),
-                                  Container(
+                                  SizedBox(
                                     height: width * 0.5,
                                     width: width * 0.78,
                                     child: Row(
@@ -120,7 +120,7 @@ class _TopDoctorPageState extends ConsumerState<DoctorList> {
                                         SizedBox(
                                           width: width * 0.04,
                                         ),
-                                        Container(
+                                        SizedBox(
                                           width: width * 0.3,
                                           child: Column(
                                             mainAxisAlignment:
@@ -141,7 +141,7 @@ class _TopDoctorPageState extends ConsumerState<DoctorList> {
                                                     color: Colour.gray,
                                                     fontSize: width * 0.04),
                                               ),
-                                              Container(
+                                              SizedBox(
                                                 width: width * 0.25,
                                                 height: height * 0.05,
                                                 child: Row(

@@ -177,7 +177,7 @@ class _CreatePasswordPageState extends State<CreatePasswordPage> {
                         },
                         child: Padding(
                           padding: EdgeInsets.all(width * 0.045),
-                          child: Container(
+                          child: SizedBox(
                               height: width * 0.09,
                               width: width * 0.09,
                               child: selectIcon1
@@ -214,18 +214,18 @@ class _CreatePasswordPageState extends State<CreatePasswordPage> {
                         barrierDismissible: false,
                         builder: (context) {
                           return AlertDialog(
-                            content: Container(
+                            content: SizedBox(
                               height: width * 0.8,
                               width: width * 0.4,
                               child: Column(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceEvenly,
                                 children: [
-                                  Container(
+                                  SizedBox(
                                       height: width * 0.25,
                                       width: width * 0.25,
                                       child: Image.asset(ImagePictures.done)),
-                                  Container(
+                                  SizedBox(
                                       child: Column(
                                     children: [
                                       Text(

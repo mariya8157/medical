@@ -162,7 +162,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                         },
                         child: Padding(
                           padding: EdgeInsets.all(width * 0.045),
-                          child: Container(
+                          child: SizedBox(
                               height: width * 0.08,
                               width: width * 0.08,
                               child: selectIcon
@@ -199,7 +199,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                               builder: (context) => ForgotPasswordPage(),
                             ));
                       },
-                      child: Container(
+                      child: SizedBox(
                         child: Text(
                           "Forgot Password?",
                           style: TextStyle(
@@ -238,18 +238,18 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                         barrierDismissible: false,
                         builder: (context) {
                           return AlertDialog(
-                            content: Container(
+                            content: SizedBox(
                               height: width * 0.85,
                               width: width * 0.4,
                               child: Column(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceEvenly,
                                 children: [
-                                  Container(
+                                  SizedBox(
                                       height: width * 0.25,
                                       width: width * 0.25,
                                       child: Image.asset(ImagePictures.done)),
-                                  Container(
+                                  SizedBox(
                                       child: Column(
                                     children: [
                                       Text(
@@ -345,7 +345,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                 SizedBox(
                   height: width * 0.05,
                 ),
-                Container(
+                SizedBox(
                     height: width * 0.07,
                     width: width * 0.67,
                     child: Row(
@@ -422,7 +422,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                         border: Border.all(color: Colour.color2)),
                     child: Row(
                       children: [
-                        Container(
+                        SizedBox(
                           width: width * 0.67,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -455,7 +455,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                       border: Border.all(color: Colour.color2)),
                   child: Row(
                     children: [
-                      Container(
+                      SizedBox(
                         width: width * 0.67,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -487,7 +487,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                       border: Border.all(color: Colour.color2)),
                   child: Row(
                     children: [
-                      Container(
+                      SizedBox(
                         width: width * 0.67,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,

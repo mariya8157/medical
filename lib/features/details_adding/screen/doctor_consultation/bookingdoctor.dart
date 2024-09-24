@@ -218,7 +218,7 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                     onTap: () {
                       reason.clear();
                     },
-                    child: Container(
+                    child: SizedBox(
                       child: Text(
                         "Change",
                         style: TextStyle(
@@ -240,7 +240,7 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                   SizedBox(
                     width: width * 0.05,
                   ),
-                  Container(
+                  SizedBox(
                     width: width * 0.6,
                     child: TextFormField(
                       controller: reason,
@@ -286,7 +286,7 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                         fontWeight: FontWeight.w500,
                         color: Colour.gray),
                   ),
-                  Container(
+                  SizedBox(
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -322,7 +322,7 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                         fontWeight: FontWeight.w500,
                         color: Colour.gray),
                   ),
-                  Container(
+                  SizedBox(
                     child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -357,7 +357,7 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                         fontWeight: FontWeight.w500,
                         color: Colour.gray),
                   ),
-                  Container(
+                  SizedBox(
                     child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -392,7 +392,7 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                         fontWeight: FontWeight.w600,
                         color: Colour.thirdcolour),
                   ),
-                  Container(
+                  SizedBox(
                     child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -443,7 +443,7 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                         color: Colour.lightgreen,
                         borderRadius: BorderRadius.circular(width * 0.03)),
                     child: ListTile(
-                      leading: Container(
+                      leading: SizedBox(
                         height: width * 0.07,
                         width: width * 0.07,
                         child: Image(
@@ -477,7 +477,7 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                       color: Colour.lightgreen,
                       borderRadius: BorderRadius.circular(width * 0.03)),
                   child: ListTile(
-                    leading: Container(
+                    leading: SizedBox(
                         height: width * 0.07,
                         width: width * 0.07,
                         child: Image(
@@ -535,7 +535,7 @@ class _BookingPageState extends ConsumerState<BookingPage> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  Container(
+                  SizedBox(
                     height: height * 0.08,
                     // width: width*0.3,
                     child: Center(
@@ -548,7 +548,7 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                               fontWeight: FontWeight.w600,
                               color: Colour.gray),
                         ),
-                        Container(
+                        SizedBox(
                           child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
@@ -580,18 +580,18 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                         context: context,
                         builder: (context) {
                           return AlertDialog(
-                            content: Container(
+                            content: SizedBox(
                               height: width * 0.8,
                               width: width * 0.4,
                               child: Column(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceEvenly,
                                 children: [
-                                  Container(
+                                  SizedBox(
                                       height: width * 0.25,
                                       width: width * 0.25,
                                       child: Image.asset(ImagePictures.done)),
-                                  Container(
+                                  SizedBox(
                                       child: Column(
                                     children: [
                                       Text(

@@ -143,7 +143,7 @@ class _VerificationPageState extends State<VerificationPage> {
               SizedBox(
                 height: width * 0.05,
               ),
-              Container(
+              SizedBox(
                   height: width * 0.07,
                   width: width * 0.67,
                   child: Row(

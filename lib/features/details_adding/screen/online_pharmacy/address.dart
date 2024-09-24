@@ -125,7 +125,7 @@ class _OrderDetailsState extends ConsumerState<OrderDetails> {
             children: [
               Row(
                 children: [
-                  Container(
+                  SizedBox(
                       // width: width*0.6,
                       child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -153,7 +153,7 @@ class _OrderDetailsState extends ConsumerState<OrderDetails> {
               ),
               Row(
                 children: [
-                  Container(
+                  SizedBox(
                     height: width * 0.42,
                     width: width * 0.9,
                     child: ListView.builder(
@@ -296,19 +296,19 @@ class _OrderDetailsState extends ConsumerState<OrderDetails> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Container(
+                    SizedBox(
                         height: width * 0.2,
                         width: width * 0.27,
                         child: Image(
                             image:
                                 NetworkImage(widget.id.itemImage.toString()))),
-                    Container(
+                    SizedBox(
                       height: width * 0.27,
                       width: width * 0.55,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Container(
+                          SizedBox(
                             height: width * 0.2,
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
@@ -337,7 +337,7 @@ class _OrderDetailsState extends ConsumerState<OrderDetails> {
                               ],
                             ),
                           ),
-                          Container(
+                          SizedBox(
                             height: width * 0.23,
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.end,
@@ -368,10 +368,10 @@ class _OrderDetailsState extends ConsumerState<OrderDetails> {
                         color: Colour.lightgreen,
                         borderRadius: BorderRadius.circular(width * 0.03)),
                     child: ListTile(
-                      leading: Container(
+                      leading: SizedBox(
                         height: width * 0.07,
                         width: width * 0.07,
-                        child: Image(
+                        child: const Image(
                           image: NetworkImage(
                               "https://pbs.twimg.com/profile_images/1615271089705463811/v-emhrqu_400x400.png"),
                         ),
@@ -402,10 +402,10 @@ class _OrderDetailsState extends ConsumerState<OrderDetails> {
                       color: Colour.lightgreen,
                       borderRadius: BorderRadius.circular(width * 0.03)),
                   child: ListTile(
-                    leading: Container(
+                    leading: SizedBox(
                         height: width * 0.07,
                         width: width * 0.07,
-                        child: Image(
+                        child: const Image(
                             image: NetworkImage(
                                 "https://www.computerhope.com/jargon/g/google-pay.png"))),
                     title: Text(

@@ -279,7 +279,7 @@ class _ChatPageState extends State<ChatPage> {
               ),
             ],
           ),
-          Container(
+          SizedBox(
             height: height * 0.06,
             width: width * 1,
             child: Row(
@@ -293,7 +293,7 @@ class _ChatPageState extends State<ChatPage> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      Container(
+                      SizedBox(
                         width: width * 0.35,
                         child: TextFormField(
                           textAlign: TextAlign.start,
@@ -439,7 +439,7 @@ class _ChatPageState extends State<ChatPage> {
                             },
                           );
                         },
-                        child: Container(
+                        child: SizedBox(
                           height: height * 0.05,
                           width: width * 0.09,
                           child: Center(

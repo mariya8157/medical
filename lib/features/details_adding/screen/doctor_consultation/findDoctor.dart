@@ -118,7 +118,7 @@ class _FindDoctorState extends ConsumerState<FindDoctor> {
         padding: EdgeInsets.all(width * 0.03),
         child: SingleChildScrollView(
           physics: BouncingScrollPhysics(),
-          child: Container(
+          child: SizedBox(
             width: width * 1,
             height: height * 1,
             child: Column(
@@ -176,7 +176,7 @@ class _FindDoctorState extends ConsumerState<FindDoctor> {
                     ),
                   ],
                 ),
-                Container(
+                SizedBox(
                   width: width * 1,
                   child: GridView.builder(
                     itemCount: category.length,
@@ -200,12 +200,12 @@ class _FindDoctorState extends ConsumerState<FindDoctor> {
                                 ),
                               ));
                         },
-                        child: Container(
+                        child: SizedBox(
                           width: width * 0.25,
                           height: width * 0.15,
                           child: Column(
                             children: [
-                              Container(
+                              SizedBox(
                                   width: width * 0.07,
                                   height: height * 0.05,
                                   child: SvgPicture.asset(
@@ -368,7 +368,7 @@ class _FindDoctorState extends ConsumerState<FindDoctor> {
                               ),
                             ],
                           ),
-                          Container(
+                          SizedBox(
                             height: height * 0.17,
                             width: width * 1,
                             child: ListView.separated(
@@ -381,7 +381,7 @@ class _FindDoctorState extends ConsumerState<FindDoctor> {
                                       selectIndex = index;
                                       setState(() {});
                                     },
-                                    child: Container(
+                                    child: SizedBox(
                                       child: Column(
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceAround,

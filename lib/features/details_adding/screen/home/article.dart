@@ -192,7 +192,7 @@ class _ArticlesState extends State<Articles> {
                       ],
                     ),
                     SizedBox(height: height * 0.015),
-                    Container(
+                    SizedBox(
                       height: width * 0.18,
                       width: width * 1,
                       child: ListView.separated(
@@ -249,7 +249,7 @@ class _ArticlesState extends State<Articles> {
                             ),
                           ],
                         ),
-                        Container(
+                        SizedBox(
                             height: width * 0.16,
                             width: width * 0.22,
                             child: Row(
@@ -266,7 +266,7 @@ class _ArticlesState extends State<Articles> {
                                                 z = true;
                                               });
                                             },
-                                            child: Container(
+                                            child: SizedBox(
                                                 height: width * 0.13,
                                                 width: width * 0.22,
                                                 child: Row(
@@ -292,7 +292,7 @@ class _ArticlesState extends State<Articles> {
                                                 z = false;
                                               });
                                             },
-                                            child: Container(
+                                            child: SizedBox(
                                                 height: width * 0.13,
                                                 width: width * 0.22,
                                                 child: Row(
@@ -316,7 +316,7 @@ class _ArticlesState extends State<Articles> {
                             )),
                       ],
                     ),
-                    Container(
+                    SizedBox(
                       height: width * 0.85,
                       width: width * 1,
                       child: ListView.separated(
@@ -424,7 +424,7 @@ class _ArticlesState extends State<Articles> {
                             ),
                           ],
                         ),
-                        Container(
+                        SizedBox(
                             height: width * 0.175,
                             width: width * 0.24,
                             child: Row(
@@ -441,7 +441,7 @@ class _ArticlesState extends State<Articles> {
                                                 o = true;
                                               });
                                             },
-                                            child: Container(
+                                            child: SizedBox(
                                                 height: width * 0.13,
                                                 width: width * 0.22,
                                                 child: Row(
@@ -467,7 +467,7 @@ class _ArticlesState extends State<Articles> {
                                                 o = false;
                                               });
                                             },
-                                            child: Container(
+                                            child: SizedBox(
                                                 height: width * 0.13,
                                                 width: width * 0.22,
                                                 child: Row(
@@ -491,7 +491,7 @@ class _ArticlesState extends State<Articles> {
                             )),
                       ],
                     ),
-                    Container(
+                    SizedBox(
                       height: width * 0.85,
                       width: width * 1,
                       child: ListView.separated(
@@ -518,7 +518,7 @@ class _ArticlesState extends State<Articles> {
                                         Image.asset(
                                           d[index]["image"],
                                         ),
-                                        Container(
+                                        SizedBox(
                                           width: width * 0.62,
                                           height: width * 0.2,
                                           child: Column(
@@ -534,7 +534,7 @@ class _ArticlesState extends State<Articles> {
                                                     fontWeight: FontWeight.w600,
                                                     fontSize: width * 0.037),
                                               ),
-                                              Container(
+                                              SizedBox(
                                                 width: width * 0.56,
                                                 child: Row(
                                                   children: [

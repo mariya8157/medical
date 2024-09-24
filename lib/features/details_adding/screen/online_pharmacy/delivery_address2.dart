@@ -288,7 +288,7 @@ class _DeliveryPageState extends ConsumerState<DeliveryPage2> {
                     SizedBox(
                       width: width * 0.06,
                     ),
-                    Container(
+                    SizedBox(
                       height: width * 0.12,
                       width: width * 0.3,
                       child: TextFormField(

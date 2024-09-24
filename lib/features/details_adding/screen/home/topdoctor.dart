@@ -124,7 +124,7 @@ class _TopDoctorPageState extends ConsumerState<TopDoctorPage> {
                 height: height * 0.02,
               ),
               ref.watch(StreamDocProvider(searchController.text)).when(
-                  data: (data) => Container(
+                  data: (data) => SizedBox(
                         child: ListView.separated(
                             shrinkWrap: true,
                             physics: NeverScrollableScrollPhysics(),
@@ -145,7 +145,7 @@ class _TopDoctorPageState extends ConsumerState<TopDoctorPage> {
                                       SizedBox(
                                         width: width * 0.03,
                                       ),
-                                      Container(
+                                      SizedBox(
                                         height: width * 0.5,
                                         width: width * 0.78,
                                         child: Row(
@@ -169,7 +169,7 @@ class _TopDoctorPageState extends ConsumerState<TopDoctorPage> {
                                             SizedBox(
                                               width: width * 0.04,
                                             ),
-                                            Container(
+                                            SizedBox(
                                               width: width * 0.3,
                                               child: Column(
                                                 mainAxisAlignment:
@@ -193,7 +193,7 @@ class _TopDoctorPageState extends ConsumerState<TopDoctorPage> {
                                                         color: Colour.gray,
                                                         fontSize: width * 0.04),
                                                   ),
-                                                  Container(
+                                                  SizedBox(
                                                     width: width * 0.25,
                                                     height: height * 0.05,
                                                     child: Row(

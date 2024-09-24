@@ -156,7 +156,7 @@ class _MyCartPageState extends ConsumerState<MyCartPage> {
                                                   image: NetworkImage(
                                                       data[index]['image']
                                                           .toString()))),
-                                          Container(
+                                          SizedBox(
                                             height: width * 0.27,
                                             width: width * 0.55,
                                             child: Row(
@@ -164,7 +164,7 @@ class _MyCartPageState extends ConsumerState<MyCartPage> {
                                                   MainAxisAlignment
                                                       .spaceBetween,
                                               children: [
-                                                Container(
+                                                SizedBox(
                                                   child: Column(
                                                     crossAxisAlignment:
                                                         CrossAxisAlignment
@@ -199,7 +199,7 @@ class _MyCartPageState extends ConsumerState<MyCartPage> {
                                                         children: [
                                                           data[index]['qty'] !=
                                                                   0
-                                                              ? Container(
+                                                              ? SizedBox(
                                                                   height:
                                                                       width *
                                                                           0.095,
@@ -298,7 +298,7 @@ class _MyCartPageState extends ConsumerState<MyCartPage> {
                                                     ],
                                                   ),
                                                 ),
-                                                Container(
+                                                SizedBox(
                                                   height: width * 0.23,
                                                   child: Column(
                                                     mainAxisAlignment:
@@ -343,7 +343,7 @@ class _MyCartPageState extends ConsumerState<MyCartPage> {
               SizedBox(
                 height: width * 0.05,
               ),
-              Container(
+              SizedBox(
                 height: width * 0.32,
                 width: width * 0.9,
                 child: Column(
@@ -480,7 +480,7 @@ class _MyCartPageState extends ConsumerState<MyCartPage> {
                       color: Colour.lightgreen,
                       borderRadius: BorderRadius.circular(width * 0.03)),
                   child: ListTile(
-                    leading: Container(
+                    leading: SizedBox(
                         height: width * 0.07,
                         width: width * 0.07,
                         child: Image(
@@ -538,7 +538,7 @@ class _MyCartPageState extends ConsumerState<MyCartPage> {
               SizedBox(
                 height: width * 0.05,
               ),
-              Container(
+              SizedBox(
                 height: width * 0.15,
                 width: width * 0.9,
                 child: Row(

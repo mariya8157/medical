@@ -68,7 +68,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
           padding: EdgeInsets.all(width * 0.04),
           child: Column(
             children: [
-              Container(
+              SizedBox(
                 height: width * 1.6,
                 width: width * 0.94,
                 child: PageView.builder(

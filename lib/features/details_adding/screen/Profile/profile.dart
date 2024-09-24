@@ -8,17 +8,13 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:medical/features/details_adding/screen/Profile/Wishlist.dart';
 import 'package:medical/main.dart';
-import 'package:medical/models/doctor_model.dart';
 import 'package:quickalert/models/quickalert_type.dart';
 import 'package:quickalert/widgets/quickalert_dialog.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-
 import '../../../../core/constants/colour.dart';
 import '../../../../core/constants/icons.dart';
 import '../../../../core/constants/images.dart';
 import '../login_signup/login.dart';
-import '../online_pharmacy/mycart.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -134,7 +130,7 @@ class _ProfilePageState extends State<ProfilePage> {
                       ),
                       Padding(
                         padding: EdgeInsets.only(top: width * 0.76),
-                        child: Container(
+                        child: SizedBox(
                           height: width * 0.27,
                           width: width * 0.6,
                           child: Row(

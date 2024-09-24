@@ -128,7 +128,7 @@ class _DrugDetailsPage2State extends ConsumerState<DrugDetailsPage2> {
                 SizedBox(
                   height: width * 0.05,
                 ),
-                Container(
+                SizedBox(
                     height: height * 0.25,
                     width: width * 0.5,
                     child: Image(
@@ -140,7 +140,7 @@ class _DrugDetailsPage2State extends ConsumerState<DrugDetailsPage2> {
                 SizedBox(
                   height: width * 0.05,
                 ),
-                Container(
+                SizedBox(
                   height: width * 0.45,
                   width: width * 0.9,
                   child: Column(
@@ -243,7 +243,7 @@ class _DrugDetailsPage2State extends ConsumerState<DrugDetailsPage2> {
                 SizedBox(
                   height: width * 0.05,
                 ),
-                Container(
+                SizedBox(
                   width: width * 0.9,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -268,7 +268,7 @@ class _DrugDetailsPage2State extends ConsumerState<DrugDetailsPage2> {
                 SizedBox(
                   height: height * 0.15,
                 ),
-                Container(
+                SizedBox(
                   height: width * 0.15,
                   width: width * 0.9,
                   child: Column(
@@ -284,14 +284,14 @@ class _DrugDetailsPage2State extends ConsumerState<DrugDetailsPage2> {
                                 // barrierDismissible: false,
                                 builder: (context) {
                                   return AlertDialog(
-                                    content: Container(
+                                    content: SizedBox(
                                       height: height * 0.18,
                                       width: width * 0.5,
                                       child: Column(
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceEvenly,
                                         children: [
-                                          Container(
+                                          SizedBox(
                                               child: Column(
                                             children: [
                                               Text(
