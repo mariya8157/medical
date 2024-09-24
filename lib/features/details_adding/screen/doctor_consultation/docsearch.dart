@@ -18,15 +18,16 @@ class _TopDoctorPageState extends ConsumerState<DocSearchPage> {
   TextEditingController searchController = TextEditingController();
 
   @override
-
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
         child: Padding(
-          padding:  EdgeInsets.all(width*0.03),
+          padding: EdgeInsets.all(width * 0.03),
           child: Column(
             children: [
-              SizedBox(height: width*0.05,),
+              SizedBox(
+                height: width * 0.05,
+              ),
 
               // ref.watch(StreamDocProvider(searchController.text)).when(data: (data) => Container(
               //   child: ListView.separated(
@@ -138,11 +139,10 @@ class _TopDoctorPageState extends ConsumerState<DocSearchPage> {
               //     loading:  () {
               //       return Center(child: CircularProgressIndicator());}
               // )
-        ],
+            ],
           ),
         ),
       ),
-
     );
   }
 }

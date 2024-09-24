@@ -29,6 +29,7 @@ class ProfilePage extends StatefulWidget {
 
 class _ProfilePageState extends State<ProfilePage> {
   var file;
+
   pickFile(ImageSource) async {
     final imgFile = await ImagePicker.platform.pickImage(source: ImageSource);
     file = File(imgFile!.path);
@@ -38,20 +39,22 @@ class _ProfilePageState extends State<ProfilePage> {
       });
     }
   }
-  String name="";
-  userName() async{
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    name=(prefs.getString('id')!.isEmpty? currentModel?.name : "users")!;
-    setState(() {
 
-    });
+  String name = "";
+
+  userName() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    name = (prefs.getString('id')!.isEmpty ? currentModel?.name : "users")!;
+    setState(() {});
   }
-@override
+
+  @override
   void initState() {
     userName();
     // TODO: implement initState
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -87,7 +90,7 @@ class _ProfilePageState extends State<ProfilePage> {
                           children: [
                             file == null
                                 ? Image.asset(
-                              ImagePictures.lady,
+                                    ImagePictures.lady,
                                     width: width * 0.29,
                                   )
                                 : CircleAvatar(
@@ -112,9 +115,14 @@ class _ProfilePageState extends State<ProfilePage> {
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsets.only(top: width * 0.3,left: width * 0.03, ),
+                              padding: EdgeInsets.only(
+                                top: width * 0.3,
+                                left: width * 0.03,
+                              ),
                               child: Text(
-                                currentModel!.name.isEmpty? "user" : currentModel!.name,
+                                currentModel!.name.isEmpty
+                                    ? "user"
+                                    : currentModel!.name,
                                 style: TextStyle(
                                     fontSize: width * 0.052,
                                     fontWeight: FontWeight.w700,
@@ -215,7 +223,8 @@ class _ProfilePageState extends State<ProfilePage> {
                                               offset: Offset(0, 4))
                                         ]),
                                   )
-                                ],)
+                                ],
+                              )
                             ],
                           ),
                         ),
@@ -245,13 +254,13 @@ class _ProfilePageState extends State<ProfilePage> {
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                    builder: (context) => MySaved()));},
+                                        builder: (context) => MySaved()));
+                              },
                               child: ListTile(
                                 leading: CircleAvatar(
                                   radius: width * 0.06,
                                   backgroundColor: Colour.lightgreen,
-                                  child:
-                                      SvgPicture.asset(ImageIcons.wish),
+                                  child: SvgPicture.asset(ImageIcons.wish),
                                 ),
                                 title: Text(
                                   "My Saved",
@@ -295,9 +304,7 @@ class _ProfilePageState extends State<ProfilePage> {
                               indent: width * 0.06,
                             ),
                             InkWell(
-                              onTap: () {
-
-                              },
+                              onTap: () {},
                               child: ListTile(
                                 leading: CircleAvatar(
                                   radius: width * 0.06,
@@ -326,14 +333,19 @@ class _ProfilePageState extends State<ProfilePage> {
                                     cancelBtnText: 'No',
                                     confirmBtnColor: Colour.primarycolour,
                                     onConfirmBtnTap: () async {
-                                      SharedPreferences prefs = await SharedPreferences.getInstance();
+                                      SharedPreferences prefs =
+                                          await SharedPreferences.getInstance();
                                       prefs.remove("login");
                                       prefs.remove("name");
                                       prefs.clear();
                                       FirebaseAuth.instance.signOut();
                                       GoogleSignIn().signOut();
-                                      Navigator.pushAndRemoveUntil(context,
-                                          MaterialPageRoute(builder: (context) => LoginPage(),), (route) => false);
+                                      Navigator.pushAndRemoveUntil(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => LoginPage(),
+                                          ),
+                                          (route) => false);
                                     });
                               },
                               child: ListTile(

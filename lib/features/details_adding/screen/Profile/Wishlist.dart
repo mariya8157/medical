@@ -49,72 +49,86 @@ class _MySavedState extends ConsumerState<MySaved> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(width*0.02),
+          padding: EdgeInsets.all(width * 0.02),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                  margin: EdgeInsets.all(width*0.02),
+                  margin: EdgeInsets.all(width * 0.02),
                   child: StreamBuilder<QuerySnapshot<Map<String, dynamic>>>(
-                    stream: FirebaseFirestore.instance.collection("users").snapshots(),
-                    builder: (context, snapshot){
-                      if(!snapshot.hasData){
-                        return Center(child:Text("Loading..."));
-                      }
-                      else{
+                    stream: FirebaseFirestore.instance
+                        .collection("users")
+                        .snapshots(),
+                    builder: (context, snapshot) {
+                      if (!snapshot.hasData) {
+                        return Center(child: Text("Loading..."));
+                      } else {
                         Text("No Products added to Cart");
                       }
-                      var data =currentModel!.wish;
+                      var data = currentModel!.wish;
                       return GridView.builder(
                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                          childAspectRatio:.65,
-                            crossAxisSpacing: width*0.03,
-                            mainAxisSpacing: width*0.03,
+                            childAspectRatio: .65,
+                            crossAxisSpacing: width * 0.03,
+                            mainAxisSpacing: width * 0.03,
                             crossAxisCount: 2),
                         shrinkWrap: true,
                         physics: BouncingScrollPhysics(),
-                        itemCount:data.length,
+                        itemCount: data.length,
                         itemBuilder: (context, index) {
                           return Column(
                             children: [
                               Container(
                                 height: height * 0.33,
-                                  width: width * 0.45,
-                                  decoration: BoxDecoration(
-                                      border: Border.all(
-                                          color: Colour.gray.withOpacity(0.2)),
-                                      borderRadius:
-                                      BorderRadius.circular(width * 0.05)),
-                                      child: Padding(
-                                        padding: EdgeInsets.all(width * 0.017),
-                                        child: Column(
-                                         children: [
-                                          SizedBox(height: width * 0.01,),
-                                          Container(
+                                width: width * 0.45,
+                                decoration: BoxDecoration(
+                                    border: Border.all(
+                                        color: Colour.gray.withOpacity(0.2)),
+                                    borderRadius:
+                                        BorderRadius.circular(width * 0.05)),
+                                child: Padding(
+                                  padding: EdgeInsets.all(width * 0.017),
+                                  child: Column(
+                                    children: [
+                                      SizedBox(
+                                        height: width * 0.01,
+                                      ),
+                                      Container(
                                         height: width * 0.3,
                                         width: width * 0.3,
-                                           child: Image(image: NetworkImage(data[index]['image'].toString()),fit: BoxFit.fill,
+                                        child: Image(
+                                          image: NetworkImage(
+                                              data[index]['image'].toString()),
+                                          fit: BoxFit.fill,
                                           width: width * 0.27,
                                         ),
                                       ),
-                                        SizedBox(height: height*0.03,),
-                                        Row(
-                                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                      SizedBox(
+                                        height: height * 0.03,
+                                      ),
+                                      Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceEvenly,
                                         children: [
                                           Container(
-                                            width: width*0.4,
+                                            width: width * 0.4,
                                             height: width * 0.2,
                                             child: Column(
-                                              crossAxisAlignment: CrossAxisAlignment.start,
-                                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.spaceEvenly,
                                               children: [
                                                 Row(
                                                   children: [
                                                     Text(
-                                                   data[index]['name'].toString(),
+                                                      data[index]['name']
+                                                          .toString(),
                                                       style: TextStyle(
-                                                          fontWeight: FontWeight.w700,
-                                                          fontSize: width * 0.035),
+                                                          fontWeight:
+                                                              FontWeight.w700,
+                                                          fontSize:
+                                                              width * 0.035),
                                                     ),
                                                   ],
                                                 ),
@@ -123,29 +137,31 @@ class _MySavedState extends ConsumerState<MySaved> {
                                                   style: TextStyle(
                                                       fontSize: width * 0.035,
                                                       color: Colour.gray,
-                                                      fontWeight: FontWeight.w500),
+                                                      fontWeight:
+                                                          FontWeight.w500),
                                                 ),
                                                 Row(
                                                   mainAxisAlignment:
-                                                  MainAxisAlignment.spaceBetween,
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
                                                   children: [
                                                     Text(
                                                       "\$${(data[index]['rate']).toStringAsFixed(2)}",
                                                       style: TextStyle(
-                                                          fontWeight: FontWeight.w700,
-                                                          fontSize: width * 0.035),
+                                                          fontWeight:
+                                                              FontWeight.w700,
+                                                          fontSize:
+                                                              width * 0.035),
                                                     ),
                                                     InkWell(
-                                                        onTap: () {
-
-                                                        },
+                                                        onTap: () {},
                                                         child: SvgPicture.asset(
                                                           ImageIcons.heart,
                                                           width: width * 0.06,
                                                         ))
                                                   ],
                                                 ),
-                                                 ],
+                                              ],
                                             ),
                                           ),
                                         ],
@@ -159,8 +175,7 @@ class _MySavedState extends ConsumerState<MySaved> {
                         },
                       );
                     },
-                  )
-              ),
+                  )),
             ],
           ),
         ),

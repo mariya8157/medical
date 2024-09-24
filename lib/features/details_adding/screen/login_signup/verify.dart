@@ -10,8 +10,8 @@ import 'createpassword.dart';
 class VerificationPage extends StatefulWidget {
   final String email;
   final String phone;
-  const VerificationPage({super.key,
-  required this.email, required this.phone});
+
+  const VerificationPage({super.key, required this.email, required this.phone});
 
   @override
   State<VerificationPage> createState() => _VerificationPageState();
@@ -19,140 +19,151 @@ class VerificationPage extends StatefulWidget {
 
 class _VerificationPageState extends State<VerificationPage> {
   TextEditingController pinController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: InkWell(
+          leading: InkWell(
         onTap: () {
           Navigator.pop(context);
-    },
-         child: Padding(
-           padding:  EdgeInsets.all(width*0.005),
-             child: SvgPicture.asset(ImageIcons.catogory8),
-    ),
-        )
-      ),
+        },
+        child: Padding(
+          padding: EdgeInsets.all(width * 0.005),
+          child: SvgPicture.asset(ImageIcons.catogory8),
+        ),
+      )),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(width*0.03),
+          padding: EdgeInsets.all(width * 0.03),
           child: Column(
             children: [
-              SizedBox(height: width*0.02,),
+              SizedBox(
+                height: width * 0.02,
+              ),
               Row(
                 children: [
-                  Text("Enter Verification Code",
+                  Text(
+                    "Enter Verification Code",
                     style: GoogleFonts.inter(
-                        fontSize: width*0.06,
+                        fontSize: width * 0.06,
                         fontWeight: FontWeight.w800,
-                        color: Colour.thirdcolour
-                    ),)
+                        color: Colour.thirdcolour),
+                  )
                 ],
               ),
-              SizedBox(height: width*0.02,),
+              SizedBox(
+                height: width * 0.02,
+              ),
               Row(
                 children: [
-                  Text("Enter code that we have send to your",
+                  Text(
+                    "Enter code that we have send to your",
                     style: TextStyle(
-                        fontSize: width*0.037,
+                        fontSize: width * 0.037,
                         fontWeight: FontWeight.w500,
-                        color: Colour.color1
-                    ),)
+                        color: Colour.color1),
+                  )
                 ],
               ),
               Row(
                 children: [
                   Row(
                     children: [
-                      Text("number ",
+                      Text(
+                        "number ",
                         style: TextStyle(
-                            fontSize: width*0.037,
+                            fontSize: width * 0.037,
                             fontWeight: FontWeight.w500,
-                            color: Colour.color1
-                        ),),
+                            color: Colour.color1),
+                      ),
                     ],
                   ),
                   Row(
                     children: [
-                      Text(widget.phone,
+                      Text(
+                        widget.phone,
                         style: TextStyle(
-                            fontSize: width*0.037,
+                            fontSize: width * 0.037,
                             fontWeight: FontWeight.w600,
-                            color: Colour.thirdcolour
-                        ),),
+                            color: Colour.thirdcolour),
+                      ),
                     ],
                   )
                 ],
               ),
-              SizedBox(height: width*0.09,),
+              SizedBox(
+                height: width * 0.09,
+              ),
               Pinput(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 length: 4,
                 controller: pinController,
-                onChanged: (value) {
-
-                },
-                onSubmitted: (value) {
-
-                },
+                onChanged: (value) {},
+                onSubmitted: (value) {},
                 focusedPinTheme: PinTheme(
                     textStyle: TextStyle(
-                      fontSize: width*0.045,
-                      fontWeight: FontWeight.w600
-                    ),
-                    height: width*0.19,
-                    width: width*0.17,
+                        fontSize: width * 0.045, fontWeight: FontWeight.w600),
+                    height: width * 0.19,
+                    width: width * 0.17,
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(width*0.03),
+                        borderRadius: BorderRadius.circular(width * 0.03),
                         border: Border.all(
                             color: Colour.primarycolour,
-                          width: width*0.004
-                        )
-                    )
-                ),
+                            width: width * 0.004))),
               ),
-              SizedBox(height: width*0.1,),
+              SizedBox(
+                height: width * 0.1,
+              ),
               InkWell(
-               onTap: () {
-                 Navigator.push(context, MaterialPageRoute(builder: (context) => CreatePasswordPage(),));
-               },
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => CreatePasswordPage(),
+                      ));
+                },
                 child: Container(
-                  height: width*0.16,
-                  width: width*0.93,
+                  height: width * 0.16,
+                  width: width * 0.93,
                   decoration: BoxDecoration(
                       color: Colour.primarycolour,
-                      borderRadius: BorderRadius.circular(width*0.07)
-                  ),
+                      borderRadius: BorderRadius.circular(width * 0.07)),
                   child: Center(
-                    child: Text("Verify",
+                    child: Text(
+                      "Verify",
                       style: GoogleFonts.inter(
-                          fontSize: width*0.045,
+                          fontSize: width * 0.045,
                           fontWeight: FontWeight.w600,
-                          color: Colour.secondarycolour
-                      ),),
+                          color: Colour.secondarycolour),
+                    ),
                   ),
                 ),
               ),
-              SizedBox(height: width*0.05,),
+              SizedBox(
+                height: width * 0.05,
+              ),
               Container(
-                  height: width*0.07,
-                  width: width*0.67,
+                  height: width * 0.07,
+                  width: width * 0.67,
                   child: Row(
                     children: [
-                      Text("Didn't receive the code ? ",
+                      Text(
+                        "Didn't receive the code ? ",
                         style: TextStyle(
-                            fontSize: width*0.035,
+                            fontSize: width * 0.035,
                             fontWeight: FontWeight.w500,
-                            color: Colour.color5
-                        ),),
-                      Text("Resend",
+                            color: Colour.color5),
+                      ),
+                      Text(
+                        "Resend",
                         style: TextStyle(
-                            fontSize: width*0.035,
+                            fontSize: width * 0.035,
                             fontWeight: FontWeight.w600,
-                            color: Colour.primarycolour
-                        ),),
-                    ],)
-              ),
+                            color: Colour.primarycolour),
+                      ),
+                    ],
+                  )),
             ],
           ),
         ),

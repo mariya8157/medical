@@ -12,51 +12,54 @@ import 'chatwithdoctor.dart';
 
 class BookingPage extends ConsumerStatefulWidget {
   final DoctorModel time;
-  const BookingPage({super.key, required this.time,  });
+
+  const BookingPage({
+    super.key,
+    required this.time,
+  });
 
   @override
   ConsumerState<BookingPage> createState() => _BookingPageState();
 }
 
 class _BookingPageState extends ConsumerState<BookingPage> {
-  int selectedOption=1;
-  List doctor=[
+  int selectedOption = 1;
+  List doctor = [
     {
-      "image":ImagePictures.drmarcus1,
-      "name":"Dr. Marcus Horizon",
-      "spl":"Chardiologist",
-      "star":"4,7",
-      "distene":"800m away",
-
+      "image": ImagePictures.drmarcus1,
+      "name": "Dr. Marcus Horizon",
+      "spl": "Chardiologist",
+      "star": "4,7",
+      "distene": "800m away",
     }
   ];
-  TextEditingController reason=TextEditingController();
-  double total =0;
+  TextEditingController reason = TextEditingController();
+  double total = 0;
 
-    addBooking(){
-     ref.watch(scheduleControllerProvider).addBookingData(
-         widget.time.copyWith(
-           name: widget.time.name,
-           time: widget.time.time,
-               date: widget.time.date,
-               cons: widget.time.cons,
-               admin: widget.time.admin,
-               dis: widget.time.dis,
-               image: widget.time.image,
-               spcl: widget.time.spcl,
-               exp: widget.time.exp,
-               id: widget.time.id,
-               userId: userId,
-           // userId: widget.time.userId
-         )
-         );
-    }
+  addBooking() {
+    ref.watch(scheduleControllerProvider).addBookingData(widget.time.copyWith(
+          name: widget.time.name,
+          time: widget.time.time,
+          date: widget.time.date,
+          cons: widget.time.cons,
+          admin: widget.time.admin,
+          dis: widget.time.dis,
+          image: widget.time.image,
+          spcl: widget.time.spcl,
+          exp: widget.time.exp,
+          id: widget.time.id,
+          userId: userId,
+          // userId: widget.time.userId
+        ));
+  }
+
   @override
   void initState() {
     // TODO: implement initState
     // addCost();
     super.initState();
   }
+
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -72,146 +75,156 @@ class _BookingPageState extends ConsumerState<BookingPage> {
             height: width * 0.05,
             width: width * 0.8,
             child: Padding(
-              padding: EdgeInsets.only(left: width*0.023),
+              padding: EdgeInsets.only(left: width * 0.023),
               child: Padding(
-                padding:  EdgeInsets.all(width*0.007),
-                child:
-                SvgPicture.asset(
-                  ImageIcons.back,),
+                padding: EdgeInsets.all(width * 0.007),
+                child: SvgPicture.asset(
+                  ImageIcons.back,
+                ),
               ),
             ),
           ),
         ),
-        title:  Text(
+        title: Text(
           "Appointment",
           style: TextStyle(
               color: Colour.thirdcolour,
               fontWeight: FontWeight.w700,
-              fontSize: width*0.04
-          ),
+              fontSize: width * 0.04),
         ),
       ),
       body: SingleChildScrollView(
         physics: BouncingScrollPhysics(),
         child: Padding(
-          padding:  EdgeInsets.all(width*0.03),
+          padding: EdgeInsets.all(width * 0.03),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Container(
-                height: height*0.2,
-                width: width*1,
+                height: height * 0.2,
+                width: width * 1,
                 decoration: BoxDecoration(
                     border: Border.all(color: Colour.lightgreen),
-                    borderRadius: BorderRadius.circular(width*0.04)
-                ),
+                    borderRadius: BorderRadius.circular(width * 0.04)),
                 child: ListView.separated(
                     shrinkWrap: true,
-                     // physics: BouncingScrollPhysics(),
+                    // physics: BouncingScrollPhysics(),
                     itemBuilder: (context, index) {
-                      return
-                        Padding(
-                          padding:  EdgeInsets.all(width*0.03),
-                          child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: [
-                              Container(
-                                width: width*0.35,
-                                height:height*0.15,
-                                decoration: BoxDecoration(
-                                  image: DecorationImage(image: NetworkImage(widget.time.image.toString())),
-                                  borderRadius: BorderRadius.circular(width*0.03),
-                                ),
+                      return Padding(
+                        padding: EdgeInsets.all(width * 0.03),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Container(
+                              width: width * 0.35,
+                              height: height * 0.15,
+                              decoration: BoxDecoration(
+                                image: DecorationImage(
+                                    image: NetworkImage(
+                                        widget.time.image.toString())),
+                                borderRadius:
+                                    BorderRadius.circular(width * 0.03),
                               ),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(widget.time.name.toString(),
-                                    style: TextStyle(
-                                        fontSize: width*0.04,
-                                        fontWeight: FontWeight.w700,
-                                        color:Colour.thirdcolour
-                                    ),
-                                  ),
-                                  Text(widget.time.spcl.toString(),
-                                    style: TextStyle(
-                                        color: Colour.gray,
-                                        fontSize: width*0.04
-                                    ),
-                                  ),
-                                  Text(widget.time.exp.toString(),),
-                                ],
-                              )
-                            ],
-                          ),
-                        );
-                      },
-                    separatorBuilder: (context, index) {
-                      return SizedBox(
-                        height: height*0.03,
+                            ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  widget.time.name.toString(),
+                                  style: TextStyle(
+                                      fontSize: width * 0.04,
+                                      fontWeight: FontWeight.w700,
+                                      color: Colour.thirdcolour),
+                                ),
+                                Text(
+                                  widget.time.spcl.toString(),
+                                  style: TextStyle(
+                                      color: Colour.gray,
+                                      fontSize: width * 0.04),
+                                ),
+                                Text(
+                                  widget.time.exp.toString(),
+                                ),
+                              ],
+                            )
+                          ],
+                        ),
                       );
                     },
-                    itemCount: doctor.length
-                ),
+                    separatorBuilder: (context, index) {
+                      return SizedBox(
+                        height: height * 0.03,
+                      );
+                    },
+                    itemCount: doctor.length),
               ),
-              SizedBox(height: height*0.02,),
-              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              SizedBox(
+                height: height * 0.02,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Date",
+                  Text(
+                    "Date",
                     style: TextStyle(
-                        fontSize: width*0.04,
+                        fontSize: width * 0.04,
                         fontWeight: FontWeight.w700,
-                        color:Colour.thirdcolour
-                    ),
+                        color: Colour.thirdcolour),
                   ),
                 ],
               ),
-              SizedBox(height: height*0.02,),
-              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              SizedBox(
+                height: height * 0.02,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   CircleAvatar(
-                    radius: width*0.05,
+                    radius: width * 0.05,
                     backgroundColor: Colour.lightgreen,
                     child: Center(child: SvgPicture.asset(ImageIcons.calendar)),
                   ),
-                  Text(widget.time.date.toString().substring(0,10),
+                  Text(
+                    widget.time.date.toString().substring(0, 10),
                     style: TextStyle(
-                        fontSize: width*0.04,
+                        fontSize: width * 0.04,
                         fontWeight: FontWeight.w500,
-                        color:Colour.thirdcolour
-                    ),
+                        color: Colour.thirdcolour),
                   ),
-                  Text(widget.time.time.toString(),
+                  Text(
+                    widget.time.time.toString(),
                     style: TextStyle(
-                        fontSize: width*0.04,
+                        fontSize: width * 0.04,
                         fontWeight: FontWeight.w500,
-                        color:Colour.thirdcolour
-                    ),
+                        color: Colour.thirdcolour),
                   ),
                 ],
               ),
-              Divider(thickness: width*0.004,
+              Divider(
+                thickness: width * 0.004,
                 color: Colour.lightgreen,
-                  ),
-              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Reason",
+                  Text(
+                    "Reason",
                     style: TextStyle(
-                        fontSize: width*0.04,
+                        fontSize: width * 0.04,
                         fontWeight: FontWeight.w700,
-                        color:Colour.thirdcolour
-                    ),
+                        color: Colour.thirdcolour),
                   ),
                   InkWell(
                     onTap: () {
                       reason.clear();
                     },
                     child: Container(
-                      child: Text("Change",
+                      child: Text(
+                        "Change",
                         style: TextStyle(
-                            fontSize: width*0.04,
+                            fontSize: width * 0.04,
                             fontWeight: FontWeight.w500,
-                            color:Colour.gray
-                        ),
+                            color: Colour.gray),
                       ),
                     ),
                   ),
@@ -220,318 +233,344 @@ class _BookingPageState extends ConsumerState<BookingPage> {
               Row(
                 children: [
                   CircleAvatar(
-                    radius: width*0.05,
+                    radius: width * 0.05,
                     backgroundColor: Colour.lightgreen,
                     child: Center(child: SvgPicture.asset(ImageIcons.square)),
                   ),
-                  SizedBox(width: width*0.05,),
-
+                  SizedBox(
+                    width: width * 0.05,
+                  ),
                   Container(
-                    width: width*0.6,
-                    child:
-                    TextFormField(
+                    width: width * 0.6,
+                    child: TextFormField(
                       controller: reason,
                       keyboardType: TextInputType.text,
                       textInputAction: TextInputAction.done,
                       textCapitalization: TextCapitalization.words,
                       decoration: InputDecoration(
-                        border: OutlineInputBorder(
-                          borderSide: BorderSide.none
-                        )
-                      ),
+                          border:
+                              OutlineInputBorder(borderSide: BorderSide.none)),
                       style: TextStyle(
-                        fontSize: width*0.04,
-                        fontWeight: FontWeight.w500,
-                        color: Colour.thirdcolour
-                      ),
+                          fontSize: width * 0.04,
+                          fontWeight: FontWeight.w500,
+                          color: Colour.thirdcolour),
                     ),
                   ),
                 ],
               ),
-              Divider(thickness: width*0.004,
+              Divider(
+                thickness: width * 0.004,
                 color: Colour.lightgreen,
-                  ),
+              ),
               Row(
                 children: [
-                  Text("Payment Detail",
+                  Text(
+                    "Payment Detail",
                     style: TextStyle(
-                        fontSize: width*0.04,
+                        fontSize: width * 0.04,
                         fontWeight: FontWeight.w700,
-                        color:Colour.thirdcolour
-                    ),
+                        color: Colour.thirdcolour),
                   ),
                 ],
               ),
-              SizedBox(height: height*0.02,),
-              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              SizedBox(
+                height: height * 0.02,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Consultation",
+                  Text(
+                    "Consultation",
                     style: TextStyle(
-                        fontSize: width*0.04,
+                        fontSize: width * 0.04,
                         fontWeight: FontWeight.w500,
-                        color:Colour.gray
-                    ),
+                        color: Colour.gray),
                   ),
-                    Container(
+                  Container(
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text("\$ ",
+                        Text(
+                          "\$ ",
                           style: TextStyle(
-                              fontSize: width*0.04,
+                              fontSize: width * 0.04,
                               fontWeight: FontWeight.w500,
-                              color:Colour.thirdcolour
-                          ),
+                              color: Colour.thirdcolour),
                         ),
-                        Text(widget.time.cons.toString(),
+                        Text(
+                          widget.time.cons.toString(),
                           style: TextStyle(
-                              fontSize: width*0.04,
+                              fontSize: width * 0.04,
                               fontWeight: FontWeight.w500,
-                              color:Colour.thirdcolour
-                          ),
+                              color: Colour.thirdcolour),
                         ),
                       ],
                     ),
                   ),
                 ],
               ),
-              SizedBox(height: height*0.01,),
-              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text("Admin Fee",
-                    style: TextStyle(
-                        fontSize: width*0.04,
-                        fontWeight: FontWeight.w500,
-                        color:Colour.gray
-                    ),
-                  ),
-                  Container(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                      Text("\$ ",
-                      style: TextStyle(
-                          fontSize: width*0.04,
-                          fontWeight: FontWeight.w500,
-                          color:Colour.thirdcolour
-                      ),
-                    ),
-                    Text(widget.time.admin.toString(),
-                      style: TextStyle(
-                          fontSize: width*0.04,
-                          fontWeight: FontWeight.w500,
-                          color:Colour.thirdcolour
-                      ),
-                    ),
-                    ]
-                  ),
-                  )
-                ],
+              SizedBox(
+                height: height * 0.01,
               ),
-              SizedBox(height: height*0.01,),
-              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Aditional Discount",
+                  Text(
+                    "Admin Fee",
                     style: TextStyle(
-                        fontSize: width*0.04,
+                        fontSize: width * 0.04,
                         fontWeight: FontWeight.w500,
-                        color:Colour.gray
-                    ),
+                        color: Colour.gray),
                   ),
                   Container(
                     child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text("\$ ",
+                          Text(
+                            "\$ ",
                             style: TextStyle(
-                                fontSize: width*0.04,
+                                fontSize: width * 0.04,
                                 fontWeight: FontWeight.w500,
-                                color:Colour.thirdcolour
-                            ),
+                                color: Colour.thirdcolour),
                           ),
-                          Text(widget.time.dis.toString(),
+                          Text(
+                            widget.time.admin.toString(),
                             style: TextStyle(
-                                fontSize: width*0.04,
+                                fontSize: width * 0.04,
                                 fontWeight: FontWeight.w500,
-                                color:Colour.thirdcolour
-                            ),
+                                color: Colour.thirdcolour),
                           ),
-                        ]
-                    ),
+                        ]),
                   )
                 ],
               ),
-              SizedBox(height: height*0.02,),
-              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              SizedBox(
+                height: height * 0.01,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Total",
+                  Text(
+                    "Aditional Discount",
                     style: TextStyle(
-                        fontSize: width*0.04,
+                        fontSize: width * 0.04,
+                        fontWeight: FontWeight.w500,
+                        color: Colour.gray),
+                  ),
+                  Container(
+                    child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            "\$ ",
+                            style: TextStyle(
+                                fontSize: width * 0.04,
+                                fontWeight: FontWeight.w500,
+                                color: Colour.thirdcolour),
+                          ),
+                          Text(
+                            widget.time.dis.toString(),
+                            style: TextStyle(
+                                fontSize: width * 0.04,
+                                fontWeight: FontWeight.w500,
+                                color: Colour.thirdcolour),
+                          ),
+                        ]),
+                  )
+                ],
+              ),
+              SizedBox(
+                height: height * 0.02,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Total",
+                    style: TextStyle(
+                        fontSize: width * 0.04,
                         fontWeight: FontWeight.w600,
-                        color:Colour.thirdcolour
-                    ),
+                        color: Colour.thirdcolour),
                   ),
                   Container(
                     child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text("\$ ",
-                            style:TextStyle(
-                                fontSize: width*0.05,
-                                fontWeight: FontWeight.w600,
-                                color:Colour.primarycolour
-                            ),
-                          ),
-                          Text("${widget.time.cons+widget.time.admin-widget.time.dis}",
+                          Text(
+                            "\$ ",
                             style: TextStyle(
-                                fontSize: width*0.04,
+                                fontSize: width * 0.05,
                                 fontWeight: FontWeight.w600,
-                                color:Colour.primarycolour
-                            ),
+                                color: Colour.primarycolour),
                           ),
-                        ]
-                    ),
+                          Text(
+                            "${widget.time.cons + widget.time.admin - widget.time.dis}",
+                            style: TextStyle(
+                                fontSize: width * 0.04,
+                                fontWeight: FontWeight.w600,
+                                color: Colour.primarycolour),
+                          ),
+                        ]),
                   )
                 ],
               ),
-              SizedBox(height: height*0.01,),
-              Divider(thickness: width*0.004,
+              SizedBox(
+                height: height * 0.01,
+              ),
+              Divider(
+                thickness: width * 0.004,
                 color: Colour.lightgreen,
-                   ),
+              ),
               Row(
                 children: [
-                  Text("Payment Method",
+                  Text(
+                    "Payment Method",
                     style: TextStyle(
-                        fontSize: width*0.04,
+                        fontSize: width * 0.04,
                         fontWeight: FontWeight.w700,
-                        color:Colour.thirdcolour
-                    ),
+                        color: Colour.thirdcolour),
                   ),
                 ],
               ),
-              SizedBox(height: height*0.02,),
-               Column(
-                  children: [
-                    Container(
-                        height: width*0.18,
-                        width: width*80,
-                        decoration: BoxDecoration(
-                            color: Colour.lightgreen,
-                            borderRadius: BorderRadius.circular(width*0.03)
+              SizedBox(
+                height: height * 0.02,
+              ),
+              Column(children: [
+                Container(
+                    height: width * 0.18,
+                    width: width * 80,
+                    decoration: BoxDecoration(
+                        color: Colour.lightgreen,
+                        borderRadius: BorderRadius.circular(width * 0.03)),
+                    child: ListTile(
+                      leading: Container(
+                        height: width * 0.07,
+                        width: width * 0.07,
+                        child: Image(
+                          image: NetworkImage(
+                              "https://pbs.twimg.com/profile_images/1615271089705463811/v-emhrqu_400x400.png"),
                         ),
-                        child: ListTile(
-                          leading: Container(
-                            height: width*0.07,
-                            width: width*0.07,
-                            child: Image(image: NetworkImage("https://pbs.twimg.com/profile_images/1615271089705463811/v-emhrqu_400x400.png"),
-                             ),),
-                          title: Text("PhonePe",
-                          style: TextStyle(
-                            fontSize: width*0.04,
-
-                          ),),
-                          trailing: Radio(value: 1,
-                            groupValue: selectedOption,
-                            onChanged: ( value) {
-                              setState(() {
-                                selectedOption=value!;
-                              });
-                            },
-                          ),
-                        )),
-                    SizedBox(height: height*0.01,),
-                    Container(
-                      height: width*0.18,
-                      width: width*80,
-                      decoration: BoxDecoration(
-                          color: Colour.lightgreen,
-                          borderRadius: BorderRadius.circular(width*0.03)
                       ),
-                      child: ListTile(
-                        leading: Container(
-                            height: width*0.07,
-                            width: width*0.07,
-                            child: Image(image: NetworkImage("https://www.computerhope.com/jargon/g/google-pay.png"))),
-                        title: Text("GPay",
-                          style: TextStyle(
-                          fontSize: width*0.04,
-
-                        ),),
-
-                        trailing: Radio(value: 2,
-                          groupValue: selectedOption,
-                          onChanged: ( value) {
-                            setState(() {
-                              selectedOption=value!;
-                            });
-                          },),
-                      ),),
-                    SizedBox(height: height*0.01,),
-                    Container(
-                      height: width*0.18,
-                      width: width*80,
-                      decoration: BoxDecoration(
-                          color: Colour.lightgreen,
-                          borderRadius: BorderRadius.circular(width*0.03)
+                      title: Text(
+                        "PhonePe",
+                        style: TextStyle(
+                          fontSize: width * 0.04,
+                        ),
                       ),
-                      child: ListTile(
-                        leading: SvgPicture.asset(ImageIcons.apple),
-                        title: Text("Apple Pay",
-                          style: TextStyle(
-                            fontSize: width*0.04,
-
-                          ),),
-                        trailing: Radio(value: 3,
-                          groupValue: selectedOption,
-                          onChanged: ( value) {
-                            setState(() {
-                              selectedOption=value!;
-                            });
-                          },),),
+                      trailing: Radio(
+                        value: 1,
+                        groupValue: selectedOption,
+                        onChanged: (value) {
+                          setState(() {
+                            selectedOption = value!;
+                          });
+                        },
+                      ),
+                    )),
+                SizedBox(
+                  height: height * 0.01,
+                ),
+                Container(
+                  height: width * 0.18,
+                  width: width * 80,
+                  decoration: BoxDecoration(
+                      color: Colour.lightgreen,
+                      borderRadius: BorderRadius.circular(width * 0.03)),
+                  child: ListTile(
+                    leading: Container(
+                        height: width * 0.07,
+                        width: width * 0.07,
+                        child: Image(
+                            image: NetworkImage(
+                                "https://www.computerhope.com/jargon/g/google-pay.png"))),
+                    title: Text(
+                      "GPay",
+                      style: TextStyle(
+                        fontSize: width * 0.04,
+                      ),
                     ),
-                    SizedBox(height: height*0.01,),
-                  ]
+                    trailing: Radio(
+                      value: 2,
+                      groupValue: selectedOption,
+                      onChanged: (value) {
+                        setState(() {
+                          selectedOption = value!;
+                        });
+                      },
+                    ),
                   ),
-              Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
+                ),
+                SizedBox(
+                  height: height * 0.01,
+                ),
+                Container(
+                  height: width * 0.18,
+                  width: width * 80,
+                  decoration: BoxDecoration(
+                      color: Colour.lightgreen,
+                      borderRadius: BorderRadius.circular(width * 0.03)),
+                  child: ListTile(
+                    leading: SvgPicture.asset(ImageIcons.apple),
+                    title: Text(
+                      "Apple Pay",
+                      style: TextStyle(
+                        fontSize: width * 0.04,
+                      ),
+                    ),
+                    trailing: Radio(
+                      value: 3,
+                      groupValue: selectedOption,
+                      onChanged: (value) {
+                        setState(() {
+                          selectedOption = value!;
+                        });
+                      },
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  height: height * 0.01,
+                ),
+              ]),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Container(
-                    height: height*0.08,
+                    height: height * 0.08,
                     // width: width*0.3,
                     child: Center(
                         child: Column(
-                          children: [
-                            Text("Total",
-                              style: TextStyle(
-                                  fontSize: width*0.04,
-                                  fontWeight: FontWeight.w600,
-                                  color:Colour.gray
-                              ),
-                            ),
-                            Container(
-                              child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text("\$ ",
-                                      style:TextStyle(
-                                          fontSize: width*0.04,
-                                          fontWeight: FontWeight.w700,
-                                          color:Colour.thirdcolour
-                                      ),
-                                    ),
-                                    Text("${widget.time.cons+widget.time.admin-widget.time.dis}",
-                                      style: TextStyle(
-                                          fontSize: width*0.04,
-                                          fontWeight: FontWeight.w700,
-                                          color:Colour.thirdcolour
-                                      ),
-                                    ),
-                                  ]
-                              ),
-                            )
-                            // widget.time[i]["consultation"]+widget.time[i]["Admin Fee"]-widget.time[i]["Aditional Discount"]
-                          ],
+                      children: [
+                        Text(
+                          "Total",
+                          style: TextStyle(
+                              fontSize: width * 0.04,
+                              fontWeight: FontWeight.w600,
+                              color: Colour.gray),
+                        ),
+                        Container(
+                          child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  "\$ ",
+                                  style: TextStyle(
+                                      fontSize: width * 0.04,
+                                      fontWeight: FontWeight.w700,
+                                      color: Colour.thirdcolour),
+                                ),
+                                Text(
+                                  "${widget.time.cons + widget.time.admin - widget.time.dis}",
+                                  style: TextStyle(
+                                      fontSize: width * 0.04,
+                                      fontWeight: FontWeight.w700,
+                                      color: Colour.thirdcolour),
+                                ),
+                              ]),
                         )
-                    ),
+                        // widget.time[i]["consultation"]+widget.time[i]["Admin Fee"]-widget.time[i]["Aditional Discount"]
+                      ],
+                    )),
                   ),
                   InkWell(
                     onTap: () {
@@ -542,57 +581,72 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                         builder: (context) {
                           return AlertDialog(
                             content: Container(
-                              height: width*0.8,
-                              width: width*0.4,
+                              height: width * 0.8,
+                              width: width * 0.4,
                               child: Column(
-                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
                                 children: [
                                   Container(
-                                      height: width*0.25,
-                                      width: width*0.25,
+                                      height: width * 0.25,
+                                      width: width * 0.25,
                                       child: Image.asset(ImagePictures.done)),
                                   Container(
                                       child: Column(
-                                        children: [
-                                          Text("Payment Success",
-                                            style: TextStyle(
-                                                fontWeight: FontWeight.w600,
-                                                fontSize: width*0.04,
-                                                color: Colour.thirdcolour),),
-                                          Text("Your payment has been successful,",
-                                            style: TextStyle(
-                                                fontWeight: FontWeight.w500,
-                                                fontSize: width*0.032,
-                                                color: Colour.color1),),
-                                          Text("you can have a consultation session",
-                                            style: TextStyle(
-                                                fontWeight: FontWeight.w500,
-                                                fontSize: width*0.032,
-                                                color: Colour.color1),),
-                                          Text("with your trusted doctor",
-                                            style: TextStyle(
-                                                fontWeight: FontWeight.w500,
-                                                fontSize: width*0.032,
-                                                color: Colour.color1),),
-                                        ],)),
+                                    children: [
+                                      Text(
+                                        "Payment Success",
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.w600,
+                                            fontSize: width * 0.04,
+                                            color: Colour.thirdcolour),
+                                      ),
+                                      Text(
+                                        "Your payment has been successful,",
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.w500,
+                                            fontSize: width * 0.032,
+                                            color: Colour.color1),
+                                      ),
+                                      Text(
+                                        "you can have a consultation session",
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.w500,
+                                            fontSize: width * 0.032,
+                                            color: Colour.color1),
+                                      ),
+                                      Text(
+                                        "with your trusted doctor",
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.w500,
+                                            fontSize: width * 0.032,
+                                            color: Colour.color1),
+                                      ),
+                                    ],
+                                  )),
                                   InkWell(
                                     onTap: () {
-                                      Navigator.push(context,MaterialPageRoute(builder: (context) => ChatPage(),));
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => ChatPage(),
+                                          ));
                                     },
                                     child: Container(
-                                      height: width*0.12,
-                                      width: width*0.34,
+                                      height: width * 0.12,
+                                      width: width * 0.34,
                                       decoration: BoxDecoration(
                                           color: Colour.primarycolour,
-                                          borderRadius: BorderRadius.circular(width*0.05)
-                                      ),
+                                          borderRadius: BorderRadius.circular(
+                                              width * 0.05)),
                                       child: Center(
-                                        child: Text("Chat Doctor",
+                                        child: Text(
+                                          "Chat Doctor",
                                           style: TextStyle(
-                                              fontSize: width*0.04,
+                                              fontSize: width * 0.04,
                                               fontWeight: FontWeight.w600,
-                                              color: Colour.secondarycolour
-                                          ),),
+                                              color: Colour.secondarycolour),
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -600,32 +654,32 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                               ),
                             ),
                           );
-                        },);
+                        },
+                      );
                     },
                     child: Container(
-                      height: height*0.07,
-                      width: width*0.6,
+                      height: height * 0.07,
+                      width: width * 0.6,
                       decoration: BoxDecoration(
                           color: Colour.primarycolour,
-                          borderRadius: BorderRadius.circular(width*0.07)
-                      ),
+                          borderRadius: BorderRadius.circular(width * 0.07)),
                       child: Center(
-                        child: Text("Booking",
+                        child: Text(
+                          "Booking",
                           style: TextStyle(
-                              fontSize: width*0.04,
+                              fontSize: width * 0.04,
                               fontWeight: FontWeight.w700,
-                              color: Colour.secondarycolour
-                          ),),
+                              color: Colour.secondarycolour),
+                        ),
                       ),
                     ),
                   ),
                 ],
               ),
- ],
+            ],
           ),
         ),
       ),
-
     );
   }
 }

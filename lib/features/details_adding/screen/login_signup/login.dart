@@ -26,10 +26,10 @@ String? userId;
 String? userName;
 String? userImage;
 
-
 class LoginPage extends ConsumerStatefulWidget {
-  const LoginPage(
-      {super.key,});
+  const LoginPage({
+    super.key,
+  });
 
   @override
   ConsumerState createState() => _LoginPageState();
@@ -39,9 +39,11 @@ class _LoginPageState extends ConsumerState<LoginPage> {
   TextEditingController nameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
-  final passwordValidation=RegExp(r"^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$");
-  final emailValidation=RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
-  final formKey=GlobalKey<FormState>();
+  final passwordValidation =
+      RegExp(r"^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$");
+  final emailValidation = RegExp(
+      r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
+  final formKey = GlobalKey<FormState>();
   bool selectIcon = false;
 
   // getDetails(){
@@ -58,119 +60,131 @@ class _LoginPageState extends ConsumerState<LoginPage> {
     }
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-    appBar: AppBar(
-      leading: InkWell(
-        onTap: () {
-          Navigator.pop(context);
-        },
-        child: Padding(
-          padding:  EdgeInsets.all(width*0.005),
-          child: SvgPicture.asset(ImageIcons.catogory8),
+      appBar: AppBar(
+        leading: InkWell(
+          onTap: () {
+            Navigator.pop(context);
+          },
+          child: Padding(
+            padding: EdgeInsets.all(width * 0.005),
+            child: SvgPicture.asset(ImageIcons.catogory8),
+          ),
         ),
+        title: Text("Login",
+            style: GoogleFonts.inter(
+                fontWeight: FontWeight.w800, fontSize: width * 0.05)),
+        centerTitle: true,
       ),
-      title: Text("Login",style: GoogleFonts.inter(
-        fontWeight: FontWeight.w800,
-        fontSize: width*0.05
-      )),
-      centerTitle: true,
-    ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(width*0.03),
+          padding: EdgeInsets.all(width * 0.03),
           child: Form(
             key: formKey,
             child: Column(
               children: [
-                SizedBox(height: width*0.02,),
+                SizedBox(
+                  height: width * 0.02,
+                ),
                 Container(
                   decoration: BoxDecoration(
-                    color: Colour.color3,
-                    borderRadius: BorderRadius.circular(width*0.07)
-                  ),
+                      color: Colour.color3,
+                      borderRadius: BorderRadius.circular(width * 0.07)),
                   child: TextFormField(
                     controller: emailController,
                     textInputAction: TextInputAction.next,
                     keyboardType: TextInputType.emailAddress,
                     autovalidateMode: AutovalidateMode.onUserInteraction,
                     validator: (value) {
-                      if(!emailValidation.hasMatch(value!)){
+                      if (!emailValidation.hasMatch(value!)) {
                         return "Enter valid Email";
-                      }
-                      else{
+                      } else {
                         return null;
                       }
                     },
-                    style: TextStyle(fontSize: width*0.045,fontWeight: FontWeight.w500,color: Colour.thirdcolour),
+                    style: TextStyle(
+                        fontSize: width * 0.045,
+                        fontWeight: FontWeight.w500,
+                        color: Colour.thirdcolour),
                     decoration: InputDecoration(
                       prefixIcon: Padding(
-                        padding: EdgeInsets.all(width*0.03),
+                        padding: EdgeInsets.all(width * 0.03),
                         child: SvgPicture.asset(ImageIcons.email),
                       ),
                       labelText: "Enter your email",
-                      labelStyle: TextStyle(fontWeight: FontWeight.w500,fontSize: width*0.045, color: Colour.color1),
+                      labelStyle: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: width * 0.045,
+                          color: Colour.color1),
                       border: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Colour.color2,
-                        ),
-                        borderRadius: BorderRadius.circular(width*0.07)
-                      ),
+                          borderSide: BorderSide(
+                            color: Colour.color2,
+                          ),
+                          borderRadius: BorderRadius.circular(width * 0.07)),
                     ),
                   ),
                 ),
-                SizedBox(height: width*0.05,),
+                SizedBox(
+                  height: width * 0.05,
+                ),
                 Container(
                   decoration: BoxDecoration(
-                    color: Colour.color3,
-                    borderRadius: BorderRadius.circular(width*0.07)
-                  ),
+                      color: Colour.color3,
+                      borderRadius: BorderRadius.circular(width * 0.07)),
                   child: TextFormField(
                     controller: passwordController,
                     textInputAction: TextInputAction.done,
                     keyboardType: TextInputType.text,
-                    obscureText: selectIcon?false:true,
+                    obscureText: selectIcon ? false : true,
                     autovalidateMode: AutovalidateMode.onUserInteraction,
                     validator: (value) {
-                      if(!passwordValidation.hasMatch(value!)){
+                      if (!passwordValidation.hasMatch(value!)) {
                         return "*The password you entered is wrong";
-                      }
-                      else{
-                       return null;
+                      } else {
+                        return null;
                       }
                     },
-                    style: TextStyle(fontSize: width*0.045,fontWeight: FontWeight.w500,color: Colour.thirdcolour),
+                    style: TextStyle(
+                        fontSize: width * 0.045,
+                        fontWeight: FontWeight.w500,
+                        color: Colour.thirdcolour),
                     decoration: InputDecoration(
                       prefixIcon: Padding(
-                        padding: EdgeInsets.all(width*0.03),
+                        padding: EdgeInsets.all(width * 0.03),
                         child: SvgPicture.asset(ImageIcons.lock),
                       ),
                       suffixIcon: InkWell(
                         onTap: () {
-                          selectIcon=!selectIcon;
-                          setState(() {
-
-                          });
+                          selectIcon = !selectIcon;
+                          setState(() {});
                         },
                         child: Padding(
-                          padding: EdgeInsets.all(width*0.045),
+                          padding: EdgeInsets.all(width * 0.045),
                           child: Container(
-                            height: width*0.08,
-                            width: width*0.08,
-                              child: selectIcon?SvgPicture.asset(ImageIcons.eye,color: Colour.color1,):
-                              SvgPicture.asset(ImageIcons.eyeOff,)),
+                              height: width * 0.08,
+                              width: width * 0.08,
+                              child: selectIcon
+                                  ? SvgPicture.asset(
+                                      ImageIcons.eye,
+                                      color: Colour.color1,
+                                    )
+                                  : SvgPicture.asset(
+                                      ImageIcons.eyeOff,
+                                    )),
                         ),
                       ),
                       labelText: "Enter your password",
-                      labelStyle: TextStyle(fontWeight: FontWeight.w500,fontSize: width*0.045, color: Colour.color1),
+                      labelStyle: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: width * 0.045,
+                          color: Colour.color1),
                       border: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: Colour.color2,
-                        ),
-                        borderRadius: BorderRadius.circular(width*0.07)
-                      ),
+                          borderSide: BorderSide(
+                            color: Colour.color2,
+                          ),
+                          borderRadius: BorderRadius.circular(width * 0.07)),
                     ),
                   ),
                 ),
@@ -179,193 +193,250 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                   children: [
                     InkWell(
                       onTap: () {
-                        Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => ForgotPasswordPage(),));
+                        Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => ForgotPasswordPage(),
+                            ));
                       },
                       child: Container(
-                        child: Text("Forgot Password?",
+                        child: Text(
+                          "Forgot Password?",
                           style: TextStyle(
                               fontWeight: FontWeight.w600,
-                              fontSize: width*0.033,
-                              color: Colour.primarycolour),),
+                              fontSize: width * 0.033,
+                              color: Colour.primarycolour),
+                        ),
                       ),
                     ),
-                  ],),
-                SizedBox(height: width*0.05,),
+                  ],
+                ),
+                SizedBox(
+                  height: width * 0.05,
+                ),
                 InkWell(
                   onTap: () async {
-                    FirebaseAuth.instance.signInWithEmailAndPassword(
+                    FirebaseAuth.instance
+                        .signInWithEmailAndPassword(
                       email: emailController.text.trim(),
                       password: passwordController.text,
-                    ).then((value) async {
-                      var data = await FirebaseFirestore.instance.collection("users").where("email",isEqualTo: emailController.text).get();
-                      List<UsersModel> A=data.docs.map((e) => UsersModel.fromMap(e.data())).toList();
-                      currentModel=A[0];
+                    )
+                        .then((value) async {
+                      var data = await FirebaseFirestore.instance
+                          .collection("users")
+                          .where("email", isEqualTo: emailController.text)
+                          .get();
+                      List<UsersModel> A = data.docs
+                          .map((e) => UsersModel.fromMap(e.data()))
+                          .toList();
+                      currentModel = A[0];
                       print(currentModel!.name);
 
                       userName = data.docs[0]["name"];
-                               showDialog(
-                                  context: context,
-                                  barrierDismissible: false,
-                                  builder: (context) {
-                                    return AlertDialog(
-                                 content: Container(
-                                   height: width*0.85,
-                                  width: width*0.4,
-                                  child: Column(
-                                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                       children: [
-                                      Container(
-                                      height: width*0.25,
-                                        width: width*0.25,
-                                       child: Image.asset(ImagePictures.done)),
-                                      Container(
-                                        child: Column(
-                                       children: [
-                                       Text("Yeay! Welcome Back",
-                                       style: TextStyle(
-                                      fontWeight: FontWeight.w600,
-                                      fontSize: width*0.04,
-                                           color: Colour.thirdcolour),),
-                                         Text("Once again you login successfully",
-                                         style: TextStyle(
-                                             fontWeight: FontWeight.w500,
-                                      fontSize: width*0.034,
-                                      color: Colour.color1),),
-                                      Text("into medidoc app",
-                                      style: TextStyle(
-                                      fontWeight: FontWeight.w500,
-                                      fontSize: width*0.034,
-                                       color: Colour.color1),),
-                                       ],)),
-                                       InkWell(
-                                       onTap: () async {
-                                         SharedPreferences prefs=await SharedPreferences.getInstance();
-                                         prefs.setBool('login', true);
-                                         prefs.setString('name', userName.toString());
-                                         Navigator.push(context, MaterialPageRoute(builder: (context) => BottomNavigationPage(),));
-
-                                     ScaffoldMessenger.of(context).showSnackBar(SnackBar(backgroundColor:Colour.primarycolour,
-                                     content: Text("Submitted Sucsessfully ")));
-                                      },
-                                        child: Container(
-                                           height: width*0.12,
-                                           width: width*0.34,
-                                           decoration: BoxDecoration(
-                                                color: Colour.primarycolour,
-                                              borderRadius: BorderRadius.circular(width*0.05)
-                                          ),
-                                         child: Center(
-                                         child: Text("Go to home",
-                                           style: TextStyle(
-                                        fontSize: width*0.04,
-                                        fontWeight: FontWeight.w600,
-                                       color: Colour.secondarycolour
-                                       ),),
+                      showDialog(
+                        context: context,
+                        barrierDismissible: false,
+                        builder: (context) {
+                          return AlertDialog(
+                            content: Container(
+                              height: width * 0.85,
+                              width: width * 0.4,
+                              child: Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  Container(
+                                      height: width * 0.25,
+                                      width: width * 0.25,
+                                      child: Image.asset(ImagePictures.done)),
+                                  Container(
+                                      child: Column(
+                                    children: [
+                                      Text(
+                                        "Yeay! Welcome Back",
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.w600,
+                                            fontSize: width * 0.04,
+                                            color: Colour.thirdcolour),
                                       ),
-                                  ),),],),),);  },);
-                       }).catchError((error){
-                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                          content: Text(error.toString())));
-                    });
+                                      Text(
+                                        "Once again you login successfully",
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.w500,
+                                            fontSize: width * 0.034,
+                                            color: Colour.color1),
+                                      ),
+                                      Text(
+                                        "into medidoc app",
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.w500,
+                                            fontSize: width * 0.034,
+                                            color: Colour.color1),
+                                      ),
+                                    ],
+                                  )),
+                                  InkWell(
+                                    onTap: () async {
+                                      SharedPreferences prefs =
+                                          await SharedPreferences.getInstance();
+                                      prefs.setBool('login', true);
+                                      prefs.setString(
+                                          'name', userName.toString());
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) =>
+                                                BottomNavigationPage(),
+                                          ));
 
+                                      ScaffoldMessenger.of(context)
+                                          .showSnackBar(SnackBar(
+                                              backgroundColor:
+                                                  Colour.primarycolour,
+                                              content: Text(
+                                                  "Submitted Sucsessfully ")));
+                                    },
+                                    child: Container(
+                                      height: width * 0.12,
+                                      width: width * 0.34,
+                                      decoration: BoxDecoration(
+                                          color: Colour.primarycolour,
+                                          borderRadius: BorderRadius.circular(
+                                              width * 0.05)),
+                                      child: Center(
+                                        child: Text(
+                                          "Go to home",
+                                          style: TextStyle(
+                                              fontSize: width * 0.04,
+                                              fontWeight: FontWeight.w600,
+                                              color: Colour.secondarycolour),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          );
+                        },
+                      );
+                    }).catchError((error) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(content: Text(error.toString())));
+                    });
                   },
                   child: Container(
-                    height: width*0.16,
-                    width: width*0.93,
+                    height: width * 0.16,
+                    width: width * 0.93,
                     decoration: BoxDecoration(
-                      color: Colour.primarycolour,
-                      borderRadius: BorderRadius.circular(width*0.07)
-                    ),
+                        color: Colour.primarycolour,
+                        borderRadius: BorderRadius.circular(width * 0.07)),
                     child: Center(
-                      child: Text("Login",
-                      style: GoogleFonts.inter(
-                        fontSize: width*0.045,
-                        fontWeight: FontWeight.w600,
-                        color: Colour.secondarycolour
-                      ),),
+                      child: Text(
+                        "Login",
+                        style: GoogleFonts.inter(
+                            fontSize: width * 0.045,
+                            fontWeight: FontWeight.w600,
+                            color: Colour.secondarycolour),
+                      ),
                     ),
                   ),
                 ),
-                SizedBox(height: width*0.05,),
+                SizedBox(
+                  height: width * 0.05,
+                ),
                 Container(
-                    height: width*0.07,
-                    width: width*0.67,
+                    height: width * 0.07,
+                    width: width * 0.67,
                     child: Row(
                       children: [
-                        Text("Don’t have an account ? ",
+                        Text(
+                          "Don’t have an account ? ",
                           style: TextStyle(
-                              fontSize: width*0.035,
+                              fontSize: width * 0.035,
                               fontWeight: FontWeight.w500,
-                              color: Colour.color5
-                          ),),
-                           InkWell(
-                             onTap: () {
-                               Navigator.push(context, MaterialPageRoute(builder: (context) => SignupPage(sign: false,),));
-                             },
-                             child: Text("Sign Up",
-                              style: TextStyle(
-                                  fontSize: width*0.035,
-                                  fontWeight: FontWeight.w600,
-                                  color: Colour.primarycolour
-                              ),),
-                           ),
+                              color: Colour.color5),
+                        ),
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => SignupPage(
+                                    sign: false,
+                                  ),
+                                ));
+                          },
+                          child: Text(
+                            "Sign Up",
+                            style: TextStyle(
+                                fontSize: width * 0.035,
+                                fontWeight: FontWeight.w600,
+                                color: Colour.primarycolour),
+                          ),
+                        ),
                       ],
-                    )
+                    )),
+                SizedBox(
+                  height: width * 0.05,
                 ),
-                SizedBox(height: width*0.05,),
-               Row(
-                 children: [
-                   Expanded(
-                     child: Divider(
-                       color: Colour.color2,
-                       indent: width*0.04,
-                       endIndent: width*0.04,
-                       thickness: width*0.005,
-                     ),
-                   ),
-                   Text("OR",style: TextStyle(fontWeight: FontWeight.w500,
-                       fontSize: width*0.037,
-                   color: Colour.color1),),
-                   Expanded(
-                     child: Divider(
-                       color: Colour.color2,
-                       indent: width*0.04,
-                       endIndent: width*0.04,
-                       thickness: width*0.005,
-                     ),
-                   ),
-                 ],
-               ),
-                SizedBox(height: width*0.07,),
+                Row(
+                  children: [
+                    Expanded(
+                      child: Divider(
+                        color: Colour.color2,
+                        indent: width * 0.04,
+                        endIndent: width * 0.04,
+                        thickness: width * 0.005,
+                      ),
+                    ),
+                    Text(
+                      "OR",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: width * 0.037,
+                          color: Colour.color1),
+                    ),
+                    Expanded(
+                      child: Divider(
+                        color: Colour.color2,
+                        indent: width * 0.04,
+                        endIndent: width * 0.04,
+                        thickness: width * 0.005,
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: width * 0.07,
+                ),
                 InkWell(
                   onTap: () {
                     signInWithGoogle(context);
                   },
                   child: Container(
-                    height: width*0.16,
-                    width: width*0.93,
+                    height: width * 0.16,
+                    width: width * 0.93,
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(width*0.07),
-                      border: Border.all(
-                        color: Colour.color2
-                      )
-                    ),
+                        borderRadius: BorderRadius.circular(width * 0.07),
+                        border: Border.all(color: Colour.color2)),
                     child: Row(
                       children: [
                         Container(
-                          width: width*0.67,
+                          width: width * 0.67,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Container(
-                                  padding: EdgeInsets.all(width*0.04),
+                                  padding: EdgeInsets.all(width * 0.04),
                                   child: SvgPicture.asset(ImageIcons.google)),
-                              Text("Sign in with Google",
+                              Text(
+                                "Sign in with Google",
                                 style: TextStyle(
-                                    fontSize: width*0.038,
+                                    fontSize: width * 0.038,
                                     fontWeight: FontWeight.w600,
-                                    color: Colour.color6
-                                ),),
+                                    color: Colour.color6),
+                              ),
                             ],
                           ),
                         )
@@ -373,64 +444,64 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                     ),
                   ),
                 ),
-                SizedBox(height: width*0.05,),
+                SizedBox(
+                  height: width * 0.05,
+                ),
                 Container(
-                  height: width*0.16,
-                  width: width*0.93,
+                  height: width * 0.16,
+                  width: width * 0.93,
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(width*0.07),
-                      border: Border.all(
-                          color: Colour.color2
-                      )
-                  ),
+                      borderRadius: BorderRadius.circular(width * 0.07),
+                      border: Border.all(color: Colour.color2)),
                   child: Row(
                     children: [
                       Container(
-                        width: width*0.67,
+                        width: width * 0.67,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Container(
-                                padding: EdgeInsets.all(width*0.04),
+                                padding: EdgeInsets.all(width * 0.04),
                                 child: SvgPicture.asset(ImageIcons.apple)),
-                            Text("Sign in with Apple",
+                            Text(
+                              "Sign in with Apple",
                               style: TextStyle(
-                                  fontSize: width*0.038,
+                                  fontSize: width * 0.038,
                                   fontWeight: FontWeight.w600,
-                                  color: Colour.color6
-                              ),),
+                                  color: Colour.color6),
+                            ),
                           ],
                         ),
                       )
                     ],
                   ),
                 ),
-                SizedBox(height: width*0.05,),
+                SizedBox(
+                  height: width * 0.05,
+                ),
                 Container(
-                  height: width*0.16,
-                  width: width*0.93,
+                  height: width * 0.16,
+                  width: width * 0.93,
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(width*0.07),
-                      border: Border.all(
-                          color: Colour.color2
-                      )
-                  ),
+                      borderRadius: BorderRadius.circular(width * 0.07),
+                      border: Border.all(color: Colour.color2)),
                   child: Row(
                     children: [
                       Container(
-                        width: width*0.67,
+                        width: width * 0.67,
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Container(
-                                padding: EdgeInsets.all(width*0.04),
+                                padding: EdgeInsets.all(width * 0.04),
                                 child: SvgPicture.asset(ImageIcons.facebook)),
-                            Text("Sign in with Facebook",
+                            Text(
+                              "Sign in with Facebook",
                               style: TextStyle(
-                                  fontSize: width*0.038,
+                                  fontSize: width * 0.038,
                                   fontWeight: FontWeight.w600,
-                                  color: Colour.color6
-                              ),),
+                                  color: Colour.color6),
+                            ),
                           ],
                         ),
                       )
@@ -445,7 +516,3 @@ class _LoginPageState extends ConsumerState<LoginPage> {
     );
   }
 }
-
-
-
-

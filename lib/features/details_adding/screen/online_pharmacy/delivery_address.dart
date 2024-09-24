@@ -23,41 +23,42 @@ import 'address.dart';
 
 class DeliveryPage extends ConsumerStatefulWidget {
   final MedicineModel item2;
-  const DeliveryPage({super.key, required this.item2
-  });
+
+  const DeliveryPage({super.key, required this.item2});
 
   @override
   ConsumerState createState() => _DeliveryPageState();
 }
 
 class _DeliveryPageState extends ConsumerState<DeliveryPage> {
+  TextEditingController nameController = TextEditingController();
+  TextEditingController pincodeController = TextEditingController();
+  TextEditingController cityController = TextEditingController();
+  TextEditingController streetController = TextEditingController();
+  TextEditingController countryController = TextEditingController();
+  TextEditingController houseController = TextEditingController();
+  TextEditingController phoneController = TextEditingController();
+  TextEditingController idController = TextEditingController();
+  final formKey = GlobalKey<FormState>();
 
-  TextEditingController nameController=TextEditingController();
-  TextEditingController pincodeController=TextEditingController();
-  TextEditingController cityController=TextEditingController();
-  TextEditingController streetController=TextEditingController();
-  TextEditingController countryController=TextEditingController();
-  TextEditingController houseController=TextEditingController();
-  TextEditingController phoneController=TextEditingController();
-  TextEditingController idController=TextEditingController();
-  final formKey=GlobalKey<FormState>();
-
-  addressDetails(){
+  addressDetails() {
     ref.read(AddressControllerProvider).addAddressData(AddressModel(
-        name: nameController.text,
-        phone: int.parse(phoneController.text),
-        pincode: int.parse(pincodeController.text),
-        street: streetController.text,
-        city: cityController.text,
-        country: countryController.text,
-        houseName: houseController.text,
-        id: widget.item2.id,
-        itemName: widget.item2.name,
-        itemImage: widget.item2.image,
-        itemQty: widget.item2.qty.toInt(),
-        itemMl: widget.item2.ml,
-        itemRate: widget.item2.rate.toInt()*widget.item2.qty.toInt(),
-        userId: currentModel!.id, cart: [],));
+          name: nameController.text,
+          phone: int.parse(phoneController.text),
+          pincode: int.parse(pincodeController.text),
+          street: streetController.text,
+          city: cityController.text,
+          country: countryController.text,
+          houseName: houseController.text,
+          id: widget.item2.id,
+          itemName: widget.item2.name,
+          itemImage: widget.item2.image,
+          itemQty: widget.item2.qty.toInt(),
+          itemMl: widget.item2.ml,
+          itemRate: widget.item2.rate.toInt() * widget.item2.qty.toInt(),
+          userId: currentModel!.id,
+          cart: [],
+        ));
   }
 
   @override
@@ -66,10 +67,15 @@ class _DeliveryPageState extends ConsumerState<DeliveryPage> {
       appBar: AppBar(
         scrolledUnderElevation: 0,
         centerTitle: true,
-       elevation: 0,
+        elevation: 0,
         leading: InkWell(
           onTap: () {
-            Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => BottomNavigationPage(),), (route) => false);
+            Navigator.pushAndRemoveUntil(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => BottomNavigationPage(),
+                ),
+                (route) => false);
           },
           child: SizedBox(
             height: width * 0.05,
@@ -95,28 +101,49 @@ class _DeliveryPageState extends ConsumerState<DeliveryPage> {
         child: Form(
           key: formKey,
           child: Padding(
-            padding: EdgeInsets.all(width*0.03),
+            padding: EdgeInsets.all(width * 0.03),
             child: Column(
               children: [
-                SizedBox(height: width*0.05,),
-                Row(
-                  children: [
-                    SizedBox(width: width*0.05,),
-                    Text(" Shipping Details",style: TextStyle(fontSize: width*0.04,fontWeight: FontWeight.w700),),
-                  ],
-                ),
-                SizedBox(height: width*0.05,),
-                Row(
-                  children: [
-                    SizedBox(width: width*0.07,),
-                    Text("Full Name",style: TextStyle(fontWeight: FontWeight.w500,fontSize: width*0.04),),
-                    Text(" *",style: TextStyle(color: Colour.color4),),
-                  ],
-                ),
-                SizedBox(height: width*0.02,),
                 SizedBox(
-                  height: width*0.16,
-                  width: width*0.88,
+                  height: width * 0.05,
+                ),
+                Row(
+                  children: [
+                    SizedBox(
+                      width: width * 0.05,
+                    ),
+                    Text(
+                      " Shipping Details",
+                      style: TextStyle(
+                          fontSize: width * 0.04, fontWeight: FontWeight.w700),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: width * 0.05,
+                ),
+                Row(
+                  children: [
+                    SizedBox(
+                      width: width * 0.07,
+                    ),
+                    Text(
+                      "Full Name",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500, fontSize: width * 0.04),
+                    ),
+                    Text(
+                      " *",
+                      style: TextStyle(color: Colour.color4),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: width * 0.02,
+                ),
+                SizedBox(
+                  height: width * 0.16,
+                  width: width * 0.88,
                   child: TextFormField(
                       controller: nameController,
                       textCapitalization: TextCapitalization.sentences,
@@ -130,12 +157,9 @@ class _DeliveryPageState extends ConsumerState<DeliveryPage> {
                         suffix: InkWell(
                             onTap: () {
                               nameController.clear();
-                              setState(() {
-
-                              });
+                              setState(() {});
                             },
                             child: Icon(Icons.clear)),
-
                         labelStyle: TextStyle(
                           fontSize: width * 0.04,
                           fontWeight: FontWeight.w300,
@@ -147,25 +171,36 @@ class _DeliveryPageState extends ConsumerState<DeliveryPage> {
                           borderRadius: BorderRadius.circular(width * 0.03),
                         ),
                         focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                          ),
+                          borderSide: BorderSide(),
                           borderRadius: BorderRadius.circular(width * 0.03),
                         ),
-                      )
-                  ),
+                      )),
                 ),
-                SizedBox(height: width*0.05,),
+                SizedBox(
+                  height: width * 0.05,
+                ),
                 Row(
                   children: [
-                    SizedBox(width: width*0.07,),
-                    Text("Phone Number",style: TextStyle(fontWeight: FontWeight.w500,fontSize: width*0.04),),
-                    Text(" *",style: TextStyle(color: Colour.color4),),
+                    SizedBox(
+                      width: width * 0.07,
+                    ),
+                    Text(
+                      "Phone Number",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500, fontSize: width * 0.04),
+                    ),
+                    Text(
+                      " *",
+                      style: TextStyle(color: Colour.color4),
+                    ),
                   ],
                 ),
-                SizedBox(height: width*0.02,),
                 SizedBox(
-                  height: width*0.16,
-                  width: width*0.88,
+                  height: width * 0.02,
+                ),
+                SizedBox(
+                  height: width * 0.16,
+                  width: width * 0.88,
                   child: TextFormField(
                       controller: phoneController,
                       textInputAction: TextInputAction.next,
@@ -179,7 +214,7 @@ class _DeliveryPageState extends ConsumerState<DeliveryPage> {
                           // dialogSize: ,
                           onChanged: print,
                           initialSelection: "IN",
-                          favorite: ["+91","FR"],
+                          favorite: ["+91", "FR"],
                           textStyle: TextStyle(
                             color: Colour.thirdcolour,
                             fontSize: width * 0.04,
@@ -199,41 +234,51 @@ class _DeliveryPageState extends ConsumerState<DeliveryPage> {
                               borderRadius: BorderRadius.circular(width * 0.03),
                             ),
                             focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(
-                                color: Colour.thirdcolour
-                              ),
+                              borderSide: BorderSide(color: Colour.thirdcolour),
                               borderRadius: BorderRadius.circular(width * 0.03),
                             ),
                           ),
                         ),
                         border: OutlineInputBorder(
-                          borderSide: const BorderSide(
-                          ),
+                          borderSide: const BorderSide(),
                           borderRadius: BorderRadius.circular(width * 0.03),
                         ),
                         focusedBorder: OutlineInputBorder(
-                          borderSide: const BorderSide(
-                          ),
+                          borderSide: const BorderSide(),
                           borderRadius: BorderRadius.circular(width * 0.03),
                         ),
-                      )
-                  ),
+                      )),
                 ),
-                SizedBox(height: width*0.05,),
+                SizedBox(
+                  height: width * 0.05,
+                ),
                 Row(
                   children: [
-                    SizedBox(width: width*0.07,),
-                    Text("Pin Code",style: TextStyle(fontWeight: FontWeight.w500,fontSize: width*0.04),),
-                    Text(" *",style: TextStyle(color: Colour.color4),),
+                    SizedBox(
+                      width: width * 0.07,
+                    ),
+                    Text(
+                      "Pin Code",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500, fontSize: width * 0.04),
+                    ),
+                    Text(
+                      " *",
+                      style: TextStyle(color: Colour.color4),
+                    ),
                   ],
                 ),
-                SizedBox(height: width*0.02,),
+                SizedBox(
+                  height: width * 0.02,
+                ),
                 Row(
                   children: [
-                    SizedBox(width: width*0.06,),
+                    SizedBox(
+                      width: width * 0.06,
+                    ),
                     Container(
-                      height: width*0.12,
-                      width: width*0.3,
+                      height: width * 0.12,
+                      width: width * 0.3,
                       child: TextFormField(
                           controller: pincodeController,
                           textInputAction: TextInputAction.next,
@@ -254,26 +299,32 @@ class _DeliveryPageState extends ConsumerState<DeliveryPage> {
                               borderRadius: BorderRadius.circular(width * 0.03),
                             ),
                             focusedBorder: OutlineInputBorder(
-                              borderSide: const BorderSide(
-                              ),
+                              borderSide: const BorderSide(),
                               borderRadius: BorderRadius.circular(width * 0.03),
                             ),
-                          )
-                      ),
+                          )),
                     ),
-                    SizedBox(width: width*0.08),
+                    SizedBox(width: width * 0.08),
                     InkWell(
                       onTap: () async {
-                        LocationPermission permission = await Geolocator.checkPermission();
-                        if(permission == LocationPermission.denied || permission == LocationPermission.deniedForever){
+                        LocationPermission permission =
+                            await Geolocator.checkPermission();
+                        if (permission == LocationPermission.denied ||
+                            permission == LocationPermission.deniedForever) {
                           Future.error('Location permissions are denied');
-                          LocationPermission ask = await Geolocator.requestPermission();
+                          LocationPermission ask =
+                              await Geolocator.requestPermission();
                         }
-                        try{
-                          Position currentPosition = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.medium);
+                        try {
+                          Position currentPosition =
+                              await Geolocator.getCurrentPosition(
+                                  desiredAccuracy: LocationAccuracy.medium);
                           // print(currentPosition.latitude);
                           // print(currentPosition.longitude);
-                          List <Placemark> result = await placemarkFromCoordinates(currentPosition.latitude, currentPosition.longitude);
+                          List<Placemark> result =
+                              await placemarkFromCoordinates(
+                                  currentPosition.latitude,
+                                  currentPosition.longitude);
                           Placemark first = result.first;
                           print(result);
                           setState(() {
@@ -282,41 +333,59 @@ class _DeliveryPageState extends ConsumerState<DeliveryPage> {
                             cityController.text = first.locality!;
                             countryController.text = first.country!;
                           });
-                        }
-                        catch (e) {
-                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Failed to load your Location")));
+                        } catch (e) {
+                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                              content: Text("Failed to load your Location")));
                         }
                       },
                       child: Container(
-                        height: width*0.12,
-                        width: width*0.4,
+                        height: width * 0.12,
+                        width: width * 0.4,
                         decoration: BoxDecoration(
                           // color: Colors.red.withOpacity(0.2),
                           border: Border.all(color: Colour.primarycolour),
-                          borderRadius: BorderRadius.circular(width*0.03),
+                          borderRadius: BorderRadius.circular(width * 0.03),
                         ),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
-                            Icon(Icons.my_location_outlined,color: Colour.primarycolour),
-                            Text("My Location",style: TextStyle(color: Colour.primarycolour),)
-                          ],),
+                            Icon(Icons.my_location_outlined,
+                                color: Colour.primarycolour),
+                            Text(
+                              "My Location",
+                              style: TextStyle(color: Colour.primarycolour),
+                            )
+                          ],
+                        ),
                       ),
                     )
                   ],
                 ),
-                SizedBox(height: width*0.05,),
+                SizedBox(
+                  height: width * 0.05,
+                ),
                 Row(
                   children: [
-                    SizedBox(width: width*0.07,),
-                    Text("Street",style: TextStyle(fontWeight: FontWeight.w500,fontSize: width*0.04),),
-                    Text(" *",style: TextStyle(color: Colour.color4),),
+                    SizedBox(
+                      width: width * 0.07,
+                    ),
+                    Text(
+                      "Street",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500, fontSize: width * 0.04),
+                    ),
+                    Text(
+                      " *",
+                      style: TextStyle(color: Colour.color4),
+                    ),
                   ],
                 ),
-                SizedBox(height: width*0.02,),
                 SizedBox(
-                  height: width*0.16,
-                  width: width*0.88,
+                  height: width * 0.02,
+                ),
+                SizedBox(
+                  height: width * 0.16,
+                  width: width * 0.88,
                   child: TextFormField(
                       controller: streetController,
                       textCapitalization: TextCapitalization.sentences,
@@ -338,25 +407,36 @@ class _DeliveryPageState extends ConsumerState<DeliveryPage> {
                           borderRadius: BorderRadius.circular(width * 0.03),
                         ),
                         focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                          ),
+                          borderSide: BorderSide(),
                           borderRadius: BorderRadius.circular(width * 0.03),
                         ),
-                      )
-                  ),
+                      )),
                 ),
-                SizedBox(height: width*0.05,),
+                SizedBox(
+                  height: width * 0.05,
+                ),
                 Row(
                   children: [
-                    SizedBox(width: width*0.07,),
-                    Text("City",style: TextStyle(fontWeight: FontWeight.w500,fontSize: width*0.04),),
-                    Text(" *",style: TextStyle(color: Colour.color4),),
+                    SizedBox(
+                      width: width * 0.07,
+                    ),
+                    Text(
+                      "City",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500, fontSize: width * 0.04),
+                    ),
+                    Text(
+                      " *",
+                      style: TextStyle(color: Colour.color4),
+                    ),
                   ],
                 ),
-                SizedBox(height: width*0.02,),
                 SizedBox(
-                  height: width*0.16,
-                  width: width*0.88,
+                  height: width * 0.02,
+                ),
+                SizedBox(
+                  height: width * 0.16,
+                  width: width * 0.88,
                   child: TextFormField(
                       controller: cityController,
                       textCapitalization: TextCapitalization.sentences,
@@ -378,25 +458,36 @@ class _DeliveryPageState extends ConsumerState<DeliveryPage> {
                           borderRadius: BorderRadius.circular(width * 0.03),
                         ),
                         focusedBorder: OutlineInputBorder(
-                          borderSide: const BorderSide(
-                          ),
+                          borderSide: const BorderSide(),
                           borderRadius: BorderRadius.circular(width * 0.03),
                         ),
-                      )
-                  ),
+                      )),
                 ),
-                SizedBox(height: width*0.05,),
+                SizedBox(
+                  height: width * 0.05,
+                ),
                 Row(
                   children: [
-                    SizedBox(width: width*0.07,),
-                    Text("Country",style: TextStyle(fontWeight: FontWeight.w500,fontSize: width*0.04),),
-                    Text(" *",style: TextStyle(color: Colour.color4),),
+                    SizedBox(
+                      width: width * 0.07,
+                    ),
+                    Text(
+                      "Country",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500, fontSize: width * 0.04),
+                    ),
+                    Text(
+                      " *",
+                      style: TextStyle(color: Colour.color4),
+                    ),
                   ],
                 ),
-                SizedBox(height: width*0.02,),
                 SizedBox(
-                  height: width*0.16,
-                  width: width*0.88,
+                  height: width * 0.02,
+                ),
+                SizedBox(
+                  height: width * 0.16,
+                  width: width * 0.88,
                   child: TextFormField(
                       controller: countryController,
                       textCapitalization: TextCapitalization.sentences,
@@ -419,24 +510,36 @@ class _DeliveryPageState extends ConsumerState<DeliveryPage> {
                           borderRadius: BorderRadius.circular(width * 0.03),
                         ),
                         focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                          ),
+                          borderSide: BorderSide(),
                           borderRadius: BorderRadius.circular(width * 0.03),
                         ),
-                      )
-                  ),),
-                SizedBox(height: width*0.05,),
+                      )),
+                ),
+                SizedBox(
+                  height: width * 0.05,
+                ),
                 Row(
                   children: [
-                    SizedBox(width: width*0.07,),
-                    Text("House/Apartment name",style: TextStyle(fontWeight: FontWeight.w500,fontSize: width*0.04),),
-                    Text(" *",style: TextStyle(color: Colour.color4),),
+                    SizedBox(
+                      width: width * 0.07,
+                    ),
+                    Text(
+                      "House/Apartment name",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w500, fontSize: width * 0.04),
+                    ),
+                    Text(
+                      " *",
+                      style: TextStyle(color: Colour.color4),
+                    ),
                   ],
                 ),
-                SizedBox(height: width*0.02,),
                 SizedBox(
-                  height: width*0.16,
-                  width: width*0.88,
+                  height: width * 0.02,
+                ),
+                SizedBox(
+                  height: width * 0.16,
+                  width: width * 0.88,
                   child: TextFormField(
                       controller: houseController,
                       textCapitalization: TextCapitalization.sentences,
@@ -447,7 +550,6 @@ class _DeliveryPageState extends ConsumerState<DeliveryPage> {
                         LengthLimitingTextInputFormatter(20)
                       ],
                       decoration: InputDecoration(
-
                         labelStyle: TextStyle(
                           fontSize: width * 0.05,
                           fontWeight: FontWeight.w300,
@@ -459,82 +561,110 @@ class _DeliveryPageState extends ConsumerState<DeliveryPage> {
                           borderRadius: BorderRadius.circular(width * 0.03),
                         ),
                         focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                          ),
+                          borderSide: BorderSide(),
                           borderRadius: BorderRadius.circular(width * 0.03),
                         ),
-                      )
-                  ),),
-                SizedBox(height: width*0.06,),
+                      )),
+                ),
+                SizedBox(
+                  height: width * 0.06,
+                ),
                 InkWell(
-                  onTap: () {
-                    if(
-                    nameController.text!=""&&
-                        phoneController.text!=""&&
-                        pincodeController.text!=""&&
-                        streetController.text!=""&&
-                        cityController.text!=""&&
-                        countryController.text!=""&&
-                        houseController.text!=""&&
-                        formKey.currentState!.validate()
-                    )
-                           {
-                           addressDetails();
-                              Navigator.push(context, MaterialPageRoute(builder: (context) => OrderDetails(id: AddressModel(
-                               name: nameController.text,
-                               phone: int.parse(phoneController.text),
-                                pincode: int.parse(pincodeController.text),
-                                  street: streetController.text,
-                                 city: cityController.text,
-                                  country: countryController.text,
-                                  houseName: houseController.text,
-                                 id: widget.item2.id,
-                                 itemName: widget.item2.name,
-                                 itemImage: widget.item2.image,
-                                itemMl: widget.item2.ml,
-                                itemQty: widget.item2.qty.toInt(),
-                                itemRate: widget.item2.rate.toInt()*widget.item2.qty.toInt(),
-                              userId: userId!, cart: [])),));
-                               }
-
-                    else{
-                      nameController.text==""?
-                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(backgroundColor: Colour.primarycolour,content: Text("Please enter your Name!"))):
-                      phoneController.text==""?
-                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(backgroundColor: Colour.primarycolour,content: Text("Please enter your Phone Number!"))):
-                      pincodeController.text==""?
-                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(backgroundColor: Colour.primarycolour,content: Text("Please enter your Pincode!"))):
-                      streetController.text==""?
-                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(backgroundColor: Colour.primarycolour,content: Text("Please enter your Street!"))):
-                      cityController.text==""?
-                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(backgroundColor: Colour.primarycolour,content: Text("Please enter your City!"))):
-                      countryController.text==""?
-                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(backgroundColor: Colour.primarycolour,content: Text("Please enter your Country!"))):
-                      houseController.text==""?
-                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(backgroundColor: Colour.primarycolour,content: Text("Please enter your House/Apartment name!"))):
-                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(backgroundColor: Colour.primarycolour,content: Text("Please enter your Valid Details!")));
+                    onTap: () {
+                      if (nameController.text != "" &&
+                          phoneController.text != "" &&
+                          pincodeController.text != "" &&
+                          streetController.text != "" &&
+                          cityController.text != "" &&
+                          countryController.text != "" &&
+                          houseController.text != "" &&
+                          formKey.currentState!.validate()) {
+                        addressDetails();
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => OrderDetails(
+                                  id: AddressModel(
+                                      name: nameController.text,
+                                      phone: int.parse(phoneController.text),
+                                      pincode:
+                                          int.parse(pincodeController.text),
+                                      street: streetController.text,
+                                      city: cityController.text,
+                                      country: countryController.text,
+                                      houseName: houseController.text,
+                                      id: widget.item2.id,
+                                      itemName: widget.item2.name,
+                                      itemImage: widget.item2.image,
+                                      itemMl: widget.item2.ml,
+                                      itemQty: widget.item2.qty.toInt(),
+                                      itemRate: widget.item2.rate.toInt() *
+                                          widget.item2.qty.toInt(),
+                                      userId: userId!,
+                                      cart: [])),
+                            ));
+                      } else {
+                        nameController.text == ""
+                            ? ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                                backgroundColor: Colour.primarycolour,
+                                content: Text("Please enter your Name!")))
+                            : phoneController.text == ""
+                                ? ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(
+                                        backgroundColor: Colour.primarycolour,
+                                        content: Text(
+                                            "Please enter your Phone Number!")))
+                                : pincodeController.text == ""
+                                    ? ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                                        backgroundColor: Colour.primarycolour,
+                                        content:
+                                            Text("Please enter your Pincode!")))
+                                    : streetController.text == ""
+                                        ? ScaffoldMessenger.of(context)
+                                            .showSnackBar(SnackBar(
+                                                backgroundColor:
+                                                    Colour.primarycolour,
+                                                content: Text(
+                                                    "Please enter your Street!")))
+                                        : cityController.text == ""
+                                            ? ScaffoldMessenger.of(context)
+                                                .showSnackBar(SnackBar(
+                                                    backgroundColor:
+                                                        Colour.primarycolour,
+                                                    content: Text("Please enter your City!")))
+                                            : countryController.text == ""
+                                                ? ScaffoldMessenger.of(context).showSnackBar(SnackBar(backgroundColor: Colour.primarycolour, content: Text("Please enter your Country!")))
+                                                : houseController.text == ""
+                                                    ? ScaffoldMessenger.of(context).showSnackBar(SnackBar(backgroundColor: Colour.primarycolour, content: Text("Please enter your House/Apartment name!")))
+                                                    : ScaffoldMessenger.of(context).showSnackBar(SnackBar(backgroundColor: Colour.primarycolour, content: Text("Please enter your Valid Details!")));
 // Navigator.pop(context);
-                    }
-                  },
-                  child: Container(
-                    height: width*0.13,
-                    width: width*0.84,
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        colors: <Color>[Colour.primarycolour, Colour.lightprimarycolor],
+                      }
+                    },
+                    child: Container(
+                      height: width * 0.13,
+                      width: width * 0.84,
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          colors: <Color>[
+                            Colour.primarycolour,
+                            Colour.lightprimarycolor
+                          ],
+                        ),
+                        borderRadius: BorderRadius.circular(width * 0.04),
                       ),
-                      borderRadius: BorderRadius.circular(width*0.04),
-                    ),
-                    child: Center(
-                      child: Text("Add",style: TextStyle(
-                          fontWeight: FontWeight.w800,
-                          color: Colour.secondarycolour,
-                          fontSize: width*0.05
-                      ),),
-                    ),
+                      child: Center(
+                        child: Text(
+                          "Add",
+                          style: TextStyle(
+                              fontWeight: FontWeight.w800,
+                              color: Colour.secondarycolour,
+                              fontSize: width * 0.05),
+                        ),
+                      ),
+                    )),
+                SizedBox(
+                  height: width * 0.03,
                 )
-                  ),
-                SizedBox(height:width*0.03 ,)
               ],
             ),
           ),
@@ -543,5 +673,3 @@ class _DeliveryPageState extends ConsumerState<DeliveryPage> {
     );
   }
 }
-
-

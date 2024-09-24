@@ -1,9 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:medical/main.dart';
-
-import '../../../../core/constants/colour.dart';
-import '../../../../core/constants/icons.dart';
 
 class Chatdoctor extends StatefulWidget {
   const Chatdoctor({super.key});
@@ -15,8 +11,6 @@ class Chatdoctor extends StatefulWidget {
 class _ChatdoctorState extends State<Chatdoctor> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-    );
+    return Scaffold();
   }
 }
-

@@ -54,7 +54,8 @@ class _ChatPageState extends State<ChatPage> {
                 context,
                 MaterialPageRoute(
                   builder: (context) => FindDoctor(),
-                ));},
+                ));
+          },
           child: SizedBox(
             height: width * 0.05,
             width: width * 0.8,
@@ -276,7 +277,6 @@ class _ChatPageState extends State<ChatPage> {
                   ],
                 ),
               ),
-
             ],
           ),
           Container(
@@ -295,7 +295,6 @@ class _ChatPageState extends State<ChatPage> {
                     children: [
                       Container(
                         width: width * 0.35,
-
                         child: TextFormField(
                           textAlign: TextAlign.start,
                           keyboardType: TextInputType.emailAddress,
@@ -333,16 +332,20 @@ class _ChatPageState extends State<ChatPage> {
                                 height: height * 0.3,
                                 child: Column(
                                   children: [
-                                    Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
                                       children: [
                                         Container(
                                           height: height * 0.1,
-                                          width: width *0.2,
-                                          margin: EdgeInsets.only(bottom: width*0.01),
+                                          width: width * 0.2,
+                                          margin: EdgeInsets.only(
+                                              bottom: width * 0.01),
                                           decoration: BoxDecoration(
-                                            borderRadius:
-                                            BorderRadius.circular(width * 0.03),
-                                            color: Colour.secondarycolour.withOpacity(0.8),
+                                            borderRadius: BorderRadius.circular(
+                                                width * 0.03),
+                                            color: Colour.secondarycolour
+                                                .withOpacity(0.8),
                                           ),
                                           child: InkWell(
                                             onTap: () {
@@ -350,15 +353,21 @@ class _ChatPageState extends State<ChatPage> {
                                               Navigator.pop(context);
                                             },
                                             child: Center(
-                                              child: Column(mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                              child: Column(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceAround,
                                                 children: [
-                                                  Icon(CupertinoIcons.photo_fill_on_rectangle_fill),
+                                                  Icon(CupertinoIcons
+                                                      .photo_fill_on_rectangle_fill),
                                                   Text("Gallery",
                                                       style: TextStyle(
-                                                          fontSize: width * 0.05,
-                                                          fontWeight: FontWeight.w400,
-                                                          color:
-                                                          Colour.primarycolour)),
+                                                          fontSize:
+                                                              width * 0.05,
+                                                          fontWeight:
+                                                              FontWeight.w400,
+                                                          color: Colour
+                                                              .primarycolour)),
                                                 ],
                                               ),
                                             ),
@@ -368,9 +377,10 @@ class _ChatPageState extends State<ChatPage> {
                                           height: height * 0.1,
                                           width: width * 0.2,
                                           decoration: BoxDecoration(
-                                            borderRadius:
-                                            BorderRadius.circular(width * 0.03),
-                                            color: Colour.secondarycolour.withOpacity(0.8),
+                                            borderRadius: BorderRadius.circular(
+                                                width * 0.03),
+                                            color: Colour.secondarycolour
+                                                .withOpacity(0.8),
                                           ),
                                           child: InkWell(
                                             onTap: () {
@@ -378,21 +388,25 @@ class _ChatPageState extends State<ChatPage> {
                                               Navigator.pop(context);
                                             },
                                             child: Center(
-                                              child: Column(mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                              child: Column(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceAround,
                                                 children: [
                                                   Icon(CupertinoIcons.camera),
                                                   Text("camera",
                                                       style: TextStyle(
-                                                          fontSize: width * 0.05,
-                                                          fontWeight: FontWeight.w400,
-                                                          color:
-                                                          Colour.primarycolour)),
+                                                          fontSize:
+                                                              width * 0.05,
+                                                          fontWeight:
+                                                              FontWeight.w400,
+                                                          color: Colour
+                                                              .primarycolour)),
                                                 ],
                                               ),
                                             ),
                                           ),
                                         ),
-
                                       ],
                                     ),
                                     InkWell(
@@ -402,11 +416,13 @@ class _ChatPageState extends State<ChatPage> {
                                       child: Container(
                                         width: width * 1,
                                         height: height * 0.05,
-                                        margin: EdgeInsets.only(top: width*0.03),
+                                        margin:
+                                            EdgeInsets.only(top: width * 0.03),
                                         decoration: BoxDecoration(
                                           borderRadius: BorderRadius.circular(
                                               width * 0.03),
-                                            color: Colour.secondarycolour.withOpacity(0.8),
+                                          color: Colour.secondarycolour
+                                              .withOpacity(0.8),
                                         ),
                                         child: Center(
                                           child: Text("Cancel",
@@ -439,7 +455,12 @@ class _ChatPageState extends State<ChatPage> {
                 ),
                 InkWell(
                   onTap: () {
-                    Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => BottomNavigationPage(),), (route) => false);
+                    Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => BottomNavigationPage(),
+                        ),
+                        (route) => false);
                   },
                   child: Container(
                     width: width * 0.3,

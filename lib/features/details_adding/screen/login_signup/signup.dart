@@ -15,8 +15,9 @@ import 'login.dart';
 
 class SignupPage extends ConsumerStatefulWidget {
   final bool sign;
+
   // final UsersModel userModel;
-  const SignupPage( {super.key, required this.sign});
+  const SignupPage({super.key, required this.sign});
 
   @override
   ConsumerState createState() => _SignupPageState();
@@ -35,22 +36,30 @@ class _SignupPageState extends ConsumerState<SignupPage> {
   bool selectIcon = false;
   bool agree = false;
 
-  userDetails()async{
-        ref.watch(AddingControllerProvider).addUserData(
-          cart: [], wish: [],
-        name:nameController.text,
-        email:emailController.text,
-        password:passwordController.text,
-        id:emailController.text.trim());
+  userDetails() async {
+    ref.watch(AddingControllerProvider).addUserData(
+        cart: [],
+        wish: [],
+        name: nameController.text,
+        email: emailController.text,
+        password: passwordController.text,
+        id: emailController.text.trim());
   }
-  addSignupDetails() async{
-    ref.read(AddingControllerProvider).addUser(nameController.text,
-        emailController.text.trim(), passwordController.text,idController.text, [], []);
+
+  addSignupDetails() async {
+    ref.read(AddingControllerProvider).addUser(
+        nameController.text,
+        emailController.text.trim(),
+        passwordController.text,
+        idController.text, [], []);
   }
-  currentUser() async{
-    var data= await FirebaseFirestore.instance.collection("users")
-        .doc(emailController.text.trim()).get();
-    currentModel= UsersModel.fromMap(data.data()!);
+
+  currentUser() async {
+    var data = await FirebaseFirestore.instance
+        .collection("users")
+        .doc(emailController.text.trim())
+        .get();
+    currentModel = UsersModel.fromMap(data.data()!);
   }
 
   void initState() {
@@ -259,7 +268,8 @@ class _SignupPageState extends ConsumerState<SignupPage> {
                                           fontWeight: FontWeight.w500,
                                           fontSize: width * 0.033,
                                           color: Colour.thirdcolour)),
-                                ],),
+                                ],
+                              ),
                               Container(
                                 width: width * 0.79,
                                 child: Text("Privacy and Policy",

@@ -19,6 +19,7 @@ import 'mycart.dart';
 
 class DrugDetailsPage2 extends ConsumerStatefulWidget {
   final MedicineModel med2;
+
   const DrugDetailsPage2({super.key, required this.med2});
 
   @override
@@ -29,6 +30,7 @@ class _DrugDetailsPage2State extends ConsumerState<DrugDetailsPage2> {
   List d = [];
   dynamic added;
   dynamic total = 0;
+
   // totalprice(){
   //   for(int i=0;i>widget.c.length;i++){
   //     if(widget.c[i]["quantity"]>0){
@@ -50,9 +52,7 @@ class _DrugDetailsPage2State extends ConsumerState<DrugDetailsPage2> {
       total = d[i]["text6"] * d[i]["price"] + total;
     }
     print(total);
-    setState(() {
-
-    });
+    setState(() {});
   }
 
   void initState() {
@@ -60,6 +60,7 @@ class _DrugDetailsPage2State extends ConsumerState<DrugDetailsPage2> {
     // TODO: implement initState
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -92,27 +93,50 @@ class _DrugDetailsPage2State extends ConsumerState<DrugDetailsPage2> {
           ),
           actions: [
             Padding(
-              padding: EdgeInsets.all(width*0.03),
+              padding: EdgeInsets.all(width * 0.03),
               child: InkWell(
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => MyCartPage(details: MedicineModel(name: '', image: '', ml: '', rate: 0, off: 0, id: '', des: '', qty: 0, userId: userId!)),));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => MyCartPage(
+                              details: MedicineModel(
+                                  name: '',
+                                  image: '',
+                                  ml: '',
+                                  rate: 0,
+                                  off: 0,
+                                  id: '',
+                                  des: '',
+                                  qty: 0,
+                                  userId: userId!)),
+                        ));
                   },
-                  child: Icon(CupertinoIcons.cart,weight: width*0.04,color: Colour.thirdcolour,)),
+                  child: Icon(
+                    CupertinoIcons.cart,
+                    weight: width * 0.04,
+                    color: Colour.thirdcolour,
+                  )),
             )
           ],
         ),
         body: SingleChildScrollView(
           child: Padding(
-            padding:  EdgeInsets.all(width*0.03),
+            padding: EdgeInsets.all(width * 0.03),
             child: Column(
               children: [
                 SizedBox(
                   height: width * 0.05,
                 ),
                 Container(
-                    height: height*0.25,
-                    width: width*0.5,
-                    child: Image(image: NetworkImage(widget.med2.image,),fit: BoxFit.fill,)),
+                    height: height * 0.25,
+                    width: width * 0.5,
+                    child: Image(
+                      image: NetworkImage(
+                        widget.med2.image,
+                      ),
+                      fit: BoxFit.fill,
+                    )),
                 SizedBox(
                   height: width * 0.05,
                 ),
@@ -130,97 +154,83 @@ class _DrugDetailsPage2State extends ConsumerState<DrugDetailsPage2> {
                             fontSize: width * 0.04),
                       ),
                       Row(
-                        mainAxisAlignment:
-                        MainAxisAlignment.spaceBetween,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
                             widget.med2.ml,
                             style: TextStyle(
-                                color: Colour.gray,
-                                fontSize: width * 0.04),
+                                color: Colour.gray, fontSize: width * 0.04),
                           ),
                         ],
                       ),
-
                       Row(
-                        mainAxisAlignment:
-                        MainAxisAlignment.spaceBetween,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           widget.med2.qty != 0
                               ? Container(
-                            height: width * 0.095,
-                            width: width * 0.22,
-                            child: Row(
-                              mainAxisAlignment:
-                              MainAxisAlignment
-                                  .spaceBetween,
-                              children: [
-                                InkWell(
-                                    onTap: () {
-                                      widget.med2.qty--;
-                                      totalnprice();
-                                      setState(() {
-                                      });
-
-                                    },
-                                    child:  Icon(
-                                      Icons.remove,
-                                      color: Colour.color5,
-                                    )),
-                                Text(
-                                  widget.med2.qty
-                                      .toString(),
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.w800,
-                                      fontSize: width * 0.04,
-                                      color: Colour.thirdcolour),
-                                ),
-                                InkWell(
-                                    onTap: () {
-                                      widget.med2.qty++;
-                                      totalnprice();
-                                      setState(() {
-
-                                      });
-                                    },
-                                    child: Container(
-                                      color: Colour.primarycolour,
-                                      child: Icon(
-                                        Icons.add,
-                                        color: Colour.secondarycolour,
+                                  height: width * 0.095,
+                                  width: width * 0.22,
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      InkWell(
+                                          onTap: () {
+                                            widget.med2.qty--;
+                                            totalnprice();
+                                            setState(() {});
+                                          },
+                                          child: Icon(
+                                            Icons.remove,
+                                            color: Colour.color5,
+                                          )),
+                                      Text(
+                                        widget.med2.qty.toString(),
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.w800,
+                                            fontSize: width * 0.04,
+                                            color: Colour.thirdcolour),
                                       ),
-                                    )),
-                              ],
-                            ),
-                          )
+                                      InkWell(
+                                          onTap: () {
+                                            widget.med2.qty++;
+                                            totalnprice();
+                                            setState(() {});
+                                          },
+                                          child: Container(
+                                            color: Colour.primarycolour,
+                                            child: Icon(
+                                              Icons.add,
+                                              color: Colour.secondarycolour,
+                                            ),
+                                          )),
+                                    ],
+                                  ),
+                                )
                               : InkWell(
-                            onTap: () {
-                              widget.med2.qty++;
-                              totalnprice();
-                              setState(() {
-
-                              });
-                            },
-                            child: Container(
-                              height: width * 0.095,
-                              width: width * 0.22,
-                              decoration: BoxDecoration(
-                                color: Colour.primarycolour,
-                                borderRadius:
-                                BorderRadius.circular(
-                                    width * 0.015),
-                              ),
-                              child: Center(
-                                  child: Text(
-                                    "Add item",
-                                    style: TextStyle(
-                                        color: Colour.secondarycolour),
-                                  )),
-                            ),
-                          ),
-
+                                  onTap: () {
+                                    widget.med2.qty++;
+                                    totalnprice();
+                                    setState(() {});
+                                  },
+                                  child: Container(
+                                    height: width * 0.095,
+                                    width: width * 0.22,
+                                    decoration: BoxDecoration(
+                                      color: Colour.primarycolour,
+                                      borderRadius:
+                                          BorderRadius.circular(width * 0.015),
+                                    ),
+                                    child: Center(
+                                        child: Text(
+                                      "Add item",
+                                      style: TextStyle(
+                                          color: Colour.secondarycolour),
+                                    )),
+                                  ),
+                                ),
                           Text(
-                            "\$${widget.med2.qty*widget.med2.rate}",
+                            "\$${widget.med2.qty * widget.med2.rate}",
                             style: TextStyle(
                                 fontWeight: FontWeight.w800,
                                 fontSize: width * 0.04),
@@ -245,7 +255,9 @@ class _DrugDetailsPage2State extends ConsumerState<DrugDetailsPage2> {
                             fontSize: width * 0.04,
                             fontWeight: FontWeight.w700),
                       ),
-                      SizedBox(height: height*0.03,),
+                      SizedBox(
+                        height: height * 0.03,
+                      ),
                       Text(
                         widget.med2.des,
                         style: TextStyle(color: Colour.gray),
@@ -253,7 +265,9 @@ class _DrugDetailsPage2State extends ConsumerState<DrugDetailsPage2> {
                     ],
                   ),
                 ),
-                SizedBox(height: height*0.15,),
+                SizedBox(
+                  height: height * 0.15,
+                ),
                 Container(
                   height: width * 0.15,
                   width: width * 0.9,
@@ -261,8 +275,7 @@ class _DrugDetailsPage2State extends ConsumerState<DrugDetailsPage2> {
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       Row(
-                        mainAxisAlignment:
-                        MainAxisAlignment.spaceBetween,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           InkWell(
                             onTap: () {
@@ -272,58 +285,89 @@ class _DrugDetailsPage2State extends ConsumerState<DrugDetailsPage2> {
                                 builder: (context) {
                                   return AlertDialog(
                                     content: Container(
-                                      height: height*0.18,
-                                      width: width*0.5,
+                                      height: height * 0.18,
+                                      width: width * 0.5,
                                       child: Column(
-                                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceEvenly,
                                         children: [
                                           Container(
                                               child: Column(
-                                                children: [
-                                                  Text("Are you sure You want to",
-                                                    style: TextStyle(
-                                                        fontWeight: FontWeight.w600,
-                                                        fontSize: width*0.04,
-                                                        color: Colour.thirdcolour),),
-                                                  Text("add this to cart?",
-                                                    style: TextStyle(
-                                                        fontWeight: FontWeight.w600,
-                                                        fontSize: width*0.04,
-                                                        color: Colour.thirdcolour),),
-                                                ],)),
+                                            children: [
+                                              Text(
+                                                "Are you sure You want to",
+                                                style: TextStyle(
+                                                    fontWeight: FontWeight.w600,
+                                                    fontSize: width * 0.04,
+                                                    color: Colour.thirdcolour),
+                                              ),
+                                              Text(
+                                                "add this to cart?",
+                                                style: TextStyle(
+                                                    fontWeight: FontWeight.w600,
+                                                    fontSize: width * 0.04,
+                                                    color: Colour.thirdcolour),
+                                              ),
+                                            ],
+                                          )),
                                           Row(
-                                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
                                             children: [
                                               InkWell(
-                                                onTap: ()  {
-                                                  MedicineModel cartDetails= MedicineModel(
-                                                      name: widget.med2.name.toString(),
-                                                      image: widget.med2.image.toString(),
-                                                      ml: widget.med2.ml.toString(),
-                                                      rate: widget.med2.rate,
-                                                      off: widget.med2.off,
-                                                      id: widget.med2.id.toString(),
-                                                      des: '',
-                                                      qty: widget.med2.qty,
-                                                      userId: userId!);
-                                                  ref.read(AddingControllerProvider).updatecart(currentModel!,cartDetails);
-                                                  Navigator.push(context, MaterialPageRoute(builder: (context) => MyCartPage(details: cartDetails ),));
+                                                onTap: () {
+                                                  MedicineModel cartDetails =
+                                                      MedicineModel(
+                                                          name: widget.med2.name
+                                                              .toString(),
+                                                          image: widget
+                                                              .med2.image
+                                                              .toString(),
+                                                          ml: widget.med2.ml
+                                                              .toString(),
+                                                          rate:
+                                                              widget.med2.rate,
+                                                          off: widget.med2.off,
+                                                          id: widget.med2.id
+                                                              .toString(),
+                                                          des: '',
+                                                          qty: widget.med2.qty,
+                                                          userId: userId!);
+                                                  ref
+                                                      .read(
+                                                          AddingControllerProvider)
+                                                      .updatecart(currentModel!,
+                                                          cartDetails);
+                                                  Navigator.push(
+                                                      context,
+                                                      MaterialPageRoute(
+                                                        builder: (context) =>
+                                                            MyCartPage(
+                                                                details:
+                                                                    cartDetails),
+                                                      ));
                                                   // Navigator.pop(context);
                                                 },
                                                 child: Container(
-                                                  height: height*0.05,
-                                                  width: width*0.26,
+                                                  height: height * 0.05,
+                                                  width: width * 0.26,
                                                   decoration: BoxDecoration(
-                                                      color: Colour.primarycolour,
-                                                      borderRadius: BorderRadius.circular(width*0.03)
-                                                  ),
+                                                      color:
+                                                          Colour.primarycolour,
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              width * 0.03)),
                                                   child: Center(
-                                                    child: Text("Yes",
+                                                    child: Text(
+                                                      "Yes",
                                                       style: TextStyle(
-                                                          fontSize: width*0.04,
-                                                          fontWeight: FontWeight.w600,
-                                                          color: Colour.secondarycolour
-                                                      ),),
+                                                          fontSize:
+                                                              width * 0.04,
+                                                          fontWeight:
+                                                              FontWeight.w600,
+                                                          color: Colour
+                                                              .secondarycolour),
+                                                    ),
                                                   ),
                                                 ),
                                               ),
@@ -332,19 +376,25 @@ class _DrugDetailsPage2State extends ConsumerState<DrugDetailsPage2> {
                                                   Navigator.pop(context);
                                                 },
                                                 child: Container(
-                                                  height: height*0.05,
-                                                  width: width*0.26,
+                                                  height: height * 0.05,
+                                                  width: width * 0.26,
                                                   decoration: BoxDecoration(
-                                                      color: Colour.primarycolour,
-                                                      borderRadius: BorderRadius.circular(width*0.03)
-                                                  ),
+                                                      color:
+                                                          Colour.primarycolour,
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              width * 0.03)),
                                                   child: Center(
-                                                    child: Text("No",
+                                                    child: Text(
+                                                      "No",
                                                       style: TextStyle(
-                                                          fontSize: width*0.04,
-                                                          fontWeight: FontWeight.w600,
-                                                          color: Colour.secondarycolour
-                                                      ),),
+                                                          fontSize:
+                                                              width * 0.04,
+                                                          fontWeight:
+                                                              FontWeight.w600,
+                                                          color: Colour
+                                                              .secondarycolour),
+                                                    ),
                                                   ),
                                                 ),
                                               ),
@@ -354,16 +404,16 @@ class _DrugDetailsPage2State extends ConsumerState<DrugDetailsPage2> {
                                       ),
                                     ),
                                   );
-                                },);
-                             },
+                                },
+                              );
+                            },
                             child: Container(
                               height: width * 0.14,
                               width: width * 0.14,
                               decoration: BoxDecoration(
-                                  color:
-                                  Colors.lightGreen.withOpacity(0.09),
-                                  borderRadius: BorderRadius.circular(
-                                      width * 0.02)),
+                                  color: Colors.lightGreen.withOpacity(0.09),
+                                  borderRadius:
+                                      BorderRadius.circular(width * 0.02)),
                               child: Icon(
                                 Icons.shopping_cart_outlined,
                                 color: Colors.green,
@@ -372,7 +422,7 @@ class _DrugDetailsPage2State extends ConsumerState<DrugDetailsPage2> {
                           ),
                           InkWell(
                             onTap: () {
-                              MedicineModel itemDtails= MedicineModel(
+                              MedicineModel itemDtails = MedicineModel(
                                   name: widget.med2.name.toString(),
                                   image: widget.med2.image.toString(),
                                   ml: widget.med2.ml.toString(),
@@ -383,16 +433,19 @@ class _DrugDetailsPage2State extends ConsumerState<DrugDetailsPage2> {
                                   qty: widget.med2.qty,
                                   userId: userId!);
                               Navigator.push(
-                                  context, MaterialPageRoute(
-                                builder: (context) => DeliveryPage(item2: itemDtails,)));
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => DeliveryPage(
+                                            item2: itemDtails,
+                                          )));
                             },
                             child: Container(
                               height: width * 0.12,
                               width: width * 0.62,
                               decoration: BoxDecoration(
                                   color: Colour.primarycolour,
-                                  borderRadius: BorderRadius.circular(
-                                      width * 0.07)),
+                                  borderRadius:
+                                      BorderRadius.circular(width * 0.07)),
                               child: Center(
                                 child: Text(
                                   "Buy Now",

@@ -13,7 +13,8 @@ import 'bookingdoctor.dart';
 import 'chatwithdoctor.dart';
 
 class DoctordetailsPage extends StatefulWidget {
-final DoctorModel dr;
+  final DoctorModel dr;
+
   const DoctordetailsPage({super.key, required this.dr});
 
   @override
@@ -21,8 +22,8 @@ final DoctorModel dr;
 }
 
 class _DoctordetailsPageState extends State<DoctordetailsPage> {
-
   DateTime? date;
+
   // List doctor=[
   //   {
   //     "image":ImageIcons.drmarcus1,
@@ -70,22 +71,23 @@ class _DoctordetailsPageState extends State<DoctordetailsPage> {
   //   }
   // ];
 // int selectIndex=0;
-List time=[
-  "09:00 AM",
-  "10:00 AM",
-  "11:00 AM",
-  "01:00 PM",
-  "02:00 PM",
-  "03:00 PM",
-  "04:00 PM",
-  "07:00 PM",
-  "08:00 PM",
-];
-int selectIndex1=0;
+  List time = [
+    "09:00 AM",
+    "10:00 AM",
+    "11:00 AM",
+    "01:00 PM",
+    "02:00 PM",
+    "03:00 PM",
+    "04:00 PM",
+    "07:00 PM",
+    "08:00 PM",
+  ];
+  int selectIndex1 = 0;
+
 // List day=[];
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
       appBar: AppBar(
         scrolledUnderElevation: 0,
         centerTitle: true,
@@ -100,28 +102,27 @@ int selectIndex1=0;
             height: width * 0.05,
             width: width * 0.8,
             child: Padding(
-              padding: EdgeInsets.only(left: width*0.023),
+              padding: EdgeInsets.only(left: width * 0.023),
               child: Padding(
-                padding:  EdgeInsets.all(width*0.007),
-                child:
-                SvgPicture.asset(
-                  ImageIcons.back,),
+                padding: EdgeInsets.all(width * 0.007),
+                child: SvgPicture.asset(
+                  ImageIcons.back,
+                ),
               ),
             ),
           ),
         ),
-        title:  Text(
+        title: Text(
           "Doctor Detail",
           style: TextStyle(
               color: Colour.thirdcolour,
               fontWeight: FontWeight.w700,
-              fontSize: width*0.04
-          ),
+              fontSize: width * 0.04),
         ),
-surfaceTintColor:Colour.thirdcolour ,
+        surfaceTintColor: Colour.thirdcolour,
       ),
       body: Padding(
-        padding:  EdgeInsets.all(width*0.03),
+        padding: EdgeInsets.all(width * 0.03),
         child: SingleChildScrollView(
           physics: BouncingScrollPhysics(),
           child: Column(
@@ -130,68 +131,72 @@ surfaceTintColor:Colour.thirdcolour ,
                   shrinkWrap: true,
                   // physics: BouncingScrollPhysics(),
                   itemBuilder: (context, index) {
-                    return
-                      Padding(
-                        padding:  EdgeInsets.all(width*0.03),
-                        child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Container(
-                              width: width*0.3,
-                              height:height*0.15,
-                              decoration: BoxDecoration(
-                                image: DecorationImage(image: NetworkImage(widget.dr.image)),
-                                // color: Colors.red,
-                                borderRadius: BorderRadius.circular(width*0.03),
-                              ),
+                    return Padding(
+                      padding: EdgeInsets.all(width * 0.03),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Container(
+                            width: width * 0.3,
+                            height: height * 0.15,
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                  image: NetworkImage(widget.dr.image)),
+                              // color: Colors.red,
+                              borderRadius: BorderRadius.circular(width * 0.03),
                             ),
-                            Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(widget.dr.name,
-                                  style: TextStyle(
-                                      fontSize: width*0.04,
-                                      fontWeight: FontWeight.w800,
-                                      color:Colour.thirdcolour
-                                  ),
-                                ),
-                                Text(widget.dr.spcl,
-                                  style: TextStyle(
-                                      color: Colour.gray,
-                                      fontSize: width*0.04
-                                  ),
-                                ),
-                                Text(widget.dr.exp,
-                                  style: TextStyle(
-                                      color: Colour.primarycolour,
-                                      fontWeight: FontWeight.w500
-                                  ),
-                                ),
-                              ],
-                            )
-                          ],
-                        ),
-                      );
+                          ),
+                          Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                widget.dr.name,
+                                style: TextStyle(
+                                    fontSize: width * 0.04,
+                                    fontWeight: FontWeight.w800,
+                                    color: Colour.thirdcolour),
+                              ),
+                              Text(
+                                widget.dr.spcl,
+                                style: TextStyle(
+                                    color: Colour.gray, fontSize: width * 0.04),
+                              ),
+                              Text(
+                                widget.dr.exp,
+                                style: TextStyle(
+                                    color: Colour.primarycolour,
+                                    fontWeight: FontWeight.w500),
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
+                    );
                   },
                   separatorBuilder: (context, index) {
                     return SizedBox(
-                      height: height*0.03,
+                      height: height * 0.03,
                     );
                   },
-                  itemCount: 1
+                  itemCount: 1),
+              SizedBox(
+                height: width * 0.03,
               ),
-              SizedBox(height: width*0.03,),
               Row(
                 children: [
-                  Text("About",
+                  Text(
+                    "About",
                     style: TextStyle(
-                        fontSize: width*0.04,
+                        fontSize: width * 0.04,
                         fontWeight: FontWeight.w700,
-                        color:Colour.thirdcolour
-                    ),
+                        color: Colour.thirdcolour),
                   ),
                 ],
               ),
-              SizedBox(height: width*0.03,),
+              SizedBox(
+                height: width * 0.03,
+              ),
               ReadMoreText(
                 "Lorem ipsum dolor sit amet, consectetur adipiscing\n"
                 "elit, sed do eiusmod tempor incididunt ut labore et\n"
@@ -203,24 +208,32 @@ surfaceTintColor:Colour.thirdcolour ,
                 trimMode: TrimMode.Line,
                 trimCollapsedText: 'read more',
                 style: TextStyle(
-                  fontSize: width*0.033, fontWeight:FontWeight.w400,color: Colour.gray
-                ),
+                    fontSize: width * 0.033,
+                    fontWeight: FontWeight.w400,
+                    color: Colour.gray),
                 trimExpandedText: 'less',
-                lessStyle: TextStyle(fontSize:width*0.03, fontWeight: FontWeight.bold,color:Colour.primarycolour ),
-                moreStyle: TextStyle(fontSize:width*0.03, fontWeight: FontWeight.bold,color:Colour.primarycolour ),
+                lessStyle: TextStyle(
+                    fontSize: width * 0.03,
+                    fontWeight: FontWeight.bold,
+                    color: Colour.primarycolour),
+                moreStyle: TextStyle(
+                    fontSize: width * 0.03,
+                    fontWeight: FontWeight.bold,
+                    color: Colour.primarycolour),
               ),
-              SizedBox(height: width*0.03,),
+              SizedBox(
+                height: width * 0.03,
+              ),
               EasyInfiniteDateTimeLine(
                 firstDate: DateTime.now(),
-                lastDate: DateTime(DateTime.now().year, DateTime.now().month+1,DateTime.daysPerWeek),
+                lastDate: DateTime(DateTime.now().year,
+                    DateTime.now().month + 1, DateTime.daysPerWeek),
                 focusDate: date ?? DateTime.now(),
 
                 onDateChange: (selectedDate) {
-                  date=selectedDate;
+                  date = selectedDate;
                   print(date);
-                  setState(() {
-
-                  });
+                  setState(() {});
                 },
                 // headerProps:  EasyHeaderProps(
                 //   monthPickerType: MonthPickerType.switcher,
@@ -228,13 +241,14 @@ surfaceTintColor:Colour.thirdcolour ,
                 // ),
                 dayProps: EasyDayProps(
                   dayStructure: DayStructure.dayStrDayNum,
-                  height: height*0.1,
-                  width: width*0.18,
-                  borderColor:Colour.lightgreen ,
+                  height: height * 0.1,
+                  width: width * 0.18,
+                  borderColor: Colour.lightgreen,
                   activeDayStyle: DayStyle(
                     decoration: BoxDecoration(
                       color: Colour.primarycolour,
-                      borderRadius: BorderRadius.all(Radius.circular(width*0.06)),
+                      borderRadius:
+                          BorderRadius.all(Radius.circular(width * 0.06)),
                       // gradient: LinearGradient(
                       //   begin: Alignment.topCenter,
                       //   end: Alignment.bottomCenter,
@@ -296,113 +310,126 @@ surfaceTintColor:Colour.thirdcolour ,
               //
               //   ),
               // ),
-              SizedBox(height: width*0.03,),
-              Divider(thickness: width*0.004,
+              SizedBox(
+                height: width * 0.03,
+              ),
+              Divider(
+                thickness: width * 0.004,
                 color: Colour.lightgreen,
               ),
-              SizedBox(height: width*0.03,),
+              SizedBox(
+                height: width * 0.03,
+              ),
               Container(
-                width: width*1,
-                height: height*0.3,
+                width: width * 1,
+                height: height * 0.3,
                 child: GridView.builder(
-                  itemCount:time.length,
+                  itemCount: time.length,
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     childAspectRatio: 1.9,
-                    crossAxisSpacing:height*0.01,
-                    mainAxisSpacing: width*0.02,
+                    crossAxisSpacing: height * 0.01,
+                    mainAxisSpacing: width * 0.02,
                     crossAxisCount: 3,
                   ),
                   physics: BouncingScrollPhysics(),
                   shrinkWrap: true,
                   // scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
-                    return
-                      InkWell(onTap: () {
-                        selectIndex1=index;
-                        setState(() {
-
-                        });
+                    return InkWell(
+                      onTap: () {
+                        selectIndex1 = index;
+                        setState(() {});
                       },
-                        child: Container(
-                            width: width*0.3,
-                            height: height*0.005,
-                            decoration: BoxDecoration(color: selectIndex1==index?Colour.primarycolour:Colour.secondarycolour,
-                                borderRadius: BorderRadius.circular(width*0.06),
-                              border: Border.all(color: Colour.lightgreen,
-                              width: width*0.005)
+                      child: Container(
+                          width: width * 0.3,
+                          height: height * 0.005,
+                          decoration: BoxDecoration(
+                              color: selectIndex1 == index
+                                  ? Colour.primarycolour
+                                  : Colour.secondarycolour,
+                              borderRadius: BorderRadius.circular(width * 0.06),
+                              border: Border.all(
+                                  color: Colour.lightgreen,
+                                  width: width * 0.005)),
+                          child: Center(
+                            child: Text(
+                              time[index],
+                              style: TextStyle(
+                                  color: selectIndex1 == index
+                                      ? Colour.secondarycolour
+                                      : Colour.thirdcolour,
+                                  fontSize: width * 0.035),
                             ),
-                            child: Center(
-                              child: Text(time[index],
-                                style: TextStyle(
-                                color: selectIndex1==index?Colour.secondarycolour:Colour.thirdcolour,
-                                fontSize: width*0.035),
-                              ),
-                            )),
-                      );
+                          )),
+                    );
                   },
                 ),
               ),
               // SizedBox(height: width*0.03,),
-              Row(mainAxisAlignment: MainAxisAlignment.spaceAround,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   InkWell(
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => ChatPage(),));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ChatPage(),
+                          ));
                     },
                     child: Container(
-                      height: height*0.07,
-                      width: width*0.2,
+                      height: height * 0.07,
+                      width: width * 0.2,
                       decoration: BoxDecoration(
                           color: Colour.lightgreen,
-                          borderRadius: BorderRadius.circular(width*0.07)
-                      ),
-                      child: Center(
-                        child: SvgPicture.asset(ImageIcons.chat)
-                      ),
+                          borderRadius: BorderRadius.circular(width * 0.07)),
+                      child: Center(child: SvgPicture.asset(ImageIcons.chat)),
                     ),
                   ),
                   InkWell(
                     onTap: () {
-                      DoctorModel doctorData= DoctorModel(
+                      DoctorModel doctorData = DoctorModel(
                         search: widget.dr.search,
-                          name: widget.dr.name,
-                          cons: widget.dr.cons,
-                          admin: widget.dr.admin,
-                          dis: widget.dr.dis,
-                          image:widget.dr.image,
-                          spcl: widget.dr.spcl,
-                          exp: widget.dr.exp,
-                          userId: userId!,
-                          id: widget.dr.id,
-                          time: time[selectIndex1],
-                          date: date.toString(),
-                          // userId: ''
+                        name: widget.dr.name,
+                        cons: widget.dr.cons,
+                        admin: widget.dr.admin,
+                        dis: widget.dr.dis,
+                        image: widget.dr.image,
+                        spcl: widget.dr.spcl,
+                        exp: widget.dr.exp,
+                        userId: userId!,
+                        id: widget.dr.id,
+                        time: time[selectIndex1],
+                        date: date.toString(),
+                        // userId: ''
                       );
-                      if(date!=null) {
-                        Navigator.push(context, MaterialPageRoute(builder: (
-                            context) => BookingPage(time: doctorData,)));
-                      }else{
-                        ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(
-                                backgroundColor: Colour.primarycolour,
-                                content: Text(
-                                    "Please select any date ")));
+                      if (date != null) {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => BookingPage(
+                                      time: doctorData,
+                                    )));
+                      } else {
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                            backgroundColor: Colour.primarycolour,
+                            content: Text("Please select any date ")));
                       }
-                       },
+                    },
                     child: Container(
-                      height: height*0.07,
-                      width: width*0.6,
+                      height: height * 0.07,
+                      width: width * 0.6,
                       decoration: BoxDecoration(
                           color: Colour.primarycolour,
-                          borderRadius: BorderRadius.circular(width*0.07)
-                      ),
+                          borderRadius: BorderRadius.circular(width * 0.07)),
                       child: Center(
-                        child: Text("Book Appointment",
+                        child: Text(
+                          "Book Appointment",
                           style: TextStyle(
-                              fontSize: width*0.04,
+                              fontSize: width * 0.04,
                               fontWeight: FontWeight.w600,
-                              color: Colour.secondarycolour
-                          ),),
+                              color: Colour.secondarycolour),
+                        ),
                       ),
                     ),
                   ),
