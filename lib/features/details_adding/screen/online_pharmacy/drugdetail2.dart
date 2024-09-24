@@ -422,7 +422,7 @@ class _DrugDetailsPage2State extends ConsumerState<DrugDetailsPage2> {
                           ),
                           InkWell(
                             onTap: () {
-                              MedicineModel itemDtails = MedicineModel(
+                              MedicineModel itemDetails = MedicineModel(
                                   name: widget.med2.name.toString(),
                                   image: widget.med2.image.toString(),
                                   ml: widget.med2.ml.toString(),
@@ -436,7 +436,7 @@ class _DrugDetailsPage2State extends ConsumerState<DrugDetailsPage2> {
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) => DeliveryPage(
-                                            item2: itemDtails,
+                                            item2: itemDetails,
                                           )));
                             },
                             child: Container(

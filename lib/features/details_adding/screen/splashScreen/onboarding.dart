@@ -97,7 +97,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                       Row(
                         children: [
                           Text(
-                            constants[i].discription,
+                            constants[i].description,
                             textAlign: TextAlign.center,
                             style: GoogleFonts.inter(
                               fontWeight: FontWeight.w800,
@@ -110,7 +110,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
                       Row(
                         children: [
                           Text(
-                            constants[i].discription2,
+                            constants[i].description2,
                             textAlign: TextAlign.center,
                             style: GoogleFonts.inter(
                               fontWeight: FontWeight.w800,

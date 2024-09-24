@@ -59,8 +59,8 @@ class _GetStartedPageState extends State<GetStartedPage> {
                   context,
                   CupertinoPageRoute(
                     builder: (context) => prefs.getBool("login") == true
-                        ? BottomNavigationPage()
-                        : LoginPage(),
+                        ? const BottomNavigationPage()
+                        : const LoginPage(),
                   ),
                   (route) => false);
             },
@@ -87,7 +87,7 @@ class _GetStartedPageState extends State<GetStartedPage> {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => SignupPage(
+                    builder: (context) => const SignupPage(
                       sign: false,
                     ),
                   ));
