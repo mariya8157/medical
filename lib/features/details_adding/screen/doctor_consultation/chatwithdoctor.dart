@@ -145,7 +145,7 @@ class ChatPage extends ConsumerWidget {
                     child: TextFormField(
                       controller: messageController,
                       textInputAction: TextInputAction.done,
-                      keyboardType: TextInputType.text,
+                      keyboardType: TextInputType.multiline,
                       style: TextStyle(
                           fontSize: width * 0.045,
                           fontWeight: FontWeight.w500,
