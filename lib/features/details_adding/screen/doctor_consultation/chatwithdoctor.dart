@@ -144,7 +144,7 @@ class ChatPage extends ConsumerWidget {
                         borderRadius: BorderRadius.circular(width * 0.07)),
                     child: TextFormField(
                       controller: messageController,
-                      textInputAction: TextInputAction.done,
+                      textInputAction: TextInputAction.newline,
                       keyboardType: TextInputType.multiline,
                       style: TextStyle(
                           fontSize: width * 0.045,
