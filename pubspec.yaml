@@ -43,11 +43,11 @@ dependencies:
   readmore: ^2.2.0
   pinput: ^3.0.1
   easy_date_timeline: ^1.0.6
-  firebase_core: ^2.24.2
-  cloud_firestore: ^4.14.0
-  firebase_storage: ^11.6.0
-  firebase_auth: ^4.16.0
-  google_sign_in: ^6.1.6
+  firebase_core: ^3.6.0
+  cloud_firestore: ^5.4.3
+  firebase_storage: ^12.3.2
+  firebase_auth: ^5.3.1
+  google_sign_in: ^6.2.1
   carousel_slider: ^5.0.0
   smooth_page_indicator: ^1.1.0
   givestarreviews: ^1.0.2
@@ -61,6 +61,7 @@ dependencies:
   country_code_picker: ^3.0.0
   url_launcher: ^6.3.0
   chat_bubbles: ^1.6.0
+  intl: ^0.19.0
 
 dev_dependencies:
   flutter_test:

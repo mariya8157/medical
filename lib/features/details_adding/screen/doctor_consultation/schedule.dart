@@ -171,8 +171,7 @@ class _SchedulePageState extends State<SchedulePage> {
                                                         MainAxisAlignment
                                                             .spaceEvenly,
                                                     children: [
-                                                      SvgPicture.asset(
-                                                          ImageIcons.calendar),
+                                                      Icon(Icons.calendar_month),
                                                       Text(
                                                           "${data[index]["date"].substring(0, 10)}",
                                                           style: TextStyle(

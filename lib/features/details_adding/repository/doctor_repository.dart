@@ -56,4 +56,5 @@ class DoctorRepository {
       value.update({"id": value.id});
     });
   }
+
 }

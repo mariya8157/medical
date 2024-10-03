@@ -182,7 +182,7 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                   CircleAvatar(
                     radius: width * 0.05,
                     backgroundColor: Colour.lightgreen,
-                    child: Center(child: SvgPicture.asset(ImageIcons.calendar)),
+                    child: Center(child: Icon(Icons.calendar_month)),
                   ),
                   Text(
                     widget.time.date.toString().substring(0, 10),
@@ -626,10 +626,35 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                                   )),
                                   InkWell(
                                     onTap: () {
+                                      DoctorModel doctorData = DoctorModel(
+                                        search: [],
+                                        name: '',
+                                        cons: 0,
+                                        admin: 0,
+                                        dis: 0,
+                                        image: widget.time.image,
+                                        spcl: '',
+                                        exp: '',
+                                        userId: userId!,
+                                        id: widget.time.id,
+                                        time: '',
+                                        date: '',
+                                        // userId: ''
+                                      );
+                                      print(currentModel!.email);
+                                      print(widget.time.name);
+                                      print(widget.time.id);
+                                      print(currentModel!.id);
                                       Navigator.push(
                                           context,
                                           MaterialPageRoute(
-                                            builder: (context) => ChatPage(),
+                                            builder: (context) => ChatPage(
+                                              senderId: currentModel!.name,
+                                              receiverId: widget.time.name,
+                                              doctorId: widget.time.id,
+                                              chatId: currentModel!.id,
+                                              doctorImage:doctorData,
+                                            ),
                                           ));
                                     },
                                     child: Container(

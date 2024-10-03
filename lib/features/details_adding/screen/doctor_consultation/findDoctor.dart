@@ -252,7 +252,7 @@ class _FindDoctorState extends ConsumerState<FindDoctor> {
                                       spcl: data[selectIndex].spcl.toString(),
                                       exp: data[selectIndex].exp.toString(),
                                       userId: userId!,
-                                      id: "",
+                                      id: data[selectIndex].name.toString(),
                                       time: '',
                                       date: '',
                                       // userId: '',

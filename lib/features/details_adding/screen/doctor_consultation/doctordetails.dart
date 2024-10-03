@@ -371,10 +371,31 @@ class _DoctordetailsPageState extends State<DoctordetailsPage> {
                 children: [
                   InkWell(
                     onTap: () {
+                      DoctorModel doctorData = DoctorModel(
+                        search: [],
+                        name: '',
+                        cons: 0,
+                        admin: 0,
+                        dis: 0,
+                        image: widget.dr.image,
+                        spcl: '',
+                        exp: '',
+                        userId: userId!,
+                        id: widget.dr.id,
+                        time: '',
+                        date: '',
+                        // userId: ''
+                      );
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => ChatPage(),
+                            builder: (context) =>  ChatPage(
+                              senderId: currentModel!.name,
+                              receiverId: widget.dr.name,
+                              doctorId: widget.dr.id,
+                              chatId: currentModel!.id,
+                              doctorImage: doctorData,
+                            ),
                           ));
                     },
                     child: Container(
@@ -404,6 +425,7 @@ class _DoctordetailsPageState extends State<DoctordetailsPage> {
                         // userId: ''
                       );
                       if (date != null) {
+                        print(widget.dr.id);
                         Navigator.push(
                             context,
                             MaterialPageRoute(
