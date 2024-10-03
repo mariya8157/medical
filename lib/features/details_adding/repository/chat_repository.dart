@@ -6,20 +6,19 @@ class ChatRepository {
 
   ChatRepository(this.firestore);
 
-  Future<void> sendMessage(String doctorId, MessageModel message) async {
+  Future<void> sendMessage(MessageModel message) async {
     await firestore
-        .collection('doctors')
-        .doc(doctorId)
         .collection('chats')
+        .doc(message.senderId)
+        .collection('messages')
         .add(message.toMap());
   }
 
-  Stream<List<MessageModel>> getMessages(String chatId, String doctorId) {
+  Stream<List<MessageModel>> getMessages(String receiverId) {
     return firestore
-        .collection('doctors')
-        .doc(doctorId)
         .collection('chats')
-        .where('chatId', isEqualTo: chatId)
+        .doc(receiverId)
+        .collection('messages')
         .where('isDeleted', isEqualTo: false)
         .orderBy('timestamp')
         .snapshots()
@@ -30,7 +29,7 @@ class ChatRepository {
 
   Future<void> softDeleteMessage(String messageId) async {
     await firestore.collection('chats').doc(messageId).update({
-      'isDeleted': true, // Set isDeleted to true
+      'isDeleted': true,
     });
   }
 

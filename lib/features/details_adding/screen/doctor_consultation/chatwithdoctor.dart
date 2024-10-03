@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:intl/intl.dart';
+import 'package:medical/features/details_adding/screen/doctor_consultation/findDoctor.dart';
+import 'package:medical/features/details_adding/screen/doctor_consultation/schedule.dart';
 import 'package:medical/models/doctor_model.dart';
 import '../../../../core/constants/colour.dart';
 import '../../../../core/constants/icons.dart';
@@ -9,6 +11,8 @@ import '../../../../core/constants/images.dart';
 import '../../../../main.dart';
 import '../../../../models/message_model.dart';
 import '../../providers/chat_provider.dart';
+import '../login_signup/login.dart';
+import 'bookingdoctor.dart';
 
 class ChatPage extends ConsumerWidget {
   final String senderId;
@@ -29,13 +33,12 @@ class ChatPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final chatController = ref.watch(chatControllerProvider);
     TextEditingController messageController = TextEditingController();
-
     return Scaffold(
         appBar: AppBar(
         elevation: 0,
         leading: InkWell(
           onTap: () {
-            Navigator.pop(context);
+            Navigator.push(context, MaterialPageRoute(builder: (context) => FindDoctor()));
           },
           child: SizedBox(
             height: width * 0.05,
@@ -72,12 +75,11 @@ class ChatPage extends ConsumerWidget {
           children: [
             Expanded(
               child: StreamBuilder<List<MessageModel>>(
-                stream: chatController.getMessages(chatId, doctorId),
+                stream: chatController.getMessages(receiverId),
                 builder: (context, snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
                     return Center(child: CircularProgressIndicator());
                   }
-
                   if (!snapshot.hasData || snapshot.data!.isEmpty) {
                     return Center(child: Text('No messages'));
                   }
@@ -87,6 +89,7 @@ class ChatPage extends ConsumerWidget {
                   return ListView.builder(
                     itemCount: messages.length,
                     itemBuilder: (context, index) {
+                      print(messages);
                       final message = messages[index];
                       final formattedDate = DateFormat('yyyy-MM-dd HH:mm').format(message.timestamp.toLocal());
                       return Container(
@@ -94,7 +97,7 @@ class ChatPage extends ConsumerWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
-                            Text(message.senderEmail,style: TextStyle(
+                            Text(message.receiverId,style: TextStyle(
                                 fontSize: width*0.04,
                               color: Colour.thirdcolour,
                               fontWeight: FontWeight.w600
@@ -116,7 +119,7 @@ class ChatPage extends ConsumerWidget {
                                 children: [
                                   Container(
                                     padding: EdgeInsets.only(right: width*0.03,),
-                                    child: Text(message.text,style: TextStyle(
+                                    child: Text(message.chatId,style: TextStyle(
                                         fontSize: width*0.035,
                                         color: Colour.secondarycolour,
                                         fontWeight: FontWeight.w500
@@ -180,7 +183,6 @@ class ChatPage extends ConsumerWidget {
                          messageController.text,
                          chatId,
                          senderId,
-                         receiverId,
                        );
                        messageController.clear();
                      }

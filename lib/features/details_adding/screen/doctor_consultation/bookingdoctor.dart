@@ -8,6 +8,7 @@ import '../../../../core/constants/colour.dart';
 import '../../../../core/constants/icons.dart';
 import '../../../../main.dart';
 import '../../controller/schedule_controller.dart';
+import '../home/bottomnavigation.dart';
 import 'chatwithdoctor.dart';
 
 class BookingPage extends ConsumerStatefulWidget {
@@ -581,7 +582,7 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                         builder: (context) {
                           return AlertDialog(
                             content: SizedBox(
-                              height: width * 0.8,
+                              height: height * 0.5,
                               width: width * 0.4,
                               child: Column(
                                 mainAxisAlignment:
@@ -663,7 +664,7 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                                       decoration: BoxDecoration(
                                           color: Colour.primarycolour,
                                           borderRadius: BorderRadius.circular(
-                                              width * 0.05)),
+                                              width * 0.02)),
                                       child: Center(
                                         child: Text(
                                           "Chat Doctor",
@@ -671,6 +672,58 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                                               fontSize: width * 0.04,
                                               fontWeight: FontWeight.w600,
                                               color: Colour.secondarycolour),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  Row(
+                                    children: [
+                                      Expanded(
+                                        child: Divider(
+                                          color: Colour.color2,
+                                          indent: width * 0.04,
+                                          endIndent: width * 0.04,
+                                          thickness: width * 0.005,
+                                        ),
+                                      ),
+                                      Text(
+                                        "OR",
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.w500,
+                                            fontSize: width * 0.037,
+                                            color: Colour.color1),
+                                      ),
+                                      Expanded(
+                                        child: Divider(
+                                          color: Colour.color2,
+                                          indent: width * 0.04,
+                                          endIndent: width * 0.04,
+                                          thickness: width * 0.005,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  InkWell(
+                                    onTap: () {
+                                      Navigator.pushAndRemoveUntil(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => BottomNavigationPage(),
+                                        ), (Route<dynamic> route) => false);  },
+                                    child: Container(
+                                      height: width * 0.12,
+                                      width: width * 0.34,
+                                      decoration: BoxDecoration(
+                                          color: Colour.lightgreen,
+                                          borderRadius: BorderRadius.circular(
+                                              width * 0.02)),
+                                      child: Center(
+                                        child: Text(
+                                          "Go to Home",
+                                          style: TextStyle(
+                                              fontSize: width * 0.04,
+                                              fontWeight: FontWeight.w600,
+                                              color: Colour.primarycolour),
                                         ),
                                       ),
                                     ),

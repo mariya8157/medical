@@ -7,7 +7,7 @@ class ChatController {
 
   ChatController(this.repository);
 
-  Future<void> sendMessage(String doctorId, String senderId, String receiverId, String text, String chatId, String senderEmail, String receiverEmail) async {
+  Future<void> sendMessage(String senderId, String receiverId, String text, String chatId, String senderEmail, String receiverEmail) async {
     final message = MessageModel(
         id: '',
         senderId: senderId,
@@ -19,11 +19,11 @@ class ChatController {
         senderEmail: senderEmail,
         receiverEmail: receiverEmail,
     );
-    await repository.sendMessage(doctorId, message);
+    await repository.sendMessage(message);
   }
 
-  Stream<List<MessageModel>> getMessages(String chatId, String doctorId) {
-    return repository.getMessages(chatId, doctorId);
+  Stream<List<MessageModel>> getMessages(String receiverId) {
+    return repository.getMessages(receiverId);
   }
 
   Future<void> deleteMessage(String messageId) async {
