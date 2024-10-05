@@ -60,7 +60,7 @@ class _ChatPageState extends ConsumerState<ChatPage> {
       });
     }
   }
-
+bool msg = true;
 
   @override
   Widget build(BuildContext context) {
@@ -112,7 +112,50 @@ class _ChatPageState extends ConsumerState<ChatPage> {
                     return Center(child: CircularProgressIndicator());
                   }
                   if (!snapshot.hasData || snapshot.data!.isEmpty) {
-                    return Center(child: Text('No messages'));
+                    return Column(
+                      children: [
+                        Container(
+                          height: height*0.15,
+                          width: width*0.93,
+                          decoration: BoxDecoration(
+                            color: Colour.secondarycolour,
+                            borderRadius: BorderRadius.circular(width*0.03),
+                              boxShadow: [
+                          BoxShadow(
+                          color: Colour.thirdcolour.withOpacity(0.15),
+                          blurRadius: width * 0.01,
+                          spreadRadius: width * 0.005,
+                          offset: const Offset(0, 4),
+                        )
+                              ]
+                          ),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text('Consultation Start', style: TextStyle(
+                                fontWeight: FontWeight.w600,
+                                fontSize: width*0.045,
+                                color: Colour.primarycolour,
+                              ),),
+                              Row(
+                                children: [
+                                  Text(' You can consult your problems to ', style: TextStyle(
+                                    fontSize: width*0.035,
+                                    fontWeight: FontWeight.w500,
+                                    color: Colour.color5
+                                  ),),
+                                  Text('${widget.doctorId}', style: TextStyle(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: width*0.033,
+                                    color: Colour.primarycolour
+                                  )),
+                                ],
+                              )
+                            ],
+                          ),
+                        ),
+                      ],
+                    );
                   }
 
                   final messages = snapshot.data!;
