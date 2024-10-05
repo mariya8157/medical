@@ -26,7 +26,7 @@ class ChatController {
     return repository.getMessages(receiverId);
   }
 
-  Future<void> deleteMessage(String messageId) async {
-    await repository.softDeleteMessage(messageId);
+  Future<void> deleteMessage(String receiverId, String messageId) async {
+    await repository.softDeleteMessage(receiverId, messageId);
   }
 }

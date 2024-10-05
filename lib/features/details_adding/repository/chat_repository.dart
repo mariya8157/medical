@@ -27,8 +27,13 @@ class ChatRepository {
         .toList());
   }
 
-  Future<void> softDeleteMessage(String messageId) async {
-    await firestore.collection('chats').doc(messageId).update({
+  Future<void> softDeleteMessage(String receiverId, String messageId) async {
+    await firestore
+        .collection('chats')
+        .doc(receiverId)
+        .collection('messages')
+        .doc(messageId)
+        .update({
       'isDeleted': true,
     });
   }

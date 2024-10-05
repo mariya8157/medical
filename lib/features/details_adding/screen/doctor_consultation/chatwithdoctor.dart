@@ -107,26 +107,99 @@ class ChatPage extends ConsumerWidget {
                                 color: Colour.color5,
                                 fontWeight: FontWeight.w500
                             ),),
-                            Container(
-                              margin: EdgeInsets.only(top:width*0.03, bottom: width*0.03),
-                              padding: EdgeInsets.only(top:width*0.03, bottom: width*0.03,right: width*0.02, left: width*0.05),
-                              decoration: BoxDecoration(
-                                color: Colour.primarycolour,
-                                borderRadius: BorderRadius.circular(width*0.03)
-                              ),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.end,
-                                children: [
-                                  Container(
-                                    padding: EdgeInsets.only(right: width*0.03,),
-                                    child: Text(message.chatId,style: TextStyle(
-                                        fontSize: width*0.035,
-                                        color: Colour.secondarycolour,
-                                        fontWeight: FontWeight.w500
-                                    ),),
-                                  ),
-                              Image.asset(ImagePictures.tick)
-                                ],
+                            InkWell(
+                              onDoubleTap: () async {
+                                bool confirm = await showDialog(
+                                  context: context,
+                                  builder: (BuildContext context) {
+                                    return AlertDialog(
+                                      content: Container(
+                                        height: height*0.2,
+                                        child: Column(
+                                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                          children: [
+                                          Text('Are you sure you want to\n   Delete this message?',style: TextStyle(
+                                            fontSize: width*0.04,
+                                            color: Colour.thirdcolour,
+                                            fontWeight: FontWeight.w600
+                                        ),),
+                                          Row(
+                                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                            children: [
+                                              InkWell(
+                                                onTap: () {
+                                                  Navigator.of(context).pop(false);
+                                                },
+                                                child: Container(
+                                                  height: width*0.12,
+                                                  width: width*0.25,
+                                                  decoration: BoxDecoration(
+                                                      color: Colour.primarycolour,
+                                                      borderRadius: BorderRadius.circular(width*0.03)
+                                                  ),
+                                                  child: Center(
+                                                    child: Text('Cancel',style: TextStyle(
+                                                        fontSize: width*0.035,
+                                                        color: Colour.secondarycolour,
+                                                        fontWeight: FontWeight.w600
+                                                    ),),
+                                                  ),
+                                                ),
+                                              ),
+                                              InkWell(
+                                                onTap: () {
+                                                  Navigator.of(context).pop(true);
+                                                },
+                                                child: Container(
+                                                  decoration: BoxDecoration(
+                                                      color: Colour.primarycolour,
+                                                      borderRadius: BorderRadius.circular(width*0.03)
+                                                  ),
+                                                  height: width*0.12,
+                                                  width: width*0.25,
+                                                  child: Center(
+                                                    child: Text('Delete',style: TextStyle(
+                                                        fontSize: width*0.035,
+                                                        color: Colour.secondarycolour,
+                                                        fontWeight: FontWeight.w600
+                                                    ),),
+                                                  ),
+
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          ],
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                );
+                                if (confirm) {
+                                  await chatController.deleteMessage(receiverId, message.id);
+                                }
+                              },
+                              child: Container(
+                                margin: EdgeInsets.only(top:width*0.03, bottom: width*0.03),
+                                padding: EdgeInsets.only(top:width*0.03, bottom: width*0.03,right: width*0.02, left: width*0.05),
+                                decoration: BoxDecoration(
+                                  color: Colour.primarycolour,
+                                  borderRadius: BorderRadius.circular(width*0.03)
+                                ),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                  children: [
+                                    Container(
+                                      padding: EdgeInsets.only(right: width*0.03,),
+                                      child: Text(message.chatId,style: TextStyle(
+                                          fontSize: width*0.035,
+                                          color: Colour.secondarycolour,
+                                          fontWeight: FontWeight.w500
+                                      ),),
+                                    ),
+                                Image.asset(ImagePictures.tick)
+                                  ],
+                                ),
                               ),
                             ),
                           ],
