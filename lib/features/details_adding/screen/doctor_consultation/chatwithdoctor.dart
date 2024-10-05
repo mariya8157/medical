@@ -1,7 +1,10 @@
+import 'dart:io';
+
 import 'package:chat_bubbles/bubbles/bubble_special_one.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
 import 'package:medical/features/details_adding/screen/doctor_consultation/findDoctor.dart';
 import 'package:medical/models/doctor_model.dart';
@@ -45,6 +48,19 @@ class _ChatPageState extends ConsumerState<ChatPage> {
     messageController.dispose();
     super.dispose();
   }
+
+  var file;
+
+  pickFile(ImageSource) async {
+    final imgFile = await ImagePicker.platform.pickImage(source: ImageSource);
+    file = File(imgFile!.path);
+    if (mounted) {
+      setState(() {
+        file = File(imgFile.path);
+      });
+    }
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -241,14 +257,117 @@ class _ChatPageState extends ConsumerState<ChatPage> {
                           fontWeight: FontWeight.w500,
                           color: Colour.thirdcolour),
                       decoration: InputDecoration(
-                        suffixIcon: Padding(
-                          padding: EdgeInsets.all(width * 0.03),
-                          child: SvgPicture.asset(ImageIcons.Paperclip),
+                        suffixIcon: InkWell(
+                            onTap: () {
+                              showDialog(
+                                context: context,
+                                barrierDismissible: false,
+                                builder: (context) {
+                                  return AlertDialog(
+                                    content: SizedBox(
+                                      height: width * 0.35,
+                                      width: width * 0.3,
+                                      child: Column(
+                                        mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Text(
+                                            "Choose a File",
+                                            style: TextStyle(
+                                                fontWeight: FontWeight.w600,
+                                                fontSize: width * 0.04),
+                                          ),
+                                          Row(
+                                            mainAxisAlignment:
+                                            MainAxisAlignment.spaceEvenly,
+                                            children: [
+                                              InkWell(
+                                                onTap: () {
+                                                  pickFile(ImageSource.camera);
+                                                  Navigator.pop(context);
+                                                },
+                                                child: Container(
+                                                  width: width * 0.3,
+                                                  height: width * 0.13,
+                                                  decoration: BoxDecoration(
+                                                    color: Colour.primarycolour,
+                                                    borderRadius: BorderRadius.circular(width*0.03)
+                                                  ),
+                                                  child: Row(
+                                                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                                    children: [
+                                                      Icon(Icons.camera_alt),
+                                                      Text(
+                                                        "Camera",
+                                                        style: TextStyle(
+                                                            fontWeight:
+                                                            FontWeight.w600,
+                                                            color: Colour.secondarycolour,
+                                                            fontSize: width * 0.035),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ),
+                                              InkWell(
+                                                onTap: () {
+                                                  pickFile(ImageSource.gallery);
+                                                  Navigator.pop(context);
+                                                },
+                                                child: Column(
+                                                  children: [
+                                                    Container(
+                                                      width: width * 0.3,
+                                                      height: width * 0.13,
+                                                      decoration: BoxDecoration(
+                                                        color: Colour.primarycolour,
+                                                          borderRadius: BorderRadius.circular(width*0.03)
+                                                      ),
+                                                      child: Row(
+                                                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                                        children: [
+                                                          Icon(Icons.photo_album),
+                                                          Text(
+                                                            "Gallery",
+                                                            style: TextStyle(
+                                                              color: Colour.secondarycolour,
+                                                                fontWeight:
+                                                                FontWeight.w600,
+                                                                fontSize: width * 0.035),
+                                                          ),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          GestureDetector(
+                                            onTap: () {
+                                              Navigator.pop(context);
+                                            },
+                                            child: Text('Cancel', style: TextStyle(
+                                                fontSize: width * 0.035,
+                                                color: Colour.color4,
+                                                fontWeight: FontWeight.w600),),
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                  );
+                                },
+                              );
+                            },
+                          child: Padding(
+                            padding: EdgeInsets.all(width * 0.03),
+                            child: SvgPicture.asset(ImageIcons.Paperclip),
+                          ),
                         ),
                         hintText: 'Type a message...',
                         hintStyle: TextStyle(
                             fontWeight: FontWeight.w500,
-                            fontSize: width * 0.045,
+                            fontSize: width * 0.04,
                             color: Colour.color1),
                         border: OutlineInputBorder(
                             borderSide: BorderSide(
