@@ -1,3 +1,4 @@
+import 'package:chat_bubbles/bubbles/bubble_special_one.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
@@ -200,27 +201,18 @@ class _ChatPageState extends ConsumerState<ChatPage> {
                                 }
                               },
                               child: Container(
-                                margin: EdgeInsets.only(top: width * 0.03, bottom: width * 0.03),
-                                padding: EdgeInsets.only(
-                                    top: width * 0.03, bottom: width * 0.03, right: width * 0.02, left: width * 0.05),
-                                decoration: BoxDecoration(
-                                    color: Colour.primarycolour,
-                                    borderRadius: BorderRadius.circular(width * 0.03)),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.end,
-                                  children: [
-                                    Container(
-                                      padding: EdgeInsets.only(right: width * 0.03),
-                                      child: Text(
-                                        message.chatId,
-                                        style: TextStyle(
-                                            fontSize: width * 0.035,
-                                            color: Colour.secondarycolour,
-                                            fontWeight: FontWeight.w500),
-                                      ),
-                                    ),
-                                    Image.asset(ImagePictures.tick)
-                                  ],
+                                padding: EdgeInsets.only(top: width * 0.03),
+                                child: BubbleSpecialOne(
+                                  text: message.chatId,
+                                  tail: true,
+                                  isSender: true,
+                                  delivered: true,
+                                  seen: true,
+                                  color: Colour.primarycolour,
+                                  textStyle: TextStyle(
+                                      fontSize: width * 0.035,
+                                      color: Colour.secondarycolour,
+                                      fontWeight: FontWeight.w500),
                                 ),
                               ),
                             ),
