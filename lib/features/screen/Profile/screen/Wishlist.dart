@@ -2,9 +2,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
-import '../../../../core/constants/colour.dart';
-import '../../../../core/constants/icons.dart';
-import '../../../../main.dart';
+import '../../../../../core/constants/colour.dart';
+import '../../../../../core/constants/icons.dart';
+import '../../../../../main.dart';
 
 class MySaved extends ConsumerStatefulWidget {
   const MySaved({super.key});

@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../../../../../core/constants/colour.dart';
 import '../../../../../main.dart';
-import '../../Profile/profile.dart';
+import '../../Profile/screen/profile.dart';
 import '../../doctor_consultation/screen/schedule.dart';
 import 'article.dart';
 import 'homepage.dart';

@@ -10,10 +10,10 @@ import 'package:medical/main.dart';
 import 'package:quickalert/models/quickalert_type.dart';
 import 'package:quickalert/widgets/quickalert_dialog.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../../../../core/constants/colour.dart';
-import '../../../../core/constants/icons.dart';
-import '../../../../core/constants/images.dart';
-import '../login_signup/screen/login.dart';
+import '../../../../../core/constants/colour.dart';
+import '../../../../../core/constants/icons.dart';
+import '../../../../../core/constants/images.dart';
+import '../../login_signup/screen/login.dart';
 import 'Wishlist.dart';
 
 class ProfilePage extends StatefulWidget {

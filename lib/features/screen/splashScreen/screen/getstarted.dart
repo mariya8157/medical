@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../../../../core/constants/colour.dart';
-import '../../../../core/constants/icons.dart';
-import '../../../../main.dart';
-import '../home/screen/bottomnavigation.dart';
-import '../login_signup/screen/login.dart';
-import '../login_signup/screen/signup.dart';
+import '../../../../../core/constants/colour.dart';
+import '../../../../../core/constants/icons.dart';
+import '../../../../../main.dart';
+import '../../home/screen/bottomnavigation.dart';
+import '../../login_signup/screen/login.dart';
+import '../../login_signup/screen/signup.dart';
 
 class GetStartedPage extends StatefulWidget {
   const GetStartedPage({super.key});

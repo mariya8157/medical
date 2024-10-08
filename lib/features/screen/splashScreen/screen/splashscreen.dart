@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../../../../core/constants/colour.dart';
-import '../../../../core/constants/images.dart';
-import '../../../../main.dart';
+import '../../../../../core/constants/colour.dart';
+import '../../../../../core/constants/images.dart';
+import '../../../../../main.dart';
 import 'onboarding.dart';
 
 class SplashScreen extends StatefulWidget {

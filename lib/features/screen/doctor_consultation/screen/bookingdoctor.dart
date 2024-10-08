@@ -642,7 +642,7 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                                         date: '',
                                         // userId: ''
                                       );
-                                      print(currentModel!.email);
+                                      print(currentModel!.name);
                                       print(widget.time.name);
                                       print(widget.time.id);
                                       print(currentModel!.id);
@@ -709,7 +709,8 @@ class _BookingPageState extends ConsumerState<BookingPage> {
                                         context,
                                         MaterialPageRoute(
                                           builder: (context) => BottomNavigationPage(),
-                                        ), (Route<dynamic> route) => false);  },
+                                        ), (Route<dynamic> route) => false);
+                                      },
                                     child: Container(
                                       height: width * 0.12,
                                       width: width * 0.34,
