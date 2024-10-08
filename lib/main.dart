@@ -2,9 +2,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:medical/features/details_adding/screen/Profile/Wishlist.dart';
 import 'package:medical/models/user_model.dart';
-import 'features/details_adding/screen/splashScreen/splashscreen.dart';
+import 'features/screen/splashScreen/splashscreen.dart';
 import 'firebase_options.dart';
 
 UsersModel? currentModel;

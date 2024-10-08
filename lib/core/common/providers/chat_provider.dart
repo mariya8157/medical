@@ -1,8 +1,8 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-import '../controller/chat_controller.dart';
-import '../repository/chat_repository.dart';
+import '../../../features/screen/contacts/chat_controller/chat_controller.dart';
+import '../../../features/screen/contacts/chat_repository/chat_repository.dart';
 
 final chatRepositoryProvider = Provider<ChatRepository>((ref) {
   return ChatRepository(FirebaseFirestore.instance);
