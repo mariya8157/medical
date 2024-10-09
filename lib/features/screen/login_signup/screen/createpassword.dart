@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -24,6 +26,52 @@ class _CreatePasswordPageState extends State<CreatePasswordPage> {
   final formKey = GlobalKey<FormState>();
   bool selectIcon = false;
   bool selectIcon1 = false;
+  //
+  // Future<void> updatePassword() async {
+  //   final user = FirebaseAuth.instance.currentUser;
+  //   if (user != null) {
+  //     try {
+  //       await user.updatePassword(passwordController.text);
+  //       ScaffoldMessenger.of(context).showSnackBar(
+  //         SnackBar(backgroundColor: Colour.primarycolour,content: Text("Password updated successfully")),
+  //       );
+  //       Navigator.pop(context);
+  //     } catch (e) {
+  //       ScaffoldMessenger.of(context).showSnackBar(
+  //         SnackBar(backgroundColor: Colour.primarycolour,content: Text("Error updating password: ${e.toString()}")),
+  //       );
+  //     }
+  //   }
+  // }
+
+  Future<void> updatePassword(String newPassword) async {
+    try {
+      User? user = FirebaseAuth.instance.currentUser;
+
+      if (user != null) {
+        await user.updatePassword(newPassword);
+        print("Password updated in Firebase Auth.");
+
+        await updateFirestorePassword(user.uid, newPassword);
+        print("Password updated in Firestore.");
+
+        Navigator.pop(context);
+      }
+    } catch (e) {
+      print("Error updating password: $e");
+    }
+  }
+
+  Future<void> updateFirestorePassword(String id, String newPassword) async {
+    try {
+      await FirebaseFirestore.instance.collection('users').doc(id).update({
+        'password': newPassword,
+      });
+      print("Password updated in Firestore.");
+    } catch (e) {
+      print("Error updating Firestore: $e");
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -209,6 +257,7 @@ class _CreatePasswordPageState extends State<CreatePasswordPage> {
                     if (passwordController.text != "" &&
                         passwordController2.text != "" &&
                         formKey.currentState!.validate()) {
+                      updatePassword(passwordController.text);
                       showDialog(
                         context: context,
                         barrierDismissible: false,
@@ -236,7 +285,7 @@ class _CreatePasswordPageState extends State<CreatePasswordPage> {
                                             color: Colour.thirdcolour),
                                       ),
                                       Text(
-                                        "Your have successfully reset your",
+                                        "You have successfully reset your",
                                         style: TextStyle(
                                             fontWeight: FontWeight.w500,
                                             fontSize: width * 0.032,

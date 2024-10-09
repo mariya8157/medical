@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -21,6 +22,20 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
       r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
   final formKey = GlobalKey<FormState>();
   bool toggle = false;
+
+  Future<void> sendPasswordResetEmail(String email) async {
+    try {
+      await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(backgroundColor: Colour.primarycolour,content: Text("Password reset email sent. Check your inbox.")),
+      );
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(backgroundColor: Colour.primarycolour,content: Text("The email you've entered is incorrect.")),
+      );
+    }
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -255,18 +270,21 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
                   height: width * 0.06,
                 ),
                 InkWell(
-                  onTap: () {
+                  onTap: () async {
                     if (emailController.text != "" ||
                         phoneController.text != "" &&
                             formKey.currentState!.validate())
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => VerificationPage(
-                              email: emailController.text,
-                              phone: phoneController.text,
-                            ),
-                          ));
+                      {
+                        await sendPasswordResetEmail(emailController.text);
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => VerificationPage(
+                                email: emailController.text,
+                                phone: phoneController.text,
+                              ),
+                            ));
+                      }
                     else {
                       emailController.text == ""
                           ? ScaffoldMessenger.of(context).showSnackBar(SnackBar(

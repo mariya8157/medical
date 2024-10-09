@@ -386,40 +386,16 @@ class _PharmacyPageState extends ConsumerState<PharmacyPage> {
                                                       } else {
                                                         favorite.add(index);
                                                         MedicineModel wishlist = MedicineModel(
-                                                            name: data[
-                                                                    selectIndex]
-                                                                .name,
-                                                            image: data[
-                                                                    selectIndex]
-                                                                .image
-                                                                .toString(),
-                                                            ml: data[selectIndex]
-                                                                .ml
-                                                                .toString(),
-                                                            rate:
-                                                                data[selectIndex]
-                                                                    .rate,
-                                                            off:
-                                                                data[selectIndex]
-                                                                    .off,
-                                                            id: data[
-                                                                    selectIndex]
-                                                                .id
-                                                                .toString(),
-                                                            des: data[
-                                                                    selectIndex]
-                                                                .des
-                                                                .toString(),
-                                                            qty: data[
-                                                                    selectIndex]
-                                                                .qty,
+                                                            name: data[index].name,
+                                                            image: data[index].image.toString(),
+                                                            ml: data[index].ml.toString(),
+                                                            rate: data[index].rate,
+                                                            off: data[index].off,
+                                                            id: data[index].id.toString(),
+                                                            des: data[index].des.toString(),
+                                                            qty: data[index].qty,
                                                             userId: userId!);
-                                                        ref
-                                                            .read(
-                                                                AddingControllerProvider)
-                                                            .updatewish(
-                                                                currentModel!,
-                                                                wishlist);
+                                                            ref.read(AddingControllerProvider).updatewish(currentModel!, wishlist);
                                                       }
                                                     });
                                                   },
@@ -539,8 +515,6 @@ class _PharmacyPageState extends ConsumerState<PharmacyPage> {
                                     des: data[selectIndex1].des.toString(),
                                     qty: data[selectIndex1].qty,
                                     userId: currentModel!.id);
-                                // print(currentModel!.id);
-
                                 Navigator.push(
                                     context,
                                     MaterialPageRoute(
@@ -636,40 +610,16 @@ class _PharmacyPageState extends ConsumerState<PharmacyPage> {
                                                     } else {
                                                       favorite1.add(index);
                                                       MedicineModel wishlist = MedicineModel(
-                                                          name: data[
-                                                                  selectIndex1]
-                                                              .name,
-                                                          image: data[
-                                                                  selectIndex1]
-                                                              .image
-                                                              .toString(),
-                                                          ml:
-                                                              data[selectIndex1]
-                                                                  .ml
-                                                                  .toString(),
-                                                          rate:
-                                                              data[selectIndex1]
-                                                                  .rate,
-                                                          off: data[
-                                                                  selectIndex1]
-                                                              .off,
-                                                          id: data[selectIndex1]
-                                                              .id
-                                                              .toString(),
-                                                          des:
-                                                              data[selectIndex1]
-                                                                  .des
-                                                                  .toString(),
-                                                          qty:
-                                                              data[selectIndex1]
-                                                                  .qty,
+                                                          name: data[index].name,
+                                                          image: data[index].image.toString(),
+                                                          ml: data[index].ml.toString(),
+                                                          rate: data[index].rate,
+                                                          off: data[index].off,
+                                                          id: data[index].id.toString(),
+                                                          des: data[index].des.toString(),
+                                                          qty: data[index].qty,
                                                           userId: userId!);
-                                                      ref
-                                                          .read(
-                                                              AddingControllerProvider)
-                                                          .updatewish(
-                                                              currentModel!,
-                                                              wishlist);
+                                                      ref.read(AddingControllerProvider).updatewish(currentModel!, wishlist);
                                                     }
                                                   });
                                                 },

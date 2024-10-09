@@ -88,6 +88,13 @@ class _VerificationPageState extends State<VerificationPage> {
                             fontWeight: FontWeight.w600,
                             color: Colour.thirdcolour),
                       ),
+                      Text(
+                        widget.email,
+                        style: TextStyle(
+                            fontSize: width * 0.037,
+                            fontWeight: FontWeight.w600,
+                            color: Colour.thirdcolour),
+                      ),
                     ],
                   )
                 ],
