@@ -1,14 +1,10 @@
-import 'dart:ffi';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:medical/features/screen/online_pharmacy/screen/pharmacy.dart';
 import '../../../../../core/constants/colour.dart';
 import '../../../../../core/constants/icons.dart';
-import '../../../../../core/constants/images.dart';
 import '../../../../../main.dart';
 import '../../../../../models/medicine_model.dart';
 import '../../login_signup/screen/login.dart';
@@ -102,7 +98,7 @@ class _MyCartPageState extends ConsumerState<MyCartPage> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(width * 0.04),
+          padding: EdgeInsets.only(left: width * 0.04, right: width * 0.04, bottom: width * 0.04),
           child: Column(
             children: [
               Container(
@@ -354,10 +350,10 @@ class _MyCartPageState extends ConsumerState<MyCartPage> {
                       children: [
                         Text("Subtotal",
                             style: TextStyle(
-                                fontSize: width * 0.043, color: Colour.gray)),
+                                fontSize: width * 0.04, color: Colour.gray)),
                         Text("\$${totalss.toStringAsFixed(2)}",
                             style: TextStyle(
-                                fontSize: width * 0.045, color: Colour.gray)),
+                                fontSize: width * 0.042, color: Colour.gray)),
                       ],
                     ),
                     Row(
@@ -366,20 +362,12 @@ class _MyCartPageState extends ConsumerState<MyCartPage> {
                         Text(
                           "Taxes",
                           style: TextStyle(
-                              fontSize: width * 0.043, color: Colour.gray),
+                              fontSize: width * 0.04, color: Colour.gray),
                         ),
-                        Row(
-                          children: [
-                            Text("\$",
-                                style: TextStyle(
-                                    fontSize: width * 0.045,
-                                    color: Colour.gray)),
-                            Text(tax.toString(),
-                                style: TextStyle(
-                                    fontSize: width * 0.045,
-                                    color: Colour.gray)),
-                          ],
-                        ),
+                        Text("\$${tax.toString()}",
+                            style: TextStyle(
+                                fontSize: width * 0.042,
+                                color: Colour.gray)),
                       ],
                     ),
                     Row(
@@ -389,12 +377,12 @@ class _MyCartPageState extends ConsumerState<MyCartPage> {
                           "Total",
                           style: TextStyle(
                               fontWeight: FontWeight.w600,
-                              fontSize: width * 0.045),
+                              fontSize: width * 0.042),
                         ),
                         Text("\$${(totalss + tax).toStringAsFixed(2)}",
                             style: TextStyle(
                                 fontWeight: FontWeight.w600,
-                                fontSize: width * 0.045)),
+                                fontSize: width * 0.042)),
                       ],
                     )
                   ],

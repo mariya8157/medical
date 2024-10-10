@@ -64,7 +64,6 @@ class _ChatPageState extends ConsumerState<ChatPage> {
   @override
   Widget build(BuildContext context) {
     final chatController = ref.watch(chatControllerProvider);
-
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -191,7 +190,7 @@ class _ChatPageState extends ConsumerState<ChatPage> {
                                   fontWeight: FontWeight.w500),
                             ),
                             InkWell(
-                              onDoubleTap: () async {
+                              onLongPress: () async {
                                 bool confirm = await showDialog(
                                   context: context,
                                   builder: (BuildContext context) {

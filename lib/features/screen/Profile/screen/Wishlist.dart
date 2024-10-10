@@ -62,7 +62,7 @@ class _MySavedState extends ConsumerState<MySaved> {
                       if (!snapshot.hasData) {
                         return Center(child: Text("Loading..."));
                       } else {
-                        Text("No Products added to Cart");
+                        Text("No Products added to Wishlist");
                       }
                       var data = currentModel!.wish;
                       return GridView.builder(

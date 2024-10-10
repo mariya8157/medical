@@ -120,7 +120,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                     ? "user"
                                     : currentModel!.name,
                                 style: TextStyle(
-                                    fontSize: width * 0.052,
+                                    fontSize: width * 0.047,
                                     fontWeight: FontWeight.w700,
                                     color: Colour.secondarycolour),
                               ),
@@ -162,7 +162,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                   Text(
                                     "215bpm",
                                     style: TextStyle(
-                                        fontSize: width * 0.05,
+                                        fontSize: width * 0.047,
                                         fontWeight: FontWeight.w700,
                                         color: Colour.secondarycolour,
                                         shadows: [
@@ -207,7 +207,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                   Text(
                                     "756cal",
                                     style: TextStyle(
-                                        fontSize: width * 0.05,
+                                        fontSize: width * 0.047,
                                         fontWeight: FontWeight.w700,
                                         color: Colour.secondarycolour,
                                         shadows: [
@@ -262,7 +262,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                   "My Saved",
                                   style: TextStyle(
                                       fontWeight: FontWeight.w600,
-                                      fontSize: width * 0.045),
+                                      fontSize: width * 0.043),
                                 ),
                                 trailing: SvgPicture.asset(ImageIcons.nxtback),
                               ),
@@ -290,7 +290,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                 title: Text("Payment Method",
                                     style: TextStyle(
                                         fontWeight: FontWeight.w600,
-                                        fontSize: width * 0.045)),
+                                        fontSize: width * 0.043)),
                                 trailing: SvgPicture.asset(ImageIcons.nxtback),
                               ),
                             ),
@@ -310,7 +310,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                 title: Text("About Us",
                                     style: TextStyle(
                                         fontWeight: FontWeight.w600,
-                                        fontSize: width * 0.045)),
+                                        fontSize: width * 0.043)),
                                 trailing: SvgPicture.asset(ImageIcons.nxtback),
                               ),
                             ),
@@ -353,7 +353,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                 title: Text("Logout",
                                     style: TextStyle(
                                         fontWeight: FontWeight.w600,
-                                        fontSize: width * 0.045,
+                                        fontSize: width * 0.043,
                                         color: Colour.color4)),
                                 trailing: SvgPicture.asset(ImageIcons.nxtback),
                               ),

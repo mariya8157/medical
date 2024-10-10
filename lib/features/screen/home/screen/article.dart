@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 import '../../../../../core/constants/colour.dart';
 import '../../../../../core/constants/icons.dart';
@@ -51,7 +49,7 @@ class _ArticlesState extends State<Articles> {
       "text1": "The 25 Healthiest Fruits Eat\nAccording to a Nutritionist",
       "icon": ImageIcons.save,
       "text2": "Jun 10, 2021.",
-      "text3": " 5min read",
+      "text3": " 5 min read",
     },
     {
       "image": ImagePictures.covid5,
@@ -65,16 +63,11 @@ class _ArticlesState extends State<Articles> {
       "text1": "Beauty Tips For Face: 10 Dos\nNaturally Beautiful Skin",
       "icon": ImageIcons.save,
       "text2": "Jun 10, 2021.",
-      "text3": " 7min read",
+      "text3": " 7 min read",
     },
   ];
-  bool k = false;
-  bool g = false;
-  bool o = false;
-
-  bool x = false;
-  bool y = false;
-  bool z = false;
+  bool see = false;
+  bool see2 = false;
 
   @override
   Widget build(BuildContext context) {
@@ -257,59 +250,45 @@ class _ArticlesState extends State<Articles> {
                               children: [
                                 Row(
                                   children: [
-                                    z == false
-                                        ? InkWell(
-                                            onTap: () {
-                                              setState(() {
-                                                x = true;
-                                                y = false;
-                                                z = true;
-                                              });
-                                            },
-                                            child: SizedBox(
-                                                height: width * 0.13,
-                                                width: width * 0.22,
-                                                child: Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.center,
-                                                  children: [
-                                                    Text(
-                                                      "See all",
-                                                      style: TextStyle(
-                                                          fontSize:
-                                                              width * 0.03,
-                                                          color: Colour
-                                                              .primarycolour),
-                                                    ),
-                                                  ],
-                                                )),
-                                          )
-                                        : InkWell(
-                                            onTap: () {
-                                              setState(() {
-                                                x = false;
-                                                y = true;
-                                                z = false;
-                                              });
-                                            },
-                                            child: SizedBox(
-                                                height: width * 0.13,
-                                                width: width * 0.22,
-                                                child: Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.center,
-                                                  children: [
-                                                    Text(
-                                                      "See less",
-                                                      style: TextStyle(
-                                                          fontSize:
-                                                              width * 0.03,
-                                                          color: Colour
-                                                              .primarycolour),
-                                                    ),
-                                                  ],
-                                                )),
-                                          ),
+                                    InkWell(
+                                      onTap: () {
+                                        see = !see;
+                                        setState(() {});
+                                      },
+                                      child: see
+                                          ? SizedBox(
+                                              height: width * 0.13,
+                                              width: width * 0.22,
+                                              child: Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  Text(
+                                                    "See less",
+                                                    style: TextStyle(
+                                                        fontSize: width * 0.03,
+                                                        color: Colour
+                                                            .primarycolour),
+                                                  ),
+                                                ],
+                                              ))
+                                          : SizedBox(
+                                              height: width * 0.13,
+                                              width: width * 0.22,
+                                              child: Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: [
+                                                  Text(
+                                                    "See all",
+                                                    style: TextStyle(
+                                                        fontSize: width * 0.03,
+                                                        color: Colour
+                                                            .primarycolour),
+                                                  ),
+                                                ],
+                                              )),
+                                    )
                                   ],
                                 ),
                               ],
@@ -407,7 +386,7 @@ class _ArticlesState extends State<Articles> {
                               width: width * 0.04,
                             );
                           },
-                          itemCount: z == true ? c.length : 2),
+                          itemCount: see ? c.length : 2),
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -432,59 +411,45 @@ class _ArticlesState extends State<Articles> {
                               children: [
                                 Row(
                                   children: [
-                                    o == false
-                                        ? InkWell(
-                                            onTap: () {
-                                              setState(() {
-                                                k = true;
-                                                g = false;
-                                                o = true;
-                                              });
-                                            },
-                                            child: SizedBox(
-                                                height: width * 0.13,
-                                                width: width * 0.22,
-                                                child: Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.center,
-                                                  children: [
-                                                    Text(
-                                                      "See all",
-                                                      style: TextStyle(
-                                                          fontSize:
-                                                              width * 0.03,
-                                                          color: Colour
-                                                              .primarycolour),
-                                                    ),
-                                                  ],
-                                                )),
-                                          )
-                                        : InkWell(
-                                            onTap: () {
-                                              setState(() {
-                                                k = false;
-                                                g = true;
-                                                o = false;
-                                              });
-                                            },
-                                            child: SizedBox(
-                                                height: width * 0.13,
-                                                width: width * 0.22,
-                                                child: Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.center,
-                                                  children: [
-                                                    Text(
-                                                      "See less",
-                                                      style: TextStyle(
-                                                          fontSize:
-                                                              width * 0.03,
-                                                          color: Colour
-                                                              .primarycolour),
-                                                    ),
-                                                  ],
-                                                )),
-                                          ),
+                                    InkWell(
+                                      onTap: () {
+                                        see2 = !see2;
+                                        setState(() {});
+                                      },
+                                      child: see2
+                                          ? SizedBox(
+                                          height: width * 0.13,
+                                          width: width * 0.22,
+                                          child: Row(
+                                            mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                            children: [
+                                              Text(
+                                                "See less",
+                                                style: TextStyle(
+                                                    fontSize: width * 0.03,
+                                                    color: Colour
+                                                        .primarycolour),
+                                              ),
+                                            ],
+                                          ))
+                                          : SizedBox(
+                                          height: width * 0.13,
+                                          width: width * 0.22,
+                                          child: Row(
+                                            mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                            children: [
+                                              Text(
+                                                "See all",
+                                                style: TextStyle(
+                                                    fontSize: width * 0.03,
+                                                    color: Colour
+                                                        .primarycolour),
+                                              ),
+                                            ],
+                                          )),
+                                    )
                                   ],
                                 ),
                               ],
@@ -520,7 +485,7 @@ class _ArticlesState extends State<Articles> {
                                         ),
                                         SizedBox(
                                           width: width * 0.62,
-                                          height: width * 0.2,
+                                          height: width * 0.22,
                                           child: Column(
                                             crossAxisAlignment:
                                                 CrossAxisAlignment.start,
@@ -538,10 +503,15 @@ class _ArticlesState extends State<Articles> {
                                                 width: width * 0.56,
                                                 child: Row(
                                                   children: [
-                                                    Text(d[index]["text2"]),
+                                                    Text(d[index]["text2"],
+                                                        style: TextStyle(
+                                                            fontSize:
+                                                                width * 0.033)),
                                                     Text(
                                                       d[index]["text3"],
                                                       style: TextStyle(
+                                                          fontSize:
+                                                              width * 0.033,
                                                           color: Colour
                                                               .primarycolour),
                                                     ),
@@ -567,7 +537,7 @@ class _ArticlesState extends State<Articles> {
                               height: width * 0.03,
                             );
                           },
-                          itemCount: o == true ? d.length : 2),
+                          itemCount: see2 ? d.length : 2),
                     )
                   ],
                 ),

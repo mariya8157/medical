@@ -1,7 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:medical/core/constants/colour.dart';
 import 'package:medical/core/constants/icons.dart';
@@ -176,24 +174,24 @@ class _SchedulePageState extends State<SchedulePage> {
                                                           "${data[index]["date"].substring(0, 10)}",
                                                           style: TextStyle(
                                                               fontSize: width *
-                                                                  0.04)),
+                                                                  0.037)),
                                                       SvgPicture.asset(
                                                           ImageIcons.time),
                                                       Text(
                                                           "${data[index]["time"].toString()}",
                                                           style: TextStyle(
                                                               fontSize: width *
-                                                                  0.04)),
+                                                                  0.037)),
                                                       Text("*",
                                                           style: TextStyle(
                                                               fontSize:
-                                                                  width * 0.04,
+                                                                  width * 0.037,
                                                               color: Colour
                                                                   .primarycolour)),
                                                       Text("Confirmed",
                                                           style: TextStyle(
                                                               fontSize: width *
-                                                                  0.04)),
+                                                                  0.037)),
                                                     ],
                                                   ),
                                                 ),

@@ -1,7 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:medical/features/screen/home/screen/topdoctor.dart';
@@ -84,11 +82,6 @@ class _HomePageState extends ConsumerState<HomePage> {
                               fontWeight: FontWeight.w500,
                               fontSize: width * 0.04,
                               color: Colour.color1),
-                          hintText: "search your desire health sloution",
-                          hintStyle: TextStyle(
-                            fontSize: width * 0.03,
-                            fontWeight: FontWeight.w400,
-                          ),
                           focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                 color: Colour.color2,

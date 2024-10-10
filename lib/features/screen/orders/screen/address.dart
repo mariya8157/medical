@@ -182,7 +182,7 @@ class _OrderDetailsState extends ConsumerState<OrderDetails> {
                                     Text(
                                       "Address : ",
                                       style: TextStyle(
-                                          fontSize: width * 0.045,
+                                          fontSize: width * 0.042,
                                           fontWeight: FontWeight.w600),
                                     ),
                                     InkWell(
@@ -194,19 +194,19 @@ class _OrderDetailsState extends ConsumerState<OrderDetails> {
                                     Text(
                                       '${widget.id.name.toString()},',
                                       style: TextStyle(
-                                          fontSize: width * 0.042,
+                                          fontSize: width * 0.04,
                                           color: Colour.thirdcolour),
                                     ),
                                     Text(
                                       '${widget.id.houseName.toString()},',
                                       style: TextStyle(
-                                          fontSize: width * 0.042,
+                                          fontSize: width * 0.04,
                                           color: Colour.thirdcolour),
                                     ),
                                     Text(
                                       '${widget.id.street.toString()},',
                                       style: TextStyle(
-                                          fontSize: width * 0.042,
+                                          fontSize: width * 0.04,
                                           color: Colour.thirdcolour),
                                     ),
                                   ],
@@ -216,19 +216,19 @@ class _OrderDetailsState extends ConsumerState<OrderDetails> {
                                     Text(
                                       '${widget.id.city.toString()},',
                                       style: TextStyle(
-                                          fontSize: width * 0.042,
+                                          fontSize: width * 0.04,
                                           color: Colour.thirdcolour),
                                     ),
                                     Text(
                                       '${widget.id.pincode.toString()},',
                                       style: TextStyle(
-                                          fontSize: width * 0.042,
+                                          fontSize: width * 0.04,
                                           color: Colour.thirdcolour),
                                     ),
                                     Text(
                                       widget.id.country.toString(),
                                       style: TextStyle(
-                                          fontSize: width * 0.042,
+                                          fontSize: width * 0.04,
                                           color: Colour.thirdcolour),
                                     ),
                                   ],
@@ -238,13 +238,13 @@ class _OrderDetailsState extends ConsumerState<OrderDetails> {
                                     Text(
                                       "Ph : ",
                                       style: TextStyle(
-                                          fontSize: width * 0.042,
+                                          fontSize: width * 0.04,
                                           color: Colour.thirdcolour),
                                     ),
                                     Text(
                                       widget.id.phone.toString(),
                                       style: TextStyle(
-                                          fontSize: width * 0.042,
+                                          fontSize: width * 0.04,
                                           color: Colour.thirdcolour),
                                     ),
                                   ],
@@ -257,13 +257,13 @@ class _OrderDetailsState extends ConsumerState<OrderDetails> {
                                     Text(
                                       "Order Id : ",
                                       style: TextStyle(
-                                          fontSize: width * 0.045,
+                                          fontSize: width * 0.042,
                                           fontWeight: FontWeight.w600),
                                     ),
                                     Text(
                                       widget.id.userId.toString(),
                                       style: TextStyle(
-                                          fontSize: width * 0.042,
+                                          fontSize: width * 0.04,
                                           color: Colour.thirdcolour),
                                     )
                                   ],
@@ -313,20 +313,20 @@ class _OrderDetailsState extends ConsumerState<OrderDetails> {
                                   widget.id.itemName,
                                   style: TextStyle(
                                       fontWeight: FontWeight.w800,
-                                      fontSize: width * 0.045),
+                                      fontSize: width * 0.042),
                                 ),
                                 Text(
                                   widget.id.itemMl.toString(),
                                   style: TextStyle(
                                       fontWeight: FontWeight.w600,
-                                      fontSize: width * 0.04,
+                                      fontSize: width * 0.037,
                                       color: Colour.gray),
                                 ),
                                 Text(
                                   "${widget.id.itemQty.toString()} Items",
                                   style: TextStyle(
                                       fontWeight: FontWeight.w600,
-                                      fontSize: width * 0.04,
+                                      fontSize: width * 0.037,
                                       color: Colour.thirdcolour),
                                 ),
                               ],
