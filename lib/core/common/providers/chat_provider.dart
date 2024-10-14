@@ -13,7 +13,3 @@ final chatControllerProvider = Provider<ChatController>((ref) {
   return ChatController(repository);
 });
 
-final doctorsStreamProvider = StreamProvider.family<List<MessageModel>, String>((ref, receiverId) {
-  final chatRepository = ref.watch(chatRepositoryProvider);
-  return chatRepository.streamDoctors(receiverId);
-});
